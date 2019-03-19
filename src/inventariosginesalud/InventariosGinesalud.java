@@ -5,6 +5,8 @@
  */
 package inventariosginesalud;
 
+import conexion.ConexionBD;
+
 /**
  *
  * @author tolis
@@ -16,6 +18,8 @@ public class InventariosGinesalud {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ConexionBD con = new ConexionBD();
+        con.connect();
     }
     
 }
