@@ -9,7 +9,7 @@ package modelo;
  *
  * @author tolis
  */
-public class tipoInsumo {
+public class TipoInsumo {
     private int idTipoInsumo;
     private String nombreTipoInsumo;
 
