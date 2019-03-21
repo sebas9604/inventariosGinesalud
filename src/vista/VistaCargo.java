@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author tolis
  */
-public class vistaCargo {
+public class VistaCargo {
             public void verCargo(ResultSet cargos, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.setColumnIdentifiers(new Object[]{"idCargo", "nombreCargo", "salarioCargo"});

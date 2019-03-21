@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author tolis
  */
-public class vistaUsuario {
+public class VistaUsuario {
             public void verUsuario(ResultSet usuarios, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.setColumnIdentifiers(new Object[]{"idUsuario", "nombresUsuario", "apellidosUsuario", "cargoUsuario", "contrasenaUsuario"});

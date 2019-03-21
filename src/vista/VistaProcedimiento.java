@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author tolis
  */
-public class vistaProcedimiento {
+public class VistaProcedimiento {
                 public void verProcedimiento(ResultSet procedimiento, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.setColumnIdentifiers(new Object[]{"idProcedimiento", "nombreProcedimiento", "valorProcedimiento"});

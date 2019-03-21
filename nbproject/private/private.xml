@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/interfaces/IEntornoDao.java</file>
+            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/interfaces/IInsumoDao.java</file>
+            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/interfaces/IProcedimientoDao.java</file>
+            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/modelo/Insumo.java</file>
+            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/interfaces/ICargoDao.java</file>
+            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/interfaces/IEquipoDao.java</file>
+            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/interfaces/IRolDao.java</file>
+            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/interfaces/IUsuarioDao.java</file>
+            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/interfaces/IPacienteDao.java</file>
+            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/interfaces/ITipoInsumoDao.java</file>
+        </group>
     </open-files>
 </project-private>

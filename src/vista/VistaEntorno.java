@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author tolis
  */
-public class vistaEntorno {
+public class VistaEntorno {
                     public void verEntorno(ResultSet entorno, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.setColumnIdentifiers(new Object[]{"idEntorno", "Humedad", "temperatura", "fecha"});

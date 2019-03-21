@@ -13,9 +13,11 @@ import modelo.Rol;
  * @author tolis
  */
 public interface IRolDao {
-    public Rol consultarEmpleado(Rol rol);
-    public boolean registrarNuevoEmpleado(Rol rol);
-    public boolean actualizarEmpleado(Rol rol);
-    public boolean eliminarEmpleado(Rol rol);
+    public Rol consultarRol(Rol rol);
+    public boolean registrarNuevoRol(Rol rol);
+    public boolean actualizarRol(Rol rol);
+    public boolean eliminarRol(Rol rol);
     public ResultSet obtenerRoles();
+    public ResultSet obtenerRol(Rol rol, Boolean msj); //se utilizar para validar si existen registros en la tabla, no se hace sobre el otro metodo porque de estar vacio traeria valores nulos y generaria error
+
 }

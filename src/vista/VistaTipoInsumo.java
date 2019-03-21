@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author tolis
  */
-public class vistaTipoInsumo {
+public class VistaTipoInsumo {
             public void verTipoInsumo(ResultSet tipoInsumo, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.setColumnIdentifiers(new Object[]{"idTipoInsumo", "nombreTipoInsumo"});

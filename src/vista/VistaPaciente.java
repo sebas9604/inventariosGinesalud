@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author tolis
  */
-public class vistaPaciente {
+public class VistaPaciente {
 
     public void verPaciente(ResultSet paciente, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
