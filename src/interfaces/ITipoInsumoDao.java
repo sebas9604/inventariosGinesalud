@@ -13,9 +13,10 @@ import modelo.TipoInsumo;
  * @author tolis
  */
 public interface ITipoInsumoDao {
-    public TipoInsumo consultarEmpleado(TipoInsumo tipoInsumo);
-    public boolean registrarNuevoEmpleado(TipoInsumo tipoInsumo);
-    public boolean actualizarEmpleado(TipoInsumo tipoInsumo);
-    public boolean eliminarEmpleado(TipoInsumo tipoInsumo);
+    public TipoInsumo consultarTipoInsumo(TipoInsumo tipoInsumo);
+    public boolean registrarNuevoTipoInsumo(TipoInsumo tipoInsumo);
+    public boolean actualizarTipoInsumo(TipoInsumo tipoInsumo);
+    public boolean eliminarTipoInsumo(TipoInsumo tipoInsumo);
     public ResultSet obtenerTipoInsumos();
+    public ResultSet obtenerTipoInsumo(TipoInsumo tipoInsumo, boolean msj);
 }

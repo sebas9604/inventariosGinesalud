@@ -6,95 +6,98 @@
 package implementacion;
 
 import conexion.ConexionBD;
-import interfaces.IRolDao;
+import interfaces.IEntornoDao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import modelo.Rol;
+import modelo.Entorno;
 
 /**
  *
  * @author tolis
  */
-public class RolDaoImpl implements IRolDao{
+public class EntornoDaoImpl implements IEntornoDao {
 
     @Override
-    public Rol consultarRol(Rol rol) {
+    public Entorno consultarEntorno(Entorno entorno) {
         Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idRol, nombreRol FROM Rol WHERE idRol = " + rol.getIdRol()+ ";";
-        Rol r = new Rol();
+        String sql = "SELECT idEntorno, humedad, temperatura, fecha FROM Entorno WHERE fecha = " + entorno.getFecha()+ ";";
+        Entorno e = new Entorno();
 
         try {
             con = ConexionBD.connect();
             stm = con.createStatement();
             rs = stm.executeQuery(sql);
             if (rs.next()) {
-                r.setIdRol(rs.getInt(1));
-                r.setNombreRol(rs.getString(2));
-            if (r.getIdRol()== 0) {
-                JOptionPane.showMessageDialog(null, "El registro no existe", "Consultar Rol", JOptionPane.INFORMATION_MESSAGE);
+                e.setIdEntorno(rs.getInt(1));
+                e.setHumedad(rs.getString(2));
+                e.setTemperatura(rs.getString(3));
+                e.setFecha(rs.getString(4));
+            if (e.getIdEntorno()== 0) {
+                JOptionPane.showMessageDialog(null, "El registro no existe", "Consultar Entorno", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar Rol", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar Entorno", JOptionPane.INFORMATION_MESSAGE);
             }
             }
             stm.close();
             rs.close();
             con.close();
 
-        } catch (SQLException e) {
-            System.out.println("implementacion.RolDaoImpl.consultarRol()");
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            System.out.println("implementacion.EntornoDaoImpl.consultarEntorno()");
+            ex.printStackTrace();
         }
-        return r;
-    }
+        return e;    }
 
     @Override
-    public boolean registrarNuevoRol(Rol rol) {
+    public boolean registrarNuevoEntorno(Entorno entorno) {
         boolean registrar = false;
         Connection con;
         try {
 
             ResultSet rs;
-            rs = obtenerRol(rol, false);
+            rs = obtenerEntorno(entorno, false);
             if (!rs.next()) {
-                String sql = "INSERT INTO Rol (idRol, nombreRol) " + "VALUES (?,?);";
+                String sql = "INSERT INTO Entorno (idEntorno, humedad, temperatura, fecha) " + "VALUES (?,?,?,?);";
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
-                psql.setInt(1, rol.getIdRol());
-                psql.setString(2, rol.getNombreRol());
+                psql.setInt(1, entorno.getIdEntorno());
+                psql.setString(2, entorno.getHumedad());
+                psql.setString(3, entorno.getTemperatura());
+                psql.setString(4, entorno.getFecha());
                 psql.executeUpdate();
                 registrar = true;
                 psql.close();
                 con.close();
                 JOptionPane.showMessageDialog(null, "Operación Exitosa");
             } else {
-                JOptionPane.showMessageDialog(null, "Ya existe un registro con la identificación: " + rol.getIdRol());
+                JOptionPane.showMessageDialog(null, "Ya existe un registro con la identificación: " + entorno.getIdEntorno());
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error insertando el Rol " + ex);
+            JOptionPane.showMessageDialog(null, "Error insertando el entorno " + ex);
         }
 
-        return registrar;   
+        return registrar;    
     }
 
     @Override
-    public boolean actualizarRol(Rol rol) {
+    public boolean actualizarEntorno(Entorno entorno) {
         Connection connect = null;
         Statement stm = null;
         boolean actualizar = false;
         try {
             ResultSet rs;
-            rs = obtenerRol(rol, false);
+            rs = obtenerEntorno(entorno, false);
 
             if (rs.next()) {
-                String sql = "UPDATE Rol SET nombreRol = '" + rol.getNombreRol()
-                        + " WHERE idRol = " + rol.getIdRol()+ ";";
+                String sql = "UPDATE Entorno SET humedad = '" + entorno.getHumedad() + ", temperatura = '" + entorno.getTemperatura() + "'"
+                        + " WHERE fecha = " + entorno.getFecha()+ ";";
                 System.out.println(sql);
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
@@ -105,23 +108,23 @@ public class RolDaoImpl implements IRolDao{
                 JOptionPane.showMessageDialog(null, "El registro no existe");
             }
         } catch (SQLException e) {
-            System.out.println("implementacion.RolDaoImpl.actualizarRol()");
+            System.out.println("implementacion.EntornoDaoImpl.actualizarEntorno()");
             e.printStackTrace();
         }
-        return actualizar;    }
+        return actualizar;       }
 
     @Override
-    public boolean eliminarRol(Rol rol) {
+    public boolean eliminarEntorno(Entorno entorno) {
         Connection connect = null;
         Statement stm = null;
         boolean eliminar = false;
 
         try {
-            ResultSet rs = obtenerRol(rol, false);
+            ResultSet rs = obtenerEntorno(entorno, false);
             if (rs.next()) {
 
-                String sql = "DELETE FROM Rol WHERE idRol = "
-                        + rol.getIdRol()+ ";";
+                String sql = "DELETE FROM Entorno WHERE fecha = "
+                        + entorno.getFecha()+ ";";
 
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
@@ -133,20 +136,20 @@ public class RolDaoImpl implements IRolDao{
 
             }
         } catch (SQLException e) {
-            System.out.println("Error: Clase RolDaoImpl, método eliminar");
+            System.out.println("Error: Clase EntornoDaoImpl, método eliminar");
             e.printStackTrace();
         }
         return eliminar;
     }
 
     @Override
-    public ResultSet obtenerRoles() {
-        Connection con = null;
+    public ResultSet obtenerEntornos() {
+      Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idRol, nombreRol "
-                + "FROM Rol ORDER BY idRol";
+        String sql = "SELECT idEntorno, humedad, temperatura, fecha "
+                + "FROM Entorno ORDER BY identorno";
         try {
             con = ConexionBD.connect();
             stm = con.createStatement();
@@ -157,16 +160,16 @@ public class RolDaoImpl implements IRolDao{
         } catch (Exception e) {
         }
 
-        return rs;    }
+        return rs;       }
 
     @Override
-    public ResultSet obtenerRol(Rol rol, Boolean msj) {
+    public ResultSet obtenerEntorno(Entorno entorno, boolean msj) {
         Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idRol, nombreRol"
-                + " FROM Rol WHERE idRol = " + rol.getIdRol()+ ";";
+        String sql = "SELECT identorno, humedad, temperatura, fecha"
+                + " FROM entorno WHERE fecha = " + entorno.getFecha()+ ";";
         System.out.println(sql);
         try {
             con = ConexionBD.connect();
@@ -176,12 +179,11 @@ public class RolDaoImpl implements IRolDao{
 //            rs.close();
 //            con.close();
             if (msj) {
-                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar Rol", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar Entorno", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (Exception e) {
         }
 
-        return rs;   
-    }
+        return rs;       }
     
 }

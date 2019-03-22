@@ -6,41 +6,41 @@
 package implementacion;
 
 import conexion.ConexionBD;
-import interfaces.IRolDao;
+import interfaces.ITipoInsumoDao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-import modelo.Rol;
+import modelo.TipoInsumo;
 
 /**
  *
  * @author tolis
  */
-public class RolDaoImpl implements IRolDao{
+public class TipoInsumoDaoImpl implements ITipoInsumoDao {
 
     @Override
-    public Rol consultarRol(Rol rol) {
-        Connection con = null;
+    public TipoInsumo consultarTipoInsumo(TipoInsumo tipoInsumo) {
+         Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idRol, nombreRol FROM Rol WHERE idRol = " + rol.getIdRol()+ ";";
-        Rol r = new Rol();
+        String sql = "SELECT idTipoInsumos, nombreTipoInsumos FROM tipoInsumos WHERE idTipoInsumos = " + tipoInsumo.getIdTipoInsumo()+ ";";
+        TipoInsumo ti = new TipoInsumo();
 
         try {
             con = ConexionBD.connect();
             stm = con.createStatement();
             rs = stm.executeQuery(sql);
             if (rs.next()) {
-                r.setIdRol(rs.getInt(1));
-                r.setNombreRol(rs.getString(2));
-            if (r.getIdRol()== 0) {
-                JOptionPane.showMessageDialog(null, "El registro no existe", "Consultar Rol", JOptionPane.INFORMATION_MESSAGE);
+                ti.setIdTipoInsumo(rs.getInt(1));
+                ti.setNombreTipoInsumo(rs.getString(2));
+            if (ti.getIdTipoInsumo()== 0) {
+                JOptionPane.showMessageDialog(null, "El registro no existe", "Consultar TipoInsumo", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar Rol", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar TipoInsumo", JOptionPane.INFORMATION_MESSAGE);
             }
             }
             stm.close();
@@ -48,53 +48,53 @@ public class RolDaoImpl implements IRolDao{
             con.close();
 
         } catch (SQLException e) {
-            System.out.println("implementacion.RolDaoImpl.consultarRol()");
+            System.out.println("Error: Clase TipoInsumoDaoImple, método consultarTipoInsumo");
             e.printStackTrace();
         }
-        return r;
+        return ti;
+
     }
 
     @Override
-    public boolean registrarNuevoRol(Rol rol) {
+    public boolean registrarNuevoTipoInsumo(TipoInsumo tipoInsumo) {
         boolean registrar = false;
         Connection con;
         try {
 
             ResultSet rs;
-            rs = obtenerRol(rol, false);
+            rs = obtenerTipoInsumo(tipoInsumo, false);
             if (!rs.next()) {
-                String sql = "INSERT INTO Rol (idRol, nombreRol) " + "VALUES (?,?);";
+                String sql = "INSERT INTO tipoInsumos (idTipoInsumos, nombretipoInsumos) " + "VALUES (?,?);";
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
-                psql.setInt(1, rol.getIdRol());
-                psql.setString(2, rol.getNombreRol());
+                psql.setInt(1, tipoInsumo.getIdTipoInsumo());
+                psql.setString(2, tipoInsumo.getNombreTipoInsumo());
                 psql.executeUpdate();
                 registrar = true;
                 psql.close();
                 con.close();
                 JOptionPane.showMessageDialog(null, "Operación Exitosa");
             } else {
-                JOptionPane.showMessageDialog(null, "Ya existe un registro con la identificación: " + rol.getIdRol());
+                JOptionPane.showMessageDialog(null, "Ya existe un registro con la identificación: " + tipoInsumo.getIdTipoInsumo());
             }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error insertando el Rol " + ex);
+            JOptionPane.showMessageDialog(null, "Error insertando el TipoInsumo " + ex);
         }
 
-        return registrar;   
-    }
+        return registrar;    }
 
     @Override
-    public boolean actualizarRol(Rol rol) {
+    public boolean actualizarTipoInsumo(TipoInsumo tipoInsumo) {
         Connection connect = null;
         Statement stm = null;
         boolean actualizar = false;
         try {
             ResultSet rs;
-            rs = obtenerRol(rol, false);
+            rs = obtenerTipoInsumo(tipoInsumo, false);
 
             if (rs.next()) {
-                String sql = "UPDATE Rol SET nombreRol = '" + rol.getNombreRol()
-                        + " WHERE idRol = " + rol.getIdRol()+ ";";
+                String sql = "UPDATE tipoInsumos SET nombretipoInsumos = '" + tipoInsumo.getNombreTipoInsumo()
+                        + " WHERE idTipoInsumos = " + tipoInsumo.getIdTipoInsumo()+ ";";
                 System.out.println(sql);
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
@@ -105,23 +105,23 @@ public class RolDaoImpl implements IRolDao{
                 JOptionPane.showMessageDialog(null, "El registro no existe");
             }
         } catch (SQLException e) {
-            System.out.println("implementacion.RolDaoImpl.actualizarRol()");
+            System.out.println("Error: Clase TipoInsumoDaoImpl, método actualizar");
             e.printStackTrace();
         }
         return actualizar;    }
 
     @Override
-    public boolean eliminarRol(Rol rol) {
+    public boolean eliminarTipoInsumo(TipoInsumo tipoInsumo) {
         Connection connect = null;
         Statement stm = null;
         boolean eliminar = false;
 
         try {
-            ResultSet rs = obtenerRol(rol, false);
+            ResultSet rs = obtenerTipoInsumo(tipoInsumo, false);
             if (rs.next()) {
 
-                String sql = "DELETE FROM Rol WHERE idRol = "
-                        + rol.getIdRol()+ ";";
+                String sql = "DELETE FROM tipoInsumos WHERE idTipoInsumos = "
+                        + tipoInsumo.getIdTipoInsumo()+ ";";
 
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
@@ -133,20 +133,20 @@ public class RolDaoImpl implements IRolDao{
 
             }
         } catch (SQLException e) {
-            System.out.println("Error: Clase RolDaoImpl, método eliminar");
+            System.out.println("Error: Clase TipoInsumoDaoImpl, método eliminar");
             e.printStackTrace();
         }
         return eliminar;
     }
 
     @Override
-    public ResultSet obtenerRoles() {
+    public ResultSet obtenerTipoInsumos() {
         Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idRol, nombreRol "
-                + "FROM Rol ORDER BY idRol";
+        String sql = "SELECT idTipoInsumos, nombreTipoInsumos "
+                + "FROM TipoInsumos ORDER BY idTipoInsumos";
         try {
             con = ConexionBD.connect();
             stm = con.createStatement();
@@ -157,16 +157,17 @@ public class RolDaoImpl implements IRolDao{
         } catch (Exception e) {
         }
 
-        return rs;    }
+        return rs;    
+    }
 
     @Override
-    public ResultSet obtenerRol(Rol rol, Boolean msj) {
+    public ResultSet obtenerTipoInsumo(TipoInsumo tipoInsumo, boolean msj) {
         Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idRol, nombreRol"
-                + " FROM Rol WHERE idRol = " + rol.getIdRol()+ ";";
+        String sql = "SELECT idTiponsumos, nombreTipoInsumo "
+                + "FROM tipoInsumos WHERE idTipoInsumos = " + tipoInsumo.getIdTipoInsumo()+ ";";
         System.out.println(sql);
         try {
             con = ConexionBD.connect();
@@ -176,12 +177,11 @@ public class RolDaoImpl implements IRolDao{
 //            rs.close();
 //            con.close();
             if (msj) {
-                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar Rol", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar TipoInsumo", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (Exception e) {
         }
 
-        return rs;   
-    }
+        return rs;       }
     
 }

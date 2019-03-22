@@ -13,9 +13,10 @@ import modelo.Entorno;
  * @author tolis
  */
 public interface IEntornoDao {
-    public Entorno consultarEmpleado(Entorno entorno);
-    public boolean registrarNuevoEmpleado(Entorno entorno);
-    public boolean actualizarEmpleado(Entorno entorno);
-    public boolean eliminarEmpleado(Entorno entorno);
+    public Entorno consultarEntorno(Entorno entorno);
+    public boolean registrarNuevoEntorno(Entorno entorno);
+    public boolean actualizarEntorno(Entorno entorno);
+    public boolean eliminarEntorno(Entorno entorno);
     public ResultSet obtenerEntornos();
+    public ResultSet obtenerEntorno(Entorno entorno, boolean msj);
 }

@@ -30,7 +30,7 @@ public class VistaTipoInsumo {
 
     }
 
-    public void verTiposInsumo(ResultSet tipoInsumo, JTable tabla) {
+    public void verTiposInsumos(ResultSet tipoInsumo, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.setColumnIdentifiers(new Object[]{"idTipoInsumo", "nombreTipoInsumo"});
 
