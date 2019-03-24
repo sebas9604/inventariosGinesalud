@@ -13,11 +13,12 @@ import modelo.Usuario;
  * @author tolis
  */
 public interface IUsuarioDao {
-    public Usuario consultarEmpleado(Usuario usuario);
-    public boolean registrarNuevoEmpleado(Usuario usuario);
-    public boolean actualizarEmpleado(Usuario usuario);
-    public boolean eliminarEmpleado(Usuario usuario);
+    public Usuario consultarUsuario(Usuario usuario);
+    public boolean registrarNuevoUsuario(Usuario usuario);
+    public boolean actualizarUsuario(Usuario usuario);
+    public boolean eliminarUsuario(Usuario usuario);
     public ResultSet obtenerUsuarios();
-    public ResultSet obtenerRolesxId();
-    public ResultSet obtenerCargoxId();
+    public ResultSet obtenerRolesxId(Usuario usuario);
+    public String obtenerCargoxId(int id);
+    public ResultSet obtenerUsuario(Usuario usuario, Boolean msj);
 }

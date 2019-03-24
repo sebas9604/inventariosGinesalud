@@ -44,4 +44,36 @@ public class VistaProcedimiento {
         }
 
 }
+    
+            public void verInsumosProcedimiento(ResultSet insumos, JTable tabla) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"nombreInsumos", "cantidad"});
+
+        try {
+            while (insumos.next()) {
+                modelo.addRow(new Object[]{insumos.getString("nombreInsumos"), insumos.getInt("cantidad")});            }
+            tabla.setModel(modelo);
+
+        } catch (Exception ex) {
+            System.out.println("vistaPk.vistaProcedimiento.verInsumosProcedimiento()");
+            ex.printStackTrace();
+        }
+
+}
+            
+                    public void verEquiposProcedimiento(ResultSet equipos, JTable tabla) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"nombreEquipos"});
+
+        try {
+            while (equipos.next()) {
+                modelo.addRow(new Object[]{equipos.getString("nombreEquipos")});            }
+            tabla.setModel(modelo);
+
+        } catch (Exception ex) {
+            System.out.println("vistaPk.vistaProcedimiento.verRolesEmpleado()");
+            ex.printStackTrace();
+        }
+
+}
 }

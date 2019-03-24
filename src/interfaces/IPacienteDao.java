@@ -13,10 +13,18 @@ import modelo.Paciente;
  * @author tolis
  */
 public interface IPacienteDao {
-    public Paciente consultarEmpleado(Paciente paciente);
-    public boolean registrarNuevoEmpleado(Paciente paciente);
-    public boolean actualizarEmpleado(Paciente paciente);
-    public boolean eliminarEmpleado(Paciente paciente);
+
+    public Paciente consultarPaciente(Paciente paciente);
+
+    public boolean registrarNuevoPaciente(Paciente paciente);
+
+    public boolean actualizarPaciente(Paciente paciente);
+
+    public boolean eliminarPaciente(Paciente paciente);
+
     public ResultSet obtenerPacientes();
-    public ResultSet obtenerProcedimientosRealizadosxPaciente();
+
+    public ResultSet obtenerPaciente(Paciente paciente, boolean msj);
+
+    public ResultSet obtenerProcedimientosRealizadosxPaciente(Paciente paciente);
 }

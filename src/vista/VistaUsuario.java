@@ -44,4 +44,20 @@ public class VistaUsuario {
         }
 
 }
+    
+        public void verRolesEmpleado(ResultSet roles, JTable tabla) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"idRol", "nombreRol"});
+
+        try {
+            while (roles.next()) {
+                modelo.addRow(new Object[]{roles.getInt("idRol"), roles.getString("nombreRol")});            }
+            tabla.setModel(modelo);
+
+        } catch (Exception ex) {
+            System.out.println("vistaPk.Vistausuario.verRolesEmpleado()");
+            ex.printStackTrace();
+        }
+
+}
 }

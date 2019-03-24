@@ -13,11 +13,12 @@ import modelo.Procedimiento;
  * @author tolis
  */
 public interface IProcedimientoDao {
-    public Procedimiento consultarEmpleado(Procedimiento procedimiento);
-    public boolean registrarNuevoEmpleado(Procedimiento procedimiento);
-    public boolean actualizarEmpleado(Procedimiento procedimiento);
-    public boolean eliminarEmpleado(Procedimiento procedimiento);
+    public Procedimiento consultarProcedimiento(Procedimiento procedimiento);
+    public boolean registrarNuevoProcedimiento(Procedimiento procedimiento);
+    public boolean actualizarProcedimiento(Procedimiento procedimiento);
+    public boolean eliminarProcedimiento(Procedimiento procedimiento);
     public ResultSet obtenerProcedimientos();
-    public ResultSet obtenerInsumosxProcedimiento();
-    public ResultSet obtenerEquiposxProcedimiento();
+    public ResultSet obtenerInsumosxProcedimiento(Procedimiento procedimiento);
+    public ResultSet obtenerEquiposxProcedimiento(Procedimiento procedimiento);
+    public ResultSet obtenerProcedimiento(Procedimiento procedimiento, Boolean msj);
 }

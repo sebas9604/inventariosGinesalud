@@ -45,4 +45,20 @@ public class VistaPaciente {
         }
 
     }
+    
+            public void verProcedimientosRealizados(ResultSet procedimientos, JTable tabla) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"nombreProcedimiento", "fechaRealizacion"});
+
+        try {
+            while (procedimientos.next()) {
+                modelo.addRow(new Object[]{procedimientos.getInt("nombreProcedimiento"), procedimientos.getString("fechaRealizacion")});            }
+            tabla.setModel(modelo);
+
+        } catch (Exception ex) {
+            System.out.println("vistaPk.vistaPaciente.verProcedimientosRealizados()");
+            ex.printStackTrace();
+        }
+
+}
 }

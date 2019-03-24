@@ -44,4 +44,20 @@ public class VistaInsumos {
         }
 
 }
+                   public void verProcedimientosxInsumo(ResultSet procedimientos, JTable tabla) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"nombreProcedimiento"});
+
+        try {
+            while (procedimientos.next()) {
+                modelo.addRow(new Object[]{procedimientos.getInt("nombreProcedimiento")});            }
+            tabla.setModel(modelo);
+
+        } catch (Exception ex) {
+            System.out.println("vistaPk.Equipo.verProcedimientosxInsumo()");
+            ex.printStackTrace();
+        }
+
+}
+    
 }

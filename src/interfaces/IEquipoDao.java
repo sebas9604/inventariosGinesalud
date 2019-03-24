@@ -13,10 +13,11 @@ import modelo.Equipo;
  * @author tolis
  */
 public interface IEquipoDao {
-    public Equipo consultarEmpleado(Equipo equipo);
-    public boolean registrarNuevoEmpleado(Equipo equipo);
-    public boolean actualizarEmpleado(Equipo equipo);
-    public boolean eliminarEmpleado(Equipo equipo);
+    public Equipo consultarEquipo(Equipo equipo);
+    public boolean registrarNuevoEquipo(Equipo equipo);
+    public boolean actualizarEquipo(Equipo equipo);
+    public boolean eliminarEquipo(Equipo equipo);
     public ResultSet obtenerEquipos();
-    public ResultSet obtenerProcedimientosxEquipos();
+    public ResultSet obtenerEquipo(Equipo equipo, boolean msj);
+    public ResultSet obtenerProcedimientosxEquipos(Equipo equipo);
 }
