@@ -64,13 +64,13 @@ public class EntornoDaoImpl implements IEntornoDao {
             ResultSet rs;
             rs = obtenerEntorno(entorno, false);
             if (!rs.next()) {
-                String sql = "INSERT INTO Entorno (idEntorno, humedad, temperatura, fecha) " + "VALUES (?,?,?,?);";
+                String sql = "INSERT INTO Entorno (humedad, temperatura, fecha) " + "VALUES (?,?,?,?);";
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
-                psql.setInt(1, entorno.getIdEntorno());
-                psql.setString(2, entorno.getHumedad());
-                psql.setString(3, entorno.getTemperatura());
-                psql.setString(4, entorno.getFecha());
+//                psql.setInt(1, entorno.getIdEntorno());
+                psql.setString(1, entorno.getHumedad());
+                psql.setString(2, entorno.getTemperatura());
+                psql.setString(3, entorno.getFecha());
                 psql.executeUpdate();
                 registrar = true;
                 psql.close();

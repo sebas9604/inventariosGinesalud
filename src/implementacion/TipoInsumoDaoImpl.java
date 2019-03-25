@@ -64,11 +64,11 @@ public class TipoInsumoDaoImpl implements ITipoInsumoDao {
             ResultSet rs;
             rs = obtenerTipoInsumo(tipoInsumo, false);
             if (!rs.next()) {
-                String sql = "INSERT INTO tipoInsumos (idTipoInsumos, nombretipoInsumos) " + "VALUES (?,?);";
+                String sql = "INSERT INTO tipoInsumos (nombretipoInsumos) " + "VALUES (?);";
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
-                psql.setInt(1, tipoInsumo.getIdTipoInsumo());
-                psql.setString(2, tipoInsumo.getNombreTipoInsumo());
+//                psql.setInt(1, tipoInsumo.getIdTipoInsumo());
+                psql.setString(1, tipoInsumo.getNombreTipoInsumo());
                 psql.executeUpdate();
                 registrar = true;
                 psql.close();

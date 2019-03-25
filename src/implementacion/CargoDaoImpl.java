@@ -86,12 +86,12 @@ public class CargoDaoImpl implements ICargoDao{
             ResultSet rs;
             rs = obtenerCargo(cargo, false);
             if (!rs.next()) {
-                String sql = "INSERT INTO cargos (idCargos, nombreCargos, salarioCargos) " + "VALUES (?,?,?);";
+                String sql = "INSERT INTO cargos (nombreCargos, salarioCargos) " + "VALUES (?,?);";
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
-                psql.setInt(1, cargo.getIdCargo());
-                psql.setString(2, cargo.getNombreCargo());
-                psql.setInt(3, cargo.getSalarioCargo());
+//                psql.setInt(1, cargo.getIdCargo());
+                psql.setString(1, cargo.getNombreCargo());
+                psql.setInt(2, cargo.getSalarioCargo());
                 psql.executeUpdate();
                 registrar = true;
                 psql.close();

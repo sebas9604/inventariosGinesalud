@@ -65,12 +65,12 @@ public class ProcedimientoDaoImpl implements IProcedimientoDao {
             ResultSet rs;
             rs = obtenerProcedimiento(procedimiento, false);
             if (!rs.next()) {
-                String sql = "INSERT INTO procedimientos (idProcedimientos, nombreProcedimiento, valorProcedimiento) " + "VALUES (?,?,?);";
+                String sql = "INSERT INTO procedimientos (nombreProcedimiento, valorProcedimiento) " + "VALUES (?,?);";
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
-                psql.setInt(1, procedimiento.getIdProcedimiento());
-                psql.setString(2, procedimiento.getNombreProcedimiento());
-                psql.setInt(3, procedimiento.getValorProcedimiento());
+//                psql.setInt(1, procedimiento.getIdProcedimiento());
+                psql.setString(1, procedimiento.getNombreProcedimiento());
+                psql.setInt(2, procedimiento.getValorProcedimiento());
                 psql.executeUpdate();
                 registrar = true;
                 psql.close();

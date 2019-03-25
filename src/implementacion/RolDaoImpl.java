@@ -63,11 +63,11 @@ public class RolDaoImpl implements IRolDao{
             ResultSet rs;
             rs = obtenerRol(rol, false);
             if (!rs.next()) {
-                String sql = "INSERT INTO Rol (idRol, nombreRol) " + "VALUES (?,?);";
+                String sql = "INSERT INTO Rol (nombreRol) " + "VALUES (?);";
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
-                psql.setInt(1, rol.getIdRol());
-                psql.setString(2, rol.getNombreRol());
+//                psql.setInt(1, rol.getIdRol());
+                psql.setString(1, rol.getNombreRol());
                 psql.executeUpdate();
                 registrar = true;
                 psql.close();
