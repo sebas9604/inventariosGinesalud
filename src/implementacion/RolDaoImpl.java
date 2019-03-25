@@ -27,7 +27,7 @@ public class RolDaoImpl implements IRolDao{
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idRol, nombreRol FROM Rol WHERE idRol = " + rol.getIdRol()+ ";";
+        String sql = "SELECT idRol, nombreRol FROM Rol WHERE nombreRol LIKE '%" + rol.getNombreRol()+ "%';";
         Rol r = new Rol();
 
         try {

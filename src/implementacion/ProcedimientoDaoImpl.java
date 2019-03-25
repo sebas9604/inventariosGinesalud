@@ -28,7 +28,7 @@ public class ProcedimientoDaoImpl implements IProcedimientoDao {
         ResultSet rs = null;
 
         String sql = "SELECT idProcedimientos, nombreProcedimiento, valorProcedimiento"
-                + " FROM Procedimientos WHERE idProcedimientos = " + procedimiento.getIdProcedimiento() + ";";
+                + " FROM Procedimientos WHERE nombreProcedimiento LIKE '%" + procedimiento.getNombreProcedimiento()+ "%';";
         Procedimiento p = new Procedimiento();
 
         try {

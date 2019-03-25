@@ -28,7 +28,8 @@ public class UsuarioDaoImpl implements IUsuarioDao{
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idUsuarios, nombreUsuarios, apellidosUsuarios, cargoUsuarios, contrasenaUsuarios FROM Usuarios WHERE idUsuarios = " + usuario.getIdUsuario()+ ";";
+        String sql = "SELECT idUsuarios, nombreUsuarios, apellidosUsuarios, cargoUsuarios, contrasenaUsuarios "
+                + "FROM Usuarios WHERE idUsuarios = " + usuario.getIdUsuario()+ ";";
         Usuario u = new Usuario();
 
         try {

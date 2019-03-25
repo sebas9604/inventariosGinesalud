@@ -28,7 +28,7 @@ public class InsumoDaoImpl implements IInsumoDao{
         ResultSet rs = null;
 
         String sql = "SELECT idInsumos, nombreInsumos, tipoInsumos, precioInsumos, cantidad"
-                + " FROM Insumos WHERE idInsumos = " + insumo.getIdInsumo()+ ";";
+                + " FROM Insumos WHERE nombreInsumos LIKE '%" + insumo.getNombreInsumo()+ "%';";
         Insumo i = new Insumo();
 
         try {

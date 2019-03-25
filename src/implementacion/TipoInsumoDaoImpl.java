@@ -27,7 +27,8 @@ public class TipoInsumoDaoImpl implements ITipoInsumoDao {
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idTipoInsumos, nombreTipoInsumos FROM tipoInsumos WHERE idTipoInsumos = " + tipoInsumo.getIdTipoInsumo()+ ";";
+        String sql = "SELECT idTipoInsumos, nombreTipoInsumos "
+                + "FROM tipoInsumos WHERE nombreTipoInsumos LIKE '%" + tipoInsumo.getNombreTipoInsumo()+ "%';";
         TipoInsumo ti = new TipoInsumo();
 
         try {

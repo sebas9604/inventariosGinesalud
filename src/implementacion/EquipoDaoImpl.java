@@ -28,7 +28,7 @@ public class EquipoDaoImpl implements IEquipoDao {
         ResultSet rs = null;
 
         String sql = "SELECT idEquipos, nombreEquipos, precioEquipos"
-                + " FROM Equipos WHERE idEquipos = " + equipo.getIdEquipo() + ";";
+                + " FROM Equipos WHERE nombreEquipos LIKE '%" + equipo.getIdEquipo() + "%';";
         Equipo e = new Equipo();
 
         try {

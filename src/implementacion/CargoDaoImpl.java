@@ -48,7 +48,7 @@ public class CargoDaoImpl implements ICargoDao{
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idCargos, nombreCargos, salarioCargos  FROM cargos WHERE idCargos = " + cargo.getIdCargo() + ";";
+        String sql = "SELECT idCargos, nombreCargos, salarioCargos  FROM cargos WHERE nombreCargos LIKE '%" + cargo.getNombreCargo()+ "%';";
         Cargo c = new Cargo();
 
         try {
