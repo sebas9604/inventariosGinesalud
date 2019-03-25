@@ -20,7 +20,7 @@ import modelo.Usuario;
  *
  * @author tolis
  */
-public class UsuarioDaoImpl implements IUsuarioDao{
+public class UsuarioDaoImpl implements IUsuarioDao {
 
     @Override
     public Usuario consultarUsuario(Usuario usuario) {
@@ -28,8 +28,8 @@ public class UsuarioDaoImpl implements IUsuarioDao{
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idUsuarios, nombreUsuarios, apellidosUsuarios, cargoUsuarios, contrasenaUsuarios "
-                + "FROM Usuarios WHERE idUsuarios = " + usuario.getIdUsuario()+ ";";
+        String sql = "SELECT idUsuarios, nombresUsuarios, apellidosUsuarios, cargoUsuarios, contrasenaUsuarios "
+                + "FROM Usuarios WHERE idUsuarios = " + usuario.getIdUsuario() + ";";
         Usuario u = new Usuario();
 
         try {
@@ -42,11 +42,14 @@ public class UsuarioDaoImpl implements IUsuarioDao{
                 u.setApellidosUsuario(rs.getString(3));
                 u.setCargoUsuario(rs.getInt(4));
                 u.setContrasenaUsuario(rs.getString(5));
-            if (u.getIdUsuario()== 0) {
-                JOptionPane.showMessageDialog(null, "El registro no existe", "Consultar Usuario", JOptionPane.INFORMATION_MESSAGE);
+                if (u.getIdUsuario() == 0) {
+                    JOptionPane.showMessageDialog(null, "El registro no existe", "Consultar Usuario", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar Usuario", JOptionPane.INFORMATION_MESSAGE);
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar Usuario", JOptionPane.INFORMATION_MESSAGE);
-            }
+                JOptionPane.showMessageDialog(null, "El Usuario no existe", "Consultar Usuario", JOptionPane.INFORMATION_MESSAGE);
+
             }
             stm.close();
             rs.close();
@@ -88,7 +91,8 @@ public class UsuarioDaoImpl implements IUsuarioDao{
             JOptionPane.showMessageDialog(null, "Error insertando el usuario " + ex);
         }
 
-        return registrar;      }
+        return registrar;
+    }
 
     @Override
     public boolean actualizarUsuario(Usuario usuario) {
@@ -100,9 +104,9 @@ public class UsuarioDaoImpl implements IUsuarioDao{
             rs = obtenerUsuario(usuario, false);
 
             if (rs.next()) {
-                String sql = "UPDATE usuarios SET nombresUsuarios = '" + usuario.getNombresUsuario()+ "', " + "apellidosUsuarios = '" + usuario.getApellidosUsuario()
-                        + "'" + "cargoUsuarios = '" + usuario.getCargoUsuario()+ "'"+ "contrasenaUsuarios = '" + usuario.getContrasenaUsuario()+ "'"
-                        + " WHERE idUsuarios = " + usuario.getIdUsuario()+ ";";
+                String sql = "UPDATE usuarios SET nombresUsuarios = '" + usuario.getNombresUsuario() + "', " + "apellidosUsuarios = '" + usuario.getApellidosUsuario()
+                        + "'" + "cargoUsuarios = '" + usuario.getCargoUsuario() + "'" + "contrasenaUsuarios = '" + usuario.getContrasenaUsuario() + "'"
+                        + " WHERE idUsuarios = " + usuario.getIdUsuario() + ";";
                 System.out.println(sql);
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
@@ -116,7 +120,8 @@ public class UsuarioDaoImpl implements IUsuarioDao{
             System.out.println("Error: Clase UsuarioDaoImpl, método actualizar");
             e.printStackTrace();
         }
-        return actualizar;    }
+        return actualizar;
+    }
 
     @Override
     public boolean eliminarUsuario(Usuario usuario) {
@@ -129,7 +134,7 @@ public class UsuarioDaoImpl implements IUsuarioDao{
             if (rs.next()) {
 
                 String sql = "DELETE FROM Usuarios WHERE idUsuarios = "
-                        + usuario.getIdUsuario()+ ";";
+                        + usuario.getIdUsuario() + ";";
 
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
@@ -165,7 +170,8 @@ public class UsuarioDaoImpl implements IUsuarioDao{
         } catch (Exception e) {
         }
 
-        return rs;      }
+        return rs;
+    }
 
     @Override
     public ResultSet obtenerRolesxId(Usuario usuario) {
@@ -209,7 +215,6 @@ public class UsuarioDaoImpl implements IUsuarioDao{
             rs = stm.executeQuery(sql);
             if (rs.next()) {
                 cargo = (rs.getString(1));
-               
 
             }
             stm.close();
@@ -217,7 +222,7 @@ public class UsuarioDaoImpl implements IUsuarioDao{
             con.close();
 
         } catch (SQLException e) {
-            System.out.println("Error: Clase UsuarioDaoImple, método consultarUsuario");
+            System.out.println("Error: Clase UsuarioDaoImple, método obtenerCargoxId");
             e.printStackTrace();
         }
         return cargo;
@@ -230,7 +235,7 @@ public class UsuarioDaoImpl implements IUsuarioDao{
         ResultSet rs = null;
 
         String sql = "SELECT idUsuarios, nombreUsuarios, apellidosUsuarios, cargoUsuarios, contrasenaUsuarios "
-                + "FROM usuarios WHERE idUsuarios = " + usuario.getIdUsuario()+ ";";
+                + "FROM usuarios WHERE idUsuarios = " + usuario.getIdUsuario() + ";";
         System.out.println(sql);
         try {
             con = ConexionBD.connect();
@@ -245,7 +250,7 @@ public class UsuarioDaoImpl implements IUsuarioDao{
         } catch (Exception e) {
         }
 
-        return rs;   
+        return rs;
     }
-    
+
 }

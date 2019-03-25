@@ -17,10 +17,26 @@ import vista.VistaUsuario;
  * @author tolis
  */
 public class UsuarioController {
-    
-        private VistaUsuario vista = new VistaUsuario();
 
-        public void registrar(Usuario usuario) {
+    private VistaUsuario vista = new VistaUsuario();
+
+    public Usuario consultarUsuario(Usuario usuario) {
+
+        IUsuarioDao dao = new UsuarioDaoImpl();
+        Usuario u;
+        u = dao.consultarUsuario(usuario);
+        return u;
+    }
+
+    public ResultSet obtenerUsuario(Usuario usuario) {
+
+        IUsuarioDao dao = new UsuarioDaoImpl();
+        ResultSet rs;
+        rs = dao.obtenerUsuario(usuario, false);
+        return rs;
+    }
+
+    public void registrar(Usuario usuario) {
         IUsuarioDao dao = new UsuarioDaoImpl();
         dao.registrarNuevoUsuario(usuario);
     }

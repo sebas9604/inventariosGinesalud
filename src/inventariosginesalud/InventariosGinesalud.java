@@ -6,6 +6,7 @@
 package inventariosginesalud;
 
 import conexion.ConexionBD;
+import presentacion.FInicioSesion;
 
 /**
  *
@@ -17,9 +18,8 @@ public class InventariosGinesalud {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        ConexionBD con = new ConexionBD();
-        con.connect();
+        FInicioSesion finicioSesion = new FInicioSesion();
+        finicioSesion.setVisible(true);
     }
     
 }
