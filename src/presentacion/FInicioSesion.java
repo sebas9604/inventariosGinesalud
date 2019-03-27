@@ -54,10 +54,10 @@ public class FInicioSesion extends javax.swing.JFrame {
         jPanel1.setName(""); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        imgLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\tolis\\Desktop\\Ginesalud.png")); // NOI18N
+        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Ginesalud.png"))); // NOI18N
         jPanel1.add(imgLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, -1, -1));
 
-        imgPersona.setIcon(new javax.swing.ImageIcon("C:\\Users\\tolis\\Pictures\\ico\\Iconos\\business_user.png")); // NOI18N
+        imgPersona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/business_user.png"))); // NOI18N
         jPanel1.add(imgPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 130, 120));
 
         lbInicioSesion.setFont(new java.awt.Font("SansSerif", 1, 48)); // NOI18N
@@ -65,7 +65,7 @@ public class FInicioSesion extends javax.swing.JFrame {
         lbInicioSesion.setText("INICIO DE SESION");
         jPanel1.add(lbInicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
-        imgFondo.setIcon(new javax.swing.ImageIcon("C:\\Users\\tolis\\Desktop\\fondo2.png")); // NOI18N
+        imgFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo2.png"))); // NOI18N
         jPanel1.add(imgFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
 
         labelIdentificacion.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
@@ -77,7 +77,7 @@ public class FInicioSesion extends javax.swing.JFrame {
         jPanel1.add(labelContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 550, -1, -1));
 
         btIniciarSesion.setBackground(new java.awt.Color(255, 255, 255));
-        btIniciarSesion.setIcon(new javax.swing.ImageIcon("C:\\Users\\tolis\\Desktop\\BOTON.png")); // NOI18N
+        btIniciarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/BOTON.png"))); // NOI18N
         btIniciarSesion.setBorder(null);
         btIniciarSesion.setBorderPainted(false);
         btIniciarSesion.setContentAreaFilled(false);

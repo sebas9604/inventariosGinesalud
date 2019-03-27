@@ -72,7 +72,7 @@
         <Component class="javax.swing.JLabel" name="imgLogo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\tolis\Desktop\Ginesalud.png"/>
+              <Image iconType="3" name="/imagenes/Ginesalud.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -84,7 +84,7 @@
         <Component class="javax.swing.JLabel" name="imgPersona">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\tolis\Pictures\ico\Iconos\business_user.png"/>
+              <Image iconType="3" name="/imagenes/business_user.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -112,7 +112,7 @@
         <Component class="javax.swing.JLabel" name="imgFondo">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\tolis\Desktop\fondo2.png"/>
+              <Image iconType="3" name="/imagenes/fondo2.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -153,7 +153,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\tolis\Desktop\BOTON.png"/>
+              <Image iconType="3" name="/imagenes/BOTON.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>

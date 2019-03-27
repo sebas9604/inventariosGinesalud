@@ -5,6 +5,8 @@
  */
 package presentacion;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tolis
@@ -28,12 +30,29 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btPacientes = new javax.swing.JButton();
+        ptProcedimientos = new javax.swing.JButton();
+        btTipoInsumos = new javax.swing.JButton();
+        btInsumos = new javax.swing.JButton();
+        btEntorno = new javax.swing.JButton();
+        btEquipos = new javax.swing.JButton();
+        btCargos = new javax.swing.JButton();
+        btRol = new javax.swing.JButton();
+        btUsuarios = new javax.swing.JButton();
+        btSalir = new javax.swing.JButton();
         imgLogo = new javax.swing.JLabel();
         barraLateral = new javax.swing.JLabel();
         barraHorizontal = new javax.swing.JLabel();
+        ventanaPacientes = new javax.swing.JInternalFrame();
+        ventanaProcedimientos = new javax.swing.JInternalFrame();
+        ventanaTipoInsumo = new javax.swing.JInternalFrame();
+        ventanaInsumos = new javax.swing.JInternalFrame();
+        ventanaEntorno = new javax.swing.JInternalFrame();
+        ventanaEquipos = new javax.swing.JInternalFrame();
+        ventanaCargos = new javax.swing.JInternalFrame();
+        ventanaRol = new javax.swing.JInternalFrame();
+        ventanaUsuarios = new javax.swing.JInternalFrame();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GinesaludSoft");
@@ -43,28 +62,209 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(204, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\tolis\\Desktop\\botonesginesalud\\cargo.png")); // NOI18N
-        jButton1.setContentAreaFilled(false);
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 270, 300, -1));
+        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 48)); // NOI18N
+        jLabel1.setText("BIENVENIDO");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\tolis\\Desktop\\botonesginesalud\\entorno.png")); // NOI18N
-        jButton2.setContentAreaFilled(false);
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, 300, -1));
+        btPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/paciente.png"))); // NOI18N
+        btPacientes.setContentAreaFilled(false);
+        jPanel1.add(btPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 300, -1));
 
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\tolis\\Desktop\\botonesginesalud\\equipo.png")); // NOI18N
-        jButton3.setContentAreaFilled(false);
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 300, -1));
+        ptProcedimientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/procedimiento.png"))); // NOI18N
+        ptProcedimientos.setContentAreaFilled(false);
+        jPanel1.add(ptProcedimientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 300, -1));
 
-        imgLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\tolis\\Desktop\\Ginesalud.png")); // NOI18N
+        btTipoInsumos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/tipoinsumo.png"))); // NOI18N
+        btTipoInsumos.setContentAreaFilled(false);
+        jPanel1.add(btTipoInsumos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 300, -1));
+
+        btInsumos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/insumo.png"))); // NOI18N
+        btInsumos.setContentAreaFilled(false);
+        jPanel1.add(btInsumos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 300, -1));
+
+        btEntorno.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/entorno.png"))); // NOI18N
+        btEntorno.setContentAreaFilled(false);
+        jPanel1.add(btEntorno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, 300, -1));
+
+        btEquipos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/equipo.png"))); // NOI18N
+        btEquipos.setContentAreaFilled(false);
+        jPanel1.add(btEquipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 650, 300, -1));
+
+        btCargos.setBackground(new java.awt.Color(204, 255, 255));
+        btCargos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cargo.png"))); // NOI18N
+        btCargos.setContentAreaFilled(false);
+        jPanel1.add(btCargos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 740, 300, -1));
+
+        btRol.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/rol.png"))); // NOI18N
+        btRol.setContentAreaFilled(false);
+        jPanel1.add(btRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 830, 300, -1));
+
+        btUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/usuario.png"))); // NOI18N
+        btUsuarios.setContentAreaFilled(false);
+        jPanel1.add(btUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 920, 300, -1));
+
+        btSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/salir.png"))); // NOI18N
+        btSalir.setContentAreaFilled(false);
+        btSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalirActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1000, 300, -1));
+
+        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Ginesalud.png"))); // NOI18N
         jPanel1.add(imgLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1450, 0, -1, -1));
 
-        barraLateral.setIcon(new javax.swing.ImageIcon("C:\\Users\\tolis\\Desktop\\barralateral.png")); // NOI18N
+        barraLateral.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/barralateral.png"))); // NOI18N
         barraLateral.setToolTipText("");
         jPanel1.add(barraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        barraHorizontal.setIcon(new javax.swing.ImageIcon("C:\\Users\\tolis\\Desktop\\barrahorizontal.png")); // NOI18N
+        barraHorizontal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/barrahorizontal.png"))); // NOI18N
         jPanel1.add(barraHorizontal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 80));
+
+        ventanaPacientes.setTitle("PACIENTES");
+        ventanaPacientes.setVisible(true);
+
+        javax.swing.GroupLayout ventanaPacientesLayout = new javax.swing.GroupLayout(ventanaPacientes.getContentPane());
+        ventanaPacientes.getContentPane().setLayout(ventanaPacientesLayout);
+        ventanaPacientesLayout.setHorizontalGroup(
+            ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1554, Short.MAX_VALUE)
+        );
+        ventanaPacientesLayout.setVerticalGroup(
+            ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 814, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(ventanaPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
+        ventanaProcedimientos.setTitle("PROCEDIMIENTOS");
+        ventanaProcedimientos.setVisible(true);
+
+        javax.swing.GroupLayout ventanaProcedimientosLayout = new javax.swing.GroupLayout(ventanaProcedimientos.getContentPane());
+        ventanaProcedimientos.getContentPane().setLayout(ventanaProcedimientosLayout);
+        ventanaProcedimientosLayout.setHorizontalGroup(
+            ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1554, Short.MAX_VALUE)
+        );
+        ventanaProcedimientosLayout.setVerticalGroup(
+            ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 814, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(ventanaProcedimientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
+        ventanaTipoInsumo.setTitle("TIPO INSUMO");
+        ventanaTipoInsumo.setVisible(true);
+
+        javax.swing.GroupLayout ventanaTipoInsumoLayout = new javax.swing.GroupLayout(ventanaTipoInsumo.getContentPane());
+        ventanaTipoInsumo.getContentPane().setLayout(ventanaTipoInsumoLayout);
+        ventanaTipoInsumoLayout.setHorizontalGroup(
+            ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1554, Short.MAX_VALUE)
+        );
+        ventanaTipoInsumoLayout.setVerticalGroup(
+            ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 814, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(ventanaTipoInsumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
+        ventanaInsumos.setTitle("INSUMOS");
+        ventanaInsumos.setVisible(true);
+
+        javax.swing.GroupLayout ventanaInsumosLayout = new javax.swing.GroupLayout(ventanaInsumos.getContentPane());
+        ventanaInsumos.getContentPane().setLayout(ventanaInsumosLayout);
+        ventanaInsumosLayout.setHorizontalGroup(
+            ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1554, Short.MAX_VALUE)
+        );
+        ventanaInsumosLayout.setVerticalGroup(
+            ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 814, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(ventanaInsumos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
+        ventanaEntorno.setTitle("ENTORNO");
+        ventanaEntorno.setVisible(true);
+
+        javax.swing.GroupLayout ventanaEntornoLayout = new javax.swing.GroupLayout(ventanaEntorno.getContentPane());
+        ventanaEntorno.getContentPane().setLayout(ventanaEntornoLayout);
+        ventanaEntornoLayout.setHorizontalGroup(
+            ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1554, Short.MAX_VALUE)
+        );
+        ventanaEntornoLayout.setVerticalGroup(
+            ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 814, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(ventanaEntorno, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
+        ventanaEquipos.setTitle("EQUIPOS");
+        ventanaEquipos.setVisible(true);
+
+        javax.swing.GroupLayout ventanaEquiposLayout = new javax.swing.GroupLayout(ventanaEquipos.getContentPane());
+        ventanaEquipos.getContentPane().setLayout(ventanaEquiposLayout);
+        ventanaEquiposLayout.setHorizontalGroup(
+            ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1554, Short.MAX_VALUE)
+        );
+        ventanaEquiposLayout.setVerticalGroup(
+            ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 814, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(ventanaEquipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
+        ventanaCargos.setTitle("CARGOS");
+        ventanaCargos.setVisible(true);
+
+        javax.swing.GroupLayout ventanaCargosLayout = new javax.swing.GroupLayout(ventanaCargos.getContentPane());
+        ventanaCargos.getContentPane().setLayout(ventanaCargosLayout);
+        ventanaCargosLayout.setHorizontalGroup(
+            ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1554, Short.MAX_VALUE)
+        );
+        ventanaCargosLayout.setVerticalGroup(
+            ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 814, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(ventanaCargos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
+        ventanaRol.setTitle("ROLES");
+        ventanaRol.setVisible(true);
+
+        javax.swing.GroupLayout ventanaRolLayout = new javax.swing.GroupLayout(ventanaRol.getContentPane());
+        ventanaRol.getContentPane().setLayout(ventanaRolLayout);
+        ventanaRolLayout.setHorizontalGroup(
+            ventanaRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1554, Short.MAX_VALUE)
+        );
+        ventanaRolLayout.setVerticalGroup(
+            ventanaRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 814, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(ventanaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
+        ventanaUsuarios.setTitle("USUARIOS");
+        ventanaUsuarios.setVisible(true);
+
+        javax.swing.GroupLayout ventanaUsuariosLayout = new javax.swing.GroupLayout(ventanaUsuarios.getContentPane());
+        ventanaUsuarios.getContentPane().setLayout(ventanaUsuariosLayout);
+        ventanaUsuariosLayout.setHorizontalGroup(
+            ventanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1554, Short.MAX_VALUE)
+        );
+        ventanaUsuariosLayout.setVerticalGroup(
+            ventanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 814, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(ventanaUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -80,6 +280,13 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
+int resp = JOptionPane.showConfirmDialog(rootPane, "¿QUIERE SALIR DE LA APLICACION?", "SALIR", JOptionPane.YES_NO_OPTION);
+if(resp == 0){
+System.exit(0);
+}
+    }//GEN-LAST:event_btSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -119,10 +326,27 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel barraHorizontal;
     private javax.swing.JLabel barraLateral;
+    private javax.swing.JButton btCargos;
+    private javax.swing.JButton btEntorno;
+    private javax.swing.JButton btEquipos;
+    private javax.swing.JButton btInsumos;
+    private javax.swing.JButton btPacientes;
+    private javax.swing.JButton btRol;
+    private javax.swing.JButton btSalir;
+    private javax.swing.JButton btTipoInsumos;
+    private javax.swing.JButton btUsuarios;
     private javax.swing.JLabel imgLogo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton ptProcedimientos;
+    private javax.swing.JInternalFrame ventanaCargos;
+    private javax.swing.JInternalFrame ventanaEntorno;
+    private javax.swing.JInternalFrame ventanaEquipos;
+    private javax.swing.JInternalFrame ventanaInsumos;
+    private javax.swing.JInternalFrame ventanaPacientes;
+    private javax.swing.JInternalFrame ventanaProcedimientos;
+    private javax.swing.JInternalFrame ventanaRol;
+    private javax.swing.JInternalFrame ventanaTipoInsumo;
+    private javax.swing.JInternalFrame ventanaUsuarios;
     // End of variables declaration//GEN-END:variables
 }
