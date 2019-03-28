@@ -5,6 +5,7 @@
  */
 package presentacion;
 
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,8 +19,23 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
      */
     public FVentanaPrincipal() {
         initComponents();
+        ocultarVentanas();
+        Date obj =new Date();
+        System.out.println(obj.toString() + "!!");
     }
 
+    public void ocultarVentanas(){
+    ventanaCargos.setVisible(false);
+    ventanaEntorno.setVisible(false);
+    ventanaEquipos.setVisible(false);
+    ventanaInsumos.setVisible(false);
+    ventanaPacientes.setVisible(false);
+    ventanaProcedimientos.setVisible(false);
+    ventanaRol.setVisible(false);
+    ventanaTipoInsumo.setVisible(false);
+    ventanaUsuarios.setVisible(false);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,7 +46,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        labelBienvenido = new javax.swing.JLabel();
         btPacientes = new javax.swing.JButton();
         ptProcedimientos = new javax.swing.JButton();
         btTipoInsumos = new javax.swing.JButton();
@@ -45,6 +61,30 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         barraLateral = new javax.swing.JLabel();
         barraHorizontal = new javax.swing.JLabel();
         ventanaPacientes = new javax.swing.JInternalFrame();
+        labelIdentificacionPacientes = new javax.swing.JLabel();
+        labelNombresPacientes = new javax.swing.JLabel();
+        labelApellidosPacientes = new javax.swing.JLabel();
+        labelTelefonoPacientes = new javax.swing.JLabel();
+        labelFechaNacimientoPacientes = new javax.swing.JLabel();
+        tfIdentificacionPacientes = new javax.swing.JTextField();
+        tfFechaNacimientoPacientes = new javax.swing.JTextField();
+        tfNombresPacientes = new javax.swing.JTextField();
+        tfApellidosPacientes = new javax.swing.JTextField();
+        tfTelefonoPacientes = new javax.swing.JTextField();
+        btEjecutarPacientes = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablePacientes = new javax.swing.JTable();
+        btImprimirPacientes = new javax.swing.JButton();
+        labelTituloPacientes = new javax.swing.JLabel();
+        menuPacientes = new javax.swing.JMenuBar();
+        opcionConsultarPaciente = new javax.swing.JMenu();
+        opConsultarPacientes = new javax.swing.JMenuItem();
+        opConsultarPaciente = new javax.swing.JMenuItem();
+        opcionAgregarPaciente = new javax.swing.JMenu();
+        opcionEditarPaciente = new javax.swing.JMenu();
+        opcionEliminarPaciente = new javax.swing.JMenu();
+        opcionReportesPaciente = new javax.swing.JMenu();
+        opProcedimientosRealizados = new javax.swing.JMenuItem();
         ventanaProcedimientos = new javax.swing.JInternalFrame();
         ventanaTipoInsumo = new javax.swing.JInternalFrame();
         ventanaInsumos = new javax.swing.JInternalFrame();
@@ -62,12 +102,17 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 48)); // NOI18N
-        jLabel1.setText("BIENVENIDO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
+        labelBienvenido.setFont(new java.awt.Font("Segoe Print", 1, 48)); // NOI18N
+        labelBienvenido.setText("BIENVENIDO");
+        jPanel1.add(labelBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
 
         btPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/paciente.png"))); // NOI18N
         btPacientes.setContentAreaFilled(false);
+        btPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPacientesActionPerformed(evt);
+            }
+        });
         jPanel1.add(btPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 300, -1));
 
         ptProcedimientos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/procedimiento.png"))); // NOI18N
@@ -122,18 +167,152 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         barraHorizontal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/barrahorizontal.png"))); // NOI18N
         jPanel1.add(barraHorizontal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 80));
 
+        ventanaPacientes.setBackground(new java.awt.Color(255, 255, 255));
         ventanaPacientes.setTitle("PACIENTES");
         ventanaPacientes.setVisible(true);
+
+        labelIdentificacionPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelIdentificacionPacientes.setText("Identificación");
+
+        labelNombresPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelNombresPacientes.setText("Nombres");
+
+        labelApellidosPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelApellidosPacientes.setText("Apellidos");
+
+        labelTelefonoPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelTelefonoPacientes.setText("Telefono");
+
+        labelFechaNacimientoPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelFechaNacimientoPacientes.setText("Fecha de nacimiento");
+
+        tfFechaNacimientoPacientes.setText("yyyy-mm-dd");
+
+        tfTelefonoPacientes.setToolTipText("");
+
+        btEjecutarPacientes.setText("Ejecutar");
+
+        tablePacientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablePacientes);
+
+        btImprimirPacientes.setText("Imprimir");
+
+        labelTituloPacientes.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        labelTituloPacientes.setText("OPERACIÓN");
+
+        opcionConsultarPaciente.setText("Consultar");
+        opcionConsultarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+
+        opConsultarPacientes.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarPacientes.setText("Todos los pacientes");
+        opcionConsultarPaciente.add(opConsultarPacientes);
+
+        opConsultarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarPaciente.setText("Paciente");
+        opcionConsultarPaciente.add(opConsultarPaciente);
+
+        menuPacientes.add(opcionConsultarPaciente);
+
+        opcionAgregarPaciente.setText("Agregar");
+        opcionAgregarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        menuPacientes.add(opcionAgregarPaciente);
+
+        opcionEditarPaciente.setText("Editar");
+        opcionEditarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        menuPacientes.add(opcionEditarPaciente);
+
+        opcionEliminarPaciente.setText("Eliminar");
+        opcionEliminarPaciente.setToolTipText("");
+        opcionEliminarPaciente.setActionCommand("Eliminar");
+        opcionEliminarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        menuPacientes.add(opcionEliminarPaciente);
+
+        opcionReportesPaciente.setText("Reportes");
+        opcionReportesPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+
+        opProcedimientosRealizados.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opProcedimientosRealizados.setText("Procedimientos realizados");
+        opcionReportesPaciente.add(opProcedimientosRealizados);
+
+        menuPacientes.add(opcionReportesPaciente);
+
+        ventanaPacientes.setJMenuBar(menuPacientes);
 
         javax.swing.GroupLayout ventanaPacientesLayout = new javax.swing.GroupLayout(ventanaPacientes.getContentPane());
         ventanaPacientes.getContentPane().setLayout(ventanaPacientesLayout);
         ventanaPacientesLayout.setHorizontalGroup(
             ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1554, Short.MAX_VALUE)
+            .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                        .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelIdentificacionPacientes)
+                            .addComponent(labelNombresPacientes))
+                        .addGap(67, 67, 67)
+                        .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                                .addComponent(tfIdentificacionPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(126, 126, 126)
+                                .addComponent(labelFechaNacimientoPacientes))
+                            .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                                .addComponent(tfNombresPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelApellidosPacientes)))
+                        .addGap(54, 54, 54)
+                        .addComponent(tfApellidosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                        .addGap(815, 815, 815)
+                        .addComponent(tfFechaNacimientoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(labelTelefonoPacientes)
+                        .addGap(34, 34, 34)
+                        .addComponent(tfTelefonoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                        .addGap(454, 454, 454)
+                        .addComponent(btEjecutarPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelTituloPacientes)
+                    .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btImprimirPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1457, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         ventanaPacientesLayout.setVerticalGroup(
             ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 814, Short.MAX_VALUE)
+            .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTituloPacientes)
+                .addGap(27, 27, 27)
+                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelIdentificacionPacientes)
+                    .addComponent(tfIdentificacionPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelFechaNacimientoPacientes)
+                    .addComponent(tfFechaNacimientoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTelefonoPacientes)
+                    .addComponent(tfTelefonoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombresPacientes)
+                    .addComponent(tfNombresPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelApellidosPacientes)
+                    .addComponent(tfApellidosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(btEjecutarPacientes)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btImprimirPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(ventanaPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
@@ -288,6 +467,11 @@ System.exit(0);
 }
     }//GEN-LAST:event_btSalirActionPerformed
 
+    private void btPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPacientesActionPerformed
+ocultarVentanas();
+ventanaPacientes.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_btPacientesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -327,8 +511,10 @@ System.exit(0);
     private javax.swing.JLabel barraHorizontal;
     private javax.swing.JLabel barraLateral;
     private javax.swing.JButton btCargos;
+    private javax.swing.JButton btEjecutarPacientes;
     private javax.swing.JButton btEntorno;
     private javax.swing.JButton btEquipos;
+    private javax.swing.JButton btImprimirPacientes;
     private javax.swing.JButton btInsumos;
     private javax.swing.JButton btPacientes;
     private javax.swing.JButton btRol;
@@ -336,9 +522,31 @@ System.exit(0);
     private javax.swing.JButton btTipoInsumos;
     private javax.swing.JButton btUsuarios;
     private javax.swing.JLabel imgLogo;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelApellidosPacientes;
+    private javax.swing.JLabel labelBienvenido;
+    private javax.swing.JLabel labelFechaNacimientoPacientes;
+    private javax.swing.JLabel labelIdentificacionPacientes;
+    private javax.swing.JLabel labelNombresPacientes;
+    private javax.swing.JLabel labelTelefonoPacientes;
+    private javax.swing.JLabel labelTituloPacientes;
+    private javax.swing.JMenuBar menuPacientes;
+    private javax.swing.JMenuItem opConsultarPaciente;
+    private javax.swing.JMenuItem opConsultarPacientes;
+    private javax.swing.JMenuItem opProcedimientosRealizados;
+    private javax.swing.JMenu opcionAgregarPaciente;
+    private javax.swing.JMenu opcionConsultarPaciente;
+    private javax.swing.JMenu opcionEditarPaciente;
+    private javax.swing.JMenu opcionEliminarPaciente;
+    private javax.swing.JMenu opcionReportesPaciente;
     private javax.swing.JButton ptProcedimientos;
+    private javax.swing.JTable tablePacientes;
+    private javax.swing.JTextField tfApellidosPacientes;
+    private javax.swing.JTextField tfFechaNacimientoPacientes;
+    private javax.swing.JTextField tfIdentificacionPacientes;
+    private javax.swing.JTextField tfNombresPacientes;
+    private javax.swing.JTextField tfTelefonoPacientes;
     private javax.swing.JInternalFrame ventanaCargos;
     private javax.swing.JInternalFrame ventanaEntorno;
     private javax.swing.JInternalFrame ventanaEquipos;
