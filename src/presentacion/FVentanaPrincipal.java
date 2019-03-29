@@ -60,6 +60,34 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         imgLogo = new javax.swing.JLabel();
         barraLateral = new javax.swing.JLabel();
         barraHorizontal = new javax.swing.JLabel();
+        ventanaInsumos = new javax.swing.JInternalFrame();
+        labelOperacionInsumos = new javax.swing.JLabel();
+        btEjecutarInsumos = new javax.swing.JButton();
+        btImprimirInsumos = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tableInsumos = new javax.swing.JTable();
+        labelIdInsumos = new javax.swing.JLabel();
+        tfIdInsumos = new javax.swing.JTextField();
+        labelNombreInsumos = new javax.swing.JLabel();
+        tfNombreInsumos = new javax.swing.JTextField();
+        labelTipoInsumoInsumos = new javax.swing.JLabel();
+        comboTiposInsumoInsumos = new javax.swing.JComboBox<>();
+        labelPrecioInsumos = new javax.swing.JLabel();
+        tfPrecioInsumos = new javax.swing.JTextField();
+        labelCantidadInsumos = new javax.swing.JLabel();
+        tfCantidadInsumos = new javax.swing.JTextField();
+        menuInsumos = new javax.swing.JMenuBar();
+        opcionConsultarInsumos = new javax.swing.JMenu();
+        opConsultarInsumos = new javax.swing.JMenuItem();
+        opConsultarInsumo = new javax.swing.JMenuItem();
+        opcionAgregarInsumos = new javax.swing.JMenu();
+        opcionEditarInsumos = new javax.swing.JMenu();
+        opcionEliminarInsumos = new javax.swing.JMenu();
+        ventanaEntorno = new javax.swing.JInternalFrame();
+        ventanaEquipos = new javax.swing.JInternalFrame();
+        ventanaCargos = new javax.swing.JInternalFrame();
+        ventanaRol = new javax.swing.JInternalFrame();
+        ventanaUsuarios = new javax.swing.JInternalFrame();
         ventanaPacientes = new javax.swing.JInternalFrame();
         labelIdentificacionPacientes = new javax.swing.JLabel();
         labelNombresPacientes = new javax.swing.JLabel();
@@ -86,20 +114,53 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         opcionReportesPaciente = new javax.swing.JMenu();
         opProcedimientosRealizados = new javax.swing.JMenuItem();
         ventanaProcedimientos = new javax.swing.JInternalFrame();
+        labelOperacionProcedimiento = new javax.swing.JLabel();
+        labelNombreProcedimiento = new javax.swing.JLabel();
+        tfNombreProcedimiento = new javax.swing.JTextField();
+        labelValorProcedimiento = new javax.swing.JLabel();
+        tfValorProcedimiento = new javax.swing.JTextField();
+        btEjecutarProcedimiento = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableProcedimiento = new javax.swing.JTable();
+        btImprimirProcedimiento = new javax.swing.JButton();
+        labelIdProcedimientos = new javax.swing.JLabel();
+        tdIdProcedimientos = new javax.swing.JTextField();
+        menuProcedimientos = new javax.swing.JMenuBar();
+        opcionConsultarProcedimiento = new javax.swing.JMenu();
+        opConsultarProcedimientos = new javax.swing.JMenuItem();
+        opConsultarProcedimiento = new javax.swing.JMenuItem();
+        opcionAgregarProcedimiento = new javax.swing.JMenu();
+        opcionEditarProcedimiento = new javax.swing.JMenu();
+        opcionEliminarProcedimiento = new javax.swing.JMenu();
+        opcionReportesProcedimiento = new javax.swing.JMenu();
+        opInsumosUtilizados = new javax.swing.JMenuItem();
+        opEquiposUtilizados = new javax.swing.JMenuItem();
         ventanaTipoInsumo = new javax.swing.JInternalFrame();
-        ventanaInsumos = new javax.swing.JInternalFrame();
-        ventanaEntorno = new javax.swing.JInternalFrame();
-        ventanaEquipos = new javax.swing.JInternalFrame();
-        ventanaCargos = new javax.swing.JInternalFrame();
-        ventanaRol = new javax.swing.JInternalFrame();
-        ventanaUsuarios = new javax.swing.JInternalFrame();
+        labelOperacionTipoInsumo = new javax.swing.JLabel();
+        labelNombreTipoInsumo = new javax.swing.JLabel();
+        tfNombreTipoInsumo = new javax.swing.JTextField();
+        btEjecutarTipoInsumo = new javax.swing.JButton();
+        btImprimirTipoInsumo = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableTipoInsumo = new javax.swing.JTable();
+        labelIdTipoInsumo = new javax.swing.JLabel();
+        tfIdTipoInsumo = new javax.swing.JTextField();
+        menuTipoInsumo = new javax.swing.JMenuBar();
+        opcionConsultarTipoInsumo = new javax.swing.JMenu();
+        opConsultarTiposInsumo = new javax.swing.JMenuItem();
+        opConsultarTipoInsumo = new javax.swing.JMenuItem();
+        opcionAgregarTipoInsumo = new javax.swing.JMenu();
+        opcionEditartipoInsumo = new javax.swing.JMenu();
+        opcionEliminarTipoInsumo = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GinesaludSoft");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelBienvenido.setFont(new java.awt.Font("Segoe Print", 1, 48)); // NOI18N
@@ -167,32 +228,19 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         barraHorizontal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/barrahorizontal.png"))); // NOI18N
         jPanel1.add(barraHorizontal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 80));
 
-        ventanaPacientes.setBackground(new java.awt.Color(255, 255, 255));
-        ventanaPacientes.setTitle("PACIENTES");
-        ventanaPacientes.setVisible(true);
+        ventanaInsumos.setTitle("INSUMOS");
+        ventanaInsumos.setVisible(true);
 
-        labelIdentificacionPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelIdentificacionPacientes.setText("Identificación");
+        labelOperacionInsumos.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        labelOperacionInsumos.setText("Operacion");
 
-        labelNombresPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelNombresPacientes.setText("Nombres");
+        btEjecutarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btEjecutarInsumos.setText("Ejecutar");
 
-        labelApellidosPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelApellidosPacientes.setText("Apellidos");
+        btImprimirInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btImprimirInsumos.setText("Imprimir");
 
-        labelTelefonoPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelTelefonoPacientes.setText("Telefono");
-
-        labelFechaNacimientoPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelFechaNacimientoPacientes.setText("Fecha de nacimiento");
-
-        tfFechaNacimientoPacientes.setText("yyyy-mm-dd");
-
-        tfTelefonoPacientes.setToolTipText("");
-
-        btEjecutarPacientes.setText("Ejecutar");
-
-        tablePacientes.setModel(new javax.swing.table.DefaultTableModel(
+        tableInsumos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -203,164 +251,123 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tablePacientes);
+        jScrollPane4.setViewportView(tableInsumos);
 
-        btImprimirPacientes.setText("Imprimir");
+        labelIdInsumos.setText("ID");
 
-        labelTituloPacientes.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
-        labelTituloPacientes.setText("OPERACIÓN");
+        labelNombreInsumos.setText("Nombre");
 
-        opcionConsultarPaciente.setText("Consultar");
-        opcionConsultarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        labelTipoInsumoInsumos.setText("Tipo de Insumo");
 
-        opConsultarPacientes.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opConsultarPacientes.setText("Todos los pacientes");
-        opcionConsultarPaciente.add(opConsultarPacientes);
+        comboTiposInsumoInsumos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        opConsultarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opConsultarPaciente.setText("Paciente");
-        opcionConsultarPaciente.add(opConsultarPaciente);
+        labelPrecioInsumos.setText("Precio unidad");
 
-        menuPacientes.add(opcionConsultarPaciente);
+        labelCantidadInsumos.setText("Cantidad");
 
-        opcionAgregarPaciente.setText("Agregar");
-        opcionAgregarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        menuPacientes.add(opcionAgregarPaciente);
+        opcionConsultarInsumos.setText("Consultar");
+        opcionConsultarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
 
-        opcionEditarPaciente.setText("Editar");
-        opcionEditarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        menuPacientes.add(opcionEditarPaciente);
+        opConsultarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarInsumos.setText("Todos los insumos");
+        opcionConsultarInsumos.add(opConsultarInsumos);
 
-        opcionEliminarPaciente.setText("Eliminar");
-        opcionEliminarPaciente.setToolTipText("");
-        opcionEliminarPaciente.setActionCommand("Eliminar");
-        opcionEliminarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        menuPacientes.add(opcionEliminarPaciente);
+        opConsultarInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarInsumo.setText("Insumo");
+        opcionConsultarInsumos.add(opConsultarInsumo);
 
-        opcionReportesPaciente.setText("Reportes");
-        opcionReportesPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        menuInsumos.add(opcionConsultarInsumos);
 
-        opProcedimientosRealizados.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opProcedimientosRealizados.setText("Procedimientos realizados");
-        opcionReportesPaciente.add(opProcedimientosRealizados);
+        opcionAgregarInsumos.setText("Agregar");
+        opcionAgregarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        menuInsumos.add(opcionAgregarInsumos);
 
-        menuPacientes.add(opcionReportesPaciente);
+        opcionEditarInsumos.setText("Editar");
+        opcionEditarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        menuInsumos.add(opcionEditarInsumos);
 
-        ventanaPacientes.setJMenuBar(menuPacientes);
+        opcionEliminarInsumos.setText("Eliminar");
+        opcionEliminarInsumos.setToolTipText("");
+        opcionEliminarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        menuInsumos.add(opcionEliminarInsumos);
 
-        javax.swing.GroupLayout ventanaPacientesLayout = new javax.swing.GroupLayout(ventanaPacientes.getContentPane());
-        ventanaPacientes.getContentPane().setLayout(ventanaPacientesLayout);
-        ventanaPacientesLayout.setHorizontalGroup(
-            ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                        .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelIdentificacionPacientes)
-                            .addComponent(labelNombresPacientes))
-                        .addGap(67, 67, 67)
-                        .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                                .addComponent(tfIdentificacionPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(126, 126, 126)
-                                .addComponent(labelFechaNacimientoPacientes))
-                            .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                                .addComponent(tfNombresPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelApellidosPacientes)))
-                        .addGap(54, 54, 54)
-                        .addComponent(tfApellidosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                        .addGap(815, 815, 815)
-                        .addComponent(tfFechaNacimientoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(labelTelefonoPacientes)
-                        .addGap(34, 34, 34)
-                        .addComponent(tfTelefonoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                        .addGap(454, 454, 454)
-                        .addComponent(btEjecutarPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(labelTituloPacientes)
-                    .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btImprimirPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1457, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
-        );
-        ventanaPacientesLayout.setVerticalGroup(
-            ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelTituloPacientes)
-                .addGap(27, 27, 27)
-                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelIdentificacionPacientes)
-                    .addComponent(tfIdentificacionPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelFechaNacimientoPacientes)
-                    .addComponent(tfFechaNacimientoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTelefonoPacientes)
-                    .addComponent(tfTelefonoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNombresPacientes)
-                    .addComponent(tfNombresPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelApellidosPacientes)
-                    .addComponent(tfApellidosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(btEjecutarPacientes)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btImprimirPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(ventanaPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
-
-        ventanaProcedimientos.setTitle("PROCEDIMIENTOS");
-        ventanaProcedimientos.setVisible(true);
-
-        javax.swing.GroupLayout ventanaProcedimientosLayout = new javax.swing.GroupLayout(ventanaProcedimientos.getContentPane());
-        ventanaProcedimientos.getContentPane().setLayout(ventanaProcedimientosLayout);
-        ventanaProcedimientosLayout.setHorizontalGroup(
-            ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1554, Short.MAX_VALUE)
-        );
-        ventanaProcedimientosLayout.setVerticalGroup(
-            ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 814, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(ventanaProcedimientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
-
-        ventanaTipoInsumo.setTitle("TIPO INSUMO");
-        ventanaTipoInsumo.setVisible(true);
-
-        javax.swing.GroupLayout ventanaTipoInsumoLayout = new javax.swing.GroupLayout(ventanaTipoInsumo.getContentPane());
-        ventanaTipoInsumo.getContentPane().setLayout(ventanaTipoInsumoLayout);
-        ventanaTipoInsumoLayout.setHorizontalGroup(
-            ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1554, Short.MAX_VALUE)
-        );
-        ventanaTipoInsumoLayout.setVerticalGroup(
-            ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 814, Short.MAX_VALUE)
-        );
-
-        jPanel1.add(ventanaTipoInsumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
-
-        ventanaInsumos.setTitle("INSUMOS");
-        ventanaInsumos.setVisible(true);
+        ventanaInsumos.setJMenuBar(menuInsumos);
 
         javax.swing.GroupLayout ventanaInsumosLayout = new javax.swing.GroupLayout(ventanaInsumos.getContentPane());
         ventanaInsumos.getContentPane().setLayout(ventanaInsumosLayout);
         ventanaInsumosLayout.setHorizontalGroup(
             ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1554, Short.MAX_VALUE)
+            .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                .addGap(193, 193, 193)
+                .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                        .addComponent(labelIdInsumos)
+                        .addGap(47, 47, 47)
+                        .addComponent(tfIdInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)
+                        .addComponent(labelNombreInsumos)
+                        .addGap(41, 41, 41)
+                        .addComponent(tfNombreInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(88, 88, 88)
+                        .addComponent(labelTipoInsumoInsumos)
+                        .addGap(57, 57, 57)
+                        .addComponent(comboTiposInsumoInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btEjecutarInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                                .addComponent(labelPrecioInsumos)
+                                .addGap(34, 34, 34)
+                                .addComponent(tfPrecioInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(151, 151, 151)
+                                .addComponent(labelCantidadInsumos)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tfCantidadInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(123, 123, 123)))
+                .addContainerGap(398, Short.MAX_VALUE))
+            .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaInsumosLayout.createSequentialGroup()
+                    .addGap(1181, 1181, 1181)
+                    .addComponent(btImprimirInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                    .addGap(62, 62, 62)
+                    .addComponent(labelOperacionInsumos))
+                .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                    .addGap(21, 21, 21)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(21, Short.MAX_VALUE)))
         );
         ventanaInsumosLayout.setVerticalGroup(
             ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 814, Short.MAX_VALUE)
+            .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelIdInsumos)
+                    .addComponent(tfIdInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNombreInsumos)
+                    .addComponent(tfNombreInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTipoInsumoInsumos)
+                    .addComponent(comboTiposInsumoInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPrecioInsumos)
+                    .addComponent(tfPrecioInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCantidadInsumos)
+                    .addComponent(tfCantidadInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addComponent(btEjecutarInsumos)
+                .addContainerGap(545, Short.MAX_VALUE))
+            .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                    .addGap(37, 37, 37)
+                    .addComponent(labelOperacionInsumos)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 217, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addComponent(btImprimirInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(38, 38, 38)))
         );
 
         jPanel1.add(ventanaInsumos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
@@ -445,6 +452,399 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1.add(ventanaUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
 
+        ventanaPacientes.setTitle("PACIENTES");
+        ventanaPacientes.setVisible(true);
+
+        labelIdentificacionPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelIdentificacionPacientes.setText("Identificación");
+
+        labelNombresPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelNombresPacientes.setText("Nombres");
+
+        labelApellidosPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelApellidosPacientes.setText("Apellidos");
+
+        labelTelefonoPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelTelefonoPacientes.setText("Telefono");
+
+        labelFechaNacimientoPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelFechaNacimientoPacientes.setText("Fecha de nacimiento");
+
+        tfFechaNacimientoPacientes.setText("yyyy-mm-dd");
+
+        tfTelefonoPacientes.setToolTipText("");
+
+        btEjecutarPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btEjecutarPacientes.setText("Ejecutar");
+
+        tablePacientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablePacientes);
+
+        btImprimirPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btImprimirPacientes.setText("Imprimir");
+
+        labelTituloPacientes.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        labelTituloPacientes.setText("OPERACIÓN");
+
+        opcionConsultarPaciente.setText("Consultar");
+        opcionConsultarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+
+        opConsultarPacientes.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarPacientes.setText("Todos los pacientes");
+        opcionConsultarPaciente.add(opConsultarPacientes);
+
+        opConsultarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarPaciente.setText("Paciente");
+        opcionConsultarPaciente.add(opConsultarPaciente);
+
+        menuPacientes.add(opcionConsultarPaciente);
+
+        opcionAgregarPaciente.setText("Agregar");
+        opcionAgregarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        menuPacientes.add(opcionAgregarPaciente);
+
+        opcionEditarPaciente.setText("Editar");
+        opcionEditarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        menuPacientes.add(opcionEditarPaciente);
+
+        opcionEliminarPaciente.setText("Eliminar");
+        opcionEliminarPaciente.setToolTipText("");
+        opcionEliminarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        menuPacientes.add(opcionEliminarPaciente);
+
+        opcionReportesPaciente.setText("Reportes");
+        opcionReportesPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+
+        opProcedimientosRealizados.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opProcedimientosRealizados.setText("Procedimientos realizados");
+        opcionReportesPaciente.add(opProcedimientosRealizados);
+
+        menuPacientes.add(opcionReportesPaciente);
+
+        ventanaPacientes.setJMenuBar(menuPacientes);
+
+        javax.swing.GroupLayout ventanaPacientesLayout = new javax.swing.GroupLayout(ventanaPacientes.getContentPane());
+        ventanaPacientes.getContentPane().setLayout(ventanaPacientesLayout);
+        ventanaPacientesLayout.setHorizontalGroup(
+            ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                        .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelIdentificacionPacientes)
+                            .addComponent(labelNombresPacientes))
+                        .addGap(67, 67, 67)
+                        .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                                .addComponent(tfIdentificacionPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(126, 126, 126)
+                                .addComponent(labelFechaNacimientoPacientes))
+                            .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                                .addComponent(tfNombresPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(labelApellidosPacientes)))
+                        .addGap(54, 54, 54)
+                        .addComponent(tfApellidosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                        .addGap(815, 815, 815)
+                        .addComponent(tfFechaNacimientoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(labelTelefonoPacientes)
+                        .addGap(34, 34, 34)
+                        .addComponent(tfTelefonoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                        .addGap(454, 454, 454)
+                        .addComponent(btEjecutarPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelTituloPacientes)
+                    .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btImprimirPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1457, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+        ventanaPacientesLayout.setVerticalGroup(
+            ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelTituloPacientes)
+                .addGap(27, 27, 27)
+                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelIdentificacionPacientes)
+                    .addComponent(tfIdentificacionPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelFechaNacimientoPacientes)
+                    .addComponent(tfFechaNacimientoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTelefonoPacientes)
+                    .addComponent(tfTelefonoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombresPacientes)
+                    .addComponent(tfNombresPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelApellidosPacientes)
+                    .addComponent(tfApellidosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addComponent(btEjecutarPacientes)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btImprimirPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(ventanaPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
+        ventanaProcedimientos.setTitle("PROCEDIMIENTOS");
+        ventanaProcedimientos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        ventanaProcedimientos.setVisible(true);
+
+        labelOperacionProcedimiento.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        labelOperacionProcedimiento.setText("Operacion");
+
+        labelNombreProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelNombreProcedimiento.setText("Nombre");
+
+        labelValorProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelValorProcedimiento.setText("Valor");
+
+        btEjecutarProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btEjecutarProcedimiento.setText("Ejecutar");
+
+        tableProcedimiento.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tableProcedimiento);
+
+        btImprimirProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btImprimirProcedimiento.setText("Imprimir");
+
+        labelIdProcedimientos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelIdProcedimientos.setText("ID");
+
+        opcionConsultarProcedimiento.setText("Consultar");
+        opcionConsultarProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+
+        opConsultarProcedimientos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        opConsultarProcedimientos.setText("Todos los procedimientos");
+        opcionConsultarProcedimiento.add(opConsultarProcedimientos);
+
+        opConsultarProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        opConsultarProcedimiento.setText("Procedimiento");
+        opcionConsultarProcedimiento.add(opConsultarProcedimiento);
+
+        menuProcedimientos.add(opcionConsultarProcedimiento);
+
+        opcionAgregarProcedimiento.setText("Agregar");
+        opcionAgregarProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        menuProcedimientos.add(opcionAgregarProcedimiento);
+
+        opcionEditarProcedimiento.setText("Editar");
+        opcionEditarProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        menuProcedimientos.add(opcionEditarProcedimiento);
+
+        opcionEliminarProcedimiento.setText("Eliminar");
+        opcionEliminarProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        menuProcedimientos.add(opcionEliminarProcedimiento);
+
+        opcionReportesProcedimiento.setText("Reportes");
+        opcionReportesProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+
+        opInsumosUtilizados.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        opInsumosUtilizados.setText("Insumos Utilizados");
+        opcionReportesProcedimiento.add(opInsumosUtilizados);
+
+        opEquiposUtilizados.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        opEquiposUtilizados.setText("Equipos Utilizados");
+        opcionReportesProcedimiento.add(opEquiposUtilizados);
+
+        menuProcedimientos.add(opcionReportesProcedimiento);
+
+        ventanaProcedimientos.setJMenuBar(menuProcedimientos);
+
+        javax.swing.GroupLayout ventanaProcedimientosLayout = new javax.swing.GroupLayout(ventanaProcedimientos.getContentPane());
+        ventanaProcedimientos.getContentPane().setLayout(ventanaProcedimientosLayout);
+        ventanaProcedimientosLayout.setHorizontalGroup(
+            ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaProcedimientosLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btImprimirProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
+            .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
+                .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(labelOperacionProcedimiento))
+                    .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
+                        .addGap(470, 470, 470)
+                        .addComponent(btEjecutarProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1506, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(labelIdProcedimientos)
+                        .addGap(44, 44, 44)
+                        .addComponent(tdIdProcedimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78)
+                        .addComponent(labelNombreProcedimiento)
+                        .addGap(56, 56, 56)
+                        .addComponent(tfNombreProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(labelValorProcedimiento)
+                        .addGap(27, 27, 27)
+                        .addComponent(tfValorProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
+        ventanaProcedimientosLayout.setVerticalGroup(
+            ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(labelOperacionProcedimiento)
+                .addGap(46, 46, 46)
+                .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombreProcedimiento)
+                    .addComponent(tfNombreProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelValorProcedimiento)
+                    .addComponent(tfValorProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelIdProcedimientos)
+                    .addComponent(tdIdProcedimientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addComponent(btEjecutarProcedimiento)
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btImprimirProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(ventanaProcedimientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
+        ventanaTipoInsumo.setTitle("TIPO INSUMO");
+        ventanaTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        ventanaTipoInsumo.setVisible(true);
+
+        labelOperacionTipoInsumo.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        labelOperacionTipoInsumo.setText("Operacion");
+
+        labelNombreTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelNombreTipoInsumo.setText("Nombre");
+
+        btEjecutarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btEjecutarTipoInsumo.setText("Ejecutar");
+
+        btImprimirTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btImprimirTipoInsumo.setText("Imprimir");
+
+        tableTipoInsumo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tableTipoInsumo);
+
+        labelIdTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelIdTipoInsumo.setText("ID");
+
+        opcionConsultarTipoInsumo.setText("Consultar");
+        opcionConsultarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+
+        opConsultarTiposInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarTiposInsumo.setText("Todos los tipos de insumo");
+        opcionConsultarTipoInsumo.add(opConsultarTiposInsumo);
+
+        opConsultarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarTipoInsumo.setText("Tipo de insumo");
+        opcionConsultarTipoInsumo.add(opConsultarTipoInsumo);
+
+        menuTipoInsumo.add(opcionConsultarTipoInsumo);
+
+        opcionAgregarTipoInsumo.setText("Agregar");
+        opcionAgregarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        menuTipoInsumo.add(opcionAgregarTipoInsumo);
+
+        opcionEditartipoInsumo.setText("Editar");
+        opcionEditartipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        menuTipoInsumo.add(opcionEditartipoInsumo);
+
+        opcionEliminarTipoInsumo.setText("Eliminar");
+        opcionEliminarTipoInsumo.setToolTipText("");
+        opcionEliminarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        menuTipoInsumo.add(opcionEliminarTipoInsumo);
+
+        ventanaTipoInsumo.setJMenuBar(menuTipoInsumo);
+
+        javax.swing.GroupLayout ventanaTipoInsumoLayout = new javax.swing.GroupLayout(ventanaTipoInsumo.getContentPane());
+        ventanaTipoInsumo.getContentPane().setLayout(ventanaTipoInsumoLayout);
+        ventanaTipoInsumoLayout.setHorizontalGroup(
+            ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaTipoInsumoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btImprimirTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
+            .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
+                .addGroup(ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(labelOperacionTipoInsumo))
+                    .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(labelIdTipoInsumo)
+                        .addGap(63, 63, 63)
+                        .addComponent(tfIdTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(146, 146, 146)
+                        .addComponent(labelNombreTipoInsumo)
+                        .addGap(45, 45, 45)
+                        .addComponent(tfNombreTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(85, 85, 85)
+                        .addComponent(btEjecutarTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        ventanaTipoInsumoLayout.setVerticalGroup(
+            ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(labelOperacionTipoInsumo)
+                .addGap(55, 55, 55)
+                .addGroup(ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombreTipoInsumo)
+                    .addComponent(tfNombreTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btEjecutarTipoInsumo)
+                    .addComponent(labelIdTipoInsumo)
+                    .addComponent(tfIdTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 502, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btImprimirTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(ventanaTipoInsumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -511,42 +911,101 @@ ventanaPacientes.setVisible(true);// TODO add your handling code here:
     private javax.swing.JLabel barraHorizontal;
     private javax.swing.JLabel barraLateral;
     private javax.swing.JButton btCargos;
+    private javax.swing.JButton btEjecutarInsumos;
     private javax.swing.JButton btEjecutarPacientes;
+    private javax.swing.JButton btEjecutarProcedimiento;
+    private javax.swing.JButton btEjecutarTipoInsumo;
     private javax.swing.JButton btEntorno;
     private javax.swing.JButton btEquipos;
+    private javax.swing.JButton btImprimirInsumos;
     private javax.swing.JButton btImprimirPacientes;
+    private javax.swing.JButton btImprimirProcedimiento;
+    private javax.swing.JButton btImprimirTipoInsumo;
     private javax.swing.JButton btInsumos;
     private javax.swing.JButton btPacientes;
     private javax.swing.JButton btRol;
     private javax.swing.JButton btSalir;
     private javax.swing.JButton btTipoInsumos;
     private javax.swing.JButton btUsuarios;
+    private javax.swing.JComboBox<String> comboTiposInsumoInsumos;
     private javax.swing.JLabel imgLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel labelApellidosPacientes;
     private javax.swing.JLabel labelBienvenido;
+    private javax.swing.JLabel labelCantidadInsumos;
     private javax.swing.JLabel labelFechaNacimientoPacientes;
+    private javax.swing.JLabel labelIdInsumos;
+    private javax.swing.JLabel labelIdProcedimientos;
+    private javax.swing.JLabel labelIdTipoInsumo;
     private javax.swing.JLabel labelIdentificacionPacientes;
+    private javax.swing.JLabel labelNombreInsumos;
+    private javax.swing.JLabel labelNombreProcedimiento;
+    private javax.swing.JLabel labelNombreTipoInsumo;
     private javax.swing.JLabel labelNombresPacientes;
+    private javax.swing.JLabel labelOperacionInsumos;
+    private javax.swing.JLabel labelOperacionProcedimiento;
+    private javax.swing.JLabel labelOperacionTipoInsumo;
+    private javax.swing.JLabel labelPrecioInsumos;
     private javax.swing.JLabel labelTelefonoPacientes;
+    private javax.swing.JLabel labelTipoInsumoInsumos;
     private javax.swing.JLabel labelTituloPacientes;
+    private javax.swing.JLabel labelValorProcedimiento;
+    private javax.swing.JMenuBar menuInsumos;
     private javax.swing.JMenuBar menuPacientes;
+    private javax.swing.JMenuBar menuProcedimientos;
+    private javax.swing.JMenuBar menuTipoInsumo;
+    private javax.swing.JMenuItem opConsultarInsumo;
+    private javax.swing.JMenuItem opConsultarInsumos;
     private javax.swing.JMenuItem opConsultarPaciente;
     private javax.swing.JMenuItem opConsultarPacientes;
+    private javax.swing.JMenuItem opConsultarProcedimiento;
+    private javax.swing.JMenuItem opConsultarProcedimientos;
+    private javax.swing.JMenuItem opConsultarTipoInsumo;
+    private javax.swing.JMenuItem opConsultarTiposInsumo;
+    private javax.swing.JMenuItem opEquiposUtilizados;
+    private javax.swing.JMenuItem opInsumosUtilizados;
     private javax.swing.JMenuItem opProcedimientosRealizados;
+    private javax.swing.JMenu opcionAgregarInsumos;
     private javax.swing.JMenu opcionAgregarPaciente;
+    private javax.swing.JMenu opcionAgregarProcedimiento;
+    private javax.swing.JMenu opcionAgregarTipoInsumo;
+    private javax.swing.JMenu opcionConsultarInsumos;
     private javax.swing.JMenu opcionConsultarPaciente;
+    private javax.swing.JMenu opcionConsultarProcedimiento;
+    private javax.swing.JMenu opcionConsultarTipoInsumo;
+    private javax.swing.JMenu opcionEditarInsumos;
     private javax.swing.JMenu opcionEditarPaciente;
+    private javax.swing.JMenu opcionEditarProcedimiento;
+    private javax.swing.JMenu opcionEditartipoInsumo;
+    private javax.swing.JMenu opcionEliminarInsumos;
     private javax.swing.JMenu opcionEliminarPaciente;
+    private javax.swing.JMenu opcionEliminarProcedimiento;
+    private javax.swing.JMenu opcionEliminarTipoInsumo;
     private javax.swing.JMenu opcionReportesPaciente;
+    private javax.swing.JMenu opcionReportesProcedimiento;
     private javax.swing.JButton ptProcedimientos;
+    private javax.swing.JTable tableInsumos;
     private javax.swing.JTable tablePacientes;
+    private javax.swing.JTable tableProcedimiento;
+    private javax.swing.JTable tableTipoInsumo;
+    private javax.swing.JTextField tdIdProcedimientos;
     private javax.swing.JTextField tfApellidosPacientes;
+    private javax.swing.JTextField tfCantidadInsumos;
     private javax.swing.JTextField tfFechaNacimientoPacientes;
+    private javax.swing.JTextField tfIdInsumos;
+    private javax.swing.JTextField tfIdTipoInsumo;
     private javax.swing.JTextField tfIdentificacionPacientes;
+    private javax.swing.JTextField tfNombreInsumos;
+    private javax.swing.JTextField tfNombreProcedimiento;
+    private javax.swing.JTextField tfNombreTipoInsumo;
     private javax.swing.JTextField tfNombresPacientes;
+    private javax.swing.JTextField tfPrecioInsumos;
     private javax.swing.JTextField tfTelefonoPacientes;
+    private javax.swing.JTextField tfValorProcedimiento;
     private javax.swing.JInternalFrame ventanaCargos;
     private javax.swing.JInternalFrame ventanaEntorno;
     private javax.swing.JInternalFrame ventanaEquipos;
