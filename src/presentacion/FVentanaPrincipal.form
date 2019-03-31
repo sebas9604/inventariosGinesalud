@@ -489,6 +489,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Todos los pacientes"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opConsultarPacientesActionPerformed"/>
+                      </Events>
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="opConsultarPaciente">
                       <Properties>
@@ -497,6 +500,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Paciente"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opConsultarPacienteActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
@@ -507,6 +513,9 @@
                       <Font name="Segoe Print" size="15" style="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="opcionAgregarPacienteMouseClicked"/>
+                  </Events>
                 </Menu>
                 <Menu class="javax.swing.JMenu" name="opcionEditarPaciente">
                   <Properties>
@@ -515,6 +524,9 @@
                       <Font name="Segoe Print" size="15" style="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="opcionEditarPacienteMouseClicked"/>
+                  </Events>
                 </Menu>
                 <Menu class="javax.swing.JMenu" name="opcionEliminarPaciente">
                   <Properties>
@@ -524,6 +536,9 @@
                       <Font name="Segoe Print" size="15" style="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="opcionEliminarPacienteMouseClicked"/>
+                  </Events>
                 </Menu>
                 <Menu class="javax.swing.JMenu" name="opcionReportesPaciente">
                   <Properties>
@@ -540,6 +555,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Procedimientos realizados"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opProcedimientosRealizadosActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
@@ -581,7 +599,7 @@
                               <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                               <Component id="labelIdProcedimientos" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                              <Component id="tdIdProcedimientos" min="-2" pref="133" max="-2" attributes="0"/>
+                              <Component id="tfIdProcedimientos" min="-2" pref="133" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                               <Component id="labelNombreProcedimiento" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
@@ -599,7 +617,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                      <EmptySpace pref="71" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -615,7 +633,7 @@
                           <Component id="labelValorProcedimiento" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="tfValorProcedimiento" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="labelIdProcedimientos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tdIdProcedimientos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tfIdProcedimientos" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="btEjecutarProcedimiento" min="-2" max="-2" attributes="0"/>
@@ -702,7 +720,7 @@
                 <Property name="text" type="java.lang.String" value="ID"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="tdIdProcedimientos">
+            <Component class="javax.swing.JTextField" name="tfIdProcedimientos">
             </Component>
             <Menu class="javax.swing.JMenuBar" name="menuProcedimientos">
               <SubComponents>
@@ -721,6 +739,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Todos los procedimientos"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opConsultarProcedimientosActionPerformed"/>
+                      </Events>
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="opConsultarProcedimiento">
                       <Properties>
@@ -729,6 +750,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Procedimiento"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opConsultarProcedimientoActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
@@ -739,6 +763,9 @@
                       <Font name="Segoe Print" size="18" style="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="opcionAgregarProcedimientoMouseClicked"/>
+                  </Events>
                 </Menu>
                 <Menu class="javax.swing.JMenu" name="opcionEditarProcedimiento">
                   <Properties>
@@ -747,6 +774,9 @@
                       <Font name="Segoe Print" size="18" style="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="opcionEditarProcedimientoMouseClicked"/>
+                  </Events>
                 </Menu>
                 <Menu class="javax.swing.JMenu" name="opcionEliminarProcedimiento">
                   <Properties>
@@ -755,6 +785,9 @@
                       <Font name="Segoe Print" size="18" style="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="opcionEliminarProcedimientoMouseClicked"/>
+                  </Events>
                 </Menu>
                 <Menu class="javax.swing.JMenu" name="opcionReportesProcedimiento">
                   <Properties>
@@ -771,6 +804,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Insumos Utilizados"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opInsumosUtilizadosActionPerformed"/>
+                      </Events>
                     </MenuItem>
                     <MenuItem class="javax.swing.JMenuItem" name="opEquiposUtilizados">
                       <Properties>
@@ -779,6 +815,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Equipos Utilizados"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opEquiposUtilizadosActionPerformed"/>
+                      </Events>
                     </MenuItem>
                   </SubComponents>
                 </Menu>
@@ -2228,26 +2267,18 @@
                                       <Component id="tfApellidosUsuarios" min="-2" pref="246" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="tfNombresUsuarios" min="-2" pref="246" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <Component id="tfIdUsuarios" min="-2" pref="246" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="tfNombresUsuarios" alignment="0" min="-2" pref="246" max="-2" attributes="0"/>
+                                              <Component id="tfIdUsuarios" min="-2" pref="246" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
                                                   <Component id="labelCargoUsuarios" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="labelContraseñaUsuarios" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              </Group>
+                                              <Component id="labelContraseñaUsuarios" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="tfContrasenaUsuarios" max="32767" attributes="0"/>
                                               <Component id="comboCargousuarios" pref="246" max="32767" attributes="0"/>
@@ -2300,7 +2331,7 @@
                               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="btjecutarUsuario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane5" min="-2" max="-2" attributes="0"/>

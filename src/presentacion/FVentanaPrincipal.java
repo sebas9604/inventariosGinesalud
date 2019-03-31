@@ -14,28 +14,92 @@ import javax.swing.JOptionPane;
  */
 public class FVentanaPrincipal extends javax.swing.JFrame {
 
+    //PACIENTES
+    boolean consultarPacientesFlag = false;
+    boolean consultarPacienteFlag = false;
+    boolean editarPacienteFlag = false;
+    boolean eliminarPacienteFlag = false;
+    boolean agregarPacienteFlag = false;
+    boolean procedimientosxPacienteFlag = false;
+
+    public void falsearBanderasPacientes() {
+        consultarPacientesFlag = false;
+        consultarPacienteFlag = false;
+        editarPacienteFlag = false;
+        eliminarPacienteFlag = false;
+        agregarPacienteFlag = false;
+        procedimientosxPacienteFlag = false;
+    }
+
+    public void bloquearCamposPacientes() {
+        tfIdentificacionPacientes.setEnabled(false);
+        tfFechaNacimientoPacientes.setEnabled(false);
+        tfTelefonoPacientes.setEnabled(false);
+        tfNombresPacientes.setEnabled(false);
+        tfApellidosPacientes.setEnabled(false);
+    }
+
+    public void limpiarCamposPacientes() {
+        tfIdentificacionPacientes.setText("");
+        tfFechaNacimientoPacientes.setText("");
+        tfTelefonoPacientes.setText("");
+        tfNombresPacientes.setText("");
+        tfApellidosPacientes.setText("");
+    }
+
+    //PROCEDIMIENTOS
+    boolean consultarProcedimientosFlag = false;
+    boolean consultarProcedimientoFlag = false;
+    boolean editarProcedimientoFlag = false;
+    boolean eliminarProcedimientoFlag = false;
+    boolean agregarProcedimientoFlag = false;
+    boolean insumosUtilizadosFlag = false;
+    boolean equiposUtilizadosFlag = false;
+
+    public void falsearBanderasProcedimientos() {
+        consultarProcedimientosFlag = false;
+        consultarProcedimientoFlag = false;
+        editarProcedimientoFlag = false;
+        eliminarProcedimientoFlag = false;
+        agregarProcedimientoFlag = false;
+        insumosUtilizadosFlag = false;
+        equiposUtilizadosFlag = false;
+    }
+
+    public void bloquearCamposProcedimiento() {
+        tfIdProcedimientos.setEnabled(false);
+        tfNombreProcedimiento.setEnabled(false);
+        tfValorProcedimiento.setEnabled(false);
+    }
+
+    public void limpiarCamposProcedimiento() {
+        tfIdProcedimientos.setText("");
+        tfNombreProcedimiento.setText("");
+        tfValorProcedimiento.setText("");
+    }
+
     /**
      * Creates new form FVentanaPrincipal
      */
     public FVentanaPrincipal() {
         initComponents();
         ocultarVentanas();
-        Date obj =new Date();
+        Date obj = new Date();
         System.out.println(obj.toString() + "!!");
     }
 
-    public void ocultarVentanas(){
-    ventanaCargos.setVisible(false);
-    ventanaEntorno.setVisible(false);
-    ventanaEquipos.setVisible(false);
-    ventanaInsumos.setVisible(false);
-    ventanaPacientes.setVisible(false);
-    ventanaProcedimientos.setVisible(false);
-    ventanaRol.setVisible(false);
-    ventanaTipoInsumo.setVisible(false);
-    ventanaUsuarios.setVisible(false);
+    public void ocultarVentanas() {
+        ventanaCargos.setVisible(false);
+        ventanaEntorno.setVisible(false);
+        ventanaEquipos.setVisible(false);
+        ventanaInsumos.setVisible(false);
+        ventanaPacientes.setVisible(false);
+        ventanaProcedimientos.setVisible(false);
+        ventanaRol.setVisible(false);
+        ventanaTipoInsumo.setVisible(false);
+        ventanaUsuarios.setVisible(false);
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -96,7 +160,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tableProcedimiento = new javax.swing.JTable();
         btImprimirProcedimiento = new javax.swing.JButton();
         labelIdProcedimientos = new javax.swing.JLabel();
-        tdIdProcedimientos = new javax.swing.JTextField();
+        tfIdProcedimientos = new javax.swing.JTextField();
         menuProcedimientos = new javax.swing.JMenuBar();
         opcionConsultarProcedimiento = new javax.swing.JMenu();
         opConsultarProcedimientos = new javax.swing.JMenuItem();
@@ -424,25 +488,50 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         opConsultarPacientes.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarPacientes.setText("Todos los pacientes");
+        opConsultarPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarPacientesActionPerformed(evt);
+            }
+        });
         opcionConsultarPaciente.add(opConsultarPacientes);
 
         opConsultarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarPaciente.setText("Paciente");
+        opConsultarPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarPacienteActionPerformed(evt);
+            }
+        });
         opcionConsultarPaciente.add(opConsultarPaciente);
 
         menuPacientes.add(opcionConsultarPaciente);
 
         opcionAgregarPaciente.setText("Agregar");
         opcionAgregarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionAgregarPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarPacienteMouseClicked(evt);
+            }
+        });
         menuPacientes.add(opcionAgregarPaciente);
 
         opcionEditarPaciente.setText("Editar");
         opcionEditarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEditarPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditarPacienteMouseClicked(evt);
+            }
+        });
         menuPacientes.add(opcionEditarPaciente);
 
         opcionEliminarPaciente.setText("Eliminar");
         opcionEliminarPaciente.setToolTipText("");
         opcionEliminarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEliminarPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarPacienteMouseClicked(evt);
+            }
+        });
         menuPacientes.add(opcionEliminarPaciente);
 
         opcionReportesPaciente.setText("Reportes");
@@ -450,6 +539,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         opProcedimientosRealizados.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opProcedimientosRealizados.setText("Procedimientos realizados");
+        opProcedimientosRealizados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opProcedimientosRealizadosActionPerformed(evt);
+            }
+        });
         opcionReportesPaciente.add(opProcedimientosRealizados);
 
         menuPacientes.add(opcionReportesPaciente);
@@ -570,24 +664,49 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         opConsultarProcedimientos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         opConsultarProcedimientos.setText("Todos los procedimientos");
+        opConsultarProcedimientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarProcedimientosActionPerformed(evt);
+            }
+        });
         opcionConsultarProcedimiento.add(opConsultarProcedimientos);
 
         opConsultarProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         opConsultarProcedimiento.setText("Procedimiento");
+        opConsultarProcedimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarProcedimientoActionPerformed(evt);
+            }
+        });
         opcionConsultarProcedimiento.add(opConsultarProcedimiento);
 
         menuProcedimientos.add(opcionConsultarProcedimiento);
 
         opcionAgregarProcedimiento.setText("Agregar");
         opcionAgregarProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        opcionAgregarProcedimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarProcedimientoMouseClicked(evt);
+            }
+        });
         menuProcedimientos.add(opcionAgregarProcedimiento);
 
         opcionEditarProcedimiento.setText("Editar");
         opcionEditarProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        opcionEditarProcedimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditarProcedimientoMouseClicked(evt);
+            }
+        });
         menuProcedimientos.add(opcionEditarProcedimiento);
 
         opcionEliminarProcedimiento.setText("Eliminar");
         opcionEliminarProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        opcionEliminarProcedimiento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarProcedimientoMouseClicked(evt);
+            }
+        });
         menuProcedimientos.add(opcionEliminarProcedimiento);
 
         opcionReportesProcedimiento.setText("Reportes");
@@ -595,10 +714,20 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         opInsumosUtilizados.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         opInsumosUtilizados.setText("Insumos Utilizados");
+        opInsumosUtilizados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opInsumosUtilizadosActionPerformed(evt);
+            }
+        });
         opcionReportesProcedimiento.add(opInsumosUtilizados);
 
         opEquiposUtilizados.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         opEquiposUtilizados.setText("Equipos Utilizados");
+        opEquiposUtilizados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opEquiposUtilizadosActionPerformed(evt);
+            }
+        });
         opcionReportesProcedimiento.add(opEquiposUtilizados);
 
         menuProcedimientos.add(opcionReportesProcedimiento);
@@ -621,7 +750,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                         .addGap(113, 113, 113)
                         .addComponent(labelIdProcedimientos)
                         .addGap(44, 44, 44)
-                        .addComponent(tdIdProcedimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tfIdProcedimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(78, 78, 78)
                         .addComponent(labelNombreProcedimiento)
                         .addGap(56, 56, 56)
@@ -635,7 +764,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                         .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btImprimirProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1527, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         ventanaProcedimientosLayout.setVerticalGroup(
             ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -649,7 +778,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(labelValorProcedimiento)
                     .addComponent(tfValorProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelIdProcedimientos)
-                    .addComponent(tdIdProcedimientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfIdProcedimientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addComponent(btEjecutarProcedimiento)
                 .addGap(49, 49, 49)
@@ -1622,20 +1751,15 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                                 .addComponent(tfApellidosUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(ventanaUsuariosLayout.createSequentialGroup()
                                     .addGroup(ventanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(ventanaUsuariosLayout.createSequentialGroup()
-                                            .addComponent(tfNombresUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(140, 140, 140))
-                                        .addGroup(ventanaUsuariosLayout.createSequentialGroup()
-                                            .addComponent(tfIdUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(140, 140, 140)))
-                                    .addGroup(ventanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(tfNombresUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(tfIdUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(140, 140, 140)
+                                    .addGroup(ventanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(ventanaUsuariosLayout.createSequentialGroup()
                                             .addGap(50, 50, 50)
                                             .addComponent(labelCargoUsuarios))
-                                        .addGroup(ventanaUsuariosLayout.createSequentialGroup()
-                                            .addComponent(labelContraseñaUsuarios)
-                                            .addGap(0, 0, Short.MAX_VALUE)))
-                                    .addGap(18, 18, 18)
+                                        .addComponent(labelContraseñaUsuarios))
+                                    .addGap(0, 0, Short.MAX_VALUE)
                                     .addGroup(ventanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(tfContrasenaUsuarios)
                                         .addComponent(comboCargousuarios, 0, 246, Short.MAX_VALUE))))
@@ -1672,7 +1796,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaUsuariosLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btjecutarUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1704,68 +1828,194 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalirActionPerformed
-int resp = JOptionPane.showConfirmDialog(rootPane, "¿QUIERE SALIR DE LA APLICACION?", "SALIR", JOptionPane.YES_NO_OPTION);
-if(resp == 0){
-System.exit(0);
-}
+        int resp = JOptionPane.showConfirmDialog(rootPane, "¿QUIERE SALIR DE LA APLICACION?", "SALIR", JOptionPane.YES_NO_OPTION);
+        if (resp == 0) {
+            System.exit(0);
+        }
     }//GEN-LAST:event_btSalirActionPerformed
 
     private void btPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPacientesActionPerformed
-ocultarVentanas();
-ventanaPacientes.setVisible(true);// TODO add your handling code here:
+        ocultarVentanas();
+        ventanaPacientes.setVisible(true);
+        bloquearCamposPacientes();
+        falsearBanderasPacientes();
     }//GEN-LAST:event_btPacientesActionPerformed
 
     private void btInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInsumosActionPerformed
-ocultarVentanas();
-ventanaInsumos.setVisible(true);        // TODO add your handling code here:
+        ocultarVentanas();
+        ventanaInsumos.setVisible(true);
     }//GEN-LAST:event_btInsumosActionPerformed
 
     private void tfIdRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdRolActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_tfIdRolActionPerformed
 
     private void tfNombreRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreRolActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_tfNombreRolActionPerformed
 
     private void tfNombresUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombresUsuariosActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_tfNombresUsuariosActionPerformed
 
     private void ptProcedimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ptProcedimientosActionPerformed
-ocultarVentanas();
-ventanaProcedimientos.setVisible(true);        // TODO add your handling code here:
+        ocultarVentanas();
+        ventanaProcedimientos.setVisible(true);
+        bloquearCamposProcedimiento();
+        falsearBanderasProcedimientos();
     }//GEN-LAST:event_ptProcedimientosActionPerformed
 
     private void btTipoInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTipoInsumosActionPerformed
-ocultarVentanas();
-ventanaTipoInsumo.setVisible(true);        // TODO add your handling code here:
+        ocultarVentanas();
+        ventanaTipoInsumo.setVisible(true);
     }//GEN-LAST:event_btTipoInsumosActionPerformed
 
     private void btEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntornoActionPerformed
-ocultarVentanas();
-ventanaEntorno.setVisible(true);        // TODO add your handling code here:
+        ocultarVentanas();
+        ventanaEntorno.setVisible(true);
     }//GEN-LAST:event_btEntornoActionPerformed
 
     private void btEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEquiposActionPerformed
-ocultarVentanas();
-ventanaEquipos.setVisible(true);        // TODO add your handling code here:
+        ocultarVentanas();
+        ventanaEquipos.setVisible(true);
     }//GEN-LAST:event_btEquiposActionPerformed
 
     private void btCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCargosActionPerformed
-ocultarVentanas();
-ventanaCargos.setVisible(true);        // TODO add your handling code here:
+        ocultarVentanas();
+        ventanaCargos.setVisible(true);
     }//GEN-LAST:event_btCargosActionPerformed
 
     private void btRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRolActionPerformed
-ocultarVentanas();
-ventanaRol.setVisible(true);        // TODO add your handling code here:
+        ocultarVentanas();
+        ventanaRol.setVisible(true);
     }//GEN-LAST:event_btRolActionPerformed
 
     private void btUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUsuariosActionPerformed
-ocultarVentanas();
-ventanaUsuarios.setVisible(true);        // TODO add your handling code here:
+        ocultarVentanas();
+        ventanaUsuarios.setVisible(true);
     }//GEN-LAST:event_btUsuariosActionPerformed
+
+    private void opConsultarPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarPacientesActionPerformed
+        limpiarCamposPacientes();
+        falsearBanderasPacientes();
+        consultarPacientesFlag = true;
+        bloquearCamposPacientes();
+        labelTituloPacientes.setText("Consultar Todos");
+    }//GEN-LAST:event_opConsultarPacientesActionPerformed
+
+    private void opConsultarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarPacienteActionPerformed
+        limpiarCamposPacientes();
+        falsearBanderasPacientes();
+        consultarPacienteFlag = true;
+        bloquearCamposPacientes();
+        tfIdentificacionPacientes.setEnabled(true);
+        labelTituloPacientes.setText("Consultar");
+    }//GEN-LAST:event_opConsultarPacienteActionPerformed
+
+    private void opcionAgregarPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarPacienteMouseClicked
+        limpiarCamposPacientes();
+
+        falsearBanderasPacientes();
+        agregarPacienteFlag = true;
+        bloquearCamposPacientes();
+        tfIdentificacionPacientes.setEnabled(true);
+        tfFechaNacimientoPacientes.setEnabled(true);
+        tfTelefonoPacientes.setEnabled(true);
+        tfNombresPacientes.setEnabled(true);
+        tfApellidosPacientes.setEnabled(true);
+        labelTituloPacientes.setText("Agregar");
+    }//GEN-LAST:event_opcionAgregarPacienteMouseClicked
+
+    private void opcionEditarPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarPacienteMouseClicked
+        falsearBanderasPacientes();
+        editarPacienteFlag = true;
+        bloquearCamposPacientes();
+        tfIdentificacionPacientes.setEnabled(true);
+        tfFechaNacimientoPacientes.setEnabled(true);
+        tfTelefonoPacientes.setEnabled(true);
+        tfNombresPacientes.setEnabled(true);
+        tfApellidosPacientes.setEnabled(true);
+        labelTituloPacientes.setText("Editar");
+    }//GEN-LAST:event_opcionEditarPacienteMouseClicked
+
+    private void opcionEliminarPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarPacienteMouseClicked
+        falsearBanderasPacientes();
+        eliminarPacienteFlag = true;
+        bloquearCamposPacientes();
+        tfIdentificacionPacientes.setEnabled(true);
+        labelTituloPacientes.setText("Eliminar");
+    }//GEN-LAST:event_opcionEliminarPacienteMouseClicked
+
+    private void opProcedimientosRealizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opProcedimientosRealizadosActionPerformed
+        falsearBanderasPacientes();
+        procedimientosxPacienteFlag = true;
+        bloquearCamposPacientes();
+        tfIdentificacionPacientes.setEnabled(true);
+        labelTituloPacientes.setText("Procedimientos del paciente");
+    }//GEN-LAST:event_opProcedimientosRealizadosActionPerformed
+
+    private void opConsultarProcedimientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarProcedimientosActionPerformed
+        limpiarCamposProcedimiento();
+        falsearBanderasProcedimientos();
+        consultarProcedimientosFlag = true;
+        bloquearCamposProcedimiento();
+        labelOperacionProcedimiento.setText("Consultar Todos");
+    }//GEN-LAST:event_opConsultarProcedimientosActionPerformed
+
+    private void opConsultarProcedimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarProcedimientoActionPerformed
+        limpiarCamposProcedimiento();
+        falsearBanderasProcedimientos();
+        consultarProcedimientoFlag = true;
+        bloquearCamposProcedimiento();
+        tfIdProcedimientos.setEnabled(true);
+        labelOperacionProcedimiento.setText("Consultar");
+
+    }//GEN-LAST:event_opConsultarProcedimientoActionPerformed
+
+    private void opcionAgregarProcedimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarProcedimientoMouseClicked
+        limpiarCamposProcedimiento();
+        falsearBanderasProcedimientos();
+        agregarProcedimientoFlag = true;
+        bloquearCamposProcedimiento();
+        tfIdProcedimientos.setEnabled(true);
+        tfNombreProcedimiento.setEnabled(true);
+        tfValorProcedimiento.setEnabled(true);
+        labelOperacionProcedimiento.setText("Agregar");  // TODO add your handling code here:
+    }//GEN-LAST:event_opcionAgregarProcedimientoMouseClicked
+
+    private void opcionEditarProcedimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarProcedimientoMouseClicked
+        falsearBanderasProcedimientos();
+        editarProcedimientoFlag = true;
+        bloquearCamposProcedimiento();
+        tfNombreProcedimiento.setEnabled(true);
+        tfValorProcedimiento.setEnabled(true);
+        labelOperacionProcedimiento.setText("Editar");
+    }//GEN-LAST:event_opcionEditarProcedimientoMouseClicked
+
+    private void opcionEliminarProcedimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarProcedimientoMouseClicked
+           limpiarCamposProcedimiento();
+        falsearBanderasProcedimientos();
+        eliminarProcedimientoFlag = true;
+        bloquearCamposProcedimiento();
+        tfIdProcedimientos.setEnabled(true);
+        labelOperacionProcedimiento.setText("Eliminar");
+    }//GEN-LAST:event_opcionEliminarProcedimientoMouseClicked
+
+    private void opInsumosUtilizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opInsumosUtilizadosActionPerformed
+           limpiarCamposProcedimiento();
+        falsearBanderasProcedimientos();
+        insumosUtilizadosFlag = true;
+        bloquearCamposProcedimiento();
+        tfIdProcedimientos.setEnabled(true);
+        labelOperacionProcedimiento.setText("Insumos utilizados");    }//GEN-LAST:event_opInsumosUtilizadosActionPerformed
+
+    private void opEquiposUtilizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEquiposUtilizadosActionPerformed
+           limpiarCamposProcedimiento();
+        falsearBanderasProcedimientos();
+        equiposUtilizadosFlag = true;
+        bloquearCamposProcedimiento();
+        tfIdProcedimientos.setEnabled(true);
+        labelOperacionProcedimiento.setText("Equipos utilizados");    }//GEN-LAST:event_opEquiposUtilizadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1976,7 +2226,6 @@ ventanaUsuarios.setVisible(true);        // TODO add your handling code here:
     private javax.swing.JTable tableRol;
     private javax.swing.JTable tableTipoInsumo;
     private javax.swing.JTable tableUsuarios;
-    private javax.swing.JTextField tdIdProcedimientos;
     private javax.swing.JTextField tfApellidosPacientes;
     private javax.swing.JTextField tfApellidosUsuarios;
     private javax.swing.JTextField tfCantidadInsumos;
@@ -1988,6 +2237,7 @@ ventanaUsuarios.setVisible(true);        // TODO add your handling code here:
     private javax.swing.JTextField tfIdEntorno;
     private javax.swing.JTextField tfIdEquipo;
     private javax.swing.JTextField tfIdInsumos;
+    private javax.swing.JTextField tfIdProcedimientos;
     private javax.swing.JTextField tfIdRol;
     private javax.swing.JTextField tfIdRolUsuario;
     private javax.swing.JTextField tfIdTipoInsumo;
