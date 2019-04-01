@@ -78,6 +78,177 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfValorProcedimiento.setText("");
     }
 
+    //TIPO INSUMOS
+    boolean consultarTipoInsumosFlag = false;
+    boolean consultarTipoInsumoFlag = false;
+    boolean editarTipoInsumoFlag = false;
+    boolean eliminarTipoInsumoFlag = false;
+    boolean agregarTipoInsumoFlag = false;
+
+    public void falsearBanderasTipoInsumo() {
+        consultarTipoInsumosFlag = false;
+        consultarTipoInsumoFlag = false;
+        editarTipoInsumoFlag = false;
+        eliminarTipoInsumoFlag = false;
+        agregarTipoInsumoFlag = false;
+    }
+
+    public void bloquearCamposTipoInsumo() {
+        tfIdTipoInsumo.setEnabled(false);
+        tfNombreTipoInsumo.setEnabled(false);
+    }
+
+    public void limpiarCamposTipoInsumo() {
+        tfIdTipoInsumo.setText("");
+        tfNombreTipoInsumo.setText("");
+    }
+
+    //INSUMOS
+    boolean consultarInsumosFlag = false;
+    boolean consultarInsumoFlag = false;
+    boolean editarInsumoFlag = false;
+    boolean eliminarInsumoFlag = false;
+    boolean agregarInsumoFlag = false;
+    boolean procedimientosEnQueSeUtilizaInsumoFlag = false;
+
+    public void falsearBanderasInsumo() {
+        consultarInsumosFlag = false;
+        consultarInsumoFlag = false;
+        editarInsumoFlag = false;
+        eliminarInsumoFlag = false;
+        agregarInsumoFlag = false;
+        procedimientosEnQueSeUtilizaInsumoFlag = false;
+
+    }
+
+    public void bloquearCamposInsumo() {
+        tfIdInsumos.setEnabled(false);
+        tfNombreInsumos.setEnabled(false);
+        comboTiposInsumoInsumos.setEnabled(false);
+        tfPrecioInsumos.setEnabled(false);
+        tfCantidadInsumos.setEnabled(false);
+    }
+
+    public void limpiarCamposInsumo() {
+        tfIdInsumos.setText("");
+        tfNombreInsumos.setText("");
+        tfPrecioInsumos.setText("");
+        tfCantidadInsumos.setText("");
+
+    }
+
+    //ENTORNO
+    boolean consultarEntornosFlag = false;
+    boolean consultarEntornoFlag = false;
+    boolean editarEntornoFlag = false;
+    boolean eliminarEntornoFlag = false;
+    boolean agregarEntornoFlag = false;
+
+    public void falsearBanderasEntorno() {
+        consultarEntornosFlag = false;
+        consultarEntornoFlag = false;
+        editarEntornoFlag = false;
+        eliminarEntornoFlag = false;
+        agregarEntornoFlag = false;
+
+    }
+
+    public void bloquearCamposEntorno() {
+        tfIdEntorno.setEnabled(false);
+        tfHumedadEntorno.setEnabled(false);
+        tfTemperaturaEntorno.setEnabled(false);
+        tfFechaEntorno.setEnabled(false);
+    }
+
+    public void limpiarCamposEntorno() {
+        tfIdEntorno.setText("");
+        tfHumedadEntorno.setText("");
+        tfTemperaturaEntorno.setText("");
+        tfFechaEntorno.setText("");
+    }
+
+    //EQUIPOS
+    boolean consultarEquiposFlag = false;
+    boolean consultarEquipoFlag = false;
+    boolean editarEquipoFlag = false;
+    boolean eliminarEquipoFlag = false;
+    boolean agregarEquipoFlag = false;
+    boolean procedimientosEnQueSeUtilizaEquipoFlag = false;
+
+    public void falsearBanderasEquipos() {
+        consultarEquiposFlag = false;
+        consultarEquipoFlag = false;
+        editarEquipoFlag = false;
+        eliminarEquipoFlag = false;
+        agregarEquipoFlag = false;
+    }
+
+    public void bloquearCamposEquipos() {
+        tfIdEquipo.setEnabled(false);
+        tfNombreEquipo.setEnabled(false);
+        tfPrecioEquipo.setEnabled(false);
+    }
+
+    public void limpiarCamposEquipos() {
+        tfIdEquipo.setText("");
+        tfNombreEquipo.setText("");
+        tfPrecioEquipo.setText("");
+    }
+
+    //CARGOS
+     boolean consultarCargosFlag = false;
+    boolean consultarCargoFlag = false;
+    boolean editarCargoFlag = false;
+    boolean eliminarCargoFlag = false;
+    boolean agregarCargoFlag = false;
+    
+    public void falsearBanderasCargo(){
+          consultarCargosFlag = false;
+     consultarCargoFlag = false;
+     editarCargoFlag = false;
+     eliminarCargoFlag = false;
+     agregarCargoFlag = false;
+    }
+    
+    public void bloquearCamposCargo(){
+    tfIdCargo.setEnabled(false);
+    tfNombreCargo.setEnabled(false);
+    tfSalarioCargo.setEnabled(false);
+    }
+    
+    public void limpiarCamposCargo(){
+        tfIdCargo.setText("");
+    tfNombreCargo.setText("");
+    tfSalarioCargo.setText("");
+    }
+    
+    //ROL
+         boolean consultarRolesFlag = false;
+    boolean consultarRolFlag = false;
+    boolean editarRolFlag = false;
+    boolean eliminarRolFlag = false;
+    boolean agregarRolFlag = false;
+    
+    public void falsearBanderasRol(){
+              consultarRolesFlag = false;
+     consultarRolFlag = false;
+     editarRolFlag = false;
+     eliminarRolFlag = false;
+     agregarRolFlag = false;
+    }
+    
+    public void bloquearCamposRol(){
+    tfIdRol.setEnabled(false);
+    tfNombreRol.setEnabled(false);
+    }
+    
+    public void limpiarCamposRol(){
+    tfIdRol.setText("");
+    tfNombreRol.setText("");    
+    }
+    //USUARIOS
+    
+    
     /**
      * Creates new form FVentanaPrincipal
      */
@@ -782,7 +953,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(btEjecutarProcedimiento)
                 .addGap(49, 49, 49)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 429, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btImprimirProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -828,25 +999,50 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         opConsultarTiposInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarTiposInsumo.setText("Todos los tipos de insumo");
+        opConsultarTiposInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarTiposInsumoActionPerformed(evt);
+            }
+        });
         opcionConsultarTipoInsumo.add(opConsultarTiposInsumo);
 
         opConsultarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarTipoInsumo.setText("Tipo de insumo");
+        opConsultarTipoInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarTipoInsumoActionPerformed(evt);
+            }
+        });
         opcionConsultarTipoInsumo.add(opConsultarTipoInsumo);
 
         menuTipoInsumo.add(opcionConsultarTipoInsumo);
 
         opcionAgregarTipoInsumo.setText("Agregar");
         opcionAgregarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionAgregarTipoInsumo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarTipoInsumoMouseClicked(evt);
+            }
+        });
         menuTipoInsumo.add(opcionAgregarTipoInsumo);
 
         opcionEditartipoInsumo.setText("Editar");
         opcionEditartipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEditartipoInsumo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditartipoInsumoMouseClicked(evt);
+            }
+        });
         menuTipoInsumo.add(opcionEditartipoInsumo);
 
         opcionEliminarTipoInsumo.setText("Eliminar");
         opcionEliminarTipoInsumo.setToolTipText("");
         opcionEliminarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEliminarTipoInsumo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarTipoInsumoMouseClicked(evt);
+            }
+        });
         menuTipoInsumo.add(opcionEliminarTipoInsumo);
 
         ventanaTipoInsumo.setJMenuBar(menuTipoInsumo);
@@ -891,7 +1087,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(labelIdTipoInsumo)
                     .addComponent(tfIdTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btImprimirTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -936,7 +1132,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         comboTiposInsumoInsumos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        labelPrecioInsumos.setFont(new java.awt.Font("Segoe Script", 0, 18)); // NOI18N
+        labelPrecioInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         labelPrecioInsumos.setText("Precio unidad");
 
         labelCantidadInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
@@ -947,25 +1143,50 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         opConsultarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarInsumos.setText("Todos los insumos");
+        opConsultarInsumos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarInsumosActionPerformed(evt);
+            }
+        });
         opcionConsultarInsumos.add(opConsultarInsumos);
 
         opConsultarInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarInsumo.setText("Insumo");
+        opConsultarInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarInsumoActionPerformed(evt);
+            }
+        });
         opcionConsultarInsumos.add(opConsultarInsumo);
 
         menuInsumos.add(opcionConsultarInsumos);
 
         opcionAgregarInsumos.setText("Agregar");
         opcionAgregarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionAgregarInsumos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarInsumosMouseClicked(evt);
+            }
+        });
         menuInsumos.add(opcionAgregarInsumos);
 
         opcionEditarInsumos.setText("Editar");
         opcionEditarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEditarInsumos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditarInsumosMouseClicked(evt);
+            }
+        });
         menuInsumos.add(opcionEditarInsumos);
 
         opcionEliminarInsumos.setText("Eliminar");
         opcionEliminarInsumos.setToolTipText("");
         opcionEliminarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEliminarInsumos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarInsumosMouseClicked(evt);
+            }
+        });
         menuInsumos.add(opcionEliminarInsumos);
 
         opcionReportesInsumos.setText("Reportes");
@@ -974,6 +1195,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         procedimientosxInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         procedimientosxInsumo.setText("Procedimientos en que se utiliza");
+        procedimientosxInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                procedimientosxInsumoActionPerformed(evt);
+            }
+        });
         opcionReportesInsumos.add(procedimientosxInsumo);
 
         menuInsumos.add(opcionReportesInsumos);
@@ -1012,7 +1238,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(tfCantidadInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(123, 123, 123)))
-                .addContainerGap(320, Short.MAX_VALUE))
+                .addContainerGap(365, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaInsumosLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btImprimirInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1106,25 +1332,50 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         opConsultarEntornos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarEntornos.setText("Todos los entornos");
+        opConsultarEntornos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarEntornosActionPerformed(evt);
+            }
+        });
         opcionConsultarEntorno.add(opConsultarEntornos);
 
         opConsultarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarEntorno.setText("Entorno");
+        opConsultarEntorno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarEntornoActionPerformed(evt);
+            }
+        });
         opcionConsultarEntorno.add(opConsultarEntorno);
 
         menuEntorno.add(opcionConsultarEntorno);
 
         opcionAgregarEntorno.setText("Agregar");
         opcionAgregarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionAgregarEntorno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarEntornoMouseClicked(evt);
+            }
+        });
         menuEntorno.add(opcionAgregarEntorno);
 
         opcionEditarEntorno.setText("Editar");
         opcionEditarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEditarEntorno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditarEntornoMouseClicked(evt);
+            }
+        });
         menuEntorno.add(opcionEditarEntorno);
 
         opcionEliminarEntorno.setText("Eliminar");
         opcionEliminarEntorno.setToolTipText("");
         opcionEliminarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEliminarEntorno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarEntornoMouseClicked(evt);
+            }
+        });
         menuEntorno.add(opcionEliminarEntorno);
 
         ventanaEntorno.setJMenuBar(menuEntorno);
@@ -1236,25 +1487,50 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         opConsultarEquipos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarEquipos.setText("Todos los equipos");
+        opConsultarEquipos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarEquiposActionPerformed(evt);
+            }
+        });
         opcionConsultarEquipos.add(opConsultarEquipos);
 
         opConsultarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarEquipo.setText("Equipo");
+        opConsultarEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarEquipoActionPerformed(evt);
+            }
+        });
         opcionConsultarEquipos.add(opConsultarEquipo);
 
         menuEquipos.add(opcionConsultarEquipos);
 
         opcionAgregarEquipo.setText("Agregar");
         opcionAgregarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionAgregarEquipo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarEquipoMouseClicked(evt);
+            }
+        });
         menuEquipos.add(opcionAgregarEquipo);
 
         opcionEditarEquipo.setText("Editar");
         opcionEditarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEditarEquipo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditarEquipoMouseClicked(evt);
+            }
+        });
         menuEquipos.add(opcionEditarEquipo);
 
         opcionEliminarEquipo.setText("Eliminar");
         opcionEliminarEquipo.setToolTipText("");
         opcionEliminarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEliminarEquipo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarEquipoMouseClicked(evt);
+            }
+        });
         menuEquipos.add(opcionEliminarEquipo);
 
         opcionReportesEquipo.setText("Reportes");
@@ -1263,6 +1539,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         procedimientosxEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         procedimientosxEquipo.setText("Procedimientos en que se utiliza");
+        procedimientosxEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                procedimientosxEquipoActionPerformed(evt);
+            }
+        });
         opcionReportesEquipo.add(procedimientosxEquipo);
 
         menuEquipos.add(opcionReportesEquipo);
@@ -1286,7 +1567,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tfNombreEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btEjecutarEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 338, Short.MAX_VALUE)
                 .addComponent(labelPrecioEquipo)
                 .addGap(29, 29, 29)
                 .addComponent(tfPrecioEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1297,9 +1578,9 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
             .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEquiposLayout.createSequentialGroup()
-                    .addContainerGap(21, Short.MAX_VALUE)
+                    .addContainerGap(42, Short.MAX_VALUE)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(21, Short.MAX_VALUE)))
+                    .addContainerGap(42, Short.MAX_VALUE)))
         );
         ventanaEquiposLayout.setVerticalGroup(
             ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1368,25 +1649,50 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         opConsultarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarCargos.setText("Todos los cargos");
+        opConsultarCargos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarCargosActionPerformed(evt);
+            }
+        });
         opcionConsultarCargos.add(opConsultarCargos);
 
         opConsultarCargo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarCargo.setText("Cargo");
+        opConsultarCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarCargoActionPerformed(evt);
+            }
+        });
         opcionConsultarCargos.add(opConsultarCargo);
 
         menuCargos.add(opcionConsultarCargos);
 
         opcionAgregarCargos.setText("Agregar");
         opcionAgregarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionAgregarCargos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarCargosMouseClicked(evt);
+            }
+        });
         menuCargos.add(opcionAgregarCargos);
 
         opcionEditarCargos.setText("Editar");
         opcionEditarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEditarCargos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditarCargosMouseClicked(evt);
+            }
+        });
         menuCargos.add(opcionEditarCargos);
 
         opcionEliminarCargos.setText("Eliminar");
         opcionEliminarCargos.setToolTipText("");
         opcionEliminarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEliminarCargos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarCargosMouseClicked(evt);
+            }
+        });
         menuCargos.add(opcionEliminarCargos);
 
         ventanaCargos.setJMenuBar(menuCargos);
@@ -1443,14 +1749,14 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(tfSalarioCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(btEjecutarCargos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 575, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 579, Short.MAX_VALUE)
                 .addComponent(btImprimirCargos)
                 .addContainerGap())
             .addGroup(ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCargosLayout.createSequentialGroup()
-                    .addContainerGap(181, Short.MAX_VALUE)
+                    .addContainerGap(183, Short.MAX_VALUE)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(70, Short.MAX_VALUE)))
+                    .addContainerGap(72, Short.MAX_VALUE)))
         );
 
         jPanel1.add(ventanaCargos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
@@ -1839,11 +2145,15 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         ventanaPacientes.setVisible(true);
         bloquearCamposPacientes();
         falsearBanderasPacientes();
+        limpiarCamposPacientes();
     }//GEN-LAST:event_btPacientesActionPerformed
 
     private void btInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInsumosActionPerformed
         ocultarVentanas();
         ventanaInsumos.setVisible(true);
+        bloquearCamposInsumo();
+        falsearBanderasInsumo();
+        limpiarCamposInsumo();
     }//GEN-LAST:event_btInsumosActionPerformed
 
     private void tfIdRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdRolActionPerformed
@@ -1863,31 +2173,47 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         ventanaProcedimientos.setVisible(true);
         bloquearCamposProcedimiento();
         falsearBanderasProcedimientos();
+        limpiarCamposProcedimiento();
     }//GEN-LAST:event_ptProcedimientosActionPerformed
 
     private void btTipoInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTipoInsumosActionPerformed
         ocultarVentanas();
         ventanaTipoInsumo.setVisible(true);
+        bloquearCamposTipoInsumo();
+        falsearBanderasTipoInsumo();
+        limpiarCamposTipoInsumo();
     }//GEN-LAST:event_btTipoInsumosActionPerformed
 
     private void btEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEntornoActionPerformed
         ocultarVentanas();
         ventanaEntorno.setVisible(true);
+        bloquearCamposEntorno();
+        falsearBanderasEntorno();
+        limpiarCamposEntorno();
     }//GEN-LAST:event_btEntornoActionPerformed
 
     private void btEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEquiposActionPerformed
         ocultarVentanas();
         ventanaEquipos.setVisible(true);
+        bloquearCamposEquipos();
+        falsearBanderasEquipos();
+        limpiarCamposEquipos();
     }//GEN-LAST:event_btEquiposActionPerformed
 
     private void btCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCargosActionPerformed
         ocultarVentanas();
         ventanaCargos.setVisible(true);
+        bloquearCamposCargo();
+        limpiarCamposCargo();
+        falsearBanderasCargo();
     }//GEN-LAST:event_btCargosActionPerformed
 
     private void btRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRolActionPerformed
         ocultarVentanas();
         ventanaRol.setVisible(true);
+        limpiarCamposRol();
+        bloquearCamposRol();
+        falsearBanderasRol();
     }//GEN-LAST:event_btRolActionPerformed
 
     private void btUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUsuariosActionPerformed
@@ -1967,7 +2293,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         falsearBanderasProcedimientos();
         consultarProcedimientoFlag = true;
         bloquearCamposProcedimiento();
-        tfIdProcedimientos.setEnabled(true);
+        tfNombreProcedimiento.setEnabled(true);
         labelOperacionProcedimiento.setText("Consultar");
 
     }//GEN-LAST:event_opConsultarProcedimientoActionPerformed
@@ -1993,7 +2319,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_opcionEditarProcedimientoMouseClicked
 
     private void opcionEliminarProcedimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarProcedimientoMouseClicked
-           limpiarCamposProcedimiento();
+        limpiarCamposProcedimiento();
         falsearBanderasProcedimientos();
         eliminarProcedimientoFlag = true;
         bloquearCamposProcedimiento();
@@ -2002,7 +2328,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_opcionEliminarProcedimientoMouseClicked
 
     private void opInsumosUtilizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opInsumosUtilizadosActionPerformed
-           limpiarCamposProcedimiento();
+        limpiarCamposProcedimiento();
         falsearBanderasProcedimientos();
         insumosUtilizadosFlag = true;
         bloquearCamposProcedimiento();
@@ -2010,12 +2336,265 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         labelOperacionProcedimiento.setText("Insumos utilizados");    }//GEN-LAST:event_opInsumosUtilizadosActionPerformed
 
     private void opEquiposUtilizadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opEquiposUtilizadosActionPerformed
-           limpiarCamposProcedimiento();
+        limpiarCamposProcedimiento();
         falsearBanderasProcedimientos();
         equiposUtilizadosFlag = true;
         bloquearCamposProcedimiento();
         tfIdProcedimientos.setEnabled(true);
         labelOperacionProcedimiento.setText("Equipos utilizados");    }//GEN-LAST:event_opEquiposUtilizadosActionPerformed
+
+    private void opConsultarTiposInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarTiposInsumoActionPerformed
+        limpiarCamposTipoInsumo();
+        falsearBanderasTipoInsumo();
+        consultarTipoInsumosFlag = true;
+        bloquearCamposTipoInsumo();
+        labelOperacionTipoInsumo.setText("Consultar Todos");
+    }//GEN-LAST:event_opConsultarTiposInsumoActionPerformed
+
+    private void opConsultarTipoInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarTipoInsumoActionPerformed
+        limpiarCamposTipoInsumo();
+        falsearBanderasTipoInsumo();
+        consultarTipoInsumoFlag = true;
+        bloquearCamposTipoInsumo();
+        tfNombreTipoInsumo.setEnabled(true);
+        labelOperacionTipoInsumo.setText("Consultar Todos");
+    }//GEN-LAST:event_opConsultarTipoInsumoActionPerformed
+
+    private void opcionAgregarTipoInsumoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarTipoInsumoMouseClicked
+        limpiarCamposTipoInsumo();
+        falsearBanderasTipoInsumo();
+        agregarTipoInsumoFlag = true;
+        bloquearCamposTipoInsumo();
+        tfNombreTipoInsumo.setEnabled(true);
+        labelOperacionTipoInsumo.setText("Agregar");
+// TODO add your handling code here:
+    }//GEN-LAST:event_opcionAgregarTipoInsumoMouseClicked
+
+    private void opcionEditartipoInsumoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditartipoInsumoMouseClicked
+        falsearBanderasTipoInsumo();
+        editarTipoInsumoFlag = true;
+        bloquearCamposTipoInsumo();
+        tfNombreTipoInsumo.setEnabled(true);
+        labelOperacionTipoInsumo.setText("Editar");
+// TODO add your handling code here:
+    }//GEN-LAST:event_opcionEditartipoInsumoMouseClicked
+
+    private void opcionEliminarTipoInsumoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarTipoInsumoMouseClicked
+        falsearBanderasTipoInsumo();
+        eliminarTipoInsumoFlag = true;
+        bloquearCamposTipoInsumo();
+        tfIdTipoInsumo.setEnabled(true);
+        labelOperacionTipoInsumo.setText("Eliminar");// TODO add your handling code here:
+    }//GEN-LAST:event_opcionEliminarTipoInsumoMouseClicked
+
+    private void opConsultarInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarInsumosActionPerformed
+        limpiarCamposInsumo();
+        falsearBanderasInsumo();
+        consultarInsumosFlag = true;
+        bloquearCamposInsumo();
+        labelOperacionInsumos.setText("Consultar Todos");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opConsultarInsumosActionPerformed
+
+    private void opConsultarInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarInsumoActionPerformed
+        limpiarCamposInsumo();
+        falsearBanderasInsumo();
+        consultarInsumoFlag = true;
+        bloquearCamposInsumo();
+        tfIdInsumos.setEnabled(true);
+        labelOperacionInsumos.setText("Consultar");       // TODO add your handling code here:
+    }//GEN-LAST:event_opConsultarInsumoActionPerformed
+
+    private void opcionAgregarInsumosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarInsumosMouseClicked
+        limpiarCamposInsumo();
+        falsearBanderasInsumo();
+        agregarInsumoFlag = true;
+        bloquearCamposInsumo();
+        tfIdInsumos.setEnabled(true);
+        tfNombreInsumos.setEnabled(true);
+        comboTiposInsumoInsumos.setEnabled(true);
+        tfPrecioInsumos.setEnabled(true);
+        tfCantidadInsumos.setEnabled(true);
+        labelOperacionInsumos.setText("Agregar");   // TODO add your handling code here:
+    }//GEN-LAST:event_opcionAgregarInsumosMouseClicked
+
+    private void opcionEditarInsumosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarInsumosMouseClicked
+        falsearBanderasInsumo();
+        editarInsumoFlag = true;
+        bloquearCamposInsumo();
+        tfNombreInsumos.setEnabled(true);
+        comboTiposInsumoInsumos.setEnabled(true);
+        tfPrecioInsumos.setEnabled(true);
+        tfCantidadInsumos.setEnabled(true);
+        labelOperacionInsumos.setText("Editar");    }//GEN-LAST:event_opcionEditarInsumosMouseClicked
+
+    private void opcionEliminarInsumosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarInsumosMouseClicked
+        falsearBanderasInsumo();
+        eliminarInsumoFlag = true;
+        bloquearCamposInsumo();
+        tfIdInsumos.setEnabled(true);
+        labelOperacionInsumos.setText("Eliminar");   // TODO add your handling code here:
+    }//GEN-LAST:event_opcionEliminarInsumosMouseClicked
+
+    private void procedimientosxInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procedimientosxInsumoActionPerformed
+        falsearBanderasInsumo();
+        procedimientosEnQueSeUtilizaInsumoFlag = true;
+        bloquearCamposInsumo();
+        tfIdInsumos.setEnabled(true);
+        labelOperacionInsumos.setText("Procedimientos en que se utiliza");       // TODO add your handling code here:
+    }//GEN-LAST:event_procedimientosxInsumoActionPerformed
+
+    private void opConsultarEntornosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarEntornosActionPerformed
+        limpiarCamposEntorno();
+        falsearBanderasEntorno();
+        consultarEntornosFlag = true;
+        bloquearCamposEntorno();
+        labelOperacionEntorno.setText("Consultar Todos");// TODO add your handling code here:
+    }//GEN-LAST:event_opConsultarEntornosActionPerformed
+
+    private void opConsultarEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarEntornoActionPerformed
+        limpiarCamposEntorno();
+        falsearBanderasEntorno();
+        consultarEntornoFlag = true;
+        bloquearCamposEntorno();
+        tfFechaEntorno.setEnabled(true);
+        labelOperacionEntorno.setText("Consultar");    // TODO add your handling code here:
+    }//GEN-LAST:event_opConsultarEntornoActionPerformed
+
+    private void opcionAgregarEntornoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarEntornoMouseClicked
+        limpiarCamposEntorno();
+        falsearBanderasEntorno();
+        agregarEntornoFlag = true;
+        bloquearCamposEntorno();
+        tfIdEntorno.setEnabled(true);
+        tfHumedadEntorno.setEnabled(true);
+        tfTemperaturaEntorno.setEnabled(true);
+        tfFechaEntorno.setEnabled(true);
+        labelOperacionEntorno.setText("Agregar");    // TODO add your handling code here:
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_opcionAgregarEntornoMouseClicked
+
+    private void opcionEditarEntornoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarEntornoMouseClicked
+        falsearBanderasEntorno();
+        editarEntornoFlag = true;
+        bloquearCamposEntorno();
+        tfHumedadEntorno.setEnabled(true);
+        tfTemperaturaEntorno.setEnabled(true);
+        tfFechaEntorno.setEnabled(true);
+        labelOperacionEntorno.setText("Editar");    // TODO add your handling code here:
+// TODO add your handling code here:
+    }//GEN-LAST:event_opcionEditarEntornoMouseClicked
+
+    private void opcionEliminarEntornoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarEntornoMouseClicked
+        limpiarCamposEntorno();
+        falsearBanderasEntorno();
+        eliminarEntornoFlag = true;
+        bloquearCamposEntorno();
+        tfFechaEntorno.setEnabled(true);
+        labelOperacionEntorno.setText("Eliminar");      // TODO add your handling code here:
+    }//GEN-LAST:event_opcionEliminarEntornoMouseClicked
+
+    private void opConsultarEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarEquiposActionPerformed
+        limpiarCamposEquipos();
+        falsearBanderasEquipos();
+        consultarEquiposFlag = true;
+        bloquearCamposEquipos();
+        labelOperacionEquipo.setText("Consultar Todos");// TODO add your handling code here:
+    }//GEN-LAST:event_opConsultarEquiposActionPerformed
+
+    private void opConsultarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarEquipoActionPerformed
+        limpiarCamposEquipos();
+        falsearBanderasEquipos();
+        consultarEquipoFlag = true;
+        bloquearCamposEquipos();
+        tfNombreEquipo.setEnabled(true);
+        labelOperacionEquipo.setText("Consultar");   // TODO add your handling code here:
+    }//GEN-LAST:event_opConsultarEquipoActionPerformed
+
+    private void opcionAgregarEquipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarEquipoMouseClicked
+        limpiarCamposEquipos();
+        falsearBanderasEquipos();
+        agregarEquipoFlag = true;
+        bloquearCamposEquipos();
+        tfIdEquipo.setEnabled(true);
+        tfNombreEquipo.setEnabled(true);
+        tfPrecioEquipo.setEnabled(true);
+        labelOperacionEquipo.setText("Agregar");
+// TODO add your handling code here:
+    }//GEN-LAST:event_opcionAgregarEquipoMouseClicked
+
+    private void opcionEditarEquipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarEquipoMouseClicked
+        falsearBanderasEquipos();
+        editarEquipoFlag = true;
+        bloquearCamposEquipos();
+        tfNombreEquipo.setEnabled(true);
+        tfPrecioEquipo.setEnabled(true);
+        labelOperacionEquipo.setText("Editar");     // TODO add your handling code here:
+    }//GEN-LAST:event_opcionEditarEquipoMouseClicked
+
+    private void opcionEliminarEquipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarEquipoMouseClicked
+        falsearBanderasEquipos();
+        eliminarEquipoFlag = true;
+        bloquearCamposEquipos();
+        tfIdEquipo.setEnabled(true);
+        labelOperacionEquipo.setText("Eliminar");      // TODO add your handling code here:
+    }//GEN-LAST:event_opcionEliminarEquipoMouseClicked
+
+    private void procedimientosxEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procedimientosxEquipoActionPerformed
+        falsearBanderasEquipos();
+        procedimientosEnQueSeUtilizaEquipoFlag = true;
+        bloquearCamposEquipos();
+        tfIdEquipo.setEnabled(true);
+        labelOperacionEquipo.setText("Procedimientos en que se utiliza");       // TODO add your handling code here:
+    }//GEN-LAST:event_procedimientosxEquipoActionPerformed
+
+    private void opConsultarCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarCargosActionPerformed
+ limpiarCamposCargo();
+ falsearBanderasCargo();
+consultarCargosFlag = true;
+bloquearCamposCargo();
+labelOperacionCargos.setText("Consultar Todos");// TODO add your handling code here:
+    }//GEN-LAST:event_opConsultarCargosActionPerformed
+
+    private void opConsultarCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarCargoActionPerformed
+        limpiarCamposCargo();
+ falsearBanderasCargo();
+consultarCargoFlag = true;
+bloquearCamposCargo();
+tfNombreCargo.setEnabled(true);
+labelOperacionCargos.setText("Consultar"); // TODO add your handling code here:
+    }//GEN-LAST:event_opConsultarCargoActionPerformed
+
+    private void opcionAgregarCargosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarCargosMouseClicked
+         limpiarCamposCargo();
+ falsearBanderasCargo();
+agregarCargoFlag = true;
+bloquearCamposCargo();
+tfNombreCargo.setEnabled(true);
+tfIdCargo.setEnabled(true);
+tfSalarioCargo.setEnabled(true);
+labelOperacionCargos.setText("Agregar");       // TODO add your handling code here:
+    }//GEN-LAST:event_opcionAgregarCargosMouseClicked
+
+    private void opcionEditarCargosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarCargosMouseClicked
+              limpiarCamposCargo();
+ falsearBanderasCargo();
+editarCargoFlag = true;
+bloquearCamposCargo();
+tfNombreCargo.setEnabled(true);
+tfSalarioCargo.setEnabled(true);
+labelOperacionCargos.setText("Editar");    // TODO add your handling code here:
+    }//GEN-LAST:event_opcionEditarCargosMouseClicked
+
+    private void opcionEliminarCargosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarCargosMouseClicked
+         limpiarCamposCargo();
+ falsearBanderasCargo();
+eliminarCargoFlag = true;
+bloquearCamposCargo();
+tfIdCargo.setEnabled(true);
+labelOperacionCargos.setText("Eliminar");       // TODO add your handling code here:
+    }//GEN-LAST:event_opcionEliminarCargosMouseClicked
 
     /**
      * @param args the command line arguments
