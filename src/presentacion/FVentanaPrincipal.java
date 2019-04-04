@@ -196,59 +196,90 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     }
 
     //CARGOS
-     boolean consultarCargosFlag = false;
+    boolean consultarCargosFlag = false;
     boolean consultarCargoFlag = false;
     boolean editarCargoFlag = false;
     boolean eliminarCargoFlag = false;
     boolean agregarCargoFlag = false;
-    
-    public void falsearBanderasCargo(){
-          consultarCargosFlag = false;
-     consultarCargoFlag = false;
-     editarCargoFlag = false;
-     eliminarCargoFlag = false;
-     agregarCargoFlag = false;
+
+    public void falsearBanderasCargo() {
+        consultarCargosFlag = false;
+        consultarCargoFlag = false;
+        editarCargoFlag = false;
+        eliminarCargoFlag = false;
+        agregarCargoFlag = false;
     }
-    
-    public void bloquearCamposCargo(){
-    tfIdCargo.setEnabled(false);
-    tfNombreCargo.setEnabled(false);
-    tfSalarioCargo.setEnabled(false);
+
+    public void bloquearCamposCargo() {
+        tfIdCargo.setEnabled(false);
+        tfNombreCargo.setEnabled(false);
+        tfSalarioCargo.setEnabled(false);
     }
-    
-    public void limpiarCamposCargo(){
+
+    public void limpiarCamposCargo() {
         tfIdCargo.setText("");
-    tfNombreCargo.setText("");
-    tfSalarioCargo.setText("");
+        tfNombreCargo.setText("");
+        tfSalarioCargo.setText("");
     }
-    
+
     //ROL
-         boolean consultarRolesFlag = false;
+    boolean consultarRolesFlag = false;
     boolean consultarRolFlag = false;
     boolean editarRolFlag = false;
     boolean eliminarRolFlag = false;
     boolean agregarRolFlag = false;
-    
-    public void falsearBanderasRol(){
-              consultarRolesFlag = false;
-     consultarRolFlag = false;
-     editarRolFlag = false;
-     eliminarRolFlag = false;
-     agregarRolFlag = false;
+
+    public void falsearBanderasRol() {
+        consultarRolesFlag = false;
+        consultarRolFlag = false;
+        editarRolFlag = false;
+        eliminarRolFlag = false;
+        agregarRolFlag = false;
     }
-    
-    public void bloquearCamposRol(){
-    tfIdRol.setEnabled(false);
-    tfNombreRol.setEnabled(false);
+
+    public void bloquearCamposRol() {
+        tfIdRol.setEnabled(false);
+        tfNombreRol.setEnabled(false);
     }
-    
-    public void limpiarCamposRol(){
-    tfIdRol.setText("");
-    tfNombreRol.setText("");    
+
+    public void limpiarCamposRol() {
+        tfIdRol.setText("");
+        tfNombreRol.setText("");
     }
     //USUARIOS
-    
-    
+    boolean consultarUsuariosFlag = false;
+    boolean agregarUsuarioFlag = false;
+    boolean consultarUsuarioFlag = false;
+    boolean editarUsuarioFlag = false;
+    boolean eliminarUsuarioFlag = false;
+    boolean RolesDelUsuarioFlag = false;
+
+    public void falserBanderasUsuario() {
+        consultarUsuariosFlag = false;
+        agregarUsuarioFlag = false;
+        consultarUsuarioFlag = false;
+        editarUsuarioFlag = false;
+        eliminarUsuarioFlag = false;
+        RolesDelUsuarioFlag = false;
+    }
+
+    public void bloquearCamposUsuario() {
+        tfIdUsuarios.setEnabled(false);
+        tfNombresUsuarios.setEnabled(false);
+        tfApellidosUsuarios.setEnabled(false);
+        tfContrasenaUsuarios.setEnabled(false);
+        comboCargousuarios.setEnabled(false);
+        tfIdRolUsuario.setEnabled(false);
+    }
+
+    public void limpiarCamposUsuario() {
+        tfIdUsuarios.setText("");
+        tfNombresUsuarios.setText("");
+        tfApellidosUsuarios.setText("");
+        tfContrasenaUsuarios.setText("");
+        tfIdRolUsuario.setText("");
+    }
+
     /**
      * Creates new form FVentanaPrincipal
      */
@@ -311,6 +342,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tablePacientes = new javax.swing.JTable();
         btImprimirPacientes = new javax.swing.JButton();
         labelTituloPacientes = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        comboProcedimientosPaciente = new javax.swing.JComboBox<>();
+        labelAgregarProcedimientoPaciente = new javax.swing.JLabel();
+        labelProcedimientoPaciente = new javax.swing.JLabel();
+        btAgregarProcedimientoPaciente = new javax.swing.JButton();
         menuPacientes = new javax.swing.JMenuBar();
         opcionConsultarPaciente = new javax.swing.JMenu();
         opConsultarPacientes = new javax.swing.JMenuItem();
@@ -332,6 +368,14 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         btImprimirProcedimiento = new javax.swing.JButton();
         labelIdProcedimientos = new javax.swing.JLabel();
         tfIdProcedimientos = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        labelAgregarInsumosyEquipos = new javax.swing.JLabel();
+        labelInsumosProcedimiento = new javax.swing.JLabel();
+        labelEquiposProcedimiento = new javax.swing.JLabel();
+        comboInsumosProcedimiento = new javax.swing.JComboBox<>();
+        comboEquiposProcedimiento = new javax.swing.JComboBox<>();
+        btAgregarInsumosProcedimiento = new javax.swing.JButton();
+        btAgregarEquiposProcedimiento = new javax.swing.JButton();
         menuProcedimientos = new javax.swing.JMenuBar();
         opcionConsultarProcedimiento = new javax.swing.JMenu();
         opConsultarProcedimientos = new javax.swing.JMenuItem();
@@ -629,6 +673,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         labelFechaNacimientoPacientes.setText("Fecha de nacimiento");
 
         tfFechaNacimientoPacientes.setText("yyyy-mm-dd");
+        tfFechaNacimientoPacientes.setToolTipText("");
 
         tfTelefonoPacientes.setToolTipText("");
 
@@ -653,6 +698,50 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         labelTituloPacientes.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
         labelTituloPacientes.setText("OPERACIÓN");
+
+        comboProcedimientosPaciente.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        comboProcedimientosPaciente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        labelAgregarProcedimientoPaciente.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelAgregarProcedimientoPaciente.setText("Agregar Procedimiento");
+
+        labelProcedimientoPaciente.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelProcedimientoPaciente.setText("Procedimiento");
+
+        btAgregarProcedimientoPaciente.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btAgregarProcedimientoPaciente.setText("Agregar");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelAgregarProcedimientoPaciente)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(labelProcedimientoPaciente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                        .addComponent(comboProcedimientosPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(82, 82, 82))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addComponent(btAgregarProcedimientoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelAgregarProcedimientoPaciente)
+                .addGap(42, 42, 42)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboProcedimientosPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelProcedimientoPaciente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(btAgregarProcedimientoPaciente)
+                .addGap(34, 34, 34))
+        );
 
         opcionConsultarPaciente.setText("Consultar");
         opcionConsultarPaciente.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
@@ -726,70 +815,76 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         ventanaPacientesLayout.setHorizontalGroup(
             ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btImprimirPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1482, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ventanaPacientesLayout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                                    .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(labelIdentificacionPacientes)
-                                        .addComponent(labelNombresPacientes))
-                                    .addGap(67, 67, 67)
-                                    .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                                            .addComponent(tfIdentificacionPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(126, 126, 126)
-                                            .addComponent(labelFechaNacimientoPacientes))
-                                        .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                                            .addComponent(tfNombresPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(labelApellidosPacientes)))
-                                    .addGap(54, 54, 54)
-                                    .addComponent(tfApellidosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                                    .addGap(815, 815, 815)
-                                    .addComponent(tfFechaNacimientoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(70, 70, 70)
-                                    .addComponent(labelTelefonoPacientes)
-                                    .addGap(34, 34, 34)
-                                    .addComponent(tfTelefonoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                                    .addGap(454, 454, 454)
-                                    .addComponent(btEjecutarPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(labelTituloPacientes)))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelTituloPacientes)
+                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                        .addGap(454, 454, 454)
+                        .addComponent(btEjecutarPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                        .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelNombresPacientes)
+                            .addComponent(labelIdentificacionPacientes))
+                        .addGap(25, 25, 25)
+                        .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                                .addComponent(tfNombresPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(51, 51, 51)
+                                .addComponent(labelApellidosPacientes)
+                                .addGap(18, 18, 18)
+                                .addComponent(tfApellidosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                                .addComponent(tfIdentificacionPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(50, 50, 50)
+                                .addComponent(labelFechaNacimientoPacientes)
+                                .addGap(18, 18, 18)
+                                .addComponent(tfFechaNacimientoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(32, 32, 32)
+                                .addComponent(labelTelefonoPacientes)
+                                .addGap(18, 18, 18)
+                                .addComponent(tfTelefonoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
+            .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                        .addGap(1189, 1189, 1189)
+                        .addComponent(btImprimirPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1482, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ventanaPacientesLayout.setVerticalGroup(
             ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ventanaPacientesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelTituloPacientes)
-                .addGap(27, 27, 27)
-                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelIdentificacionPacientes)
-                    .addComponent(tfIdentificacionPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelFechaNacimientoPacientes)
-                    .addComponent(tfFechaNacimientoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTelefonoPacientes)
-                    .addComponent(tfTelefonoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNombresPacientes)
-                    .addComponent(tfNombresPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelApellidosPacientes)
-                    .addComponent(tfApellidosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addComponent(btEjecutarPacientes)
-                .addGap(18, 18, 18)
+                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                        .addComponent(labelTituloPacientes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelIdentificacionPacientes)
+                            .addComponent(tfIdentificacionPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelFechaNacimientoPacientes)
+                            .addComponent(tfFechaNacimientoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelTelefonoPacientes)
+                            .addComponent(tfTelefonoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(61, 61, 61)
+                        .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelNombresPacientes)
+                            .addComponent(tfNombresPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelApellidosPacientes)
+                            .addComponent(tfApellidosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addComponent(btEjecutarPacientes))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btImprimirPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         jPanel1.add(ventanaPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
@@ -804,6 +899,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         labelNombreProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         labelNombreProcedimiento.setText("Nombre");
+
+        tfNombreProcedimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNombreProcedimientoActionPerformed(evt);
+            }
+        });
 
         labelValorProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         labelValorProcedimiento.setText("Valor");
@@ -829,6 +930,69 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         labelIdProcedimientos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         labelIdProcedimientos.setText("ID");
+
+        labelAgregarInsumosyEquipos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelAgregarInsumosyEquipos.setText("Agregar insumos y equipos");
+
+        labelInsumosProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelInsumosProcedimiento.setText("Insumos");
+
+        labelEquiposProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelEquiposProcedimiento.setText("Equipos");
+
+        comboInsumosProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        comboInsumosProcedimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        comboEquiposProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        comboEquiposProcedimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btAgregarInsumosProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btAgregarInsumosProcedimiento.setText("Agregar");
+
+        btAgregarEquiposProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btAgregarEquiposProcedimiento.setText("Agregar");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelAgregarInsumosyEquipos)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(labelEquiposProcedimiento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(comboEquiposProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(labelInsumosProcedimiento)
+                                .addGap(48, 48, 48)
+                                .addComponent(comboInsumosProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btAgregarInsumosProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btAgregarEquiposProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelAgregarInsumosyEquipos)
+                .addGap(28, 28, 28)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelInsumosProcedimiento)
+                    .addComponent(comboInsumosProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAgregarInsumosProcedimiento))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelEquiposProcedimiento)
+                    .addComponent(comboEquiposProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAgregarEquiposProcedimiento))
+                .addContainerGap(67, Short.MAX_VALUE))
+        );
 
         opcionConsultarProcedimiento.setText("Consultar");
         opcionConsultarProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
@@ -910,50 +1074,66 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         ventanaProcedimientosLayout.setHorizontalGroup(
             ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
-                .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(labelOperacionProcedimiento))
-                    .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
-                        .addGap(470, 470, 470)
-                        .addComponent(btEjecutarProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(labelIdProcedimientos)
-                        .addGap(44, 44, 44)
-                        .addComponent(tfIdProcedimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78)
-                        .addComponent(labelNombreProcedimiento)
-                        .addGap(56, 56, 56)
-                        .addComponent(tfNombreProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(67, 67, 67)
-                        .addComponent(labelValorProcedimiento)
-                        .addGap(27, 27, 27)
-                        .addComponent(tfValorProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
+                                .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
+                                        .addGap(29, 29, 29)
+                                        .addComponent(labelOperacionProcedimiento))
+                                    .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
+                                        .addGap(113, 113, 113)
+                                        .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
+                                                .addComponent(labelNombreProcedimiento)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                                                .addComponent(tfNombreProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
+                                                .addComponent(labelIdProcedimientos)
+                                                .addGap(38, 38, 38)
+                                                .addComponent(tfIdProcedimientos, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(80, 80, 80)
+                                                .addComponent(labelValorProcedimiento)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(tfValorProcedimiento)))))
+                                .addGap(299, 299, 299))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaProcedimientosLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btEjecutarProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(169, 169, 169)))
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btImprimirProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1527, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         ventanaProcedimientosLayout.setVerticalGroup(
             ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(labelOperacionProcedimiento)
-                .addGap(46, 46, 46)
-                .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNombreProcedimiento)
-                    .addComponent(tfNombreProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelValorProcedimiento)
-                    .addComponent(tfValorProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelIdProcedimientos)
-                    .addComponent(tfIdProcedimientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addComponent(btEjecutarProcedimiento)
-                .addGap(49, 49, 49)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+                .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(labelOperacionProcedimiento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelIdProcedimientos)
+                            .addComponent(tfIdProcedimientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelValorProcedimiento)
+                            .addComponent(tfValorProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tfNombreProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelNombreProcedimiento))
+                        .addGap(47, 47, 47)
+                        .addComponent(btEjecutarProcedimiento))
+                    .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btImprimirProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1567,7 +1747,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(tfNombreEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btEjecutarEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 338, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
                 .addComponent(labelPrecioEquipo)
                 .addGap(29, 29, 29)
                 .addComponent(tfPrecioEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1578,9 +1758,9 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
             .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEquiposLayout.createSequentialGroup()
-                    .addContainerGap(42, Short.MAX_VALUE)
+                    .addContainerGap(21, Short.MAX_VALUE)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(42, Short.MAX_VALUE)))
+                    .addContainerGap(21, Short.MAX_VALUE)))
         );
         ventanaEquiposLayout.setVerticalGroup(
             ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1749,14 +1929,14 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(tfSalarioCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(btEjecutarCargos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 579, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 567, Short.MAX_VALUE)
                 .addComponent(btImprimirCargos)
                 .addContainerGap())
             .addGroup(ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCargosLayout.createSequentialGroup()
-                    .addContainerGap(183, Short.MAX_VALUE)
+                    .addContainerGap(177, Short.MAX_VALUE)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(72, Short.MAX_VALUE)))
+                    .addContainerGap(66, Short.MAX_VALUE)))
         );
 
         jPanel1.add(ventanaCargos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
@@ -1851,7 +2031,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(labelNombreRol)
                         .addGap(18, 18, 18)
                         .addComponent(tfNombreRol, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(837, Short.MAX_VALUE))
+                .addContainerGap(821, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaRolLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ventanaRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1863,9 +2043,9 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                         .addGap(31, 31, 31))))
             .addGroup(ventanaRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaRolLayout.createSequentialGroup()
-                    .addContainerGap(29, Short.MAX_VALUE)
+                    .addContainerGap(21, Short.MAX_VALUE)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(29, Short.MAX_VALUE)))
+                    .addContainerGap(21, Short.MAX_VALUE)))
         );
         ventanaRolLayout.setVerticalGroup(
             ventanaRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1879,14 +2059,14 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(tfNombreRol, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addComponent(btejecutarRol)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 571, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 559, Short.MAX_VALUE)
                 .addComponent(btImprimirRol)
                 .addContainerGap())
             .addGroup(ventanaRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaRolLayout.createSequentialGroup()
-                    .addContainerGap(183, Short.MAX_VALUE)
+                    .addContainerGap(177, Short.MAX_VALUE)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(83, Short.MAX_VALUE)))
+                    .addContainerGap(77, Short.MAX_VALUE)))
         );
 
         jPanel1.add(ventanaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
@@ -1997,25 +2177,50 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         opConsultarUsuarios.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarUsuarios.setText("Todos los usuarios");
+        opConsultarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarUsuariosActionPerformed(evt);
+            }
+        });
         opcionConsultarUsuarios.add(opConsultarUsuarios);
 
         opConsultarUsuario.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarUsuario.setText("Usuario");
+        opConsultarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarUsuarioActionPerformed(evt);
+            }
+        });
         opcionConsultarUsuarios.add(opConsultarUsuario);
 
         menuUsuarios.add(opcionConsultarUsuarios);
 
         opcionAgregarUsuario.setText("Agregar");
         opcionAgregarUsuario.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionAgregarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarUsuarioMouseClicked(evt);
+            }
+        });
         menuUsuarios.add(opcionAgregarUsuario);
 
         opcionEditarUsuario.setText("Editar");
         opcionEditarUsuario.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEditarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditarUsuarioMouseClicked(evt);
+            }
+        });
         menuUsuarios.add(opcionEditarUsuario);
 
         opcionEliminarUsuario.setText("Eliminar");
         opcionEliminarUsuario.setToolTipText("");
         opcionEliminarUsuario.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEliminarUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarUsuarioMouseClicked(evt);
+            }
+        });
         menuUsuarios.add(opcionEliminarUsuario);
 
         opcionReportesUsuario.setText("Reportes");
@@ -2024,6 +2229,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         rolesDelUsuario.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         rolesDelUsuario.setText("Roles del usuario");
+        rolesDelUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rolesDelUsuarioMouseClicked(evt);
+            }
+        });
         opcionReportesUsuario.add(rolesDelUsuario);
 
         menuUsuarios.add(opcionReportesUsuario);
@@ -2071,12 +2281,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                                         .addComponent(comboCargousuarios, 0, 246, Short.MAX_VALUE))))
                             .addGap(157, 157, 157)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(71, Short.MAX_VALUE))
             .addGroup(ventanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(ventanaUsuariosLayout.createSequentialGroup()
                     .addGap(22, 22, 22)
                     .addComponent(labelOperacionUsuarios)
-                    .addContainerGap(1411, Short.MAX_VALUE)))
+                    .addContainerGap(1461, Short.MAX_VALUE)))
         );
         ventanaUsuariosLayout.setVerticalGroup(
             ventanaUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2219,6 +2429,9 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     private void btUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUsuariosActionPerformed
         ocultarVentanas();
         ventanaUsuarios.setVisible(true);
+        limpiarCamposUsuario();
+        bloquearCamposUsuario();
+        falserBanderasUsuario();
     }//GEN-LAST:event_btUsuariosActionPerformed
 
     private void opConsultarPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarPacientesActionPerformed
@@ -2306,7 +2519,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfIdProcedimientos.setEnabled(true);
         tfNombreProcedimiento.setEnabled(true);
         tfValorProcedimiento.setEnabled(true);
-        labelOperacionProcedimiento.setText("Agregar");  // TODO add your handling code here:
+        labelOperacionProcedimiento.setText("Agregar");
     }//GEN-LAST:event_opcionAgregarProcedimientoMouseClicked
 
     private void opcionEditarProcedimientoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarProcedimientoMouseClicked
@@ -2367,7 +2580,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         bloquearCamposTipoInsumo();
         tfNombreTipoInsumo.setEnabled(true);
         labelOperacionTipoInsumo.setText("Agregar");
-// TODO add your handling code here:
+
     }//GEN-LAST:event_opcionAgregarTipoInsumoMouseClicked
 
     private void opcionEditartipoInsumoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditartipoInsumoMouseClicked
@@ -2376,7 +2589,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         bloquearCamposTipoInsumo();
         tfNombreTipoInsumo.setEnabled(true);
         labelOperacionTipoInsumo.setText("Editar");
-// TODO add your handling code here:
+
     }//GEN-LAST:event_opcionEditartipoInsumoMouseClicked
 
     private void opcionEliminarTipoInsumoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarTipoInsumoMouseClicked
@@ -2384,7 +2597,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarTipoInsumoFlag = true;
         bloquearCamposTipoInsumo();
         tfIdTipoInsumo.setEnabled(true);
-        labelOperacionTipoInsumo.setText("Eliminar");// TODO add your handling code here:
+        labelOperacionTipoInsumo.setText("Eliminar");
     }//GEN-LAST:event_opcionEliminarTipoInsumoMouseClicked
 
     private void opConsultarInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarInsumosActionPerformed
@@ -2393,7 +2606,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         consultarInsumosFlag = true;
         bloquearCamposInsumo();
         labelOperacionInsumos.setText("Consultar Todos");
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_opConsultarInsumosActionPerformed
 
     private void opConsultarInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarInsumoActionPerformed
@@ -2402,7 +2615,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         consultarInsumoFlag = true;
         bloquearCamposInsumo();
         tfIdInsumos.setEnabled(true);
-        labelOperacionInsumos.setText("Consultar");       // TODO add your handling code here:
+        labelOperacionInsumos.setText("Consultar");
     }//GEN-LAST:event_opConsultarInsumoActionPerformed
 
     private void opcionAgregarInsumosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarInsumosMouseClicked
@@ -2415,7 +2628,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         comboTiposInsumoInsumos.setEnabled(true);
         tfPrecioInsumos.setEnabled(true);
         tfCantidadInsumos.setEnabled(true);
-        labelOperacionInsumos.setText("Agregar");   // TODO add your handling code here:
+        labelOperacionInsumos.setText("Agregar");
     }//GEN-LAST:event_opcionAgregarInsumosMouseClicked
 
     private void opcionEditarInsumosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarInsumosMouseClicked
@@ -2433,7 +2646,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarInsumoFlag = true;
         bloquearCamposInsumo();
         tfIdInsumos.setEnabled(true);
-        labelOperacionInsumos.setText("Eliminar");   // TODO add your handling code here:
+        labelOperacionInsumos.setText("Eliminar");
     }//GEN-LAST:event_opcionEliminarInsumosMouseClicked
 
     private void procedimientosxInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procedimientosxInsumoActionPerformed
@@ -2441,7 +2654,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         procedimientosEnQueSeUtilizaInsumoFlag = true;
         bloquearCamposInsumo();
         tfIdInsumos.setEnabled(true);
-        labelOperacionInsumos.setText("Procedimientos en que se utiliza");       // TODO add your handling code here:
+        labelOperacionInsumos.setText("Procedimientos en que se utiliza");
     }//GEN-LAST:event_procedimientosxInsumoActionPerformed
 
     private void opConsultarEntornosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarEntornosActionPerformed
@@ -2449,7 +2662,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         falsearBanderasEntorno();
         consultarEntornosFlag = true;
         bloquearCamposEntorno();
-        labelOperacionEntorno.setText("Consultar Todos");// TODO add your handling code here:
+        labelOperacionEntorno.setText("Consultar Todos");
     }//GEN-LAST:event_opConsultarEntornosActionPerformed
 
     private void opConsultarEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarEntornoActionPerformed
@@ -2458,7 +2671,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         consultarEntornoFlag = true;
         bloquearCamposEntorno();
         tfFechaEntorno.setEnabled(true);
-        labelOperacionEntorno.setText("Consultar");    // TODO add your handling code here:
+        labelOperacionEntorno.setText("Consultar");
     }//GEN-LAST:event_opConsultarEntornoActionPerformed
 
     private void opcionAgregarEntornoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarEntornoMouseClicked
@@ -2470,9 +2683,9 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfHumedadEntorno.setEnabled(true);
         tfTemperaturaEntorno.setEnabled(true);
         tfFechaEntorno.setEnabled(true);
-        labelOperacionEntorno.setText("Agregar");    // TODO add your handling code here:
+        labelOperacionEntorno.setText("Agregar");
 
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_opcionAgregarEntornoMouseClicked
 
     private void opcionEditarEntornoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarEntornoMouseClicked
@@ -2482,8 +2695,8 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfHumedadEntorno.setEnabled(true);
         tfTemperaturaEntorno.setEnabled(true);
         tfFechaEntorno.setEnabled(true);
-        labelOperacionEntorno.setText("Editar");    // TODO add your handling code here:
-// TODO add your handling code here:
+        labelOperacionEntorno.setText("Editar");
+
     }//GEN-LAST:event_opcionEditarEntornoMouseClicked
 
     private void opcionEliminarEntornoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarEntornoMouseClicked
@@ -2492,7 +2705,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarEntornoFlag = true;
         bloquearCamposEntorno();
         tfFechaEntorno.setEnabled(true);
-        labelOperacionEntorno.setText("Eliminar");      // TODO add your handling code here:
+        labelOperacionEntorno.setText("Eliminar");
     }//GEN-LAST:event_opcionEliminarEntornoMouseClicked
 
     private void opConsultarEquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarEquiposActionPerformed
@@ -2500,7 +2713,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         falsearBanderasEquipos();
         consultarEquiposFlag = true;
         bloquearCamposEquipos();
-        labelOperacionEquipo.setText("Consultar Todos");// TODO add your handling code here:
+        labelOperacionEquipo.setText("Consultar Todos");
     }//GEN-LAST:event_opConsultarEquiposActionPerformed
 
     private void opConsultarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarEquipoActionPerformed
@@ -2509,7 +2722,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         consultarEquipoFlag = true;
         bloquearCamposEquipos();
         tfNombreEquipo.setEnabled(true);
-        labelOperacionEquipo.setText("Consultar");   // TODO add your handling code here:
+        labelOperacionEquipo.setText("Consultar");
     }//GEN-LAST:event_opConsultarEquipoActionPerformed
 
     private void opcionAgregarEquipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarEquipoMouseClicked
@@ -2521,7 +2734,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfNombreEquipo.setEnabled(true);
         tfPrecioEquipo.setEnabled(true);
         labelOperacionEquipo.setText("Agregar");
-// TODO add your handling code here:
+
     }//GEN-LAST:event_opcionAgregarEquipoMouseClicked
 
     private void opcionEditarEquipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarEquipoMouseClicked
@@ -2530,7 +2743,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         bloquearCamposEquipos();
         tfNombreEquipo.setEnabled(true);
         tfPrecioEquipo.setEnabled(true);
-        labelOperacionEquipo.setText("Editar");     // TODO add your handling code here:
+        labelOperacionEquipo.setText("Editar");
     }//GEN-LAST:event_opcionEditarEquipoMouseClicked
 
     private void opcionEliminarEquipoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarEquipoMouseClicked
@@ -2538,7 +2751,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarEquipoFlag = true;
         bloquearCamposEquipos();
         tfIdEquipo.setEnabled(true);
-        labelOperacionEquipo.setText("Eliminar");      // TODO add your handling code here:
+        labelOperacionEquipo.setText("Eliminar");
     }//GEN-LAST:event_opcionEliminarEquipoMouseClicked
 
     private void procedimientosxEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_procedimientosxEquipoActionPerformed
@@ -2546,55 +2759,121 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         procedimientosEnQueSeUtilizaEquipoFlag = true;
         bloquearCamposEquipos();
         tfIdEquipo.setEnabled(true);
-        labelOperacionEquipo.setText("Procedimientos en que se utiliza");       // TODO add your handling code here:
+        labelOperacionEquipo.setText("Procedimientos en que se utiliza");
     }//GEN-LAST:event_procedimientosxEquipoActionPerformed
 
     private void opConsultarCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarCargosActionPerformed
- limpiarCamposCargo();
- falsearBanderasCargo();
-consultarCargosFlag = true;
-bloquearCamposCargo();
-labelOperacionCargos.setText("Consultar Todos");// TODO add your handling code here:
+        limpiarCamposCargo();
+        falsearBanderasCargo();
+        consultarCargosFlag = true;
+        bloquearCamposCargo();
+        labelOperacionCargos.setText("Consultar Todos");
     }//GEN-LAST:event_opConsultarCargosActionPerformed
 
     private void opConsultarCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarCargoActionPerformed
         limpiarCamposCargo();
- falsearBanderasCargo();
-consultarCargoFlag = true;
-bloquearCamposCargo();
-tfNombreCargo.setEnabled(true);
-labelOperacionCargos.setText("Consultar"); // TODO add your handling code here:
+        falsearBanderasCargo();
+        consultarCargoFlag = true;
+        bloquearCamposCargo();
+        tfNombreCargo.setEnabled(true);
+        labelOperacionCargos.setText("Consultar");
     }//GEN-LAST:event_opConsultarCargoActionPerformed
 
     private void opcionAgregarCargosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarCargosMouseClicked
-         limpiarCamposCargo();
- falsearBanderasCargo();
-agregarCargoFlag = true;
-bloquearCamposCargo();
-tfNombreCargo.setEnabled(true);
-tfIdCargo.setEnabled(true);
-tfSalarioCargo.setEnabled(true);
-labelOperacionCargos.setText("Agregar");       // TODO add your handling code here:
+        limpiarCamposCargo();
+        falsearBanderasCargo();
+        agregarCargoFlag = true;
+        bloquearCamposCargo();
+        tfNombreCargo.setEnabled(true);
+        tfIdCargo.setEnabled(true);
+        tfSalarioCargo.setEnabled(true);
+        labelOperacionCargos.setText("Agregar");
     }//GEN-LAST:event_opcionAgregarCargosMouseClicked
 
     private void opcionEditarCargosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarCargosMouseClicked
-              limpiarCamposCargo();
- falsearBanderasCargo();
-editarCargoFlag = true;
-bloquearCamposCargo();
-tfNombreCargo.setEnabled(true);
-tfSalarioCargo.setEnabled(true);
-labelOperacionCargos.setText("Editar");    // TODO add your handling code here:
+        limpiarCamposCargo();
+        falsearBanderasCargo();
+        editarCargoFlag = true;
+        bloquearCamposCargo();
+        tfNombreCargo.setEnabled(true);
+        tfSalarioCargo.setEnabled(true);
+        labelOperacionCargos.setText("Editar");
     }//GEN-LAST:event_opcionEditarCargosMouseClicked
 
     private void opcionEliminarCargosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarCargosMouseClicked
-         limpiarCamposCargo();
- falsearBanderasCargo();
-eliminarCargoFlag = true;
-bloquearCamposCargo();
-tfIdCargo.setEnabled(true);
-labelOperacionCargos.setText("Eliminar");       // TODO add your handling code here:
+        limpiarCamposCargo();
+        falsearBanderasCargo();
+        eliminarCargoFlag = true;
+        bloquearCamposCargo();
+        tfIdCargo.setEnabled(true);
+        labelOperacionCargos.setText("Eliminar");
     }//GEN-LAST:event_opcionEliminarCargosMouseClicked
+
+    private void opConsultarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarUsuariosActionPerformed
+        limpiarCamposUsuario();
+        falserBanderasUsuario();
+        consultarUsuariosFlag = true;
+        bloquearCamposUsuario();
+        labelOperacionUsuarios.setText("Consultar Todos");
+    }//GEN-LAST:event_opConsultarUsuariosActionPerformed
+
+    private void opConsultarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarUsuarioActionPerformed
+        limpiarCamposUsuario();
+        falserBanderasUsuario();
+        consultarUsuarioFlag = true;
+        bloquearCamposUsuario();
+        tfIdUsuarios.setEnabled(true);
+        labelOperacionUsuarios.setText("Consultar");    // TODO add your handling code here:
+    }//GEN-LAST:event_opConsultarUsuarioActionPerformed
+
+    private void opcionAgregarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarUsuarioMouseClicked
+        limpiarCamposUsuario();
+        falserBanderasUsuario();
+        agregarUsuarioFlag = true;
+        bloquearCamposUsuario();
+        tfIdUsuarios.setEnabled(true);
+        tfNombresUsuarios.setEnabled(true);
+        tfApellidosUsuarios.setEnabled(true);
+        tfContrasenaUsuarios.setEnabled(true);
+        comboCargousuarios.setEnabled(true);
+        labelOperacionUsuarios.setText("Agregar");     // TODO add your handling code here:
+    }//GEN-LAST:event_opcionAgregarUsuarioMouseClicked
+
+    private void opcionEditarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarUsuarioMouseClicked
+        falserBanderasUsuario();
+        agregarUsuarioFlag = true;
+        bloquearCamposUsuario();
+        tfIdUsuarios.setEnabled(false);
+        tfNombresUsuarios.setEnabled(false);
+        tfApellidosUsuarios.setEnabled(false);
+        tfContrasenaUsuarios.setEnabled(false);
+        comboCargousuarios.setEnabled(false);
+        tfIdRolUsuario.setEnabled(false);
+        labelOperacionUsuarios.setText("Editar");     // TODO add your handling code here:
+// TODO add your handling code here:
+    }//GEN-LAST:event_opcionEditarUsuarioMouseClicked
+
+    private void opcionEliminarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarUsuarioMouseClicked
+            limpiarCamposUsuario();
+        falserBanderasUsuario();
+        eliminarUsuarioFlag = true;
+        bloquearCamposUsuario();
+        tfIdUsuarios.setEnabled(true);
+        labelOperacionUsuarios.setText("Eliminar");     // TODO add your handling code here:
+    }//GEN-LAST:event_opcionEliminarUsuarioMouseClicked
+
+    private void rolesDelUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rolesDelUsuarioMouseClicked
+         limpiarCamposUsuario();
+        falserBanderasUsuario();
+        RolesDelUsuarioFlag = true;
+        bloquearCamposUsuario();
+        tfIdUsuarios.setEnabled(true);
+        labelOperacionUsuarios.setText("Roles del usuario");        // TODO add your handling code here:
+    }//GEN-LAST:event_rolesDelUsuarioMouseClicked
+
+    private void tfNombreProcedimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreProcedimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNombreProcedimientoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2635,6 +2914,9 @@ labelOperacionCargos.setText("Eliminar");       // TODO add your handling code h
     private javax.swing.JMenu OpcionConsultarRol;
     private javax.swing.JLabel barraHorizontal;
     private javax.swing.JLabel barraLateral;
+    private javax.swing.JButton btAgregarEquiposProcedimiento;
+    private javax.swing.JButton btAgregarInsumosProcedimiento;
+    private javax.swing.JButton btAgregarProcedimientoPaciente;
     private javax.swing.JButton btAgregarRolUsuario;
     private javax.swing.JButton btCargos;
     private javax.swing.JButton btEjecutarCargos;
@@ -2665,10 +2947,15 @@ labelOperacionCargos.setText("Eliminar");       // TODO add your handling code h
     private javax.swing.JButton btejecutarRol;
     private javax.swing.JButton btjecutarUsuario;
     private javax.swing.JComboBox<String> comboCargousuarios;
+    private javax.swing.JComboBox<String> comboEquiposProcedimiento;
+    private javax.swing.JComboBox<String> comboInsumosProcedimiento;
+    private javax.swing.JComboBox<String> comboProcedimientosPaciente;
     private javax.swing.JComboBox<String> comboTiposInsumoInsumos;
     private javax.swing.JLabel imgLogo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -2678,12 +2965,15 @@ labelOperacionCargos.setText("Eliminar");       // TODO add your handling code h
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JLabel labelAgregarInsumosyEquipos;
+    private javax.swing.JLabel labelAgregarProcedimientoPaciente;
     private javax.swing.JLabel labelApellidosPacientes;
     private javax.swing.JLabel labelApellidosUsuario;
     private javax.swing.JLabel labelBienvenido;
     private javax.swing.JLabel labelCantidadInsumos;
     private javax.swing.JLabel labelCargoUsuarios;
     private javax.swing.JLabel labelContraseñaUsuarios;
+    private javax.swing.JLabel labelEquiposProcedimiento;
     private javax.swing.JLabel labelFechaEntorno;
     private javax.swing.JLabel labelFechaNacimientoPacientes;
     private javax.swing.JLabel labelHumedadEntorno;
@@ -2697,6 +2987,7 @@ labelOperacionCargos.setText("Eliminar");       // TODO add your handling code h
     private javax.swing.JLabel labelIdTipoInsumo;
     private javax.swing.JLabel labelIdUsuarios;
     private javax.swing.JLabel labelIdentificacionPacientes;
+    private javax.swing.JLabel labelInsumosProcedimiento;
     private javax.swing.JLabel labelNombreCargos;
     private javax.swing.JLabel labelNombreEquipo;
     private javax.swing.JLabel labelNombreInsumos;
@@ -2714,6 +3005,7 @@ labelOperacionCargos.setText("Eliminar");       // TODO add your handling code h
     private javax.swing.JLabel labelOperacionUsuarios;
     private javax.swing.JLabel labelPrecioEquipo;
     private javax.swing.JLabel labelPrecioInsumos;
+    private javax.swing.JLabel labelProcedimientoPaciente;
     private javax.swing.JLabel labelSalarioCargos;
     private javax.swing.JLabel labelTelefonoPacientes;
     private javax.swing.JLabel labelTemperaturaEntorno;
