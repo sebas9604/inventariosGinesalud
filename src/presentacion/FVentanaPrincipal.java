@@ -252,7 +252,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean consultarUsuarioFlag = false;
     boolean editarUsuarioFlag = false;
     boolean eliminarUsuarioFlag = false;
-    boolean RolesDelUsuarioFlag = false;
+    boolean rolesDelUsuarioFlag = false;
 
     public void falserBanderasUsuario() {
         consultarUsuariosFlag = false;
@@ -260,7 +260,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         consultarUsuarioFlag = false;
         editarUsuarioFlag = false;
         eliminarUsuarioFlag = false;
-        RolesDelUsuarioFlag = false;
+        rolesDelUsuarioFlag = false;
     }
 
     public void bloquearCamposUsuario() {
@@ -679,6 +679,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btEjecutarPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btEjecutarPacientes.setText("Ejecutar");
+        btEjecutarPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEjecutarPacientesActionPerformed(evt);
+            }
+        });
 
         tablePacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -843,7 +848,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                                 .addComponent(labelTelefonoPacientes)
                                 .addGap(18, 18, 18)
                                 .addComponent(tfTelefonoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
             .addGroup(ventanaPacientesLayout.createSequentialGroup()
@@ -884,7 +889,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btImprimirPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(ventanaPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
@@ -911,6 +916,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btEjecutarProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btEjecutarProcedimiento.setText("Ejecutar");
+        btEjecutarProcedimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEjecutarProcedimientoActionPerformed(evt);
+            }
+        });
 
         tableProcedimiento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1087,7 +1097,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                                         .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
                                                 .addComponent(labelNombreProcedimiento)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(tfNombreProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(ventanaProcedimientosLayout.createSequentialGroup()
                                                 .addComponent(labelIdProcedimientos)
@@ -1108,7 +1118,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                         .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btImprimirProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1527, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         ventanaProcedimientosLayout.setVerticalGroup(
             ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1154,6 +1164,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btEjecutarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btEjecutarTipoInsumo.setText("Ejecutar");
+        btEjecutarTipoInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEjecutarTipoInsumoActionPerformed(evt);
+            }
+        });
 
         btImprimirTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btImprimirTipoInsumo.setText("Imprimir");
@@ -1267,7 +1282,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(labelIdTipoInsumo)
                     .addComponent(tfIdTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btImprimirTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1284,6 +1299,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btEjecutarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btEjecutarInsumos.setText("Ejecutar");
+        btEjecutarInsumos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEjecutarInsumosActionPerformed(evt);
+            }
+        });
 
         btImprimirInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btImprimirInsumos.setText("Imprimir");
@@ -1453,14 +1473,14 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(tfCantidadInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btEjecutarInsumos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 484, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 488, Short.MAX_VALUE)
                 .addComponent(btImprimirInsumos)
                 .addContainerGap())
             .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(ventanaInsumosLayout.createSequentialGroup()
                     .addGap(37, 37, 37)
                     .addComponent(labelOperacionInsumos)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(70, 70, 70)))
         );
@@ -1476,6 +1496,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btEjecutarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btEjecutarEntorno.setText("Ejecutar");
+        btEjecutarEntorno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEjecutarEntornoActionPerformed(evt);
+            }
+        });
 
         btImprimirEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btImprimirEntorno.setText("Imprimir");
@@ -1616,7 +1641,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(labelTemperaturaEntorno)
                     .addComponent(labelHumedadEntorno)
                     .addComponent(labelFechaEntorno))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addComponent(btEjecutarEntorno)
                 .addGap(45, 45, 45)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1639,6 +1664,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btEjecutarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btEjecutarEquipo.setText("Ejecutar");
+        btEjecutarEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEjecutarEquipoActionPerformed(evt);
+            }
+        });
 
         tableEquipo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1777,14 +1807,14 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(tfPrecioEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btEjecutarEquipo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 580, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 584, Short.MAX_VALUE)
                 .addComponent(btImprimirEquipo)
                 .addContainerGap())
             .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEquiposLayout.createSequentialGroup()
-                    .addContainerGap(181, Short.MAX_VALUE)
+                    .addContainerGap(183, Short.MAX_VALUE)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(73, Short.MAX_VALUE)))
+                    .addContainerGap(75, Short.MAX_VALUE)))
         );
 
         jPanel1.add(ventanaEquipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
@@ -1798,6 +1828,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btEjecutarCargos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btEjecutarCargos.setText("Ejecutar");
+        btEjecutarCargos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEjecutarCargosActionPerformed(evt);
+            }
+        });
 
         tableCargos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1929,14 +1964,14 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(tfSalarioCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24)
                 .addComponent(btEjecutarCargos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 567, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 571, Short.MAX_VALUE)
                 .addComponent(btImprimirCargos)
                 .addContainerGap())
             .addGroup(ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCargosLayout.createSequentialGroup()
-                    .addContainerGap(177, Short.MAX_VALUE)
+                    .addContainerGap(179, Short.MAX_VALUE)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(66, Short.MAX_VALUE)))
+                    .addContainerGap(68, Short.MAX_VALUE)))
         );
 
         jPanel1.add(ventanaCargos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
@@ -1950,6 +1985,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btejecutarRol.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btejecutarRol.setText("Ejecutar");
+        btejecutarRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btejecutarRolActionPerformed(evt);
+            }
+        });
 
         tableRol.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2059,14 +2099,14 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(tfNombreRol, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addComponent(btejecutarRol)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 559, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 563, Short.MAX_VALUE)
                 .addComponent(btImprimirRol)
                 .addContainerGap())
             .addGroup(ventanaRolLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaRolLayout.createSequentialGroup()
-                    .addContainerGap(177, Short.MAX_VALUE)
+                    .addContainerGap(179, Short.MAX_VALUE)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(77, Short.MAX_VALUE)))
+                    .addContainerGap(79, Short.MAX_VALUE)))
         );
 
         jPanel1.add(ventanaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
@@ -2080,6 +2120,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btjecutarUsuario.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btjecutarUsuario.setText("Ejecutar");
+        btjecutarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btjecutarUsuarioActionPerformed(evt);
+            }
+        });
 
         tableUsuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2323,7 +2368,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(ventanaUsuariosLayout.createSequentialGroup()
                     .addGap(23, 23, 23)
                     .addComponent(labelOperacionUsuarios)
-                    .addContainerGap(743, Short.MAX_VALUE)))
+                    .addContainerGap(747, Short.MAX_VALUE)))
         );
 
         jPanel1.add(ventanaUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
@@ -2823,7 +2868,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         consultarUsuarioFlag = true;
         bloquearCamposUsuario();
         tfIdUsuarios.setEnabled(true);
-        labelOperacionUsuarios.setText("Consultar");    // TODO add your handling code here:
+        labelOperacionUsuarios.setText("Consultar");    
     }//GEN-LAST:event_opConsultarUsuarioActionPerformed
 
     private void opcionAgregarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarUsuarioMouseClicked
@@ -2836,7 +2881,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfApellidosUsuarios.setEnabled(true);
         tfContrasenaUsuarios.setEnabled(true);
         comboCargousuarios.setEnabled(true);
-        labelOperacionUsuarios.setText("Agregar");     // TODO add your handling code here:
+        labelOperacionUsuarios.setText("Agregar");     
     }//GEN-LAST:event_opcionAgregarUsuarioMouseClicked
 
     private void opcionEditarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarUsuarioMouseClicked
@@ -2849,8 +2894,8 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfContrasenaUsuarios.setEnabled(false);
         comboCargousuarios.setEnabled(false);
         tfIdRolUsuario.setEnabled(false);
-        labelOperacionUsuarios.setText("Editar");     // TODO add your handling code here:
-// TODO add your handling code here:
+        labelOperacionUsuarios.setText("Editar");     
+
     }//GEN-LAST:event_opcionEditarUsuarioMouseClicked
 
     private void opcionEliminarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarUsuarioMouseClicked
@@ -2859,21 +2904,159 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarUsuarioFlag = true;
         bloquearCamposUsuario();
         tfIdUsuarios.setEnabled(true);
-        labelOperacionUsuarios.setText("Eliminar");     // TODO add your handling code here:
+        labelOperacionUsuarios.setText("Eliminar");     
     }//GEN-LAST:event_opcionEliminarUsuarioMouseClicked
 
     private void rolesDelUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rolesDelUsuarioMouseClicked
          limpiarCamposUsuario();
         falserBanderasUsuario();
-        RolesDelUsuarioFlag = true;
+        rolesDelUsuarioFlag = true;
         bloquearCamposUsuario();
         tfIdUsuarios.setEnabled(true);
-        labelOperacionUsuarios.setText("Roles del usuario");        // TODO add your handling code here:
+        labelOperacionUsuarios.setText("Roles del usuario");        
     }//GEN-LAST:event_rolesDelUsuarioMouseClicked
 
     private void tfNombreProcedimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreProcedimientoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_tfNombreProcedimientoActionPerformed
+
+    private void btEjecutarPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarPacientesActionPerformed
+if(consultarPacientesFlag){
+
+}else if (consultarPacienteFlag){
+
+}else if(agregarPacienteFlag){
+
+}else if(editarPacienteFlag){
+
+}else if(eliminarPacienteFlag){
+
+}else if(procedimientosxPacienteFlag) {
+
+}       
+    }//GEN-LAST:event_btEjecutarPacientesActionPerformed
+
+    private void btEjecutarProcedimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarProcedimientoActionPerformed
+ if(consultarProcedimientosFlag){
+
+}else if (consultarProcedimientoFlag){
+
+}else if(agregarProcedimientoFlag){
+
+}else if(editarProcedimientoFlag){
+
+}else if(eliminarProcedimientoFlag){
+
+}else if(insumosUtilizadosFlag) {
+
+}else if(equiposUtilizadosFlag){
+
+}     
+    }//GEN-LAST:event_btEjecutarProcedimientoActionPerformed
+
+    private void btEjecutarTipoInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarTipoInsumoActionPerformed
+  if(consultarTipoInsumosFlag){
+
+}else if (consultarTipoInsumoFlag){
+
+}else if(agregarTipoInsumoFlag){
+
+}else if(editarTipoInsumoFlag){
+
+}else if(eliminarTipoInsumoFlag){
+
+}     
+    }//GEN-LAST:event_btEjecutarTipoInsumoActionPerformed
+
+    private void btEjecutarInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarInsumosActionPerformed
+  if(consultarInsumosFlag){
+
+}else if (consultarInsumoFlag){
+
+}else if(agregarInsumoFlag){
+
+}else if(editarInsumoFlag){
+
+}else if(eliminarInsumoFlag){
+
+}else if(procedimientosEnQueSeUtilizaInsumoFlag){
+
+}     
+    }//GEN-LAST:event_btEjecutarInsumosActionPerformed
+
+    private void btEjecutarEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarEntornoActionPerformed
+   if(consultarEntornosFlag){
+
+}else if (consultarEntornoFlag){
+
+}else if(agregarEntornoFlag){
+
+}else if(editarEntornoFlag){
+
+}else if(eliminarEntornoFlag){
+
+}     
+    }//GEN-LAST:event_btEjecutarEntornoActionPerformed
+
+    private void btEjecutarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarEquipoActionPerformed
+   if(consultarEquiposFlag){
+
+}else if (consultarEquipoFlag){
+
+}else if(agregarEquipoFlag){
+
+}else if(editarEquipoFlag){
+
+}else if(eliminarEquipoFlag){
+
+}else if(procedimientosEnQueSeUtilizaEquipoFlag){
+
+}     
+    }//GEN-LAST:event_btEjecutarEquipoActionPerformed
+
+    private void btEjecutarCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarCargosActionPerformed
+   if(consultarCargosFlag){
+
+}else if (consultarCargoFlag){
+
+}else if(agregarCargoFlag){
+
+}else if(editarCargoFlag){
+
+}else if(eliminarCargoFlag){
+
+}     
+    }//GEN-LAST:event_btEjecutarCargosActionPerformed
+
+    private void btejecutarRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btejecutarRolActionPerformed
+   if(consultarRolesFlag){
+
+}else if (consultarRolFlag){
+
+}else if(agregarRolFlag){
+
+}else if(editarRolFlag){
+
+}else if(eliminarRolFlag){
+
+}     
+    }//GEN-LAST:event_btejecutarRolActionPerformed
+
+    private void btjecutarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btjecutarUsuarioActionPerformed
+  if(consultarUsuariosFlag){
+
+}else if (consultarUsuarioFlag){
+
+}else if(agregarUsuarioFlag){
+
+}else if(editarUsuarioFlag){
+
+}else if(eliminarUsuarioFlag){
+
+}else if(rolesDelUsuarioFlag){
+
+}      
+    }//GEN-LAST:event_btjecutarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
