@@ -8,6 +8,7 @@ package controladores;
 import implementacion.PacienteDaoImpl;
 import interfaces.IPacienteDao;
 import java.sql.ResultSet;
+import java.util.List;
 import javax.swing.JTable;
 import modelo.Paciente;
 import vista.VistaPaciente;
@@ -43,11 +44,37 @@ public class PacienteController {
         pacientes = dao.obtenerPacientes();
         vista.verPacientes(pacientes, tabla);
     }
-
+    
     public void verPaciente(JTable tabla, Paciente paciente) {
         ResultSet pacientes = null;
         IPacienteDao dao = new PacienteDaoImpl();
         pacientes = dao.obtenerPaciente(paciente, true);
         vista.verPaciente(pacientes, tabla);
+    }
+    
+        public void verProcedimientosxPaciente(JTable tabla, Paciente paciente) {
+        ResultSet pacientes = null;
+        IPacienteDao dao = new PacienteDaoImpl();
+        pacientes = dao.obtenerProcedimientosRealizadosxPaciente(paciente);
+        vista.verProcedimientosRealizados(pacientes, tabla);
+    }
+    
+            public Paciente consultarPaciente(Paciente paciente) {
+        IPacienteDao dao = new PacienteDaoImpl();
+        Paciente p;
+        p = dao.consultarPaciente(paciente);
+        return p;
+    }
+            
+                public List<String> llenarComboPaciente() {
+        IPacienteDao dao = new PacienteDaoImpl();
+        List<String> list = dao.llenarComboProcedimientosPaciente();
+
+        return list;
+    }
+                
+     public void registrarProecdimientoaPaciente(int idPaciente, String nombreProcedimiento) {
+        IPacienteDao dao = new PacienteDaoImpl();
+        dao.registrarProcedimiento(idPaciente, nombreProcedimiento);
     }
 }

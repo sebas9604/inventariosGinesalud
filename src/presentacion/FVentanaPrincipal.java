@@ -5,14 +5,31 @@
  */
 package presentacion;
 
+import controladores.PacienteController;
+import java.text.MessageFormat;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import modelo.Paciente;
 
 /**
  *
  * @author tolis
  */
 public class FVentanaPrincipal extends javax.swing.JFrame {
+
+    public static String FORMATO_FECHA = "yyyy-mm-dd";
+    
+        public void imprimirTabla(String header, JTable tabla){
+        try {
+            MessageFormat headerFormat = new MessageFormat(header);
+            MessageFormat footerFormat = new MessageFormat("Firma");
+            tabla.print(JTable.PrintMode.FIT_WIDTH, headerFormat, footerFormat);
+        } catch (Exception e) {
+            System.out.println(e);
+        }    
+    }
 
     //PACIENTES
     boolean consultarPacientesFlag = false;
@@ -700,6 +717,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btImprimirPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btImprimirPacientes.setText("Imprimir");
+        btImprimirPacientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btImprimirPacientesActionPerformed(evt);
+            }
+        });
 
         labelTituloPacientes.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
         labelTituloPacientes.setText("OPERACIÓN");
@@ -715,6 +737,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btAgregarProcedimientoPaciente.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btAgregarProcedimientoPaciente.setText("Agregar");
+        btAgregarProcedimientoPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAgregarProcedimientoPacienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -2401,6 +2428,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         bloquearCamposPacientes();
         falsearBanderasPacientes();
         limpiarCamposPacientes();
+        llenarComboProcedimientoPaciente();
     }//GEN-LAST:event_btPacientesActionPerformed
 
     private void btInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInsumosActionPerformed
@@ -2498,7 +2526,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
     private void opcionAgregarPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarPacienteMouseClicked
         limpiarCamposPacientes();
-
+        tfFechaNacimientoPacientes.setText(FORMATO_FECHA);
         falsearBanderasPacientes();
         agregarPacienteFlag = true;
         bloquearCamposPacientes();
@@ -2514,7 +2542,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         falsearBanderasPacientes();
         editarPacienteFlag = true;
         bloquearCamposPacientes();
-        tfIdentificacionPacientes.setEnabled(true);
+//        tfIdentificacionPacientes.setEnabled(true);
         tfFechaNacimientoPacientes.setEnabled(true);
         tfTelefonoPacientes.setEnabled(true);
         tfNombresPacientes.setEnabled(true);
@@ -2868,7 +2896,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         consultarUsuarioFlag = true;
         bloquearCamposUsuario();
         tfIdUsuarios.setEnabled(true);
-        labelOperacionUsuarios.setText("Consultar");    
+        labelOperacionUsuarios.setText("Consultar");
     }//GEN-LAST:event_opConsultarUsuarioActionPerformed
 
     private void opcionAgregarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarUsuarioMouseClicked
@@ -2881,7 +2909,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfApellidosUsuarios.setEnabled(true);
         tfContrasenaUsuarios.setEnabled(true);
         comboCargousuarios.setEnabled(true);
-        labelOperacionUsuarios.setText("Agregar");     
+        labelOperacionUsuarios.setText("Agregar");
     }//GEN-LAST:event_opcionAgregarUsuarioMouseClicked
 
     private void opcionEditarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarUsuarioMouseClicked
@@ -2894,170 +2922,220 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfContrasenaUsuarios.setEnabled(false);
         comboCargousuarios.setEnabled(false);
         tfIdRolUsuario.setEnabled(false);
-        labelOperacionUsuarios.setText("Editar");     
+        labelOperacionUsuarios.setText("Editar");
 
     }//GEN-LAST:event_opcionEditarUsuarioMouseClicked
 
     private void opcionEliminarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarUsuarioMouseClicked
-            limpiarCamposUsuario();
+        limpiarCamposUsuario();
         falserBanderasUsuario();
         eliminarUsuarioFlag = true;
         bloquearCamposUsuario();
         tfIdUsuarios.setEnabled(true);
-        labelOperacionUsuarios.setText("Eliminar");     
+        labelOperacionUsuarios.setText("Eliminar");
     }//GEN-LAST:event_opcionEliminarUsuarioMouseClicked
 
     private void rolesDelUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rolesDelUsuarioMouseClicked
-         limpiarCamposUsuario();
+        limpiarCamposUsuario();
         falserBanderasUsuario();
         rolesDelUsuarioFlag = true;
         bloquearCamposUsuario();
         tfIdUsuarios.setEnabled(true);
-        labelOperacionUsuarios.setText("Roles del usuario");        
+        labelOperacionUsuarios.setText("Roles del usuario");
     }//GEN-LAST:event_rolesDelUsuarioMouseClicked
 
     private void tfNombreProcedimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreProcedimientoActionPerformed
-        
+
     }//GEN-LAST:event_tfNombreProcedimientoActionPerformed
 
     private void btEjecutarPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarPacientesActionPerformed
-if(consultarPacientesFlag){
+        PacienteController pacienteCt = new PacienteController();
+        if (consultarPacientesFlag) {
+            pacienteCt.verPacientes(tablePacientes);
+        } else if (consultarPacienteFlag) {
+            Paciente paciente = new Paciente();
+            paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
+            paciente = pacienteCt.consultarPaciente(paciente);
 
-}else if (consultarPacienteFlag){
+            tfFechaNacimientoPacientes.setText(paciente.getFechaNacimientoPaciente());
+            tfTelefonoPacientes.setText(paciente.getTelefonoPaciente());
+            tfNombresPacientes.setText(paciente.getNombresPaciente());
+            tfApellidosPacientes.setText(paciente.getApellidosPaciente());
+        } else if (agregarPacienteFlag) {
+            Paciente paciente = new Paciente();
+            paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
+            paciente.setFechaNacimientoPaciente(tfFechaNacimientoPacientes.getText());
+            paciente.setTelefonoPaciente(tfTelefonoPacientes.getText());
+            paciente.setNombresPaciente(tfNombresPacientes.getText());
+            paciente.setApellidosPaciente(tfApellidosPacientes.getText());
+            
+            pacienteCt.registrar(paciente);
+            
+        } else if (editarPacienteFlag) {
+            Paciente paciente = new Paciente();
+            paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
+            paciente.setFechaNacimientoPaciente(tfFechaNacimientoPacientes.getText());
+            paciente.setTelefonoPaciente(tfTelefonoPacientes.getText());
+            paciente.setNombresPaciente(tfNombresPacientes.getText());
+            paciente.setApellidosPaciente(tfApellidosPacientes.getText());
 
-}else if(agregarPacienteFlag){
-
-}else if(editarPacienteFlag){
-
-}else if(eliminarPacienteFlag){
-
-}else if(procedimientosxPacienteFlag) {
-
-}       
+            pacienteCt.actualizar(paciente);
+        } else if (eliminarPacienteFlag) {
+            Paciente paciente = new Paciente();
+            paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
+            
+            pacienteCt.eliminar(paciente);
+        } else if (procedimientosxPacienteFlag) {
+            Paciente paciente = new Paciente();
+            paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
+            
+            pacienteCt.verProcedimientosxPaciente(tablePacientes, paciente);
+        }
     }//GEN-LAST:event_btEjecutarPacientesActionPerformed
 
     private void btEjecutarProcedimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarProcedimientoActionPerformed
- if(consultarProcedimientosFlag){
+        if (consultarProcedimientosFlag) {
 
-}else if (consultarProcedimientoFlag){
+        } else if (consultarProcedimientoFlag) {
 
-}else if(agregarProcedimientoFlag){
+        } else if (agregarProcedimientoFlag) {
 
-}else if(editarProcedimientoFlag){
+        } else if (editarProcedimientoFlag) {
 
-}else if(eliminarProcedimientoFlag){
+        } else if (eliminarProcedimientoFlag) {
 
-}else if(insumosUtilizadosFlag) {
+        } else if (insumosUtilizadosFlag) {
 
-}else if(equiposUtilizadosFlag){
+        } else if (equiposUtilizadosFlag) {
 
-}     
+        }
     }//GEN-LAST:event_btEjecutarProcedimientoActionPerformed
 
     private void btEjecutarTipoInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarTipoInsumoActionPerformed
-  if(consultarTipoInsumosFlag){
+        if (consultarTipoInsumosFlag) {
 
-}else if (consultarTipoInsumoFlag){
+        } else if (consultarTipoInsumoFlag) {
 
-}else if(agregarTipoInsumoFlag){
+        } else if (agregarTipoInsumoFlag) {
 
-}else if(editarTipoInsumoFlag){
+        } else if (editarTipoInsumoFlag) {
 
-}else if(eliminarTipoInsumoFlag){
+        } else if (eliminarTipoInsumoFlag) {
 
-}     
+        }
     }//GEN-LAST:event_btEjecutarTipoInsumoActionPerformed
 
     private void btEjecutarInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarInsumosActionPerformed
-  if(consultarInsumosFlag){
+        if (consultarInsumosFlag) {
 
-}else if (consultarInsumoFlag){
+        } else if (consultarInsumoFlag) {
 
-}else if(agregarInsumoFlag){
+        } else if (agregarInsumoFlag) {
 
-}else if(editarInsumoFlag){
+        } else if (editarInsumoFlag) {
 
-}else if(eliminarInsumoFlag){
+        } else if (eliminarInsumoFlag) {
 
-}else if(procedimientosEnQueSeUtilizaInsumoFlag){
+        } else if (procedimientosEnQueSeUtilizaInsumoFlag) {
 
-}     
+        }
     }//GEN-LAST:event_btEjecutarInsumosActionPerformed
 
     private void btEjecutarEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarEntornoActionPerformed
-   if(consultarEntornosFlag){
+        if (consultarEntornosFlag) {
 
-}else if (consultarEntornoFlag){
+        } else if (consultarEntornoFlag) {
 
-}else if(agregarEntornoFlag){
+        } else if (agregarEntornoFlag) {
 
-}else if(editarEntornoFlag){
+        } else if (editarEntornoFlag) {
 
-}else if(eliminarEntornoFlag){
+        } else if (eliminarEntornoFlag) {
 
-}     
+        }
     }//GEN-LAST:event_btEjecutarEntornoActionPerformed
 
     private void btEjecutarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarEquipoActionPerformed
-   if(consultarEquiposFlag){
+        if (consultarEquiposFlag) {
 
-}else if (consultarEquipoFlag){
+        } else if (consultarEquipoFlag) {
 
-}else if(agregarEquipoFlag){
+        } else if (agregarEquipoFlag) {
 
-}else if(editarEquipoFlag){
+        } else if (editarEquipoFlag) {
 
-}else if(eliminarEquipoFlag){
+        } else if (eliminarEquipoFlag) {
 
-}else if(procedimientosEnQueSeUtilizaEquipoFlag){
+        } else if (procedimientosEnQueSeUtilizaEquipoFlag) {
 
-}     
+        }
     }//GEN-LAST:event_btEjecutarEquipoActionPerformed
 
     private void btEjecutarCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarCargosActionPerformed
-   if(consultarCargosFlag){
+        if (consultarCargosFlag) {
 
-}else if (consultarCargoFlag){
+        } else if (consultarCargoFlag) {
 
-}else if(agregarCargoFlag){
+        } else if (agregarCargoFlag) {
 
-}else if(editarCargoFlag){
+        } else if (editarCargoFlag) {
 
-}else if(eliminarCargoFlag){
+        } else if (eliminarCargoFlag) {
 
-}     
+        }
     }//GEN-LAST:event_btEjecutarCargosActionPerformed
 
     private void btejecutarRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btejecutarRolActionPerformed
-   if(consultarRolesFlag){
+        if (consultarRolesFlag) {
 
-}else if (consultarRolFlag){
+        } else if (consultarRolFlag) {
 
-}else if(agregarRolFlag){
+        } else if (agregarRolFlag) {
 
-}else if(editarRolFlag){
+        } else if (editarRolFlag) {
 
-}else if(eliminarRolFlag){
+        } else if (eliminarRolFlag) {
 
-}     
+        }
     }//GEN-LAST:event_btejecutarRolActionPerformed
 
     private void btjecutarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btjecutarUsuarioActionPerformed
-  if(consultarUsuariosFlag){
+        if (consultarUsuariosFlag) {
 
-}else if (consultarUsuarioFlag){
+        } else if (consultarUsuarioFlag) {
 
-}else if(agregarUsuarioFlag){
+        } else if (agregarUsuarioFlag) {
 
-}else if(editarUsuarioFlag){
+        } else if (editarUsuarioFlag) {
 
-}else if(eliminarUsuarioFlag){
+        } else if (eliminarUsuarioFlag) {
 
-}else if(rolesDelUsuarioFlag){
+        } else if (rolesDelUsuarioFlag) {
 
-}      
+        }
     }//GEN-LAST:event_btjecutarUsuarioActionPerformed
 
+    private void btAgregarProcedimientoPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgregarProcedimientoPacienteActionPerformed
+        PacienteController pacienteCt = new PacienteController();
+        pacienteCt.registrarProecdimientoaPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()), comboProcedimientosPaciente.getSelectedItem().toString());
+    }//GEN-LAST:event_btAgregarProcedimientoPacienteActionPerformed
+
+    private void btImprimirPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirPacientesActionPerformed
+        imprimirTabla("Pacientes", tablePacientes);       // TODO add your handling code here:
+    }//GEN-LAST:event_btImprimirPacientesActionPerformed
+
+    //Llenando Combo Boxes
+    
+        private void llenarComboProcedimientoPaciente() {
+        PacienteController pacienteCt = new PacienteController();
+        comboProcedimientosPaciente.removeAllItems();
+        List<String> list = pacienteCt.llenarComboPaciente();
+
+        for (String procedimiento : list) {
+            comboProcedimientosPaciente.addItem(procedimiento);
+        }
+
+    }
     /**
      * @param args the command line arguments
      */

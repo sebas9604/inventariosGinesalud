@@ -33,15 +33,16 @@ public class VistaPaciente {
 
     public void verPacientes(ResultSet paciente, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"idPaciente", "nombresPaciente", "apellidosPaciente", "telefonoPaciente", "fechaNacimientoPaciente"});
+        modelo.setColumnIdentifiers(new Object[]{"idPacientes", "nombresPacientes", "apellidosPacientes", "telefonoPaciente", "fechaNacimientoPaciente"});
 
         try {
             while (paciente.next()) {
-                modelo.addRow(new Object[]{paciente.getInt("idPaciente"), paciente.getString("nombresPaciente"), paciente.getString("apellidosPaciente"), paciente.getString("telefonoPaciente"), paciente.getString("fechaNacimientoPaciente")});
+                modelo.addRow(new Object[]{paciente.getInt("idPacientes"), paciente.getString("nombresPacientes"), paciente.getString("apellidosPacientes"), paciente.getString("telefonoPaciente"), paciente.getString("fechaNacimientoPaciente")});
             }
             tabla.setModel(modelo);
 
         } catch (Exception ex) {
+            System.out.println("vista.VistaPaciente.verPacientes() " + ex);
         }
 
     }
@@ -52,7 +53,7 @@ public class VistaPaciente {
 
         try {
             while (procedimientos.next()) {
-                modelo.addRow(new Object[]{procedimientos.getInt("nombreProcedimiento"), procedimientos.getString("fechaRealizacion")});            }
+                modelo.addRow(new Object[]{procedimientos.getString("nombreProcedimiento"), procedimientos.getString("fechaRealizacion")});            }
             tabla.setModel(modelo);
 
         } catch (Exception ex) {

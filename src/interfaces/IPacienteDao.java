@@ -6,6 +6,7 @@
 package interfaces;
 
 import java.sql.ResultSet;
+import java.util.List;
 import modelo.Paciente;
 
 /**
@@ -27,4 +28,9 @@ public interface IPacienteDao {
     public ResultSet obtenerPaciente(Paciente paciente, boolean msj);
 
     public ResultSet obtenerProcedimientosRealizadosxPaciente(Paciente paciente);
+
+    public List<String> llenarComboProcedimientosPaciente();
+
+    public boolean registrarProcedimiento(int idPaciente, String nombreProcedimiento);
+
 }

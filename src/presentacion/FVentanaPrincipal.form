@@ -474,6 +474,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Imprimir"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btImprimirPacientesActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="labelTituloPacientes">
               <Properties>
@@ -566,6 +569,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Agregar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAgregarProcedimientoPacienteActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

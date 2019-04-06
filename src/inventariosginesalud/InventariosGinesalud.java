@@ -7,6 +7,7 @@ package inventariosginesalud;
 
 import conexion.ConexionBD;
 import presentacion.FInicioSesion;
+import presentacion.FVentanaPrincipal;
 
 /**
  *
@@ -19,7 +20,9 @@ public class InventariosGinesalud {
      */
     public static void main(String[] args) {
         FInicioSesion finicioSesion = new FInicioSesion();
-        finicioSesion.setVisible(true);
+        FVentanaPrincipal fventanprincipal = new FVentanaPrincipal();
+//        finicioSesion.setVisible(true);
+        fventanprincipal.setVisible(true);
     }
     
 }

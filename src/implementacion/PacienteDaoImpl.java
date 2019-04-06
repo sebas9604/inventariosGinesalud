@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.Paciente;
 
@@ -151,11 +153,13 @@ public class PacienteDaoImpl implements IPacienteDao{
         ResultSet rs = null;
 
         String sql = "SELECT idPacientes, nombresPacientes, apellidosPacientes, telefonoPaciente, fechaNacimientoPaciente"
-                + " FROM Pacientes ORDER BY idPacientes";
+                + " FROM Pacientes ORDER BY idPacientes;";
+        System.out.println(sql);
         try {
             con = ConexionBD.connect();
             stm = con.createStatement();
             rs = stm.executeQuery(sql);
+
 //            stm.close();
 //            rs.close();
 //            con.close();
@@ -197,8 +201,10 @@ public class PacienteDaoImpl implements IPacienteDao{
         String sql = "SELECT p.nombreProcedimiento, pxp.fechaRealizacion "
                 + "FROM Procedimientos AS p "
                 + "INNER JOIN procedimientosxpaciente as pxp "
-                + "ON p.idProcedimiento = pxp.idProcedimiento "
+                + "ON p.idProcedimientos = pxp.idProcedimiento "
                 + "WHERE pxp.idPacientes = " + paciente.getIdPaciente();
+        
+        System.out.println(sql);
         try {
             con = ConexionBD.connect();
             stm = con.createStatement();
@@ -214,5 +220,77 @@ public class PacienteDaoImpl implements IPacienteDao{
         }
 
         return rs;       }
+
+    @Override
+    public List<String> llenarComboProcedimientosPaciente() {
+        Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null;
+        String sql = "SELECT nombreProcedimiento FROM procedimientos ORDER BY nombreProcedimiento;";
+        List<String> listaCargos = new ArrayList<String>();
+
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                //este es el Jcombobox
+                listaCargos.add(rs.getString(1));
+            }
+            con.close();
+        } catch (Exception e) {
+        }
+
+        return listaCargos;    }
+
+    @Override
+    public boolean registrarProcedimiento(int idPaciente, String nombreProcedimiento) {
+        boolean registrar = false;
+        Connection con;
+        try {
+
+            int idProcedimiento = obtenerIdProcedimientoxNombreProcedimiento(nombreProcedimiento);
+                String sql = "INSERT INTO ProcedimientosxPaciente (idPacientes, idProcedimiento, fechaRealizacion) " + "VALUES (?,?, (SELECT DATE(NOW())));";
+                con = ConexionBD.connect();
+                PreparedStatement psql = con.prepareStatement(sql);
+                psql.setInt(1, idPaciente);
+                psql.setInt(2, idProcedimiento);
+
+                psql.executeUpdate();
+                registrar = true;
+                psql.close();
+                con.close();
+                JOptionPane.showMessageDialog(null, "Operación Exitosa");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error insertando  " + ex);
+        }
+
+        return registrar;    }
+
+    private int obtenerIdProcedimientoxNombreProcedimiento(String nombreProcedimiento) {
+        Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT idProcedimientos"
+                + " FROM Procedimientos WHERE nombreProcedimiento = '" + nombreProcedimiento + "';";
+int idProcedimiento = 0;
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+            if (rs.next()) {
+                idProcedimiento = rs.getInt(1);
+            }
+            stm.close();
+            rs.close();
+            con.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error: ");
+            e.printStackTrace();
+        }
+        return idProcedimiento;    
+    }
     
 }
