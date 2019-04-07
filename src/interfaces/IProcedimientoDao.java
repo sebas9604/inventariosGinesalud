@@ -6,6 +6,7 @@
 package interfaces;
 
 import java.sql.ResultSet;
+import java.util.List;
 import modelo.Procedimiento;
 
 /**
@@ -13,12 +14,29 @@ import modelo.Procedimiento;
  * @author tolis
  */
 public interface IProcedimientoDao {
+
     public Procedimiento consultarProcedimiento(Procedimiento procedimiento);
+
     public boolean registrarNuevoProcedimiento(Procedimiento procedimiento);
+
     public boolean actualizarProcedimiento(Procedimiento procedimiento);
+
     public boolean eliminarProcedimiento(Procedimiento procedimiento);
+
     public ResultSet obtenerProcedimientos();
+
     public ResultSet obtenerInsumosxProcedimiento(Procedimiento procedimiento);
+
     public ResultSet obtenerEquiposxProcedimiento(Procedimiento procedimiento);
+
     public ResultSet obtenerProcedimiento(Procedimiento procedimiento, Boolean msj);
+
+    public List<String> llenarComboInsumosProcedimiento();
+
+    public List<String> llenarComboEquiposProcedimiento();
+    
+    public boolean registrarEquiposProcedimiento(int idProcedimiento, String nombreEquipo);
+
+    public boolean registrarInsumosProcedimiento(String nombreInsumo, int idProcedimiento, int cantidaInsumo);
+
 }

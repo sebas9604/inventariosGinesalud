@@ -16,12 +16,12 @@ import javax.swing.table.DefaultTableModel;
 public class VistaProcedimiento {
                 public void verProcedimiento(ResultSet procedimiento, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"idProcedimiento", "nombreProcedimiento", "valorProcedimiento"});
+        modelo.setColumnIdentifiers(new Object[]{"idProcedimientos", "nombreProcedimiento", "valorProcedimiento"});
 
         try {
 
             while (procedimiento.next()) {
-                modelo.addRow(new Object[]{procedimiento.getInt("idProcedimiento"), procedimiento.getString("nombreProcedimiento"), procedimiento.getInt("valorProcedimiento")});
+                modelo.addRow(new Object[]{procedimiento.getInt("idProcedimientos"), procedimiento.getString("nombreProcedimiento"), procedimiento.getInt("valorProcedimiento")});
             }
             tabla.setModel(modelo);
 
@@ -32,15 +32,16 @@ public class VistaProcedimiento {
 
     public void verProcedimientos(ResultSet procedimiento, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"idProcedimiento", "nombreProcedimiento", "valorProcedimiento"});
+        modelo.setColumnIdentifiers(new Object[]{"idProcedimientos", "nombreProcedimiento", "valorProcedimiento"});
 
         try {
             while (procedimiento.next()) {
-                modelo.addRow(new Object[]{procedimiento.getInt("idProcedimiento"), procedimiento.getString("nombreProcedimiento"), procedimiento.getInt("valorProcedimiento")});
+                modelo.addRow(new Object[]{procedimiento.getInt("idProcedimientos"), procedimiento.getString("nombreProcedimiento"), procedimiento.getInt("valorProcedimiento")});
             }
             tabla.setModel(modelo);
 
         } catch (Exception ex) {
+            System.out.println("vista.VistaProcedimiento.verProcedimientos()" + ex);
         }
 
 }
