@@ -32,11 +32,11 @@ public class VistaTipoInsumo {
 
     public void verTiposInsumos(ResultSet tipoInsumo, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"idTipoInsumo", "nombreTipoInsumo"});
+        modelo.setColumnIdentifiers(new Object[]{"idTipoInsumos", "nombreTipoInsumos"});
 
         try {
             while (tipoInsumo.next()) {
-                modelo.addRow(new Object[]{tipoInsumo.getInt("idTipoInsumo"), tipoInsumo.getString("nombreTipoInsumo")});
+                modelo.addRow(new Object[]{tipoInsumo.getInt("idTipoInsumos"), tipoInsumo.getString("nombreTipoInsumos")});
             }
             tabla.setModel(modelo);
 

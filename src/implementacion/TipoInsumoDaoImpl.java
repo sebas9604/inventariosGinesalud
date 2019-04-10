@@ -66,6 +66,7 @@ public class TipoInsumoDaoImpl implements ITipoInsumoDao {
             rs = obtenerTipoInsumo(tipoInsumo, false);
             if (!rs.next()) {
                 String sql = "INSERT INTO tipoInsumos (nombretipoInsumos) " + "VALUES (?);";
+                System.out.println(sql);
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
 //                psql.setInt(1, tipoInsumo.getIdTipoInsumo());
@@ -95,7 +96,7 @@ public class TipoInsumoDaoImpl implements ITipoInsumoDao {
 
             if (rs.next()) {
                 String sql = "UPDATE tipoInsumos SET nombretipoInsumos = '" + tipoInsumo.getNombreTipoInsumo()
-                        + " WHERE idTipoInsumos = " + tipoInsumo.getIdTipoInsumo()+ ";";
+                        + "' WHERE idTipoInsumos = " + tipoInsumo.getIdTipoInsumo()+ ";";
                 System.out.println(sql);
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
@@ -167,7 +168,7 @@ public class TipoInsumoDaoImpl implements ITipoInsumoDao {
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idTiponsumos, nombreTipoInsumo "
+        String sql = "SELECT idTipoInsumos, nombreTipoInsumos "
                 + "FROM tipoInsumos WHERE idTipoInsumos = " + tipoInsumo.getIdTipoInsumo()+ ";";
         System.out.println(sql);
         try {

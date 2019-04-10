@@ -17,7 +17,15 @@ import vista.VistaTipoInsumo;
  * @author tolis
  */
 public class TipoInsumoController {
+
     private VistaTipoInsumo vista = new VistaTipoInsumo();
+
+    public TipoInsumo consultarTipoInsumo(TipoInsumo tipoInsumo) {
+        ITipoInsumoDao dao = new TipoInsumoDaoImpl();
+        TipoInsumo p;
+        p = dao.consultarTipoInsumo(tipoInsumo);
+        return p;
+    }
 
     //llama al DAO para guardar un tipoInsumo
     public void registrar(TipoInsumo tipoInsumo) {

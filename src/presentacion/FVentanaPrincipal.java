@@ -7,6 +7,7 @@ package presentacion;
 
 import controladores.PacienteController;
 import controladores.ProcedimientoController;
+import controladores.TipoInsumoController;
 import java.text.MessageFormat;
 import java.util.Date;
 import java.util.List;
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import modelo.Paciente;
 import modelo.Procedimiento;
+import modelo.TipoInsumo;
 
 /**
  *
@@ -695,6 +697,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btImprimirTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btImprimirTipoInsumo.setText("Imprimir");
+        btImprimirTipoInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btImprimirTipoInsumoActionPerformed(evt);
+            }
+        });
 
         tableTipoInsumo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -3071,16 +3078,29 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btEjecutarProcedimientoActionPerformed
 
     private void btEjecutarTipoInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarTipoInsumoActionPerformed
+        TipoInsumoController tipoInsumoCt = new TipoInsumoController();
         if (consultarTipoInsumosFlag) {
-
+            tipoInsumoCt.verTipoInsumos(tableTipoInsumo);
         } else if (consultarTipoInsumoFlag) {
+            TipoInsumo tipoInsumo = new TipoInsumo();
+            tipoInsumo.setNombreTipoInsumo(tfNombreTipoInsumo.getText());
+            tipoInsumo = tipoInsumoCt.consultarTipoInsumo(tipoInsumo);
 
+            tfIdTipoInsumo.setText(Integer.toString(tipoInsumo.getIdTipoInsumo()));
+            tfNombreTipoInsumo.setText(tipoInsumo.getNombreTipoInsumo());
         } else if (agregarTipoInsumoFlag) {
-
+            TipoInsumo tipoInsumo = new TipoInsumo();
+            tipoInsumo.setNombreTipoInsumo(tfNombreTipoInsumo.getText());
+            tipoInsumoCt.registrar(tipoInsumo);
         } else if (editarTipoInsumoFlag) {
-
+            TipoInsumo tipoInsumo = new TipoInsumo();
+            tipoInsumo.setIdTipoInsumo(Integer.parseInt(tfIdTipoInsumo.getText()));
+            tipoInsumo.setNombreTipoInsumo(tfNombreTipoInsumo.getText());
+            tipoInsumoCt.actualizar(tipoInsumo);
         } else if (eliminarTipoInsumoFlag) {
-
+            TipoInsumo tipoInsumo = new TipoInsumo();
+            tipoInsumo.setIdTipoInsumo(Integer.parseInt(tfIdTipoInsumo.getText()));
+            tipoInsumoCt.eliminar(tipoInsumo);
         }
     }//GEN-LAST:event_btEjecutarTipoInsumoActionPerformed
 
@@ -3180,22 +3200,26 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btAgregarProcedimientoPacienteActionPerformed
 
     private void btImprimirPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirPacientesActionPerformed
-        imprimirTabla("Pacientes", tablePacientes);       
+        imprimirTabla("Pacientes", tablePacientes);
     }//GEN-LAST:event_btImprimirPacientesActionPerformed
 
     private void btImprimirProcedimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirProcedimientoActionPerformed
-        imprimirTabla("Procedimiento", tableProcedimiento);        
+        imprimirTabla("Procedimiento", tableProcedimiento);
     }//GEN-LAST:event_btImprimirProcedimientoActionPerformed
 
     private void btAgregarInsumosProcedimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgregarInsumosProcedimientoActionPerformed
-            ProcedimientoController procedimientoCt = new ProcedimientoController();
-        procedimientoCt.registrarInsumosProcedimiento(comboInsumosProcedimiento.getSelectedItem().toString(), Integer.parseInt(tfIdProcedimientos.getText()), Integer.parseInt(tfCantidadInsumosProcedimiento.getText()));    
+        ProcedimientoController procedimientoCt = new ProcedimientoController();
+        procedimientoCt.registrarInsumosProcedimiento(comboInsumosProcedimiento.getSelectedItem().toString(), Integer.parseInt(tfIdProcedimientos.getText()), Integer.parseInt(tfCantidadInsumosProcedimiento.getText()));
     }//GEN-LAST:event_btAgregarInsumosProcedimientoActionPerformed
 
     private void btAgregarEquiposProcedimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgregarEquiposProcedimientoActionPerformed
-            ProcedimientoController procedimientoCt = new ProcedimientoController();
-        procedimientoCt.registrarEquiposProcedimiento(Integer.parseInt(tfIdProcedimientos.getText()), comboEquiposProcedimiento.getSelectedItem().toString());       
+        ProcedimientoController procedimientoCt = new ProcedimientoController();
+        procedimientoCt.registrarEquiposProcedimiento(Integer.parseInt(tfIdProcedimientos.getText()), comboEquiposProcedimiento.getSelectedItem().toString());
     }//GEN-LAST:event_btAgregarEquiposProcedimientoActionPerformed
+
+    private void btImprimirTipoInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirTipoInsumoActionPerformed
+        imprimirTabla("Tipo Insumo", tableTipoInsumo);       // TODO add your handling code here:
+    }//GEN-LAST:event_btImprimirTipoInsumoActionPerformed
 
     //Llenando Combo Boxes
     private void llenarComboProcedimientoPaciente() {
@@ -3219,8 +3243,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         }
 
     }
-    
-    
+
     private void llenarComboEquiposProcedimiento() {
         ProcedimientoController pacienteCt = new ProcedimientoController();
         comboEquiposProcedimiento.removeAllItems();
@@ -3231,8 +3254,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         }
 
     }
-    
-    
+
     /**
      * @param args the command line arguments
      */
