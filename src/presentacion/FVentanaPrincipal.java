@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import modelo.Entorno;
 import modelo.Insumo;
 import modelo.Paciente;
 import modelo.Procedimiento;
@@ -25,9 +26,9 @@ import modelo.TipoInsumo;
  * @author tolis
  */
 public class FVentanaPrincipal extends javax.swing.JFrame {
-
+    
     public static String FORMATO_FECHA = "yyyy-mm-dd";
-
+    
     public void imprimirTabla(String header, JTable tabla) {
         try {
             MessageFormat headerFormat = new MessageFormat(header);
@@ -45,7 +46,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean eliminarPacienteFlag = false;
     boolean agregarPacienteFlag = false;
     boolean procedimientosxPacienteFlag = false;
-
+    
     public void falsearBanderasPacientes() {
         consultarPacientesFlag = false;
         consultarPacienteFlag = false;
@@ -54,7 +55,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         agregarPacienteFlag = false;
         procedimientosxPacienteFlag = false;
     }
-
+    
     public void bloquearCamposPacientes() {
         tfIdentificacionPacientes.setEnabled(false);
         tfFechaNacimientoPacientes.setEnabled(false);
@@ -62,7 +63,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfNombresPacientes.setEnabled(false);
         tfApellidosPacientes.setEnabled(false);
     }
-
+    
     public void limpiarCamposPacientes() {
         tfIdentificacionPacientes.setText("");
         tfFechaNacimientoPacientes.setText("");
@@ -79,7 +80,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean agregarProcedimientoFlag = false;
     boolean insumosUtilizadosFlag = false;
     boolean equiposUtilizadosFlag = false;
-
+    
     public void falsearBanderasProcedimientos() {
         consultarProcedimientosFlag = false;
         consultarProcedimientoFlag = false;
@@ -89,13 +90,13 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         insumosUtilizadosFlag = false;
         equiposUtilizadosFlag = false;
     }
-
+    
     public void bloquearCamposProcedimiento() {
         tfIdProcedimientos.setEnabled(false);
         tfNombreProcedimiento.setEnabled(false);
         tfValorProcedimiento.setEnabled(false);
     }
-
+    
     public void limpiarCamposProcedimiento() {
         tfIdProcedimientos.setText("");
         tfNombreProcedimiento.setText("");
@@ -108,7 +109,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean editarTipoInsumoFlag = false;
     boolean eliminarTipoInsumoFlag = false;
     boolean agregarTipoInsumoFlag = false;
-
+    
     public void falsearBanderasTipoInsumo() {
         consultarTipoInsumosFlag = false;
         consultarTipoInsumoFlag = false;
@@ -116,12 +117,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarTipoInsumoFlag = false;
         agregarTipoInsumoFlag = false;
     }
-
+    
     public void bloquearCamposTipoInsumo() {
         tfIdTipoInsumo.setEnabled(false);
         tfNombreTipoInsumo.setEnabled(false);
     }
-
+    
     public void limpiarCamposTipoInsumo() {
         tfIdTipoInsumo.setText("");
         tfNombreTipoInsumo.setText("");
@@ -134,7 +135,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean eliminarInsumoFlag = false;
     boolean agregarInsumoFlag = false;
     boolean procedimientosEnQueSeUtilizaInsumoFlag = false;
-
+    
     public void falsearBanderasInsumo() {
         consultarInsumosFlag = false;
         consultarInsumoFlag = false;
@@ -142,9 +143,9 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarInsumoFlag = false;
         agregarInsumoFlag = false;
         procedimientosEnQueSeUtilizaInsumoFlag = false;
-
+        
     }
-
+    
     public void bloquearCamposInsumo() {
         tfIdInsumos.setEnabled(false);
         tfNombreInsumos.setEnabled(false);
@@ -152,13 +153,13 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfPrecioInsumos.setEnabled(false);
         tfCantidadInsumos.setEnabled(false);
     }
-
+    
     public void limpiarCamposInsumo() {
         tfIdInsumos.setText("");
         tfNombreInsumos.setText("");
         tfPrecioInsumos.setText("");
         tfCantidadInsumos.setText("");
-
+        
     }
 
     //ENTORNO
@@ -167,23 +168,23 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean editarEntornoFlag = false;
     boolean eliminarEntornoFlag = false;
     boolean agregarEntornoFlag = false;
-
+    
     public void falsearBanderasEntorno() {
         consultarEntornosFlag = false;
         consultarEntornoFlag = false;
         editarEntornoFlag = false;
         eliminarEntornoFlag = false;
         agregarEntornoFlag = false;
-
+        
     }
-
+    
     public void bloquearCamposEntorno() {
         tfIdEntorno.setEnabled(false);
         tfHumedadEntorno.setEnabled(false);
         tfTemperaturaEntorno.setEnabled(false);
         tfFechaEntorno.setEnabled(false);
     }
-
+    
     public void limpiarCamposEntorno() {
         tfIdEntorno.setText("");
         tfHumedadEntorno.setText("");
@@ -198,7 +199,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean eliminarEquipoFlag = false;
     boolean agregarEquipoFlag = false;
     boolean procedimientosEnQueSeUtilizaEquipoFlag = false;
-
+    
     public void falsearBanderasEquipos() {
         consultarEquiposFlag = false;
         consultarEquipoFlag = false;
@@ -206,13 +207,13 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarEquipoFlag = false;
         agregarEquipoFlag = false;
     }
-
+    
     public void bloquearCamposEquipos() {
         tfIdEquipo.setEnabled(false);
         tfNombreEquipo.setEnabled(false);
         tfPrecioEquipo.setEnabled(false);
     }
-
+    
     public void limpiarCamposEquipos() {
         tfIdEquipo.setText("");
         tfNombreEquipo.setText("");
@@ -225,7 +226,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean editarCargoFlag = false;
     boolean eliminarCargoFlag = false;
     boolean agregarCargoFlag = false;
-
+    
     public void falsearBanderasCargo() {
         consultarCargosFlag = false;
         consultarCargoFlag = false;
@@ -233,13 +234,13 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarCargoFlag = false;
         agregarCargoFlag = false;
     }
-
+    
     public void bloquearCamposCargo() {
         tfIdCargo.setEnabled(false);
         tfNombreCargo.setEnabled(false);
         tfSalarioCargo.setEnabled(false);
     }
-
+    
     public void limpiarCamposCargo() {
         tfIdCargo.setText("");
         tfNombreCargo.setText("");
@@ -252,7 +253,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean editarRolFlag = false;
     boolean eliminarRolFlag = false;
     boolean agregarRolFlag = false;
-
+    
     public void falsearBanderasRol() {
         consultarRolesFlag = false;
         consultarRolFlag = false;
@@ -260,12 +261,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarRolFlag = false;
         agregarRolFlag = false;
     }
-
+    
     public void bloquearCamposRol() {
         tfIdRol.setEnabled(false);
         tfNombreRol.setEnabled(false);
     }
-
+    
     public void limpiarCamposRol() {
         tfIdRol.setText("");
         tfNombreRol.setText("");
@@ -277,7 +278,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean editarUsuarioFlag = false;
     boolean eliminarUsuarioFlag = false;
     boolean rolesDelUsuarioFlag = false;
-
+    
     public void falserBanderasUsuario() {
         consultarUsuariosFlag = false;
         agregarUsuarioFlag = false;
@@ -286,7 +287,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarUsuarioFlag = false;
         rolesDelUsuarioFlag = false;
     }
-
+    
     public void bloquearCamposUsuario() {
         tfIdUsuarios.setEnabled(false);
         tfNombresUsuarios.setEnabled(false);
@@ -295,7 +296,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         comboCargousuarios.setEnabled(false);
         tfIdRolUsuario.setEnabled(false);
     }
-
+    
     public void limpiarCamposUsuario() {
         tfIdUsuarios.setText("");
         tfNombresUsuarios.setText("");
@@ -313,7 +314,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         Date obj = new Date();
         System.out.println(obj.toString() + "!!");
     }
-
+    
     public void ocultarVentanas() {
         ventanaCargos.setVisible(false);
         ventanaEntorno.setVisible(false);
@@ -2795,12 +2796,13 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         falsearBanderasEntorno();
         agregarEntornoFlag = true;
         bloquearCamposEntorno();
-        tfIdEntorno.setEnabled(true);
+//        tfIdEntorno.setEnabled(true);
         tfHumedadEntorno.setEnabled(true);
         tfTemperaturaEntorno.setEnabled(true);
         tfFechaEntorno.setEnabled(true);
+        tfFechaEntorno.setText(FORMATO_FECHA);
         labelOperacionEntorno.setText("Agregar");
-
+        
 
     }//GEN-LAST:event_opcionAgregarEntornoMouseClicked
 
@@ -2810,7 +2812,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         bloquearCamposEntorno();
         tfHumedadEntorno.setEnabled(true);
         tfTemperaturaEntorno.setEnabled(true);
-        tfFechaEntorno.setEnabled(true);
+        tfFechaEntorno.setEnabled(false);
         labelOperacionEntorno.setText("Editar");
 
     }//GEN-LAST:event_opcionEditarEntornoMouseClicked
@@ -2999,7 +3001,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             Paciente paciente = new Paciente();
             paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
             paciente = pacienteCt.consultarPaciente(paciente);
-
+            
             tfFechaNacimientoPacientes.setText(paciente.getFechaNacimientoPaciente());
             tfTelefonoPacientes.setText(paciente.getTelefonoPaciente());
             tfNombresPacientes.setText(paciente.getNombresPaciente());
@@ -3011,9 +3013,9 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             paciente.setTelefonoPaciente(tfTelefonoPacientes.getText());
             paciente.setNombresPaciente(tfNombresPacientes.getText());
             paciente.setApellidosPaciente(tfApellidosPacientes.getText());
-
+            
             pacienteCt.registrar(paciente);
-
+            
         } else if (editarPacienteFlag) {
             Paciente paciente = new Paciente();
             paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
@@ -3021,17 +3023,17 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             paciente.setTelefonoPaciente(tfTelefonoPacientes.getText());
             paciente.setNombresPaciente(tfNombresPacientes.getText());
             paciente.setApellidosPaciente(tfApellidosPacientes.getText());
-
+            
             pacienteCt.actualizar(paciente);
         } else if (eliminarPacienteFlag) {
             Paciente paciente = new Paciente();
             paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
-
+            
             pacienteCt.eliminar(paciente);
         } else if (procedimientosxPacienteFlag) {
             Paciente paciente = new Paciente();
             paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
-
+            
             pacienteCt.verProcedimientosxPaciente(tablePacientes, paciente);
         }
     }//GEN-LAST:event_btEjecutarPacientesActionPerformed
@@ -3040,12 +3042,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         ProcedimientoController procedimientoCt = new ProcedimientoController();
         if (consultarProcedimientosFlag) {
             procedimientoCt.verProcedimientos(tableProcedimiento);
-
+            
         } else if (consultarProcedimientoFlag) {
             Procedimiento procedimiento = new Procedimiento();
             procedimiento.setNombreProcedimiento(tfNombreProcedimiento.getText());
             procedimiento = procedimientoCt.consultarProcedimiento(procedimiento);
-
+            
             tfIdProcedimientos.setText(Integer.toString(procedimiento.getIdProcedimiento()));
             tfNombreProcedimiento.setText(procedimiento.getNombreProcedimiento());
             tfValorProcedimiento.setText(Integer.toString(procedimiento.getValorProcedimiento()));
@@ -3059,12 +3061,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             procedimiento.setIdProcedimiento(Integer.parseInt(tfIdProcedimientos.getText()));
             procedimiento.setNombreProcedimiento(tfNombreProcedimiento.getText());
             procedimiento.setValorProcedimiento(Integer.parseInt(tfValorProcedimiento.getText()));
-
+            
             procedimientoCt.actualizar(procedimiento);
         } else if (eliminarProcedimientoFlag) {
             Procedimiento procedimiento = new Procedimiento();
             procedimiento.setIdProcedimiento(Integer.parseInt(tfIdProcedimientos.getText()));
-
+            
             procedimientoCt.eliminar(procedimiento);
         } else if (insumosUtilizadosFlag) {
             Procedimiento procedimiento = new Procedimiento();
@@ -3085,7 +3087,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             TipoInsumo tipoInsumo = new TipoInsumo();
             tipoInsumo.setNombreTipoInsumo(tfNombreTipoInsumo.getText());
             tipoInsumo = tipoInsumoCt.consultarTipoInsumo(tipoInsumo);
-
+            
             tfIdTipoInsumo.setText(Integer.toString(tipoInsumo.getIdTipoInsumo()));
             tfNombreTipoInsumo.setText(tipoInsumo.getNombreTipoInsumo());
         } else if (agregarTipoInsumoFlag) {
@@ -3112,12 +3114,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             Insumo insumo = new Insumo();
             insumo.setIdInsumo(Integer.parseInt(tfIdInsumos.getText()));
             insumo = insumoCt.consultarInsumo(insumo);
-
+            
             tfNombreInsumos.setText(insumo.getNombreInsumo());
             tfPrecioInsumos.setText(Integer.toString(insumo.getPrecioInsumo()));
             tfCantidadInsumos.setText(Integer.toString(insumo.getCantidad()));
             String s = insumoCt.consultarTipoInsumoxIdInsumo(insumo);
-
+            
             comboTiposInsumoInsumos.removeAllItems();
             comboTiposInsumoInsumos.addItem(s);
         } else if (agregarInsumoFlag) {
@@ -3128,7 +3130,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             insumo.setCantidad(Integer.parseInt(tfCantidadInsumos.getText()));
             int idTipoInsumo = insumoCt.consultarIdTipoInsumoxNombretipoInsumo(comboTiposInsumoInsumos.getSelectedItem().toString());
             insumo.setTipoInsumo(idTipoInsumo);
-
+            
             insumoCt.registrar(insumo);
         } else if (editarInsumoFlag) {
             Insumo insumo = new Insumo();
@@ -3138,13 +3140,13 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             insumo.setCantidad(Integer.parseInt(tfCantidadInsumos.getText()));
             int idTipoInsumo = insumoCt.consultarIdTipoInsumoxNombretipoInsumo(comboTiposInsumoInsumos.getSelectedItem().toString());
             insumo.setTipoInsumo(idTipoInsumo);
-
+            
             insumoCt.actualizar(insumo);
         } else if (eliminarInsumoFlag) {
             Insumo insumo = new Insumo();
             insumo.setIdInsumo(Integer.parseInt(tfIdInsumos.getText()));
             insumoCt.eliminar(insumo);
-
+            
         } else if (procedimientosEnQueSeUtilizaInsumoFlag) {
             Insumo insumo = new Insumo();
             insumo.setIdInsumo(Integer.parseInt(tfIdInsumos.getText()));
@@ -3155,75 +3157,93 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     private void btEjecutarEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarEntornoActionPerformed
         EntornoController entornoCt = new EntornoController();
         if (consultarEntornosFlag) {
-
+            entornoCt.verEntornos(tableEntorno);
         } else if (consultarEntornoFlag) {
-
+            Entorno entorno = new Entorno();
+            entorno.setFecha(tfFechaEntorno.getText());
+            entorno = entornoCt.consultarEntorno(entorno);
+            
+            tfIdEntorno.setText(Integer.toString(entorno.getIdEntorno()));
+            tfHumedadEntorno.setText(entorno.getHumedad());
+            tfTemperaturaEntorno.setText(entorno.getTemperatura());
         } else if (agregarEntornoFlag) {
-
+            Entorno entorno = new Entorno();
+            entorno.setFecha(tfFechaEntorno.getText());
+            entorno.setHumedad(tfHumedadEntorno.getText());
+            entorno.setTemperatura(tfTemperaturaEntorno.getText());
+            
+            entornoCt.registrar(entorno);
         } else if (editarEntornoFlag) {
-
+            Entorno entorno = new Entorno();
+            entorno.setIdEntorno(Integer.parseInt(tfIdEntorno.getText()));
+            entorno.setFecha(tfFechaEntorno.getText());
+            entorno.setHumedad(tfHumedadEntorno.getText());
+            entorno.setTemperatura(tfTemperaturaEntorno.getText());
+            entornoCt.actualizar(entorno);
         } else if (eliminarEntornoFlag) {
-
+            Entorno entorno = new Entorno();
+            entorno.setFecha(tfFechaEntorno.getText());
+            entornoCt.eliminar(entorno);
         }
     }//GEN-LAST:event_btEjecutarEntornoActionPerformed
 
     private void btEjecutarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarEquipoActionPerformed
         if (consultarEquiposFlag) {
-
+            
         } else if (consultarEquipoFlag) {
-
+            
         } else if (agregarEquipoFlag) {
-
+            
         } else if (editarEquipoFlag) {
-
+            
         } else if (eliminarEquipoFlag) {
-
+            
         } else if (procedimientosEnQueSeUtilizaEquipoFlag) {
-
+            
         }
     }//GEN-LAST:event_btEjecutarEquipoActionPerformed
 
     private void btEjecutarCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarCargosActionPerformed
         if (consultarCargosFlag) {
-
+            
         } else if (consultarCargoFlag) {
-
+            
         } else if (agregarCargoFlag) {
-
+            
         } else if (editarCargoFlag) {
-
+            
         } else if (eliminarCargoFlag) {
-
+            
         }
     }//GEN-LAST:event_btEjecutarCargosActionPerformed
 
     private void btejecutarRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btejecutarRolActionPerformed
         if (consultarRolesFlag) {
-
+            
         } else if (consultarRolFlag) {
-
+            
         } else if (agregarRolFlag) {
-
+            
         } else if (editarRolFlag) {
-
+            
         } else if (eliminarRolFlag) {
-
+            
         }
     }//GEN-LAST:event_btejecutarRolActionPerformed
 
     private void btjecutarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btjecutarUsuarioActionPerformed
         if (consultarUsuariosFlag) {
-
+            
         } else if (consultarUsuarioFlag) {
-
+            
         } else if (agregarUsuarioFlag) {
-
+            
         } else if (editarUsuarioFlag) {
-
+            
         } else if (eliminarUsuarioFlag) {
-
+            
         } else if (rolesDelUsuarioFlag) {
-
+            
         }
     }//GEN-LAST:event_btjecutarUsuarioActionPerformed
 
@@ -3263,44 +3283,44 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         PacienteController pacienteCt = new PacienteController();
         comboProcedimientosPaciente.removeAllItems();
         List<String> list = pacienteCt.llenarComboPaciente();
-
+        
         for (String procedimiento : list) {
             comboProcedimientosPaciente.addItem(procedimiento);
         }
-
+        
     }
-
+    
     private void llenarComboInsumosProcedimiento() {
         ProcedimientoController pacienteCt = new ProcedimientoController();
         comboInsumosProcedimiento.removeAllItems();
         List<String> list = pacienteCt.llenarComboInsumosProcedimiento();
-
+        
         for (String procedimiento : list) {
             comboInsumosProcedimiento.addItem(procedimiento);
         }
-
+        
     }
-
+    
     private void llenarComboEquiposProcedimiento() {
         ProcedimientoController procedimientoCt = new ProcedimientoController();
         comboEquiposProcedimiento.removeAllItems();
         List<String> list = procedimientoCt.llenarComboEquiposProcedimiento();
-
+        
         for (String procedimiento : list) {
             comboEquiposProcedimiento.addItem(procedimiento);
         }
-
+        
     }
-
+    
     private void llenarComboTipoInsumoInsumo() {
         InsumoController insumoCt = new InsumoController();
         comboTiposInsumoInsumos.removeAllItems();
         List<String> list = insumoCt.llenarComboTipoInsumo();
-
+        
         for (String procedimiento : list) {
             comboTiposInsumoInsumos.addItem(procedimiento);
         }
-
+        
     }
 
     /**

@@ -27,7 +27,8 @@ public class EntornoDaoImpl implements IEntornoDao {
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idEntorno, humedad, temperatura, fecha FROM Entorno WHERE fecha = " + entorno.getFecha()+ ";";
+        String sql = "SELECT idEntorno, humedad, temperatura, fecha FROM Entorno WHERE fecha = '" + entorno.getFecha()+ "';";
+        System.out.println("implementacion.EntornoDaoImpl.consultarEntorno() \n" + sql);
         Entorno e = new Entorno();
 
         try {
@@ -64,7 +65,7 @@ public class EntornoDaoImpl implements IEntornoDao {
             ResultSet rs;
             rs = obtenerEntorno(entorno, false);
             if (!rs.next()) {
-                String sql = "INSERT INTO Entorno (humedad, temperatura, fecha) " + "VALUES (?,?,?,?);";
+                String sql = "INSERT INTO Entorno (humedad, temperatura, fecha) " + "VALUES (?,?,?);";
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
 //                psql.setInt(1, entorno.getIdEntorno());
@@ -96,8 +97,8 @@ public class EntornoDaoImpl implements IEntornoDao {
             rs = obtenerEntorno(entorno, false);
 
             if (rs.next()) {
-                String sql = "UPDATE Entorno SET humedad = '" + entorno.getHumedad() + ", temperatura = '" + entorno.getTemperatura() + "'"
-                        + " WHERE fecha = " + entorno.getFecha()+ ";";
+                String sql = "UPDATE Entorno SET humedad = " + entorno.getHumedad() + ", temperatura = " + entorno.getTemperatura()
+                        + " WHERE fecha = '" + entorno.getFecha()+ "';";
                 System.out.println(sql);
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
@@ -105,7 +106,7 @@ public class EntornoDaoImpl implements IEntornoDao {
                 actualizar = true;
                 JOptionPane.showMessageDialog(null, "Operación Exitosa");
             } else {
-                JOptionPane.showMessageDialog(null, "El registro no existe");
+                JOptionPane.showMessageDialog(null, "El registro no existe actializar");
             }
         } catch (SQLException e) {
             System.out.println("implementacion.EntornoDaoImpl.actualizarEntorno()");
@@ -123,8 +124,9 @@ public class EntornoDaoImpl implements IEntornoDao {
             ResultSet rs = obtenerEntorno(entorno, false);
             if (rs.next()) {
 
-                String sql = "DELETE FROM Entorno WHERE fecha = "
-                        + entorno.getFecha()+ ";";
+                String sql = "DELETE FROM Entorno WHERE fecha = '"
+                        + entorno.getFecha()+ "';";
+                System.out.println("implementacion.EntornoDaoImpl.eliminarEntorno() \n" + sql);
 
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
@@ -169,7 +171,7 @@ public class EntornoDaoImpl implements IEntornoDao {
         ResultSet rs = null;
 
         String sql = "SELECT identorno, humedad, temperatura, fecha"
-                + " FROM entorno WHERE fecha = " + entorno.getFecha()+ ";";
+                + " FROM entorno WHERE fecha = '" + entorno.getFecha()+ "';";
         System.out.println(sql);
         try {
             con = ConexionBD.connect();

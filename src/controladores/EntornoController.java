@@ -24,7 +24,13 @@ public class EntornoController {
         IEntornoDao dao = new EntornoDaoImpl();
         dao.registrarNuevoEntorno(entorno);
     }
-
+    
+    public Entorno consultarEntorno(Entorno entorno) {
+        IEntornoDao dao = new EntornoDaoImpl();
+        Entorno e = new Entorno();
+        e = dao.consultarEntorno(entorno);
+        return e;
+    }
     //llama al DAO para actualizar un entorno
     public void actualizar(Entorno entorno) {
         IEntornoDao dao = new EntornoDaoImpl();
