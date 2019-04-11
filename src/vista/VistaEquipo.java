@@ -32,11 +32,11 @@ public class VistaEquipo {
 
     public void verEquipos(ResultSet equipos, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"idEquipo", "nombreEquipo", "precioEquipo"});
+        modelo.setColumnIdentifiers(new Object[]{"idEquipos", "nombreEquipos", "precioEquipos"});
 
         try {
             while (equipos.next()) {
-                modelo.addRow(new Object[]{equipos.getInt("idEquipo"), equipos.getString("nombreEquipo"), equipos.getInt("precioEquipo")});
+                modelo.addRow(new Object[]{equipos.getInt("idEquipos"), equipos.getString("nombreEquipos"), equipos.getInt("precioEquipos")});
             }
             tabla.setModel(modelo);
 
@@ -51,7 +51,7 @@ public class VistaEquipo {
 
         try {
             while (procedimientos.next()) {
-                modelo.addRow(new Object[]{procedimientos.getInt("nombreProcedimiento")});            }
+                modelo.addRow(new Object[]{procedimientos.getString("nombreProcedimiento")});            }
             tabla.setModel(modelo);
 
         } catch (Exception ex) {

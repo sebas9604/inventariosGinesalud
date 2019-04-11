@@ -23,7 +23,13 @@ public class EquipoController {
         IEquipoDao dao = new EquipoDaoImpl();
         dao.registrarNuevoEquipo(equipo);
     }
-
+        
+    public Equipo consultarEquipo(Equipo equipo) {
+        IEquipoDao dao = new EquipoDaoImpl();
+        Equipo e = new Equipo();
+        e = dao.consultarEquipo(equipo);
+        return e;
+    }
     //llama al DAO para actualizar un equipo
     public void actualizar(Equipo equipo) {
         IEquipoDao dao = new EquipoDaoImpl();
@@ -49,5 +55,12 @@ public class EquipoController {
         IEquipoDao dao = new EquipoDaoImpl();
         equipos = dao.obtenerEquipo(equipo, true);
         vista.verEquipo(equipos, tabla);
+    }
+    
+        public void verProcedimientosEnQueseUtiliza(JTable tabla, Equipo equipo) {
+        ResultSet equipos = null;
+        IEquipoDao dao = new EquipoDaoImpl();
+        equipos = dao.obtenerProcedimientosxEquipos(equipo);
+        vista.verProcedimientosxEquipo(equipos, tabla);
     }
 }

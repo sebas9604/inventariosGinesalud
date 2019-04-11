@@ -6,6 +6,7 @@
 package presentacion;
 
 import controladores.EntornoController;
+import controladores.EquipoController;
 import controladores.InsumoController;
 import controladores.PacienteController;
 import controladores.ProcedimientoController;
@@ -16,6 +17,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import modelo.Entorno;
+import modelo.Equipo;
 import modelo.Insumo;
 import modelo.Paciente;
 import modelo.Procedimiento;
@@ -351,48 +353,6 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         imgLogo = new javax.swing.JLabel();
         barraLateral = new javax.swing.JLabel();
         barraHorizontal = new javax.swing.JLabel();
-        ventanaEntorno = new javax.swing.JInternalFrame();
-        labelOperacionEntorno = new javax.swing.JLabel();
-        btEjecutarEntorno = new javax.swing.JButton();
-        btImprimirEntorno = new javax.swing.JButton();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        tableEntorno = new javax.swing.JTable();
-        labelIdEntorno = new javax.swing.JLabel();
-        tfIdEntorno = new javax.swing.JTextField();
-        tfHumedadEntorno = new javax.swing.JTextField();
-        tfTemperaturaEntorno = new javax.swing.JTextField();
-        tfFechaEntorno = new javax.swing.JTextField();
-        labelTemperaturaEntorno = new javax.swing.JLabel();
-        labelHumedadEntorno = new javax.swing.JLabel();
-        labelFechaEntorno = new javax.swing.JLabel();
-        menuEntorno = new javax.swing.JMenuBar();
-        opcionConsultarEntorno = new javax.swing.JMenu();
-        opConsultarEntornos = new javax.swing.JMenuItem();
-        opConsultarEntorno = new javax.swing.JMenuItem();
-        opcionAgregarEntorno = new javax.swing.JMenu();
-        opcionEditarEntorno = new javax.swing.JMenu();
-        opcionEliminarEntorno = new javax.swing.JMenu();
-        ventanaEquipos = new javax.swing.JInternalFrame();
-        btImprimirEquipo = new javax.swing.JButton();
-        labelOperacionEquipo = new javax.swing.JLabel();
-        btEjecutarEquipo = new javax.swing.JButton();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        tableEquipo = new javax.swing.JTable();
-        labelNombreEquipo = new javax.swing.JLabel();
-        labelIdEquipo = new javax.swing.JLabel();
-        labelPrecioEquipo = new javax.swing.JLabel();
-        tfIdEquipo = new javax.swing.JTextField();
-        tfNombreEquipo = new javax.swing.JTextField();
-        tfPrecioEquipo = new javax.swing.JTextField();
-        menuEquipos = new javax.swing.JMenuBar();
-        opcionConsultarEquipos = new javax.swing.JMenu();
-        opConsultarEquipos = new javax.swing.JMenuItem();
-        opConsultarEquipo = new javax.swing.JMenuItem();
-        opcionAgregarEquipo = new javax.swing.JMenu();
-        opcionEditarEquipo = new javax.swing.JMenu();
-        opcionEliminarEquipo = new javax.swing.JMenu();
-        opcionReportesEquipo = new javax.swing.JMenu();
-        procedimientosxEquipo = new javax.swing.JMenuItem();
         ventanaCargos = new javax.swing.JInternalFrame();
         labelOperacionCargos = new javax.swing.JLabel();
         btEjecutarCargos = new javax.swing.JButton();
@@ -564,6 +524,48 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         opcionEliminarInsumos = new javax.swing.JMenu();
         opcionReportesInsumos = new javax.swing.JMenu();
         procedimientosxInsumo = new javax.swing.JMenuItem();
+        ventanaEntorno = new javax.swing.JInternalFrame();
+        labelOperacionEntorno = new javax.swing.JLabel();
+        btEjecutarEntorno = new javax.swing.JButton();
+        btImprimirEntorno = new javax.swing.JButton();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tableEntorno = new javax.swing.JTable();
+        labelIdEntorno = new javax.swing.JLabel();
+        tfIdEntorno = new javax.swing.JTextField();
+        tfHumedadEntorno = new javax.swing.JTextField();
+        tfTemperaturaEntorno = new javax.swing.JTextField();
+        tfFechaEntorno = new javax.swing.JTextField();
+        labelTemperaturaEntorno = new javax.swing.JLabel();
+        labelHumedadEntorno = new javax.swing.JLabel();
+        labelFechaEntorno = new javax.swing.JLabel();
+        menuEntorno = new javax.swing.JMenuBar();
+        opcionConsultarEntorno = new javax.swing.JMenu();
+        opConsultarEntornos = new javax.swing.JMenuItem();
+        opConsultarEntorno = new javax.swing.JMenuItem();
+        opcionAgregarEntorno = new javax.swing.JMenu();
+        opcionEditarEntorno = new javax.swing.JMenu();
+        opcionEliminarEntorno = new javax.swing.JMenu();
+        ventanaEquipos = new javax.swing.JInternalFrame();
+        btImprimirEquipo = new javax.swing.JButton();
+        labelOperacionEquipo = new javax.swing.JLabel();
+        btEjecutarEquipo = new javax.swing.JButton();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tableEquipo = new javax.swing.JTable();
+        labelNombreEquipo = new javax.swing.JLabel();
+        labelIdEquipo = new javax.swing.JLabel();
+        labelPrecioEquipo = new javax.swing.JLabel();
+        tfIdEquipo = new javax.swing.JTextField();
+        tfNombreEquipo = new javax.swing.JTextField();
+        tfPrecioEquipo = new javax.swing.JTextField();
+        menuEquipos = new javax.swing.JMenuBar();
+        opcionConsultarEquipos = new javax.swing.JMenu();
+        opConsultarEquipos = new javax.swing.JMenuItem();
+        opConsultarEquipo = new javax.swing.JMenuItem();
+        opcionAgregarEquipo = new javax.swing.JMenu();
+        opcionEditarEquipo = new javax.swing.JMenu();
+        opcionEliminarEquipo = new javax.swing.JMenu();
+        opcionReportesEquipo = new javax.swing.JMenu();
+        procedimientosxEquipo = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GinesaludSoft");
@@ -679,336 +681,6 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         barraHorizontal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/barrahorizontal.png"))); // NOI18N
         jPanel1.add(barraHorizontal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 80));
-
-        ventanaEntorno.setTitle("ENTORNO");
-        ventanaEntorno.setVisible(true);
-
-        labelOperacionEntorno.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
-        labelOperacionEntorno.setText("Operacion");
-
-        btEjecutarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        btEjecutarEntorno.setText("Ejecutar");
-        btEjecutarEntorno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEjecutarEntornoActionPerformed(evt);
-            }
-        });
-
-        btImprimirEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        btImprimirEntorno.setText("Imprimir");
-
-        tableEntorno.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane9.setViewportView(tableEntorno);
-
-        labelIdEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelIdEntorno.setText("ID");
-
-        tfFechaEntorno.setText("yyy-mm-dd");
-
-        labelTemperaturaEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelTemperaturaEntorno.setText("Temperatura");
-
-        labelHumedadEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelHumedadEntorno.setText("Humedad");
-
-        labelFechaEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelFechaEntorno.setText("Fecha");
-
-        opcionConsultarEntorno.setText("Consultar");
-        opcionConsultarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-
-        opConsultarEntornos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opConsultarEntornos.setText("Todos los entornos");
-        opConsultarEntornos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opConsultarEntornosActionPerformed(evt);
-            }
-        });
-        opcionConsultarEntorno.add(opConsultarEntornos);
-
-        opConsultarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opConsultarEntorno.setText("Entorno");
-        opConsultarEntorno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opConsultarEntornoActionPerformed(evt);
-            }
-        });
-        opcionConsultarEntorno.add(opConsultarEntorno);
-
-        menuEntorno.add(opcionConsultarEntorno);
-
-        opcionAgregarEntorno.setText("Agregar");
-        opcionAgregarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionAgregarEntorno.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionAgregarEntornoMouseClicked(evt);
-            }
-        });
-        menuEntorno.add(opcionAgregarEntorno);
-
-        opcionEditarEntorno.setText("Editar");
-        opcionEditarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionEditarEntorno.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionEditarEntornoMouseClicked(evt);
-            }
-        });
-        menuEntorno.add(opcionEditarEntorno);
-
-        opcionEliminarEntorno.setText("Eliminar");
-        opcionEliminarEntorno.setToolTipText("");
-        opcionEliminarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionEliminarEntorno.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionEliminarEntornoMouseClicked(evt);
-            }
-        });
-        menuEntorno.add(opcionEliminarEntorno);
-
-        ventanaEntorno.setJMenuBar(menuEntorno);
-
-        javax.swing.GroupLayout ventanaEntornoLayout = new javax.swing.GroupLayout(ventanaEntorno.getContentPane());
-        ventanaEntorno.getContentPane().setLayout(ventanaEntornoLayout);
-        ventanaEntornoLayout.setHorizontalGroup(
-            ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaEntornoLayout.createSequentialGroup()
-                .addGroup(ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEntornoLayout.createSequentialGroup()
-                        .addGap(0, 30, Short.MAX_VALUE)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ventanaEntornoLayout.createSequentialGroup()
-                        .addGroup(ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ventanaEntornoLayout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(labelOperacionEntorno))
-                            .addGroup(ventanaEntornoLayout.createSequentialGroup()
-                                .addGap(611, 611, 611)
-                                .addComponent(btEjecutarEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ventanaEntornoLayout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(labelIdEntorno)
-                                .addGap(18, 18, 18)
-                                .addComponent(tfIdEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(56, 56, 56)
-                                .addComponent(labelHumedadEntorno)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tfHumedadEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(69, 69, 69)
-                                .addComponent(labelTemperaturaEntorno)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tfTemperaturaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(60, 60, 60)
-                                .addComponent(labelFechaEntorno)
-                                .addGap(35, 35, 35)
-                                .addComponent(tfFechaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEntornoLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btImprimirEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
-        );
-        ventanaEntornoLayout.setVerticalGroup(
-            ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaEntornoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelOperacionEntorno)
-                .addGap(18, 18, 18)
-                .addGroup(ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelIdEntorno)
-                    .addComponent(tfIdEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfHumedadEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfTemperaturaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfFechaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTemperaturaEntorno)
-                    .addComponent(labelHumedadEntorno)
-                    .addComponent(labelFechaEntorno))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(btEjecutarEntorno)
-                .addGap(45, 45, 45)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btImprimirEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11))
-        );
-
-        jPanel1.add(ventanaEntorno, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
-
-        ventanaEquipos.setTitle("EQUIPOS");
-        ventanaEquipos.setVisible(true);
-
-        btImprimirEquipo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        btImprimirEquipo.setText("Imprimir");
-
-        labelOperacionEquipo.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
-        labelOperacionEquipo.setText("Operacion");
-
-        btEjecutarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        btEjecutarEquipo.setText("Ejecutar");
-        btEjecutarEquipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEjecutarEquipoActionPerformed(evt);
-            }
-        });
-
-        tableEquipo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane8.setViewportView(tableEquipo);
-
-        labelNombreEquipo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelNombreEquipo.setText("Nombre");
-
-        labelIdEquipo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelIdEquipo.setText("ID");
-
-        labelPrecioEquipo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelPrecioEquipo.setText("Precio");
-
-        opcionConsultarEquipos.setText("Consultar");
-        opcionConsultarEquipos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-
-        opConsultarEquipos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opConsultarEquipos.setText("Todos los equipos");
-        opConsultarEquipos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opConsultarEquiposActionPerformed(evt);
-            }
-        });
-        opcionConsultarEquipos.add(opConsultarEquipos);
-
-        opConsultarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opConsultarEquipo.setText("Equipo");
-        opConsultarEquipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opConsultarEquipoActionPerformed(evt);
-            }
-        });
-        opcionConsultarEquipos.add(opConsultarEquipo);
-
-        menuEquipos.add(opcionConsultarEquipos);
-
-        opcionAgregarEquipo.setText("Agregar");
-        opcionAgregarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionAgregarEquipo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionAgregarEquipoMouseClicked(evt);
-            }
-        });
-        menuEquipos.add(opcionAgregarEquipo);
-
-        opcionEditarEquipo.setText("Editar");
-        opcionEditarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionEditarEquipo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionEditarEquipoMouseClicked(evt);
-            }
-        });
-        menuEquipos.add(opcionEditarEquipo);
-
-        opcionEliminarEquipo.setText("Eliminar");
-        opcionEliminarEquipo.setToolTipText("");
-        opcionEliminarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionEliminarEquipo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionEliminarEquipoMouseClicked(evt);
-            }
-        });
-        menuEquipos.add(opcionEliminarEquipo);
-
-        opcionReportesEquipo.setText("Reportes");
-        opcionReportesEquipo.setToolTipText("");
-        opcionReportesEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-
-        procedimientosxEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        procedimientosxEquipo.setText("Procedimientos en que se utiliza");
-        procedimientosxEquipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                procedimientosxEquipoActionPerformed(evt);
-            }
-        });
-        opcionReportesEquipo.add(procedimientosxEquipo);
-
-        menuEquipos.add(opcionReportesEquipo);
-
-        ventanaEquipos.setJMenuBar(menuEquipos);
-
-        javax.swing.GroupLayout ventanaEquiposLayout = new javax.swing.GroupLayout(ventanaEquipos.getContentPane());
-        ventanaEquipos.getContentPane().setLayout(ventanaEquiposLayout);
-        ventanaEquiposLayout.setHorizontalGroup(
-            ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaEquiposLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelIdEquipo)
-                    .addComponent(labelOperacionEquipo))
-                .addGap(18, 18, 18)
-                .addComponent(tfIdEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(113, 113, 113)
-                .addComponent(labelNombreEquipo)
-                .addGap(18, 18, 18)
-                .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tfNombreEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btEjecutarEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
-                .addComponent(labelPrecioEquipo)
-                .addGap(29, 29, 29)
-                .addComponent(tfPrecioEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEquiposLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btImprimirEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
-            .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEquiposLayout.createSequentialGroup()
-                    .addContainerGap(21, Short.MAX_VALUE)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(21, Short.MAX_VALUE)))
-        );
-        ventanaEquiposLayout.setVerticalGroup(
-            ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaEquiposLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelOperacionEquipo)
-                .addGap(8, 8, 8)
-                .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNombreEquipo)
-                    .addComponent(labelPrecioEquipo)
-                    .addComponent(labelIdEquipo)
-                    .addComponent(tfIdEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNombreEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfPrecioEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btEjecutarEquipo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 584, Short.MAX_VALUE)
-                .addComponent(btImprimirEquipo)
-                .addContainerGap())
-            .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEquiposLayout.createSequentialGroup()
-                    .addContainerGap(183, Short.MAX_VALUE)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(75, Short.MAX_VALUE)))
-        );
-
-        jPanel1.add(ventanaEquipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
 
         ventanaCargos.setTitle("CARGOS");
         ventanaCargos.setVisible(true);
@@ -2441,6 +2113,339 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1.add(ventanaInsumos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
 
+        ventanaEntorno.setTitle("ENTORNO");
+        ventanaEntorno.setVisible(true);
+
+        labelOperacionEntorno.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        labelOperacionEntorno.setText("Operacion");
+
+        btEjecutarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btEjecutarEntorno.setText("Ejecutar");
+        btEjecutarEntorno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEjecutarEntornoActionPerformed(evt);
+            }
+        });
+
+        btImprimirEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btImprimirEntorno.setText("Imprimir");
+
+        tableEntorno.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane9.setViewportView(tableEntorno);
+
+        labelIdEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelIdEntorno.setText("ID");
+
+        tfFechaEntorno.setText("yyy-mm-dd");
+
+        labelTemperaturaEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelTemperaturaEntorno.setText("Temperatura");
+
+        labelHumedadEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelHumedadEntorno.setText("Humedad");
+
+        labelFechaEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelFechaEntorno.setText("Fecha");
+
+        opcionConsultarEntorno.setText("Consultar");
+        opcionConsultarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+
+        opConsultarEntornos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarEntornos.setText("Todos los entornos");
+        opConsultarEntornos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarEntornosActionPerformed(evt);
+            }
+        });
+        opcionConsultarEntorno.add(opConsultarEntornos);
+
+        opConsultarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarEntorno.setText("Entorno");
+        opConsultarEntorno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarEntornoActionPerformed(evt);
+            }
+        });
+        opcionConsultarEntorno.add(opConsultarEntorno);
+
+        menuEntorno.add(opcionConsultarEntorno);
+
+        opcionAgregarEntorno.setText("Agregar");
+        opcionAgregarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionAgregarEntorno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarEntornoMouseClicked(evt);
+            }
+        });
+        menuEntorno.add(opcionAgregarEntorno);
+
+        opcionEditarEntorno.setText("Editar");
+        opcionEditarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEditarEntorno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditarEntornoMouseClicked(evt);
+            }
+        });
+        menuEntorno.add(opcionEditarEntorno);
+
+        opcionEliminarEntorno.setText("Eliminar");
+        opcionEliminarEntorno.setToolTipText("");
+        opcionEliminarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEliminarEntorno.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarEntornoMouseClicked(evt);
+            }
+        });
+        menuEntorno.add(opcionEliminarEntorno);
+
+        ventanaEntorno.setJMenuBar(menuEntorno);
+
+        javax.swing.GroupLayout ventanaEntornoLayout = new javax.swing.GroupLayout(ventanaEntorno.getContentPane());
+        ventanaEntorno.getContentPane().setLayout(ventanaEntornoLayout);
+        ventanaEntornoLayout.setHorizontalGroup(
+            ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaEntornoLayout.createSequentialGroup()
+                .addGroup(ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEntornoLayout.createSequentialGroup()
+                        .addGap(0, 30, Short.MAX_VALUE)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ventanaEntornoLayout.createSequentialGroup()
+                        .addGroup(ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ventanaEntornoLayout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(labelOperacionEntorno))
+                            .addGroup(ventanaEntornoLayout.createSequentialGroup()
+                                .addGap(611, 611, 611)
+                                .addComponent(btEjecutarEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ventanaEntornoLayout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(labelIdEntorno)
+                                .addGap(18, 18, 18)
+                                .addComponent(tfIdEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(56, 56, 56)
+                                .addComponent(labelHumedadEntorno)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tfHumedadEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(69, 69, 69)
+                                .addComponent(labelTemperaturaEntorno)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tfTemperaturaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)
+                                .addComponent(labelFechaEntorno)
+                                .addGap(35, 35, 35)
+                                .addComponent(tfFechaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEntornoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btImprimirEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
+        );
+        ventanaEntornoLayout.setVerticalGroup(
+            ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaEntornoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelOperacionEntorno)
+                .addGap(18, 18, 18)
+                .addGroup(ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelIdEntorno)
+                    .addComponent(tfIdEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfHumedadEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfTemperaturaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfFechaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTemperaturaEntorno)
+                    .addComponent(labelHumedadEntorno)
+                    .addComponent(labelFechaEntorno))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(btEjecutarEntorno)
+                .addGap(45, 45, 45)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btImprimirEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11))
+        );
+
+        jPanel1.add(ventanaEntorno, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
+        ventanaEquipos.setTitle("EQUIPOS");
+        ventanaEquipos.setVisible(true);
+
+        btImprimirEquipo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btImprimirEquipo.setText("Imprimir");
+        btImprimirEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btImprimirEquipoActionPerformed(evt);
+            }
+        });
+
+        labelOperacionEquipo.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        labelOperacionEquipo.setText("Operacion");
+
+        btEjecutarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btEjecutarEquipo.setText("Ejecutar");
+        btEjecutarEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEjecutarEquipoActionPerformed(evt);
+            }
+        });
+
+        tableEquipo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane8.setViewportView(tableEquipo);
+
+        labelNombreEquipo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelNombreEquipo.setText("Nombre");
+
+        labelIdEquipo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelIdEquipo.setText("ID");
+
+        labelPrecioEquipo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelPrecioEquipo.setText("Precio");
+
+        opcionConsultarEquipos.setText("Consultar");
+        opcionConsultarEquipos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+
+        opConsultarEquipos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarEquipos.setText("Todos los equipos");
+        opConsultarEquipos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarEquiposActionPerformed(evt);
+            }
+        });
+        opcionConsultarEquipos.add(opConsultarEquipos);
+
+        opConsultarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarEquipo.setText("Equipo");
+        opConsultarEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarEquipoActionPerformed(evt);
+            }
+        });
+        opcionConsultarEquipos.add(opConsultarEquipo);
+
+        menuEquipos.add(opcionConsultarEquipos);
+
+        opcionAgregarEquipo.setText("Agregar");
+        opcionAgregarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionAgregarEquipo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarEquipoMouseClicked(evt);
+            }
+        });
+        menuEquipos.add(opcionAgregarEquipo);
+
+        opcionEditarEquipo.setText("Editar");
+        opcionEditarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEditarEquipo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditarEquipoMouseClicked(evt);
+            }
+        });
+        menuEquipos.add(opcionEditarEquipo);
+
+        opcionEliminarEquipo.setText("Eliminar");
+        opcionEliminarEquipo.setToolTipText("");
+        opcionEliminarEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEliminarEquipo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarEquipoMouseClicked(evt);
+            }
+        });
+        menuEquipos.add(opcionEliminarEquipo);
+
+        opcionReportesEquipo.setText("Reportes");
+        opcionReportesEquipo.setToolTipText("");
+        opcionReportesEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+
+        procedimientosxEquipo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        procedimientosxEquipo.setText("Procedimientos en que se utiliza");
+        procedimientosxEquipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                procedimientosxEquipoActionPerformed(evt);
+            }
+        });
+        opcionReportesEquipo.add(procedimientosxEquipo);
+
+        menuEquipos.add(opcionReportesEquipo);
+
+        ventanaEquipos.setJMenuBar(menuEquipos);
+
+        javax.swing.GroupLayout ventanaEquiposLayout = new javax.swing.GroupLayout(ventanaEquipos.getContentPane());
+        ventanaEquipos.getContentPane().setLayout(ventanaEquiposLayout);
+        ventanaEquiposLayout.setHorizontalGroup(
+            ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEquiposLayout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btImprimirEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
+            .addGroup(ventanaEquiposLayout.createSequentialGroup()
+                .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ventanaEquiposLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(labelOperacionEquipo))
+                    .addGroup(ventanaEquiposLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(labelIdEquipo)
+                        .addGap(18, 18, 18)
+                        .addComponent(tfIdEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(113, 113, 113)
+                        .addComponent(labelNombreEquipo)
+                        .addGap(18, 18, 18)
+                        .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ventanaEquiposLayout.createSequentialGroup()
+                                .addComponent(tfNombreEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(167, 167, 167)
+                                .addComponent(labelPrecioEquipo)
+                                .addGap(29, 29, 29)
+                                .addComponent(tfPrecioEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btEjecutarEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        ventanaEquiposLayout.setVerticalGroup(
+            ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaEquiposLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelOperacionEquipo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addGroup(ventanaEquiposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombreEquipo)
+                    .addComponent(labelPrecioEquipo)
+                    .addComponent(labelIdEquipo)
+                    .addComponent(tfIdEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfNombreEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfPrecioEquipo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btEjecutarEquipo)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 524, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btImprimirEquipo)
+                .addContainerGap())
+        );
+
+        jPanel1.add(ventanaEquipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -3188,18 +3193,42 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btEjecutarEntornoActionPerformed
 
     private void btEjecutarEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarEquipoActionPerformed
+        EquipoController equipoCt = new EquipoController();
         if (consultarEquiposFlag) {
-            
+            equipoCt.verEquipos(tableEquipo);
         } else if (consultarEquipoFlag) {
+            Equipo equipo = new Equipo();
+//            equipo.setIdEquipo(Integer.parseInt(tfIdEquipo.getText()));
+equipo.setNombreEquipo(tfNombreEquipo.getText());
+            equipo = equipoCt.consultarEquipo(equipo);
+            
+            tfIdEquipo.setText(Integer.toString(equipo.getIdEquipo()));
+            tfNombreEquipo.setText(equipo.getNombreEquipo());
+            tfPrecioEquipo.setText(Integer.toString(equipo.getPrecioEquipo()));
             
         } else if (agregarEquipoFlag) {
+            Equipo equipo = new Equipo();
+            equipo.setIdEquipo(Integer.parseInt(tfIdEquipo.getText()));
+            equipo.setNombreEquipo(tfNombreEquipo.getText());
+            equipo.setPrecioEquipo(Integer.parseInt(tfPrecioEquipo.getText()));
             
+            equipoCt.registrar(equipo);
         } else if (editarEquipoFlag) {
+                     Equipo equipo = new Equipo();
+            equipo.setIdEquipo(Integer.parseInt(tfIdEquipo.getText()));
+            equipo.setNombreEquipo(tfNombreEquipo.getText());
+            equipo.setPrecioEquipo(Integer.parseInt(tfPrecioEquipo.getText()));
             
+            equipoCt.actualizar(equipo);   
         } else if (eliminarEquipoFlag) {
+                      Equipo equipo = new Equipo();
+            equipo.setIdEquipo(Integer.parseInt(tfIdEquipo.getText()));
             
+            equipoCt.eliminar(equipo);
         } else if (procedimientosEnQueSeUtilizaEquipoFlag) {
-            
+             Equipo equipo = new Equipo();
+            equipo.setIdEquipo(Integer.parseInt(tfIdEquipo.getText()));
+            equipoCt.verProcedimientosEnQueseUtiliza(tableEquipo, equipo);           
         }
     }//GEN-LAST:event_btEjecutarEquipoActionPerformed
 
@@ -3277,6 +3306,10 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     private void btImprimirInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirInsumosActionPerformed
         imprimirTabla("Insumos", tableInsumos);       // TODO add your handling code here:
     }//GEN-LAST:event_btImprimirInsumosActionPerformed
+
+    private void btImprimirEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirEquipoActionPerformed
+        imprimirTabla("Equipos", tableEquipo);        // TODO add your handling code here:
+    }//GEN-LAST:event_btImprimirEquipoActionPerformed
 
     //Llenando Combo Boxes
     private void llenarComboProcedimientoPaciente() {

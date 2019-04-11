@@ -28,7 +28,7 @@ public class EquipoDaoImpl implements IEquipoDao {
         ResultSet rs = null;
 
         String sql = "SELECT idEquipos, nombreEquipos, precioEquipos"
-                + " FROM Equipos WHERE nombreEquipos LIKE '%" + equipo.getIdEquipo() + "%';";
+                + " FROM Equipos WHERE nombreEquipos LIKE '%" + equipo.getNombreEquipo()+ "%';";
         Equipo e = new Equipo();
 
         try {
@@ -65,7 +65,7 @@ public class EquipoDaoImpl implements IEquipoDao {
             ResultSet rs;
             rs = obtenerEquipo(equipo, false);
             if (!rs.next()) {
-                String sql = "INSERT INTO Equipo (idequipos, nombreEquipos, precioequipos) " + "VALUES (?,?,?);";
+                String sql = "INSERT INTO Equipos (idequipos, nombreEquipos, precioequipos) " + "VALUES (?,?,?);";
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
                 psql.setInt(1, equipo.getIdEquipo());
@@ -195,8 +195,8 @@ public class EquipoDaoImpl implements IEquipoDao {
         String sql = "SELECT p.nombreProcedimiento "
                 + "FROM Procedimientos AS p "
                 + "INNER JOIN EquiposxProcedimiento as pxp "
-                + "ON p.idProcedimiento = pxp.idProcedimiento "
-                + "WHERE pxp.idEquipo = " + equipo.getIdEquipo();
+                + "ON p.idProcedimientos = pxp.idProcedimientos "
+                + "WHERE pxp.idEquipos = " + equipo.getIdEquipo();
         try {
             con = ConexionBD.connect();
             stm = con.createStatement();

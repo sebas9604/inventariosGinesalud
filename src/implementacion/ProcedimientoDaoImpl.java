@@ -300,6 +300,7 @@ public class ProcedimientoDaoImpl implements IProcedimientoDao {
 
             int idEquipo = obtenerIdEquipoxNombreEquipo(nombreEquipo);
                 String sql = "INSERT INTO EquiposxProcedimiento (idProcedimientos, idEquipos) " + "VALUES (?,?);";
+                System.out.println("implementacion.ProcedimientoDaoImpl.registrarEquiposProcedimiento() \n" + sql);
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
                 psql.setInt(1, idProcedimiento);
@@ -321,8 +322,9 @@ public class ProcedimientoDaoImpl implements IProcedimientoDao {
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idEquipo"
-                + " FROM Equipos WHERE nombreEquipo = '" + nombreEquipo + "';";
+        String sql = "SELECT idEquipos"
+                + " FROM Equipos WHERE nombreEquipos = '" + nombreEquipo + "';";
+        System.out.println("implementacion.ProcedimientoDaoImpl.obtenerIdEquipoxNombreEquipo() \n" + sql);
 int idEquipo = 0;
         try {
             con = ConexionBD.connect();
