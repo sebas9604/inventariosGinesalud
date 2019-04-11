@@ -61,14 +61,15 @@ public class ProcedimientoController {
         procedimientos = dao.obtenerProcedimiento(procedimiento, true);
         vista.verProcedimiento(procedimientos, tabla);
     }
-    
-            public void verInsumoUtilizados(JTable tabla, Procedimiento procedimiento) {
-        ResultSet pacientes = null;
+
+    public void verInsumoUtilizados(JTable tabla, Procedimiento procedimiento) {
+        ResultSet insumos = null;
         IProcedimientoDao dao = new ProcedimientoDaoImpl();
-        pacientes = dao.obtenerInsumosxProcedimiento(procedimiento);
-        vista.verInsumosProcedimiento(pacientes, tabla);
+        insumos = dao.obtenerInsumosxProcedimiento(procedimiento);
+        vista.verInsumosProcedimiento(insumos, tabla);
     }
-                    public void verEquiposUtilizados(JTable tabla, Procedimiento procedimiento) {
+
+    public void verEquiposUtilizados(JTable tabla, Procedimiento procedimiento) {
         ResultSet pacientes = null;
         IProcedimientoDao dao = new ProcedimientoDaoImpl();
         pacientes = dao.obtenerEquiposxProcedimiento(procedimiento);
@@ -79,19 +80,23 @@ public class ProcedimientoController {
         IProcedimientoDao dao = new ProcedimientoDaoImpl();
         List<String> list = dao.llenarComboInsumosProcedimiento();
 
-        return list;    }
+        return list;
+    }
 
     public List<String> llenarComboEquiposProcedimiento() {
         IProcedimientoDao dao = new ProcedimientoDaoImpl();
         List<String> list = dao.llenarComboEquiposProcedimiento();
 
-        return list;    }
+        return list;
+    }
 
     public void registrarEquiposProcedimiento(int idProcedimiento, String nombreEquipo) {
         IProcedimientoDao dao = new ProcedimientoDaoImpl();
-        dao.registrarEquiposProcedimiento(idProcedimiento, nombreEquipo);    }
-    
-        public void registrarInsumosProcedimiento(String nombreInsumo, int idProcedimiento, int cantidaInsumo) {
+        dao.registrarEquiposProcedimiento(idProcedimiento, nombreEquipo);
+    }
+
+    public void registrarInsumosProcedimiento(String nombreInsumo, int idProcedimiento, int cantidaInsumo) {
         IProcedimientoDao dao = new ProcedimientoDaoImpl();
-        dao.registrarInsumosProcedimiento(nombreInsumo, idProcedimiento, cantidaInsumo);    }
+        dao.registrarInsumosProcedimiento(nombreInsumo, idProcedimiento, cantidaInsumo);
+    }
 }

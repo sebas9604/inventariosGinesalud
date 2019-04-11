@@ -6,6 +6,7 @@
 package interfaces;
 
 import java.sql.ResultSet;
+import java.util.List;
 import modelo.Insumo;
 
 /**
@@ -13,12 +14,27 @@ import modelo.Insumo;
  * @author tolis
  */
 public interface IInsumoDao {
+
     public Insumo consultarInsumo(Insumo insumo);
+
     public boolean registrarNuevoInsumo(Insumo insumo);
+
     public boolean actualizarInsumo(Insumo insumo);
+
     public boolean eliminarInsumo(Insumo insumo);
+
     public ResultSet obtenerInsumos();
+
     public ResultSet obtenerInsumo(Insumo insumo, boolean msj);
+
     public ResultSet obtenerProcedimientosxInsumos(Insumo insumo);
+
     public String obtenerTipoInsumo(int id);
+
+    public List<String> llenarcomBoTipoInsumo();
+
+    public int consultarIdTIpoInsumoxNombreTipoInsumo(String nombreTipoInsumo);
+
+    public String consultarTipoInsumoxIdInsumo(Insumo insumo);
+
 }

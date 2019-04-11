@@ -349,11 +349,12 @@ int idEquipo = 0;
 
             int idInsumo = obtenerIdInsumoxNombreInsumo(nombreInsumo);
                 String sql = "INSERT INTO InsumosxProcedimiento (idInsumos, idProcedimiento, cantidad) " + "VALUES (?,?,?);";
+                System.out.println("implementacion.ProcedimientoDaoImpl.registrarInsumosProcedimiento()\n" + sql);
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
                 psql.setInt(1, idInsumo);
                 psql.setInt(2, idProcedimiento);
-                psql.setInt(2, cantidaInsumo);
+                psql.setInt(3, cantidaInsumo);
 
                 psql.executeUpdate();
                 registrar = true;
@@ -371,8 +372,9 @@ int idEquipo = 0;
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idInsumo"
+        String sql = "SELECT idInsumos"
                 + " FROM Insumos WHERE nombreInsumos = '" + nombreInsumo + "';";
+        System.out.println("implementacion.ProcedimientoDaoImpl.obtenerIdInsumoxNombreInsumo() \n" + sql);
 int idEquipo = 0;
         try {
             con = ConexionBD.connect();

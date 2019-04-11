@@ -32,11 +32,11 @@ public class VistaInsumos {
 
     public void verInsumos(ResultSet insumo, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"idInsumo", "nombreInsumo", "tipoInsumo", "precioInsumo"});
+        modelo.setColumnIdentifiers(new Object[]{"idInsumos", "nombreInsumos", "tipoInsumos", "precioInsumos", "cantidad"});
 
         try {
             while (insumo.next()) {
-                modelo.addRow(new Object[]{insumo.getInt("idInsumo"), insumo.getString("nombreInsumo"), insumo.getInt("tipoInsumo"), insumo.getInt("precioInsumo")});
+                modelo.addRow(new Object[]{insumo.getInt("idInsumos"), insumo.getString("nombreInsumos"), insumo.getInt("tipoInsumos"), insumo.getInt("precioInsumos"), insumo.getInt("cantidad")});
             }
             tabla.setModel(modelo);
 
@@ -50,7 +50,7 @@ public class VistaInsumos {
 
         try {
             while (procedimientos.next()) {
-                modelo.addRow(new Object[]{procedimientos.getInt("nombreProcedimiento")});            }
+                modelo.addRow(new Object[]{procedimientos.getString("nombreProcedimiento")});            }
             tabla.setModel(modelo);
 
         } catch (Exception ex) {

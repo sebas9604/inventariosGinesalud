@@ -12,6 +12,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import modelo.Insumo;
 
@@ -28,7 +30,8 @@ public class InsumoDaoImpl implements IInsumoDao{
         ResultSet rs = null;
 
         String sql = "SELECT idInsumos, nombreInsumos, tipoInsumos, precioInsumos, cantidad"
-                + " FROM Insumos WHERE nombreInsumos LIKE '%" + insumo.getNombreInsumo()+ "%';";
+                + " FROM Insumos WHERE idInsumos = " + insumo.getIdInsumo()+ ";";
+        System.out.println("consultar insumo \n" + sql);
         Insumo i = new Insumo();
 
         try {
@@ -66,7 +69,7 @@ public class InsumoDaoImpl implements IInsumoDao{
             ResultSet rs;
             rs = obtenerInsumo(insumo, false);
             if (!rs.next()) {
-                String sql = "INSERT INTO Insumo (idinsumos, nombreInsumos, tipoInsumos, precioInsumos, cantidad) " + "VALUES (?,?,?,?,?);";
+                String sql = "INSERT INTO Insumos (idinsumos, nombreInsumos, tipoInsumos, precioInsumos, cantidad) " + "VALUES (?,?,?,?,?);";
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
                 psql.setInt(1, insumo.getIdInsumo());
@@ -79,7 +82,6 @@ public class InsumoDaoImpl implements IInsumoDao{
                 registrar = true;
                 psql.close();
                 con.close();
-                JOptionPane.showMessageDialog(null, "Operación Exitosa");
             } else {
                 JOptionPane.showMessageDialog(null, "Ya existe un registro con la identificación: " + insumo.getIdInsumo());
             }
@@ -99,8 +101,8 @@ public class InsumoDaoImpl implements IInsumoDao{
             rs = obtenerInsumo(insumo, false);
 
             if (rs.next()) {
-                String sql = "UPDATE Insumos SET nombreInsumos = '" + insumo.getNombreInsumo()+ "', " + "tipoInsumos = " + insumo.getTipoInsumo()
-                        + "precioInsumos = " + insumo.getPrecioInsumo()+ "cantidad = " + insumo.getCantidad()
+                String sql = "UPDATE Insumos SET nombreInsumos = '" + insumo.getNombreInsumo()+ "', " + " tipoInsumos = " + insumo.getTipoInsumo()
+                        + ", precioInsumos = " + insumo.getPrecioInsumo()+ ", cantidad = " + insumo.getCantidad()
                         + " WHERE idInsumos = " + insumo.getIdInsumo()+ ";";
                 System.out.println(sql);
                 connect = ConexionBD.connect();
@@ -153,7 +155,8 @@ public class InsumoDaoImpl implements IInsumoDao{
         ResultSet rs = null;
 
         String sql = "SELECT idInsumos, nombreInsumos, tipoInsumos, precioInsumos, cantidad"
-                + " FROM Insumos ORDER BY idEquipos";
+                + " FROM Insumos ORDER BY idInsumos";
+        System.out.println("obtenerInsumo \n" + sql);
         try {
             con = ConexionBD.connect();
             stm = con.createStatement();
@@ -199,8 +202,9 @@ public class InsumoDaoImpl implements IInsumoDao{
         String sql = "SELECT p.nombreProcedimiento "
                 + "FROM Procedimientos AS p "
                 + "INNER JOIN InsumosxProcedimiento as ixp "
-                + "ON p.idProcedimiento = ixp.idProcedimiento "
+                + "ON p.idProcedimientos = ixp.idProcedimiento "
                 + "WHERE ixp.idInsumos = " + insumo.getIdInsumo();
+        System.out.println("implementacion.InsumoDaoImpl.obtenerProcedimientosxInsumos() \n" + sql);
         try {
             con = ConexionBD.connect();
             stm = con.createStatement();
@@ -243,5 +247,84 @@ public class InsumoDaoImpl implements IInsumoDao{
             e.printStackTrace();
         }
         return cargo;    }
+
+    @Override
+    public List<String> llenarcomBoTipoInsumo() {
+        Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null;
+        String sql = "SELECT nombreTipoInsumos FROM TipoInsumos ORDER BY nombreTipoInsumos;";
+        List<String> listaTipoInsumos = new ArrayList<String>();
+
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                //este es el Jcombobox
+                listaTipoInsumos.add(rs.getString(1));
+            }
+            con.close();
+        } catch (Exception e) {
+        }
+
+        return listaTipoInsumos;    }
+
+    @Override
+    public int consultarIdTIpoInsumoxNombreTipoInsumo(String nombretipoInsumo) {
+         Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT idTipoInsumos, nombreTipoInsumos "
+                + "FROM tipoInsumos WHERE nombreTipoInsumos LIKE '%" + nombretipoInsumo + "%';";
+//        TipoInsumo ti = new TipoInsumo();
+int idTipoInsumo = 0;
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+            if (rs.next()) {
+                idTipoInsumo = (rs.getInt(1));
+            if (idTipoInsumo == 0) {
+                JOptionPane.showMessageDialog(null, "El registro no existe para llenar combo", "Consultar TipoInsumo", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar TipoInsumo", JOptionPane.INFORMATION_MESSAGE);
+            }
+            }
+            stm.close();
+            rs.close();
+            con.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error: Clase TipoInsumoDaoImple, método consultarTipoInsumo");
+            e.printStackTrace();
+        }
+        return idTipoInsumo;
+        }
+
+    @Override
+    public String consultarTipoInsumoxIdInsumo(Insumo insumo) {
+        Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null;
+        String sql = "select nombreTipoinsumos from tipoInsumos where idtipoinsumos = " + insumo.getTipoInsumo()+ ";";
+        Insumo i = new Insumo();
+        String rt = "";
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+            if (rs.next()) {
+                i.setNombreInsumo(rs.getString(1));
+            }
+            rt = i.getNombreInsumo();
+            stm.close();
+            rs.close();
+            con.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rt;    }
     
 }

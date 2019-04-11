@@ -5,6 +5,8 @@
  */
 package presentacion;
 
+import controladores.EntornoController;
+import controladores.InsumoController;
 import controladores.PacienteController;
 import controladores.ProcedimientoController;
 import controladores.TipoInsumoController;
@@ -13,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import modelo.Insumo;
 import modelo.Paciente;
 import modelo.Procedimiento;
 import modelo.TipoInsumo;
@@ -347,48 +350,6 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         imgLogo = new javax.swing.JLabel();
         barraLateral = new javax.swing.JLabel();
         barraHorizontal = new javax.swing.JLabel();
-        ventanaTipoInsumo = new javax.swing.JInternalFrame();
-        labelOperacionTipoInsumo = new javax.swing.JLabel();
-        labelNombreTipoInsumo = new javax.swing.JLabel();
-        tfNombreTipoInsumo = new javax.swing.JTextField();
-        btEjecutarTipoInsumo = new javax.swing.JButton();
-        btImprimirTipoInsumo = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tableTipoInsumo = new javax.swing.JTable();
-        labelIdTipoInsumo = new javax.swing.JLabel();
-        tfIdTipoInsumo = new javax.swing.JTextField();
-        menuTipoInsumo = new javax.swing.JMenuBar();
-        opcionConsultarTipoInsumo = new javax.swing.JMenu();
-        opConsultarTiposInsumo = new javax.swing.JMenuItem();
-        opConsultarTipoInsumo = new javax.swing.JMenuItem();
-        opcionAgregarTipoInsumo = new javax.swing.JMenu();
-        opcionEditartipoInsumo = new javax.swing.JMenu();
-        opcionEliminarTipoInsumo = new javax.swing.JMenu();
-        ventanaInsumos = new javax.swing.JInternalFrame();
-        labelOperacionInsumos = new javax.swing.JLabel();
-        btEjecutarInsumos = new javax.swing.JButton();
-        btImprimirInsumos = new javax.swing.JButton();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tableInsumos = new javax.swing.JTable();
-        labelIdInsumos = new javax.swing.JLabel();
-        tfIdInsumos = new javax.swing.JTextField();
-        labelNombreInsumos = new javax.swing.JLabel();
-        tfNombreInsumos = new javax.swing.JTextField();
-        labelTipoInsumoInsumos = new javax.swing.JLabel();
-        comboTiposInsumoInsumos = new javax.swing.JComboBox<>();
-        labelPrecioInsumos = new javax.swing.JLabel();
-        tfPrecioInsumos = new javax.swing.JTextField();
-        labelCantidadInsumos = new javax.swing.JLabel();
-        tfCantidadInsumos = new javax.swing.JTextField();
-        menuInsumos = new javax.swing.JMenuBar();
-        opcionConsultarInsumos = new javax.swing.JMenu();
-        opConsultarInsumos = new javax.swing.JMenuItem();
-        opConsultarInsumo = new javax.swing.JMenuItem();
-        opcionAgregarInsumos = new javax.swing.JMenu();
-        opcionEditarInsumos = new javax.swing.JMenu();
-        opcionEliminarInsumos = new javax.swing.JMenu();
-        opcionReportesInsumos = new javax.swing.JMenu();
-        procedimientosxInsumo = new javax.swing.JMenuItem();
         ventanaEntorno = new javax.swing.JInternalFrame();
         labelOperacionEntorno = new javax.swing.JLabel();
         btEjecutarEntorno = new javax.swing.JButton();
@@ -560,6 +521,48 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         opcionReportesProcedimiento = new javax.swing.JMenu();
         opInsumosUtilizados = new javax.swing.JMenuItem();
         opEquiposUtilizados = new javax.swing.JMenuItem();
+        ventanaTipoInsumo = new javax.swing.JInternalFrame();
+        labelOperacionTipoInsumo = new javax.swing.JLabel();
+        labelNombreTipoInsumo = new javax.swing.JLabel();
+        tfNombreTipoInsumo = new javax.swing.JTextField();
+        btEjecutarTipoInsumo = new javax.swing.JButton();
+        btImprimirTipoInsumo = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableTipoInsumo = new javax.swing.JTable();
+        labelIdTipoInsumo = new javax.swing.JLabel();
+        tfIdTipoInsumo = new javax.swing.JTextField();
+        menuTipoInsumo = new javax.swing.JMenuBar();
+        opcionConsultarTipoInsumo = new javax.swing.JMenu();
+        opConsultarTiposInsumo = new javax.swing.JMenuItem();
+        opConsultarTipoInsumo = new javax.swing.JMenuItem();
+        opcionAgregarTipoInsumo = new javax.swing.JMenu();
+        opcionEditartipoInsumo = new javax.swing.JMenu();
+        opcionEliminarTipoInsumo = new javax.swing.JMenu();
+        ventanaInsumos = new javax.swing.JInternalFrame();
+        labelOperacionInsumos = new javax.swing.JLabel();
+        btEjecutarInsumos = new javax.swing.JButton();
+        btImprimirInsumos = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tableInsumos = new javax.swing.JTable();
+        labelIdInsumos = new javax.swing.JLabel();
+        tfIdInsumos = new javax.swing.JTextField();
+        labelNombreInsumos = new javax.swing.JLabel();
+        tfNombreInsumos = new javax.swing.JTextField();
+        labelTipoInsumoInsumos = new javax.swing.JLabel();
+        comboTiposInsumoInsumos = new javax.swing.JComboBox<>();
+        labelPrecioInsumos = new javax.swing.JLabel();
+        tfPrecioInsumos = new javax.swing.JTextField();
+        labelCantidadInsumos = new javax.swing.JLabel();
+        tfCantidadInsumos = new javax.swing.JTextField();
+        menuInsumos = new javax.swing.JMenuBar();
+        opcionConsultarInsumos = new javax.swing.JMenu();
+        opConsultarInsumos = new javax.swing.JMenuItem();
+        opConsultarInsumo = new javax.swing.JMenuItem();
+        opcionAgregarInsumos = new javax.swing.JMenu();
+        opcionEditarInsumos = new javax.swing.JMenu();
+        opcionEliminarInsumos = new javax.swing.JMenu();
+        opcionReportesInsumos = new javax.swing.JMenu();
+        procedimientosxInsumo = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GinesaludSoft");
@@ -676,348 +679,6 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         barraHorizontal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/barrahorizontal.png"))); // NOI18N
         jPanel1.add(barraHorizontal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 80));
 
-        ventanaTipoInsumo.setBackground(new java.awt.Color(255, 255, 255));
-        ventanaTipoInsumo.setTitle("TIPO INSUMO");
-        ventanaTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        ventanaTipoInsumo.setVisible(true);
-
-        labelOperacionTipoInsumo.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
-        labelOperacionTipoInsumo.setText("Operacion");
-
-        labelNombreTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelNombreTipoInsumo.setText("Nombre");
-
-        btEjecutarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        btEjecutarTipoInsumo.setText("Ejecutar");
-        btEjecutarTipoInsumo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEjecutarTipoInsumoActionPerformed(evt);
-            }
-        });
-
-        btImprimirTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        btImprimirTipoInsumo.setText("Imprimir");
-        btImprimirTipoInsumo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btImprimirTipoInsumoActionPerformed(evt);
-            }
-        });
-
-        tableTipoInsumo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(tableTipoInsumo);
-
-        labelIdTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelIdTipoInsumo.setText("ID");
-
-        opcionConsultarTipoInsumo.setText("Consultar");
-        opcionConsultarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-
-        opConsultarTiposInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opConsultarTiposInsumo.setText("Todos los tipos de insumo");
-        opConsultarTiposInsumo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opConsultarTiposInsumoActionPerformed(evt);
-            }
-        });
-        opcionConsultarTipoInsumo.add(opConsultarTiposInsumo);
-
-        opConsultarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opConsultarTipoInsumo.setText("Tipo de insumo");
-        opConsultarTipoInsumo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opConsultarTipoInsumoActionPerformed(evt);
-            }
-        });
-        opcionConsultarTipoInsumo.add(opConsultarTipoInsumo);
-
-        menuTipoInsumo.add(opcionConsultarTipoInsumo);
-
-        opcionAgregarTipoInsumo.setText("Agregar");
-        opcionAgregarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionAgregarTipoInsumo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionAgregarTipoInsumoMouseClicked(evt);
-            }
-        });
-        menuTipoInsumo.add(opcionAgregarTipoInsumo);
-
-        opcionEditartipoInsumo.setText("Editar");
-        opcionEditartipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionEditartipoInsumo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionEditartipoInsumoMouseClicked(evt);
-            }
-        });
-        menuTipoInsumo.add(opcionEditartipoInsumo);
-
-        opcionEliminarTipoInsumo.setText("Eliminar");
-        opcionEliminarTipoInsumo.setToolTipText("");
-        opcionEliminarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionEliminarTipoInsumo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionEliminarTipoInsumoMouseClicked(evt);
-            }
-        });
-        menuTipoInsumo.add(opcionEliminarTipoInsumo);
-
-        ventanaTipoInsumo.setJMenuBar(menuTipoInsumo);
-
-        javax.swing.GroupLayout ventanaTipoInsumoLayout = new javax.swing.GroupLayout(ventanaTipoInsumo.getContentPane());
-        ventanaTipoInsumo.getContentPane().setLayout(ventanaTipoInsumoLayout);
-        ventanaTipoInsumoLayout.setHorizontalGroup(
-            ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
-                .addGroup(ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btImprimirTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
-                            .addGap(61, 61, 61)
-                            .addComponent(labelOperacionTipoInsumo))
-                        .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
-                            .addGap(53, 53, 53)
-                            .addComponent(labelIdTipoInsumo)
-                            .addGap(63, 63, 63)
-                            .addComponent(tfIdTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(146, 146, 146)
-                            .addComponent(labelNombreTipoInsumo)
-                            .addGap(45, 45, 45)
-                            .addComponent(tfNombreTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(85, 85, 85)
-                            .addComponent(btEjecutarTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
-                            .addGap(20, 20, 20)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        ventanaTipoInsumoLayout.setVerticalGroup(
-            ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(labelOperacionTipoInsumo)
-                .addGap(55, 55, 55)
-                .addGroup(ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelNombreTipoInsumo)
-                    .addComponent(tfNombreTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btEjecutarTipoInsumo)
-                    .addComponent(labelIdTipoInsumo)
-                    .addComponent(tfIdTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btImprimirTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        jPanel1.add(ventanaTipoInsumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
-
-        ventanaInsumos.setBackground(new java.awt.Color(255, 255, 255));
-        ventanaInsumos.setTitle("INSUMOS");
-        ventanaInsumos.setVisible(true);
-
-        labelOperacionInsumos.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
-        labelOperacionInsumos.setText("Operacion");
-
-        btEjecutarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        btEjecutarInsumos.setText("Ejecutar");
-        btEjecutarInsumos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEjecutarInsumosActionPerformed(evt);
-            }
-        });
-
-        btImprimirInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        btImprimirInsumos.setText("Imprimir");
-
-        tableInsumos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane4.setViewportView(tableInsumos);
-
-        labelIdInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelIdInsumos.setText("ID");
-
-        labelNombreInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelNombreInsumos.setText("Nombre");
-
-        labelTipoInsumoInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelTipoInsumoInsumos.setText("Tipo de Insumo");
-
-        comboTiposInsumoInsumos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        labelPrecioInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelPrecioInsumos.setText("Precio unidad");
-
-        labelCantidadInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelCantidadInsumos.setText("Cantidad");
-
-        opcionConsultarInsumos.setText("Consultar");
-        opcionConsultarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-
-        opConsultarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opConsultarInsumos.setText("Todos los insumos");
-        opConsultarInsumos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opConsultarInsumosActionPerformed(evt);
-            }
-        });
-        opcionConsultarInsumos.add(opConsultarInsumos);
-
-        opConsultarInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opConsultarInsumo.setText("Insumo");
-        opConsultarInsumo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opConsultarInsumoActionPerformed(evt);
-            }
-        });
-        opcionConsultarInsumos.add(opConsultarInsumo);
-
-        menuInsumos.add(opcionConsultarInsumos);
-
-        opcionAgregarInsumos.setText("Agregar");
-        opcionAgregarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionAgregarInsumos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionAgregarInsumosMouseClicked(evt);
-            }
-        });
-        menuInsumos.add(opcionAgregarInsumos);
-
-        opcionEditarInsumos.setText("Editar");
-        opcionEditarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionEditarInsumos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionEditarInsumosMouseClicked(evt);
-            }
-        });
-        menuInsumos.add(opcionEditarInsumos);
-
-        opcionEliminarInsumos.setText("Eliminar");
-        opcionEliminarInsumos.setToolTipText("");
-        opcionEliminarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionEliminarInsumos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionEliminarInsumosMouseClicked(evt);
-            }
-        });
-        menuInsumos.add(opcionEliminarInsumos);
-
-        opcionReportesInsumos.setText("Reportes");
-        opcionReportesInsumos.setToolTipText("");
-        opcionReportesInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-
-        procedimientosxInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        procedimientosxInsumo.setText("Procedimientos en que se utiliza");
-        procedimientosxInsumo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                procedimientosxInsumoActionPerformed(evt);
-            }
-        });
-        opcionReportesInsumos.add(procedimientosxInsumo);
-
-        menuInsumos.add(opcionReportesInsumos);
-
-        ventanaInsumos.setJMenuBar(menuInsumos);
-
-        javax.swing.GroupLayout ventanaInsumosLayout = new javax.swing.GroupLayout(ventanaInsumos.getContentPane());
-        ventanaInsumos.getContentPane().setLayout(ventanaInsumosLayout);
-        ventanaInsumosLayout.setHorizontalGroup(
-            ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaInsumosLayout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(ventanaInsumosLayout.createSequentialGroup()
-                        .addComponent(labelIdInsumos)
-                        .addGap(47, 47, 47)
-                        .addComponent(tfIdInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(68, 68, 68)
-                        .addComponent(labelNombreInsumos)
-                        .addGap(41, 41, 41)
-                        .addComponent(tfNombreInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88)
-                        .addComponent(labelTipoInsumoInsumos)
-                        .addGap(57, 57, 57)
-                        .addComponent(comboTiposInsumoInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ventanaInsumosLayout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btEjecutarInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ventanaInsumosLayout.createSequentialGroup()
-                                .addComponent(labelPrecioInsumos)
-                                .addGap(34, 34, 34)
-                                .addComponent(tfPrecioInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(151, 151, 151)
-                                .addComponent(labelCantidadInsumos)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tfCantidadInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(123, 123, 123)))
-                .addContainerGap(365, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaInsumosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btImprimirInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
-            .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ventanaInsumosLayout.createSequentialGroup()
-                    .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(ventanaInsumosLayout.createSequentialGroup()
-                            .addGap(62, 62, 62)
-                            .addComponent(labelOperacionInsumos))
-                        .addGroup(ventanaInsumosLayout.createSequentialGroup()
-                            .addGap(21, 21, 21)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        ventanaInsumosLayout.setVerticalGroup(
-            ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaInsumosLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelIdInsumos)
-                    .addComponent(tfIdInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelNombreInsumos)
-                    .addComponent(tfNombreInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTipoInsumoInsumos)
-                    .addComponent(comboTiposInsumoInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelPrecioInsumos)
-                    .addComponent(tfPrecioInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelCantidadInsumos)
-                    .addComponent(tfCantidadInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btEjecutarInsumos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 488, Short.MAX_VALUE)
-                .addComponent(btImprimirInsumos)
-                .addContainerGap())
-            .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ventanaInsumosLayout.createSequentialGroup()
-                    .addGap(37, 37, 37)
-                    .addComponent(labelOperacionInsumos)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(70, 70, 70)))
-        );
-
-        jPanel1.add(ventanaInsumos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
-
-        ventanaEntorno.setBackground(new java.awt.Color(255, 255, 255));
         ventanaEntorno.setTitle("ENTORNO");
         ventanaEntorno.setVisible(true);
 
@@ -1182,7 +843,6 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1.add(ventanaEntorno, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
 
-        ventanaEquipos.setBackground(new java.awt.Color(255, 255, 255));
         ventanaEquipos.setTitle("EQUIPOS");
         ventanaEquipos.setVisible(true);
 
@@ -1349,7 +1009,6 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1.add(ventanaEquipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
 
-        ventanaCargos.setBackground(new java.awt.Color(255, 255, 255));
         ventanaCargos.setTitle("CARGOS");
         ventanaCargos.setVisible(true);
 
@@ -1506,7 +1165,6 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1.add(ventanaCargos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
 
-        ventanaRol.setBackground(new java.awt.Color(255, 255, 255));
         ventanaRol.setTitle("ROLES");
         ventanaRol.setVisible(true);
 
@@ -1641,7 +1299,6 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1.add(ventanaRol, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
 
-        ventanaUsuarios.setBackground(new java.awt.Color(255, 255, 255));
         ventanaUsuarios.setTitle("USUARIOS");
         ventanaUsuarios.setVisible(true);
 
@@ -1903,7 +1560,6 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1.add(ventanaUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
 
-        ventanaPacientes.setBackground(new java.awt.Color(255, 255, 255));
         ventanaPacientes.setTitle("PACIENTES");
         ventanaPacientes.setVisible(true);
 
@@ -2154,7 +1810,6 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1.add(ventanaPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
 
-        ventanaProcedimientos.setBackground(new java.awt.Color(255, 255, 255));
         ventanaProcedimientos.setTitle("PROCEDIMIENTOS");
         ventanaProcedimientos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         ventanaProcedimientos.setVisible(true);
@@ -2441,6 +2096,350 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1.add(ventanaProcedimientos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
 
+        ventanaTipoInsumo.setTitle("TIPO INSUMO");
+        ventanaTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        ventanaTipoInsumo.setVisible(true);
+
+        labelOperacionTipoInsumo.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        labelOperacionTipoInsumo.setText("Operacion");
+
+        labelNombreTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelNombreTipoInsumo.setText("Nombre");
+
+        btEjecutarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btEjecutarTipoInsumo.setText("Ejecutar");
+        btEjecutarTipoInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEjecutarTipoInsumoActionPerformed(evt);
+            }
+        });
+
+        btImprimirTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btImprimirTipoInsumo.setText("Imprimir");
+        btImprimirTipoInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btImprimirTipoInsumoActionPerformed(evt);
+            }
+        });
+
+        tableTipoInsumo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tableTipoInsumo);
+
+        labelIdTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelIdTipoInsumo.setText("ID");
+
+        opcionConsultarTipoInsumo.setText("Consultar");
+        opcionConsultarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+
+        opConsultarTiposInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarTiposInsumo.setText("Todos los tipos de insumo");
+        opConsultarTiposInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarTiposInsumoActionPerformed(evt);
+            }
+        });
+        opcionConsultarTipoInsumo.add(opConsultarTiposInsumo);
+
+        opConsultarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarTipoInsumo.setText("Tipo de insumo");
+        opConsultarTipoInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarTipoInsumoActionPerformed(evt);
+            }
+        });
+        opcionConsultarTipoInsumo.add(opConsultarTipoInsumo);
+
+        menuTipoInsumo.add(opcionConsultarTipoInsumo);
+
+        opcionAgregarTipoInsumo.setText("Agregar");
+        opcionAgregarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionAgregarTipoInsumo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarTipoInsumoMouseClicked(evt);
+            }
+        });
+        menuTipoInsumo.add(opcionAgregarTipoInsumo);
+
+        opcionEditartipoInsumo.setText("Editar");
+        opcionEditartipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEditartipoInsumo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditartipoInsumoMouseClicked(evt);
+            }
+        });
+        menuTipoInsumo.add(opcionEditartipoInsumo);
+
+        opcionEliminarTipoInsumo.setText("Eliminar");
+        opcionEliminarTipoInsumo.setToolTipText("");
+        opcionEliminarTipoInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEliminarTipoInsumo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarTipoInsumoMouseClicked(evt);
+            }
+        });
+        menuTipoInsumo.add(opcionEliminarTipoInsumo);
+
+        ventanaTipoInsumo.setJMenuBar(menuTipoInsumo);
+
+        javax.swing.GroupLayout ventanaTipoInsumoLayout = new javax.swing.GroupLayout(ventanaTipoInsumo.getContentPane());
+        ventanaTipoInsumo.getContentPane().setLayout(ventanaTipoInsumoLayout);
+        ventanaTipoInsumoLayout.setHorizontalGroup(
+            ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
+                .addGroup(ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btImprimirTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
+                            .addGap(61, 61, 61)
+                            .addComponent(labelOperacionTipoInsumo))
+                        .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
+                            .addGap(53, 53, 53)
+                            .addComponent(labelIdTipoInsumo)
+                            .addGap(63, 63, 63)
+                            .addComponent(tfIdTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(146, 146, 146)
+                            .addComponent(labelNombreTipoInsumo)
+                            .addGap(45, 45, 45)
+                            .addComponent(tfNombreTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(85, 85, 85)
+                            .addComponent(btEjecutarTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(22, Short.MAX_VALUE))
+        );
+        ventanaTipoInsumoLayout.setVerticalGroup(
+            ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaTipoInsumoLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(labelOperacionTipoInsumo)
+                .addGap(55, 55, 55)
+                .addGroup(ventanaTipoInsumoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelNombreTipoInsumo)
+                    .addComponent(tfNombreTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btEjecutarTipoInsumo)
+                    .addComponent(labelIdTipoInsumo)
+                    .addComponent(tfIdTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btImprimirTipoInsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanel1.add(ventanaTipoInsumo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
+        ventanaInsumos.setTitle("INSUMOS");
+        ventanaInsumos.setVisible(true);
+
+        labelOperacionInsumos.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        labelOperacionInsumos.setText("Operacion");
+
+        btEjecutarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btEjecutarInsumos.setText("Ejecutar");
+        btEjecutarInsumos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEjecutarInsumosActionPerformed(evt);
+            }
+        });
+
+        btImprimirInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btImprimirInsumos.setText("Imprimir");
+        btImprimirInsumos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btImprimirInsumosActionPerformed(evt);
+            }
+        });
+
+        tableInsumos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(tableInsumos);
+
+        labelIdInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelIdInsumos.setText("ID");
+
+        labelNombreInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelNombreInsumos.setText("Nombre");
+
+        labelTipoInsumoInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelTipoInsumoInsumos.setText("Tipo de Insumo");
+
+        comboTiposInsumoInsumos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        labelPrecioInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelPrecioInsumos.setText("Precio unidad");
+
+        labelCantidadInsumos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelCantidadInsumos.setText("Cantidad");
+
+        opcionConsultarInsumos.setText("Consultar");
+        opcionConsultarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+
+        opConsultarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarInsumos.setText("Todos los insumos");
+        opConsultarInsumos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarInsumosActionPerformed(evt);
+            }
+        });
+        opcionConsultarInsumos.add(opConsultarInsumos);
+
+        opConsultarInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarInsumo.setText("Insumo");
+        opConsultarInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarInsumoActionPerformed(evt);
+            }
+        });
+        opcionConsultarInsumos.add(opConsultarInsumo);
+
+        menuInsumos.add(opcionConsultarInsumos);
+
+        opcionAgregarInsumos.setText("Agregar");
+        opcionAgregarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionAgregarInsumos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarInsumosMouseClicked(evt);
+            }
+        });
+        menuInsumos.add(opcionAgregarInsumos);
+
+        opcionEditarInsumos.setText("Editar");
+        opcionEditarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEditarInsumos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditarInsumosMouseClicked(evt);
+            }
+        });
+        menuInsumos.add(opcionEditarInsumos);
+
+        opcionEliminarInsumos.setText("Eliminar");
+        opcionEliminarInsumos.setToolTipText("");
+        opcionEliminarInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEliminarInsumos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarInsumosMouseClicked(evt);
+            }
+        });
+        menuInsumos.add(opcionEliminarInsumos);
+
+        opcionReportesInsumos.setText("Reportes");
+        opcionReportesInsumos.setToolTipText("");
+        opcionReportesInsumos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+
+        procedimientosxInsumo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        procedimientosxInsumo.setText("Procedimientos en que se utiliza");
+        procedimientosxInsumo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                procedimientosxInsumoActionPerformed(evt);
+            }
+        });
+        opcionReportesInsumos.add(procedimientosxInsumo);
+
+        menuInsumos.add(opcionReportesInsumos);
+
+        ventanaInsumos.setJMenuBar(menuInsumos);
+
+        javax.swing.GroupLayout ventanaInsumosLayout = new javax.swing.GroupLayout(ventanaInsumos.getContentPane());
+        ventanaInsumos.getContentPane().setLayout(ventanaInsumosLayout);
+        ventanaInsumosLayout.setHorizontalGroup(
+            ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                .addGap(185, 185, 185)
+                .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                        .addComponent(labelIdInsumos)
+                        .addGap(47, 47, 47)
+                        .addComponent(tfIdInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)
+                        .addComponent(labelNombreInsumos)
+                        .addGap(41, 41, 41)
+                        .addComponent(tfNombreInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(88, 88, 88)
+                        .addComponent(labelTipoInsumoInsumos)
+                        .addGap(57, 57, 57)
+                        .addComponent(comboTiposInsumoInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btEjecutarInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                                .addComponent(labelPrecioInsumos)
+                                .addGap(34, 34, 34)
+                                .addComponent(tfPrecioInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(151, 151, 151)
+                                .addComponent(labelCantidadInsumos)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tfCantidadInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(123, 123, 123)))
+                .addContainerGap(365, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaInsumosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btImprimirInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+            .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                    .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                            .addGap(62, 62, 62)
+                            .addComponent(labelOperacionInsumos))
+                        .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                            .addGap(21, 21, 21)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        ventanaInsumosLayout.setVerticalGroup(
+            ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelIdInsumos)
+                    .addComponent(tfIdInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelNombreInsumos)
+                    .addComponent(tfNombreInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelTipoInsumoInsumos)
+                    .addComponent(comboTiposInsumoInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPrecioInsumos)
+                    .addComponent(tfPrecioInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCantidadInsumos)
+                    .addComponent(tfCantidadInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btEjecutarInsumos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 488, Short.MAX_VALUE)
+                .addComponent(btImprimirInsumos)
+                .addContainerGap())
+            .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ventanaInsumosLayout.createSequentialGroup()
+                    .addGap(37, 37, 37)
+                    .addComponent(labelOperacionInsumos)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(70, 70, 70)))
+        );
+
+        jPanel1.add(ventanaInsumos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2478,6 +2477,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         bloquearCamposInsumo();
         falsearBanderasInsumo();
         limpiarCamposInsumo();
+        llenarComboTipoInsumoInsumo();
     }//GEN-LAST:event_btInsumosActionPerformed
 
     private void tfIdRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfIdRolActionPerformed
@@ -3105,22 +3105,55 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btEjecutarTipoInsumoActionPerformed
 
     private void btEjecutarInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarInsumosActionPerformed
+        InsumoController insumoCt = new InsumoController();
         if (consultarInsumosFlag) {
-
+            insumoCt.verInsumos(tableInsumos);
         } else if (consultarInsumoFlag) {
+            Insumo insumo = new Insumo();
+            insumo.setIdInsumo(Integer.parseInt(tfIdInsumos.getText()));
+            insumo = insumoCt.consultarInsumo(insumo);
 
+            tfNombreInsumos.setText(insumo.getNombreInsumo());
+            tfPrecioInsumos.setText(Integer.toString(insumo.getPrecioInsumo()));
+            tfCantidadInsumos.setText(Integer.toString(insumo.getCantidad()));
+            String s = insumoCt.consultarTipoInsumoxIdInsumo(insumo);
+
+            comboTiposInsumoInsumos.removeAllItems();
+            comboTiposInsumoInsumos.addItem(s);
         } else if (agregarInsumoFlag) {
+            Insumo insumo = new Insumo();
+            insumo.setIdInsumo(Integer.parseInt(tfIdInsumos.getText()));
+            insumo.setNombreInsumo(tfNombreInsumos.getText());
+            insumo.setPrecioInsumo(Integer.parseInt(tfPrecioInsumos.getText()));
+            insumo.setCantidad(Integer.parseInt(tfCantidadInsumos.getText()));
+            int idTipoInsumo = insumoCt.consultarIdTipoInsumoxNombretipoInsumo(comboTiposInsumoInsumos.getSelectedItem().toString());
+            insumo.setTipoInsumo(idTipoInsumo);
 
+            insumoCt.registrar(insumo);
         } else if (editarInsumoFlag) {
+            Insumo insumo = new Insumo();
+            insumo.setIdInsumo(Integer.parseInt(tfIdInsumos.getText()));
+            insumo.setNombreInsumo(tfNombreInsumos.getText());
+            insumo.setPrecioInsumo(Integer.parseInt(tfPrecioInsumos.getText()));
+            insumo.setCantidad(Integer.parseInt(tfCantidadInsumos.getText()));
+            int idTipoInsumo = insumoCt.consultarIdTipoInsumoxNombretipoInsumo(comboTiposInsumoInsumos.getSelectedItem().toString());
+            insumo.setTipoInsumo(idTipoInsumo);
 
+            insumoCt.actualizar(insumo);
         } else if (eliminarInsumoFlag) {
+            Insumo insumo = new Insumo();
+            insumo.setIdInsumo(Integer.parseInt(tfIdInsumos.getText()));
+            insumoCt.eliminar(insumo);
 
         } else if (procedimientosEnQueSeUtilizaInsumoFlag) {
-
+            Insumo insumo = new Insumo();
+            insumo.setIdInsumo(Integer.parseInt(tfIdInsumos.getText()));
+            insumoCt.verProcedimientosEnQueseUtiliza(tableInsumos, insumo);
         }
     }//GEN-LAST:event_btEjecutarInsumosActionPerformed
 
     private void btEjecutarEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarEntornoActionPerformed
+        EntornoController entornoCt = new EntornoController();
         if (consultarEntornosFlag) {
 
         } else if (consultarEntornoFlag) {
@@ -3221,6 +3254,10 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         imprimirTabla("Tipo Insumo", tableTipoInsumo);       // TODO add your handling code here:
     }//GEN-LAST:event_btImprimirTipoInsumoActionPerformed
 
+    private void btImprimirInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirInsumosActionPerformed
+        imprimirTabla("Insumos", tableInsumos);       // TODO add your handling code here:
+    }//GEN-LAST:event_btImprimirInsumosActionPerformed
+
     //Llenando Combo Boxes
     private void llenarComboProcedimientoPaciente() {
         PacienteController pacienteCt = new PacienteController();
@@ -3245,12 +3282,23 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     }
 
     private void llenarComboEquiposProcedimiento() {
-        ProcedimientoController pacienteCt = new ProcedimientoController();
+        ProcedimientoController procedimientoCt = new ProcedimientoController();
         comboEquiposProcedimiento.removeAllItems();
-        List<String> list = pacienteCt.llenarComboEquiposProcedimiento();
+        List<String> list = procedimientoCt.llenarComboEquiposProcedimiento();
 
         for (String procedimiento : list) {
             comboEquiposProcedimiento.addItem(procedimiento);
+        }
+
+    }
+
+    private void llenarComboTipoInsumoInsumo() {
+        InsumoController insumoCt = new InsumoController();
+        comboTiposInsumoInsumos.removeAllItems();
+        List<String> list = insumoCt.llenarComboTipoInsumo();
+
+        for (String procedimiento : list) {
+            comboTiposInsumoInsumos.addItem(procedimiento);
         }
 
     }
