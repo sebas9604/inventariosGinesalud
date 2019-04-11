@@ -114,7 +114,7 @@ public class CargoDaoImpl implements ICargoDao{
         boolean actualizar = false;
         try {
             ResultSet rs;
-            rs = obtenerCargo(cargo, false);
+            rs = obtenerCargoxId(cargo, false);
 
             if (rs.next()) {
                 String sql = "UPDATE cargos SET nombreCargos = '" + cargo.getNombreCargo() + "', " + "salarioCargos = '" + cargo.getSalarioCargo() + "'"
@@ -142,7 +142,7 @@ public class CargoDaoImpl implements ICargoDao{
         boolean eliminar = false;
 
         try {
-            ResultSet rs = obtenerCargo(cargo, false);
+            ResultSet rs = obtenerCargoxId(cargo, false);
             if (rs.next()) {
 
                 String sql = "DELETE FROM cargos WHERE idCargos = "
@@ -172,7 +172,7 @@ public class CargoDaoImpl implements ICargoDao{
         ResultSet rs = null;
 
         String sql = "SELECT idCargos, nombreCargos, salarioCargos "
-                + "FROM cargo WHERE idCargo = " + cargo.getIdCargo() + ";";
+                + "FROM cargos WHERE nombreCargos = '" + cargo.getNombreCargo()+ "';";
         System.out.println(sql);
         try {
             con = ConexionBD.connect();
@@ -189,5 +189,30 @@ public class CargoDaoImpl implements ICargoDao{
 
         return rs;   
     }
+
+    @Override
+    public ResultSet obtenerCargoxId(Cargo cargo, Boolean msj) {
+        Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT idCargos, nombreCargos, salarioCargos "
+                + "FROM cargos WHERE idCargos = '" + cargo.getIdCargo()+ "';";
+        System.out.println(sql);
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+//            stm.close();
+//            rs.close();
+//            con.close();
+            if (msj) {
+                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar Cargo", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+        }
+
+        return rs;   
+       }
     
 }

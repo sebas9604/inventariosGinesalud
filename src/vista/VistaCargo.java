@@ -32,11 +32,11 @@ public class VistaCargo {
 
     public void verCargos(ResultSet cargos, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"idCargo", "nombreCargo", "salarioCargo"});
+        modelo.setColumnIdentifiers(new Object[]{"idCargos", "nombreCargos", "salarioCargos"});
 
         try {
             while (cargos.next()) {
-                modelo.addRow(new Object[]{cargos.getInt("idCargo"), cargos.getString("nombreCargo"), cargos.getInt("salarioCargo")});
+                modelo.addRow(new Object[]{cargos.getInt("idCargos"), cargos.getString("nombreCargos"), cargos.getInt("salarioCargos")});
             }
             tabla.setModel(modelo);
 

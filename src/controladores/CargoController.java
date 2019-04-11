@@ -24,7 +24,12 @@ public class CargoController {
         ICargoDao dao = new CargoDaoImpl();
         dao.registrarNuevoCargo(cargo);
     }
-
+    public Cargo consultarCargo(Cargo cargo) {
+        ICargoDao dao = new CargoDaoImpl();
+        Cargo e = new Cargo();
+        e = dao.consultarCargo(cargo);
+        return e;
+    }
     //llama al DAO para actualizar un cargo
     public void actualizar(Cargo cargo) {
         ICargoDao dao = new CargoDaoImpl();

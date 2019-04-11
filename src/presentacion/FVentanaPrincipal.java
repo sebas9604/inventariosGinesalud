@@ -5,6 +5,7 @@
  */
 package presentacion;
 
+import controladores.CargoController;
 import controladores.EntornoController;
 import controladores.EquipoController;
 import controladores.InsumoController;
@@ -16,6 +17,7 @@ import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import modelo.Cargo;
 import modelo.Entorno;
 import modelo.Equipo;
 import modelo.Insumo;
@@ -2908,13 +2910,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         agregarCargoFlag = true;
         bloquearCamposCargo();
         tfNombreCargo.setEnabled(true);
-        tfIdCargo.setEnabled(true);
+//        tfIdCargo.setEnabled(true);
         tfSalarioCargo.setEnabled(true);
         labelOperacionCargos.setText("Agregar");
     }//GEN-LAST:event_opcionAgregarCargosMouseClicked
 
     private void opcionEditarCargosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarCargosMouseClicked
-        limpiarCamposCargo();
         falsearBanderasCargo();
         editarCargoFlag = true;
         bloquearCamposCargo();
@@ -3199,7 +3200,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         } else if (consultarEquipoFlag) {
             Equipo equipo = new Equipo();
 //            equipo.setIdEquipo(Integer.parseInt(tfIdEquipo.getText()));
-equipo.setNombreEquipo(tfNombreEquipo.getText());
+            equipo.setNombreEquipo(tfNombreEquipo.getText());
             equipo = equipoCt.consultarEquipo(equipo);
             
             tfIdEquipo.setText(Integer.toString(equipo.getIdEquipo()));
@@ -3214,35 +3215,52 @@ equipo.setNombreEquipo(tfNombreEquipo.getText());
             
             equipoCt.registrar(equipo);
         } else if (editarEquipoFlag) {
-                     Equipo equipo = new Equipo();
+            Equipo equipo = new Equipo();
             equipo.setIdEquipo(Integer.parseInt(tfIdEquipo.getText()));
             equipo.setNombreEquipo(tfNombreEquipo.getText());
             equipo.setPrecioEquipo(Integer.parseInt(tfPrecioEquipo.getText()));
             
-            equipoCt.actualizar(equipo);   
+            equipoCt.actualizar(equipo);
         } else if (eliminarEquipoFlag) {
-                      Equipo equipo = new Equipo();
+            Equipo equipo = new Equipo();
             equipo.setIdEquipo(Integer.parseInt(tfIdEquipo.getText()));
             
             equipoCt.eliminar(equipo);
         } else if (procedimientosEnQueSeUtilizaEquipoFlag) {
-             Equipo equipo = new Equipo();
+            Equipo equipo = new Equipo();
             equipo.setIdEquipo(Integer.parseInt(tfIdEquipo.getText()));
-            equipoCt.verProcedimientosEnQueseUtiliza(tableEquipo, equipo);           
+            equipoCt.verProcedimientosEnQueseUtiliza(tableEquipo, equipo);
         }
     }//GEN-LAST:event_btEjecutarEquipoActionPerformed
 
     private void btEjecutarCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarCargosActionPerformed
+        CargoController cargoCt = new CargoController();
         if (consultarCargosFlag) {
-            
+            cargoCt.verCargos(tableCargos);
         } else if (consultarCargoFlag) {
+            Cargo cargo = new Cargo();
+            cargo.setNombreCargo(tfNombreCargo.getText());
+            cargo = cargoCt.consultarCargo(cargo);
             
+            tfIdCargo.setText(Integer.toString(cargo.getIdCargo()));
+            tfNombreCargo.setText(cargo.getNombreCargo());
+            tfSalarioCargo.setText(Integer.toString(cargo.getSalarioCargo()));
         } else if (agregarCargoFlag) {
-            
+            Cargo cargo = new Cargo();
+            cargo.setNombreCargo(tfNombreCargo.getText());
+            cargo.setSalarioCargo(Integer.parseInt(tfSalarioCargo.getText()));
+            cargoCt.registrar(cargo);
         } else if (editarCargoFlag) {
-            
+            Cargo cargo = new Cargo();
+            cargo.setIdCargo(Integer.parseInt(tfIdCargo.getText()));
+            cargo.setNombreCargo(tfNombreCargo.getText());
+            cargo.setSalarioCargo(Integer.parseInt(tfSalarioCargo.getText()));
+            cargoCt.actualizar(cargo);
         } else if (eliminarCargoFlag) {
+            Cargo cargo = new Cargo();
+            cargo.setIdCargo(Integer.parseInt(tfIdCargo.getText()));
             
+            cargoCt.eliminar(cargo);
         }
     }//GEN-LAST:event_btEjecutarCargosActionPerformed
 

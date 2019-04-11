@@ -19,4 +19,5 @@ public interface ICargoDao {
     public boolean eliminarCargo(Cargo cargo);
     public ResultSet obtenerCargos();
     public ResultSet obtenerCargo(Cargo cargo, Boolean msj); //se utilizar para validar si existen registros en la tabla, no se hace sobre el otro metodo porque de estar vacio traeria valores nulos y generaria error
+    public ResultSet obtenerCargoxId(Cargo cargo, Boolean msj); //para validar antes de actualizar
 }
