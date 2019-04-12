@@ -21,7 +21,7 @@ import modelo.Insumo;
  *
  * @author tolis
  */
-public class InsumoDaoImpl implements IInsumoDao{
+public class InsumoDaoImpl implements IInsumoDao {
 
     @Override
     public Insumo consultarInsumo(Insumo insumo) {
@@ -30,7 +30,7 @@ public class InsumoDaoImpl implements IInsumoDao{
         ResultSet rs = null;
 
         String sql = "SELECT idInsumos, nombreInsumos, tipoInsumos, precioInsumos, cantidad"
-                + " FROM Insumos WHERE idInsumos = " + insumo.getIdInsumo()+ ";";
+                + " FROM Insumos WHERE idInsumos = " + insumo.getIdInsumo() + ";";
         System.out.println("consultar insumo \n" + sql);
         Insumo i = new Insumo();
 
@@ -44,7 +44,7 @@ public class InsumoDaoImpl implements IInsumoDao{
                 i.setTipoInsumo(rs.getInt(3));
                 i.setPrecioInsumo(rs.getInt(4));
                 i.setCantidad(rs.getInt(5));
-                if (i.getIdInsumo()== 0) {
+                if (i.getIdInsumo() == 0) {
                     JOptionPane.showMessageDialog(null, "El registro no existe", "Consultar Insumo", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar Insumo", JOptionPane.INFORMATION_MESSAGE);
@@ -58,7 +58,8 @@ public class InsumoDaoImpl implements IInsumoDao{
             System.out.println("Error: Clase EquipoDaoImpl, método consultarEquipo");
             e.printStackTrace();
         }
-        return i;    }
+        return i;
+    }
 
     @Override
     public boolean registrarNuevoInsumo(Insumo insumo) {
@@ -89,7 +90,8 @@ public class InsumoDaoImpl implements IInsumoDao{
             JOptionPane.showMessageDialog(null, "Error insertando el insumo " + ex);
         }
 
-        return registrar;    }
+        return registrar;
+    }
 
     @Override
     public boolean actualizarInsumo(Insumo insumo) {
@@ -101,9 +103,9 @@ public class InsumoDaoImpl implements IInsumoDao{
             rs = obtenerInsumo(insumo, false);
 
             if (rs.next()) {
-                String sql = "UPDATE Insumos SET nombreInsumos = '" + insumo.getNombreInsumo()+ "', " + " tipoInsumos = " + insumo.getTipoInsumo()
-                        + ", precioInsumos = " + insumo.getPrecioInsumo()+ ", cantidad = " + insumo.getCantidad()
-                        + " WHERE idInsumos = " + insumo.getIdInsumo()+ ";";
+                String sql = "UPDATE Insumos SET nombreInsumos = '" + insumo.getNombreInsumo() + "', " + " tipoInsumos = " + insumo.getTipoInsumo()
+                        + ", precioInsumos = " + insumo.getPrecioInsumo() + ", cantidad = " + insumo.getCantidad()
+                        + " WHERE idInsumos = " + insumo.getIdInsumo() + ";";
                 System.out.println(sql);
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
@@ -117,7 +119,7 @@ public class InsumoDaoImpl implements IInsumoDao{
             System.out.println("Error: Clase InsumoDaoImpl, método actualizar");
             e.printStackTrace();
         }
-        return actualizar;       
+        return actualizar;
     }
 
     @Override
@@ -131,7 +133,7 @@ public class InsumoDaoImpl implements IInsumoDao{
             if (rs.next()) {
 
                 String sql = "DELETE FROM Insumos WHERE idInsumos = "
-                        + insumo.getIdInsumo()+ ";";
+                        + insumo.getIdInsumo() + ";";
 
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
@@ -146,7 +148,8 @@ public class InsumoDaoImpl implements IInsumoDao{
             System.out.println("Error: Clase EquipoDaoImpl, método eliminar");
             e.printStackTrace();
         }
-        return eliminar;        }
+        return eliminar;
+    }
 
     @Override
     public ResultSet obtenerInsumos() {
@@ -167,16 +170,17 @@ public class InsumoDaoImpl implements IInsumoDao{
         } catch (Exception e) {
         }
 
-        return rs;      }
+        return rs;
+    }
 
     @Override
     public ResultSet obtenerInsumo(Insumo insumo, boolean msj) {
-      Connection con = null;
+        Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
 
         String sql = "SELECT idInsumos, nombreInsumos, tipoInsumos, precioInsumos, cantidad"
-                + " FROM Insumos WHERE idInsumos = " + insumo.getIdInsumo()+ ";";
+                + " FROM Insumos WHERE idInsumos = " + insumo.getIdInsumo() + ";";
         System.out.println(sql);
         try {
             con = ConexionBD.connect();
@@ -191,7 +195,8 @@ public class InsumoDaoImpl implements IInsumoDao{
         } catch (Exception e) {
         }
 
-        return rs;     }
+        return rs;
+    }
 
     @Override
     public ResultSet obtenerProcedimientosxInsumos(Insumo insumo) {
@@ -219,7 +224,8 @@ public class InsumoDaoImpl implements IInsumoDao{
             e.printStackTrace();
         }
 
-        return rs;       }
+        return rs;
+    }
 
     @Override
     public String obtenerTipoInsumo(int id) {
@@ -235,7 +241,6 @@ public class InsumoDaoImpl implements IInsumoDao{
             rs = stm.executeQuery(sql);
             if (rs.next()) {
                 cargo = (rs.getString(1));
-               
 
             }
             stm.close();
@@ -246,7 +251,8 @@ public class InsumoDaoImpl implements IInsumoDao{
             System.out.println("Error: Clase InsumosDaoImple, método obtenerTipoInsumo");
             e.printStackTrace();
         }
-        return cargo;    }
+        return cargo;
+    }
 
     @Override
     public List<String> llenarcomBoTipoInsumo() {
@@ -268,29 +274,30 @@ public class InsumoDaoImpl implements IInsumoDao{
         } catch (Exception e) {
         }
 
-        return listaTipoInsumos;    }
+        return listaTipoInsumos;
+    }
 
     @Override
     public int consultarIdTIpoInsumoxNombreTipoInsumo(String nombretipoInsumo) {
-         Connection con = null;
+        Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
 
         String sql = "SELECT idTipoInsumos, nombreTipoInsumos "
                 + "FROM tipoInsumos WHERE nombreTipoInsumos LIKE '%" + nombretipoInsumo + "%';";
 //        TipoInsumo ti = new TipoInsumo();
-int idTipoInsumo = 0;
+        int idTipoInsumo = 0;
         try {
             con = ConexionBD.connect();
             stm = con.createStatement();
             rs = stm.executeQuery(sql);
             if (rs.next()) {
                 idTipoInsumo = (rs.getInt(1));
-            if (idTipoInsumo == 0) {
-                JOptionPane.showMessageDialog(null, "El registro no existe para llenar combo", "Consultar TipoInsumo", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar TipoInsumo", JOptionPane.INFORMATION_MESSAGE);
-            }
+                if (idTipoInsumo == 0) {
+                    JOptionPane.showMessageDialog(null, "El registro no existe para llenar combo", "Consultar TipoInsumo", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar TipoInsumo", JOptionPane.INFORMATION_MESSAGE);
+                }
             }
             stm.close();
             rs.close();
@@ -301,14 +308,14 @@ int idTipoInsumo = 0;
             e.printStackTrace();
         }
         return idTipoInsumo;
-        }
+    }
 
     @Override
     public String consultarTipoInsumoxIdInsumo(Insumo insumo) {
         Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
-        String sql = "select nombreTipoinsumos from tipoInsumos where idtipoinsumos = " + insumo.getTipoInsumo()+ ";";
+        String sql = "select nombreTipoinsumos from tipoInsumos where idtipoinsumos = " + insumo.getTipoInsumo() + ";";
         Insumo i = new Insumo();
         String rt = "";
         try {
@@ -325,6 +332,7 @@ int idTipoInsumo = 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return rt;    }
-    
+        return rt;
+    }
+
 }

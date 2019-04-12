@@ -16,12 +16,12 @@ import javax.swing.table.DefaultTableModel;
 public class VistaUsuario {
             public void verUsuario(ResultSet usuarios, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"idUsuario", "nombresUsuario", "apellidosUsuario", "cargoUsuario", "contrasenaUsuario"});
+        modelo.setColumnIdentifiers(new Object[]{"idUsuarios", "nombresUsuarios", "apellidosUsuarios", "cargoUsuarios"});
 
         try {
 
             while (usuarios.next()) {
-                modelo.addRow(new Object[]{usuarios.getInt("idUsuario"), usuarios.getString("nombresUsuario"), usuarios.getString("apellidosUsuario"), usuarios.getInt("cargoUsuario"), usuarios.getString("contrasenaUsuario")});
+                modelo.addRow(new Object[]{usuarios.getInt("idUsuarios"), usuarios.getString("nombresUsuarios"), usuarios.getString("apellidosUsuarios"), usuarios.getInt("cargoUsuarios")});
             }
             tabla.setModel(modelo);
 

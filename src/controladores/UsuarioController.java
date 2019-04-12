@@ -8,6 +8,7 @@ package controladores;
 import implementacion.UsuarioDaoImpl;
 import interfaces.IUsuarioDao;
 import java.sql.ResultSet;
+import java.util.List;
 import javax.swing.JTable;
 import modelo.Usuario;
 import vista.VistaUsuario;
@@ -67,4 +68,28 @@ public class UsuarioController {
         usuarios = dao.obtenerUsuario(usuario, true);
         vista.verUsuario(usuarios, tabla);
     }
+    
+        public void verRolesUsuario(JTable tabla, Usuario usuario) {
+        ResultSet pacientes = null;
+        IUsuarioDao dao = new UsuarioDaoImpl();
+        pacientes = dao.obtenerRolesxId(usuario);
+        vista.verRolesEmpleado(pacientes, tabla);
+    }
+
+    public List<String> llenarComboCargoUsuarios() {
+        IUsuarioDao dao = new UsuarioDaoImpl();
+        List<String> list = dao.llenarComboCargoUsuarios();
+
+        return list;
+    }    
+
+    public String consultarCargoxIdCargo(Usuario usuario) {
+        IUsuarioDao dao = new UsuarioDaoImpl();
+        String h;
+        h = dao.consultarCargoxIdCargo(usuario);
+        return h;    }
+
+    public int consultarIdCargoxNombreCargo(String nombreCargo) {
+        IUsuarioDao dao = new UsuarioDaoImpl();
+        return dao.consultarIdCargoxNombreCargo(nombreCargo);    }
 }

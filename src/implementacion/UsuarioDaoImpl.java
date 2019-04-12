@@ -13,7 +13,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import modelo.Cargo;
 import modelo.Usuario;
 
 /**
@@ -251,6 +253,87 @@ public class UsuarioDaoImpl implements IUsuarioDao {
         }
 
         return rs;
+    }
+
+    @Override
+    public List<String> llenarComboCargoUsuarios() {
+        Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null;
+        String sql = "SELECT nombreCargos FROM Cargos ORDER BY nombreCargos;";
+        List<String> listaCargos = new ArrayList<String>();
+
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                //este es el Jcombobox
+                listaCargos.add(rs.getString(1));
+            }
+            con.close();
+        } catch (Exception e) {
+        }
+
+        return listaCargos;
+    }
+
+    @Override
+    public int consultarIdCargoxNombreCargo(String nombreCargo) {
+        Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT idCargos, nombreCargos "
+                + "FROM Cargos WHERE nombreCargos LIKE '%" + nombreCargo + "%';";
+//        TipoInsumo ti = new TipoInsumo();
+        int idCargo = 0;
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+            if (rs.next()) {
+                idCargo = (rs.getInt(1));
+                if (idCargo == 0) {
+                    JOptionPane.showMessageDialog(null, "El registro no existe para llenar combo", "Consultar TipoInsumo", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar TipoInsumo", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+            stm.close();
+            rs.close();
+            con.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error: Clase TipoInsumoDaoImple, método consultarTipoInsumo");
+            e.printStackTrace();
+        }
+        return idCargo;
+    }
+
+    @Override
+    public String consultarCargoxIdCargo(Usuario usuario) {
+        Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null;
+        String sql = "select nombreCargos from Cargos where idCargos = " + usuario.getCargoUsuario() + ";";
+        Cargo u = new Cargo();
+        String rt = "";
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+            if (rs.next()) {
+                u.setNombreCargo(rs.getString(1));
+            }
+            rt = u.getNombreCargo();
+            stm.close();
+            rs.close();
+            con.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return rt;
     }
 
 }
