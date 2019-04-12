@@ -24,7 +24,12 @@ public class RolController {
         IRolDao dao = new RolDaoImpl();
         dao.registrarNuevoRol(rol);
     }
-
+    public Rol consultarRol(Rol rol) {
+        IRolDao dao = new RolDaoImpl();
+        Rol r = new Rol();
+        r = dao.consultarRol(rol);
+        return r;
+    }
     //llama al DAO para actualizar un rol
     public void actualizar(Rol rol) {
         IRolDao dao = new RolDaoImpl();

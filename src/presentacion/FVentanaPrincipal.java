@@ -11,6 +11,7 @@ import controladores.EquipoController;
 import controladores.InsumoController;
 import controladores.PacienteController;
 import controladores.ProcedimientoController;
+import controladores.RolController;
 import controladores.TipoInsumoController;
 import java.text.MessageFormat;
 import java.util.Date;
@@ -23,6 +24,7 @@ import modelo.Equipo;
 import modelo.Insumo;
 import modelo.Paciente;
 import modelo.Procedimiento;
+import modelo.Rol;
 import modelo.TipoInsumo;
 
 /**
@@ -30,9 +32,9 @@ import modelo.TipoInsumo;
  * @author tolis
  */
 public class FVentanaPrincipal extends javax.swing.JFrame {
-    
+
     public static String FORMATO_FECHA = "yyyy-mm-dd";
-    
+
     public void imprimirTabla(String header, JTable tabla) {
         try {
             MessageFormat headerFormat = new MessageFormat(header);
@@ -50,7 +52,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean eliminarPacienteFlag = false;
     boolean agregarPacienteFlag = false;
     boolean procedimientosxPacienteFlag = false;
-    
+
     public void falsearBanderasPacientes() {
         consultarPacientesFlag = false;
         consultarPacienteFlag = false;
@@ -59,7 +61,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         agregarPacienteFlag = false;
         procedimientosxPacienteFlag = false;
     }
-    
+
     public void bloquearCamposPacientes() {
         tfIdentificacionPacientes.setEnabled(false);
         tfFechaNacimientoPacientes.setEnabled(false);
@@ -67,7 +69,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfNombresPacientes.setEnabled(false);
         tfApellidosPacientes.setEnabled(false);
     }
-    
+
     public void limpiarCamposPacientes() {
         tfIdentificacionPacientes.setText("");
         tfFechaNacimientoPacientes.setText("");
@@ -84,7 +86,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean agregarProcedimientoFlag = false;
     boolean insumosUtilizadosFlag = false;
     boolean equiposUtilizadosFlag = false;
-    
+
     public void falsearBanderasProcedimientos() {
         consultarProcedimientosFlag = false;
         consultarProcedimientoFlag = false;
@@ -94,13 +96,13 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         insumosUtilizadosFlag = false;
         equiposUtilizadosFlag = false;
     }
-    
+
     public void bloquearCamposProcedimiento() {
         tfIdProcedimientos.setEnabled(false);
         tfNombreProcedimiento.setEnabled(false);
         tfValorProcedimiento.setEnabled(false);
     }
-    
+
     public void limpiarCamposProcedimiento() {
         tfIdProcedimientos.setText("");
         tfNombreProcedimiento.setText("");
@@ -113,7 +115,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean editarTipoInsumoFlag = false;
     boolean eliminarTipoInsumoFlag = false;
     boolean agregarTipoInsumoFlag = false;
-    
+
     public void falsearBanderasTipoInsumo() {
         consultarTipoInsumosFlag = false;
         consultarTipoInsumoFlag = false;
@@ -121,12 +123,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarTipoInsumoFlag = false;
         agregarTipoInsumoFlag = false;
     }
-    
+
     public void bloquearCamposTipoInsumo() {
         tfIdTipoInsumo.setEnabled(false);
         tfNombreTipoInsumo.setEnabled(false);
     }
-    
+
     public void limpiarCamposTipoInsumo() {
         tfIdTipoInsumo.setText("");
         tfNombreTipoInsumo.setText("");
@@ -139,7 +141,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean eliminarInsumoFlag = false;
     boolean agregarInsumoFlag = false;
     boolean procedimientosEnQueSeUtilizaInsumoFlag = false;
-    
+
     public void falsearBanderasInsumo() {
         consultarInsumosFlag = false;
         consultarInsumoFlag = false;
@@ -147,9 +149,9 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarInsumoFlag = false;
         agregarInsumoFlag = false;
         procedimientosEnQueSeUtilizaInsumoFlag = false;
-        
+
     }
-    
+
     public void bloquearCamposInsumo() {
         tfIdInsumos.setEnabled(false);
         tfNombreInsumos.setEnabled(false);
@@ -157,13 +159,13 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfPrecioInsumos.setEnabled(false);
         tfCantidadInsumos.setEnabled(false);
     }
-    
+
     public void limpiarCamposInsumo() {
         tfIdInsumos.setText("");
         tfNombreInsumos.setText("");
         tfPrecioInsumos.setText("");
         tfCantidadInsumos.setText("");
-        
+
     }
 
     //ENTORNO
@@ -172,23 +174,23 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean editarEntornoFlag = false;
     boolean eliminarEntornoFlag = false;
     boolean agregarEntornoFlag = false;
-    
+
     public void falsearBanderasEntorno() {
         consultarEntornosFlag = false;
         consultarEntornoFlag = false;
         editarEntornoFlag = false;
         eliminarEntornoFlag = false;
         agregarEntornoFlag = false;
-        
+
     }
-    
+
     public void bloquearCamposEntorno() {
         tfIdEntorno.setEnabled(false);
         tfHumedadEntorno.setEnabled(false);
         tfTemperaturaEntorno.setEnabled(false);
         tfFechaEntorno.setEnabled(false);
     }
-    
+
     public void limpiarCamposEntorno() {
         tfIdEntorno.setText("");
         tfHumedadEntorno.setText("");
@@ -203,7 +205,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean eliminarEquipoFlag = false;
     boolean agregarEquipoFlag = false;
     boolean procedimientosEnQueSeUtilizaEquipoFlag = false;
-    
+
     public void falsearBanderasEquipos() {
         consultarEquiposFlag = false;
         consultarEquipoFlag = false;
@@ -211,13 +213,13 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarEquipoFlag = false;
         agregarEquipoFlag = false;
     }
-    
+
     public void bloquearCamposEquipos() {
         tfIdEquipo.setEnabled(false);
         tfNombreEquipo.setEnabled(false);
         tfPrecioEquipo.setEnabled(false);
     }
-    
+
     public void limpiarCamposEquipos() {
         tfIdEquipo.setText("");
         tfNombreEquipo.setText("");
@@ -230,7 +232,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean editarCargoFlag = false;
     boolean eliminarCargoFlag = false;
     boolean agregarCargoFlag = false;
-    
+
     public void falsearBanderasCargo() {
         consultarCargosFlag = false;
         consultarCargoFlag = false;
@@ -238,13 +240,13 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarCargoFlag = false;
         agregarCargoFlag = false;
     }
-    
+
     public void bloquearCamposCargo() {
         tfIdCargo.setEnabled(false);
         tfNombreCargo.setEnabled(false);
         tfSalarioCargo.setEnabled(false);
     }
-    
+
     public void limpiarCamposCargo() {
         tfIdCargo.setText("");
         tfNombreCargo.setText("");
@@ -257,7 +259,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean editarRolFlag = false;
     boolean eliminarRolFlag = false;
     boolean agregarRolFlag = false;
-    
+
     public void falsearBanderasRol() {
         consultarRolesFlag = false;
         consultarRolFlag = false;
@@ -265,12 +267,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarRolFlag = false;
         agregarRolFlag = false;
     }
-    
+
     public void bloquearCamposRol() {
         tfIdRol.setEnabled(false);
         tfNombreRol.setEnabled(false);
     }
-    
+
     public void limpiarCamposRol() {
         tfIdRol.setText("");
         tfNombreRol.setText("");
@@ -282,7 +284,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     boolean editarUsuarioFlag = false;
     boolean eliminarUsuarioFlag = false;
     boolean rolesDelUsuarioFlag = false;
-    
+
     public void falserBanderasUsuario() {
         consultarUsuariosFlag = false;
         agregarUsuarioFlag = false;
@@ -291,7 +293,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         eliminarUsuarioFlag = false;
         rolesDelUsuarioFlag = false;
     }
-    
+
     public void bloquearCamposUsuario() {
         tfIdUsuarios.setEnabled(false);
         tfNombresUsuarios.setEnabled(false);
@@ -300,7 +302,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         comboCargousuarios.setEnabled(false);
         tfIdRolUsuario.setEnabled(false);
     }
-    
+
     public void limpiarCamposUsuario() {
         tfIdUsuarios.setText("");
         tfNombresUsuarios.setText("");
@@ -318,7 +320,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         Date obj = new Date();
         System.out.println(obj.toString() + "!!");
     }
-    
+
     public void ocultarVentanas() {
         ventanaCargos.setVisible(false);
         ventanaEntorno.setVisible(false);
@@ -355,25 +357,6 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         imgLogo = new javax.swing.JLabel();
         barraLateral = new javax.swing.JLabel();
         barraHorizontal = new javax.swing.JLabel();
-        ventanaCargos = new javax.swing.JInternalFrame();
-        labelOperacionCargos = new javax.swing.JLabel();
-        btEjecutarCargos = new javax.swing.JButton();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        tableCargos = new javax.swing.JTable();
-        btImprimirCargos = new javax.swing.JButton();
-        labelIdCargos = new javax.swing.JLabel();
-        labelSalarioCargos = new javax.swing.JLabel();
-        labelNombreCargos = new javax.swing.JLabel();
-        tfIdCargo = new javax.swing.JTextField();
-        tfSalarioCargo = new javax.swing.JTextField();
-        tfNombreCargo = new javax.swing.JTextField();
-        menuCargos = new javax.swing.JMenuBar();
-        opcionConsultarCargos = new javax.swing.JMenu();
-        opConsultarCargos = new javax.swing.JMenuItem();
-        opConsultarCargo = new javax.swing.JMenuItem();
-        opcionAgregarCargos = new javax.swing.JMenu();
-        opcionEditarCargos = new javax.swing.JMenu();
-        opcionEliminarCargos = new javax.swing.JMenu();
         ventanaRol = new javax.swing.JInternalFrame();
         labelOperacionRol = new javax.swing.JLabel();
         btejecutarRol = new javax.swing.JButton();
@@ -568,6 +551,25 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         opcionEliminarEquipo = new javax.swing.JMenu();
         opcionReportesEquipo = new javax.swing.JMenu();
         procedimientosxEquipo = new javax.swing.JMenuItem();
+        ventanaCargos = new javax.swing.JInternalFrame();
+        labelOperacionCargos = new javax.swing.JLabel();
+        btEjecutarCargos = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tableCargos = new javax.swing.JTable();
+        btImprimirCargos = new javax.swing.JButton();
+        labelIdCargos = new javax.swing.JLabel();
+        labelSalarioCargos = new javax.swing.JLabel();
+        labelNombreCargos = new javax.swing.JLabel();
+        tfIdCargo = new javax.swing.JTextField();
+        tfSalarioCargo = new javax.swing.JTextField();
+        tfNombreCargo = new javax.swing.JTextField();
+        menuCargos = new javax.swing.JMenuBar();
+        opcionConsultarCargos = new javax.swing.JMenu();
+        opConsultarCargos = new javax.swing.JMenuItem();
+        opConsultarCargo = new javax.swing.JMenuItem();
+        opcionAgregarCargos = new javax.swing.JMenu();
+        opcionEditarCargos = new javax.swing.JMenu();
+        opcionEliminarCargos = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GinesaludSoft");
@@ -684,162 +686,6 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         barraHorizontal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/barrahorizontal.png"))); // NOI18N
         jPanel1.add(barraHorizontal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 80));
 
-        ventanaCargos.setTitle("CARGOS");
-        ventanaCargos.setVisible(true);
-
-        labelOperacionCargos.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
-        labelOperacionCargos.setText("Operacion");
-
-        btEjecutarCargos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        btEjecutarCargos.setText("Ejecutar");
-        btEjecutarCargos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btEjecutarCargosActionPerformed(evt);
-            }
-        });
-
-        tableCargos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane7.setViewportView(tableCargos);
-
-        btImprimirCargos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        btImprimirCargos.setText("Imprimir");
-
-        labelIdCargos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelIdCargos.setText("ID");
-
-        labelSalarioCargos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelSalarioCargos.setText("Salario");
-
-        labelNombreCargos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        labelNombreCargos.setText("Nombre");
-
-        opcionConsultarCargos.setText("Consultar");
-        opcionConsultarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-
-        opConsultarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opConsultarCargos.setText("Todos los cargos");
-        opConsultarCargos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opConsultarCargosActionPerformed(evt);
-            }
-        });
-        opcionConsultarCargos.add(opConsultarCargos);
-
-        opConsultarCargo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opConsultarCargo.setText("Cargo");
-        opConsultarCargo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opConsultarCargoActionPerformed(evt);
-            }
-        });
-        opcionConsultarCargos.add(opConsultarCargo);
-
-        menuCargos.add(opcionConsultarCargos);
-
-        opcionAgregarCargos.setText("Agregar");
-        opcionAgregarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionAgregarCargos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionAgregarCargosMouseClicked(evt);
-            }
-        });
-        menuCargos.add(opcionAgregarCargos);
-
-        opcionEditarCargos.setText("Editar");
-        opcionEditarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionEditarCargos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionEditarCargosMouseClicked(evt);
-            }
-        });
-        menuCargos.add(opcionEditarCargos);
-
-        opcionEliminarCargos.setText("Eliminar");
-        opcionEliminarCargos.setToolTipText("");
-        opcionEliminarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
-        opcionEliminarCargos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                opcionEliminarCargosMouseClicked(evt);
-            }
-        });
-        menuCargos.add(opcionEliminarCargos);
-
-        ventanaCargos.setJMenuBar(menuCargos);
-
-        javax.swing.GroupLayout ventanaCargosLayout = new javax.swing.GroupLayout(ventanaCargos.getContentPane());
-        ventanaCargos.getContentPane().setLayout(ventanaCargosLayout);
-        ventanaCargosLayout.setHorizontalGroup(
-            ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaCargosLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(labelOperacionCargos)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(ventanaCargosLayout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(labelIdCargos)
-                .addGap(18, 18, 18)
-                .addComponent(tfIdCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
-                .addComponent(labelNombreCargos)
-                .addGap(18, 18, 18)
-                .addComponent(tfNombreCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(128, 128, 128)
-                .addComponent(labelSalarioCargos)
-                .addGap(18, 18, 18)
-                .addComponent(tfSalarioCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(179, 179, 179))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCargosLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCargosLayout.createSequentialGroup()
-                        .addComponent(btEjecutarCargos, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(645, 645, 645))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCargosLayout.createSequentialGroup()
-                        .addComponent(btImprimirCargos, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21))))
-            .addGroup(ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCargosLayout.createSequentialGroup()
-                    .addContainerGap(21, Short.MAX_VALUE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(21, Short.MAX_VALUE)))
-        );
-        ventanaCargosLayout.setVerticalGroup(
-            ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ventanaCargosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(labelOperacionCargos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelIdCargos)
-                    .addComponent(labelNombreCargos)
-                    .addComponent(tfIdCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfNombreCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelSalarioCargos)
-                    .addComponent(tfSalarioCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addComponent(btEjecutarCargos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 571, Short.MAX_VALUE)
-                .addComponent(btImprimirCargos)
-                .addContainerGap())
-            .addGroup(ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCargosLayout.createSequentialGroup()
-                    .addContainerGap(179, Short.MAX_VALUE)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(68, Short.MAX_VALUE)))
-        );
-
-        jPanel1.add(ventanaCargos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
-
         ventanaRol.setTitle("ROLES");
         ventanaRol.setVisible(true);
 
@@ -869,6 +715,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btImprimirRol.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btImprimirRol.setText("Imprimir");
+        btImprimirRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btImprimirRolActionPerformed(evt);
+            }
+        });
 
         labelIdRol.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         labelIdRol.setText("ID");
@@ -893,25 +744,50 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         opConsultarRoles.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarRoles.setText("Todos los roles");
+        opConsultarRoles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarRolesActionPerformed(evt);
+            }
+        });
         OpcionConsultarRol.add(opConsultarRoles);
 
         opConsultarRol.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         opConsultarRol.setText("Rol");
+        opConsultarRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarRolActionPerformed(evt);
+            }
+        });
         OpcionConsultarRol.add(opConsultarRol);
 
         menuRol.add(OpcionConsultarRol);
 
         opcionAgregarRol.setText("Agregar");
         opcionAgregarRol.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionAgregarRol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarRolMouseClicked(evt);
+            }
+        });
         menuRol.add(opcionAgregarRol);
 
         opcionEditarRol.setText("Editar");
         opcionEditarRol.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEditarRol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditarRolMouseClicked(evt);
+            }
+        });
         menuRol.add(opcionEditarRol);
 
         opcionEliminarRol.setText("Eliminar");
         opcionEliminarRol.setToolTipText("");
         opcionEliminarRol.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEliminarRol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarRolMouseClicked(evt);
+            }
+        });
         menuRol.add(opcionEliminarRol);
 
         ventanaRol.setJMenuBar(menuRol);
@@ -2448,6 +2324,167 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         jPanel1.add(ventanaEquipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
 
+        ventanaCargos.setTitle("CARGOS");
+        ventanaCargos.setVisible(true);
+
+        labelOperacionCargos.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        labelOperacionCargos.setText("Operacion");
+
+        btEjecutarCargos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btEjecutarCargos.setText("Ejecutar");
+        btEjecutarCargos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEjecutarCargosActionPerformed(evt);
+            }
+        });
+
+        tableCargos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(tableCargos);
+
+        btImprimirCargos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btImprimirCargos.setText("Imprimir");
+        btImprimirCargos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btImprimirCargosActionPerformed(evt);
+            }
+        });
+
+        labelIdCargos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelIdCargos.setText("ID");
+
+        labelSalarioCargos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelSalarioCargos.setText("Salario");
+
+        labelNombreCargos.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelNombreCargos.setText("Nombre");
+
+        opcionConsultarCargos.setText("Consultar");
+        opcionConsultarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+
+        opConsultarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarCargos.setText("Todos los cargos");
+        opConsultarCargos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarCargosActionPerformed(evt);
+            }
+        });
+        opcionConsultarCargos.add(opConsultarCargos);
+
+        opConsultarCargo.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opConsultarCargo.setText("Cargo");
+        opConsultarCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opConsultarCargoActionPerformed(evt);
+            }
+        });
+        opcionConsultarCargos.add(opConsultarCargo);
+
+        menuCargos.add(opcionConsultarCargos);
+
+        opcionAgregarCargos.setText("Agregar");
+        opcionAgregarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionAgregarCargos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionAgregarCargosMouseClicked(evt);
+            }
+        });
+        menuCargos.add(opcionAgregarCargos);
+
+        opcionEditarCargos.setText("Editar");
+        opcionEditarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEditarCargos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEditarCargosMouseClicked(evt);
+            }
+        });
+        menuCargos.add(opcionEditarCargos);
+
+        opcionEliminarCargos.setText("Eliminar");
+        opcionEliminarCargos.setToolTipText("");
+        opcionEliminarCargos.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
+        opcionEliminarCargos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                opcionEliminarCargosMouseClicked(evt);
+            }
+        });
+        menuCargos.add(opcionEliminarCargos);
+
+        ventanaCargos.setJMenuBar(menuCargos);
+
+        javax.swing.GroupLayout ventanaCargosLayout = new javax.swing.GroupLayout(ventanaCargos.getContentPane());
+        ventanaCargos.getContentPane().setLayout(ventanaCargosLayout);
+        ventanaCargosLayout.setHorizontalGroup(
+            ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaCargosLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(labelOperacionCargos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(ventanaCargosLayout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(labelIdCargos)
+                .addGap(18, 18, 18)
+                .addComponent(tfIdCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 233, Short.MAX_VALUE)
+                .addComponent(labelNombreCargos)
+                .addGap(18, 18, 18)
+                .addComponent(tfNombreCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128)
+                .addComponent(labelSalarioCargos)
+                .addGap(18, 18, 18)
+                .addComponent(tfSalarioCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(179, 179, 179))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCargosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCargosLayout.createSequentialGroup()
+                        .addComponent(btEjecutarCargos, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(645, 645, 645))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCargosLayout.createSequentialGroup()
+                        .addComponent(btImprimirCargos, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))))
+            .addGroup(ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCargosLayout.createSequentialGroup()
+                    .addContainerGap(41, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(42, Short.MAX_VALUE)))
+        );
+        ventanaCargosLayout.setVerticalGroup(
+            ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ventanaCargosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelOperacionCargos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelIdCargos)
+                    .addComponent(labelNombreCargos)
+                    .addComponent(tfIdCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfNombreCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelSalarioCargos)
+                    .addComponent(tfSalarioCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addComponent(btEjecutarCargos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 571, Short.MAX_VALUE)
+                .addComponent(btImprimirCargos)
+                .addContainerGap())
+            .addGroup(ventanaCargosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaCargosLayout.createSequentialGroup()
+                    .addContainerGap(179, Short.MAX_VALUE)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(68, Short.MAX_VALUE)))
+        );
+
+        jPanel1.add(ventanaCargos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -2809,7 +2846,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfFechaEntorno.setEnabled(true);
         tfFechaEntorno.setText(FORMATO_FECHA);
         labelOperacionEntorno.setText("Agregar");
-        
+
 
     }//GEN-LAST:event_opcionAgregarEntornoMouseClicked
 
@@ -3007,7 +3044,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             Paciente paciente = new Paciente();
             paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
             paciente = pacienteCt.consultarPaciente(paciente);
-            
+
             tfFechaNacimientoPacientes.setText(paciente.getFechaNacimientoPaciente());
             tfTelefonoPacientes.setText(paciente.getTelefonoPaciente());
             tfNombresPacientes.setText(paciente.getNombresPaciente());
@@ -3019,9 +3056,9 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             paciente.setTelefonoPaciente(tfTelefonoPacientes.getText());
             paciente.setNombresPaciente(tfNombresPacientes.getText());
             paciente.setApellidosPaciente(tfApellidosPacientes.getText());
-            
+
             pacienteCt.registrar(paciente);
-            
+
         } else if (editarPacienteFlag) {
             Paciente paciente = new Paciente();
             paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
@@ -3029,17 +3066,17 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             paciente.setTelefonoPaciente(tfTelefonoPacientes.getText());
             paciente.setNombresPaciente(tfNombresPacientes.getText());
             paciente.setApellidosPaciente(tfApellidosPacientes.getText());
-            
+
             pacienteCt.actualizar(paciente);
         } else if (eliminarPacienteFlag) {
             Paciente paciente = new Paciente();
             paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
-            
+
             pacienteCt.eliminar(paciente);
         } else if (procedimientosxPacienteFlag) {
             Paciente paciente = new Paciente();
             paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
-            
+
             pacienteCt.verProcedimientosxPaciente(tablePacientes, paciente);
         }
     }//GEN-LAST:event_btEjecutarPacientesActionPerformed
@@ -3048,12 +3085,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         ProcedimientoController procedimientoCt = new ProcedimientoController();
         if (consultarProcedimientosFlag) {
             procedimientoCt.verProcedimientos(tableProcedimiento);
-            
+
         } else if (consultarProcedimientoFlag) {
             Procedimiento procedimiento = new Procedimiento();
             procedimiento.setNombreProcedimiento(tfNombreProcedimiento.getText());
             procedimiento = procedimientoCt.consultarProcedimiento(procedimiento);
-            
+
             tfIdProcedimientos.setText(Integer.toString(procedimiento.getIdProcedimiento()));
             tfNombreProcedimiento.setText(procedimiento.getNombreProcedimiento());
             tfValorProcedimiento.setText(Integer.toString(procedimiento.getValorProcedimiento()));
@@ -3067,12 +3104,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             procedimiento.setIdProcedimiento(Integer.parseInt(tfIdProcedimientos.getText()));
             procedimiento.setNombreProcedimiento(tfNombreProcedimiento.getText());
             procedimiento.setValorProcedimiento(Integer.parseInt(tfValorProcedimiento.getText()));
-            
+
             procedimientoCt.actualizar(procedimiento);
         } else if (eliminarProcedimientoFlag) {
             Procedimiento procedimiento = new Procedimiento();
             procedimiento.setIdProcedimiento(Integer.parseInt(tfIdProcedimientos.getText()));
-            
+
             procedimientoCt.eliminar(procedimiento);
         } else if (insumosUtilizadosFlag) {
             Procedimiento procedimiento = new Procedimiento();
@@ -3093,7 +3130,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             TipoInsumo tipoInsumo = new TipoInsumo();
             tipoInsumo.setNombreTipoInsumo(tfNombreTipoInsumo.getText());
             tipoInsumo = tipoInsumoCt.consultarTipoInsumo(tipoInsumo);
-            
+
             tfIdTipoInsumo.setText(Integer.toString(tipoInsumo.getIdTipoInsumo()));
             tfNombreTipoInsumo.setText(tipoInsumo.getNombreTipoInsumo());
         } else if (agregarTipoInsumoFlag) {
@@ -3120,12 +3157,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             Insumo insumo = new Insumo();
             insumo.setIdInsumo(Integer.parseInt(tfIdInsumos.getText()));
             insumo = insumoCt.consultarInsumo(insumo);
-            
+
             tfNombreInsumos.setText(insumo.getNombreInsumo());
             tfPrecioInsumos.setText(Integer.toString(insumo.getPrecioInsumo()));
             tfCantidadInsumos.setText(Integer.toString(insumo.getCantidad()));
             String s = insumoCt.consultarTipoInsumoxIdInsumo(insumo);
-            
+
             comboTiposInsumoInsumos.removeAllItems();
             comboTiposInsumoInsumos.addItem(s);
         } else if (agregarInsumoFlag) {
@@ -3136,7 +3173,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             insumo.setCantidad(Integer.parseInt(tfCantidadInsumos.getText()));
             int idTipoInsumo = insumoCt.consultarIdTipoInsumoxNombretipoInsumo(comboTiposInsumoInsumos.getSelectedItem().toString());
             insumo.setTipoInsumo(idTipoInsumo);
-            
+
             insumoCt.registrar(insumo);
         } else if (editarInsumoFlag) {
             Insumo insumo = new Insumo();
@@ -3146,13 +3183,13 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             insumo.setCantidad(Integer.parseInt(tfCantidadInsumos.getText()));
             int idTipoInsumo = insumoCt.consultarIdTipoInsumoxNombretipoInsumo(comboTiposInsumoInsumos.getSelectedItem().toString());
             insumo.setTipoInsumo(idTipoInsumo);
-            
+
             insumoCt.actualizar(insumo);
         } else if (eliminarInsumoFlag) {
             Insumo insumo = new Insumo();
             insumo.setIdInsumo(Integer.parseInt(tfIdInsumos.getText()));
             insumoCt.eliminar(insumo);
-            
+
         } else if (procedimientosEnQueSeUtilizaInsumoFlag) {
             Insumo insumo = new Insumo();
             insumo.setIdInsumo(Integer.parseInt(tfIdInsumos.getText()));
@@ -3168,7 +3205,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             Entorno entorno = new Entorno();
             entorno.setFecha(tfFechaEntorno.getText());
             entorno = entornoCt.consultarEntorno(entorno);
-            
+
             tfIdEntorno.setText(Integer.toString(entorno.getIdEntorno()));
             tfHumedadEntorno.setText(entorno.getHumedad());
             tfTemperaturaEntorno.setText(entorno.getTemperatura());
@@ -3177,7 +3214,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             entorno.setFecha(tfFechaEntorno.getText());
             entorno.setHumedad(tfHumedadEntorno.getText());
             entorno.setTemperatura(tfTemperaturaEntorno.getText());
-            
+
             entornoCt.registrar(entorno);
         } else if (editarEntornoFlag) {
             Entorno entorno = new Entorno();
@@ -3202,29 +3239,29 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 //            equipo.setIdEquipo(Integer.parseInt(tfIdEquipo.getText()));
             equipo.setNombreEquipo(tfNombreEquipo.getText());
             equipo = equipoCt.consultarEquipo(equipo);
-            
+
             tfIdEquipo.setText(Integer.toString(equipo.getIdEquipo()));
             tfNombreEquipo.setText(equipo.getNombreEquipo());
             tfPrecioEquipo.setText(Integer.toString(equipo.getPrecioEquipo()));
-            
+
         } else if (agregarEquipoFlag) {
             Equipo equipo = new Equipo();
             equipo.setIdEquipo(Integer.parseInt(tfIdEquipo.getText()));
             equipo.setNombreEquipo(tfNombreEquipo.getText());
             equipo.setPrecioEquipo(Integer.parseInt(tfPrecioEquipo.getText()));
-            
+
             equipoCt.registrar(equipo);
         } else if (editarEquipoFlag) {
             Equipo equipo = new Equipo();
             equipo.setIdEquipo(Integer.parseInt(tfIdEquipo.getText()));
             equipo.setNombreEquipo(tfNombreEquipo.getText());
             equipo.setPrecioEquipo(Integer.parseInt(tfPrecioEquipo.getText()));
-            
+
             equipoCt.actualizar(equipo);
         } else if (eliminarEquipoFlag) {
             Equipo equipo = new Equipo();
             equipo.setIdEquipo(Integer.parseInt(tfIdEquipo.getText()));
-            
+
             equipoCt.eliminar(equipo);
         } else if (procedimientosEnQueSeUtilizaEquipoFlag) {
             Equipo equipo = new Equipo();
@@ -3241,7 +3278,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             Cargo cargo = new Cargo();
             cargo.setNombreCargo(tfNombreCargo.getText());
             cargo = cargoCt.consultarCargo(cargo);
-            
+
             tfIdCargo.setText(Integer.toString(cargo.getIdCargo()));
             tfNombreCargo.setText(cargo.getNombreCargo());
             tfSalarioCargo.setText(Integer.toString(cargo.getSalarioCargo()));
@@ -3259,38 +3296,53 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         } else if (eliminarCargoFlag) {
             Cargo cargo = new Cargo();
             cargo.setIdCargo(Integer.parseInt(tfIdCargo.getText()));
-            
+
             cargoCt.eliminar(cargo);
         }
     }//GEN-LAST:event_btEjecutarCargosActionPerformed
 
     private void btejecutarRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btejecutarRolActionPerformed
+        RolController rolCt = new RolController();
         if (consultarRolesFlag) {
-            
+            rolCt.verRols(tableRol);
         } else if (consultarRolFlag) {
-            
+            Rol rol = new Rol();
+            rol.setNombreRol(tfNombreRol.getText());
+            rol = rolCt.consultarRol(rol);
+
+            tfNombreRol.setText(rol.getNombreRol());
+            tfIdRol.setText(Integer.toString(rol.getIdRol()));
         } else if (agregarRolFlag) {
-            
+            Rol rol = new Rol();
+            rol.setNombreRol(tfNombreRol.getText());
+            rolCt.registrar(rol);
+            limpiarCamposRol();
         } else if (editarRolFlag) {
-            
+            Rol rol = new Rol();
+            rol.setIdRol(Integer.parseInt(tfIdRol.getText()));
+            rol.setNombreRol(tfNombreRol.getText());
+            rolCt.actualizar(rol);
         } else if (eliminarRolFlag) {
-            
+            Rol rol = new Rol();
+            rol.setIdRol(Integer.parseInt(tfIdRol.getText()));
+
+            rolCt.eliminar(rol);
         }
     }//GEN-LAST:event_btejecutarRolActionPerformed
 
     private void btjecutarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btjecutarUsuarioActionPerformed
         if (consultarUsuariosFlag) {
-            
+
         } else if (consultarUsuarioFlag) {
-            
+
         } else if (agregarUsuarioFlag) {
-            
+
         } else if (editarUsuarioFlag) {
-            
+
         } else if (eliminarUsuarioFlag) {
-            
+
         } else if (rolesDelUsuarioFlag) {
-            
+
         }
     }//GEN-LAST:event_btjecutarUsuarioActionPerformed
 
@@ -3318,60 +3370,116 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btAgregarEquiposProcedimientoActionPerformed
 
     private void btImprimirTipoInsumoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirTipoInsumoActionPerformed
-        imprimirTabla("Tipo Insumo", tableTipoInsumo);       // TODO add your handling code here:
+        imprimirTabla("Tipo Insumo", tableTipoInsumo);       
     }//GEN-LAST:event_btImprimirTipoInsumoActionPerformed
 
     private void btImprimirInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirInsumosActionPerformed
-        imprimirTabla("Insumos", tableInsumos);       // TODO add your handling code here:
+        imprimirTabla("Insumos", tableInsumos);       
     }//GEN-LAST:event_btImprimirInsumosActionPerformed
 
     private void btImprimirEquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirEquipoActionPerformed
-        imprimirTabla("Equipos", tableEquipo);        // TODO add your handling code here:
+        imprimirTabla("Equipos", tableEquipo);        
     }//GEN-LAST:event_btImprimirEquipoActionPerformed
+
+    private void opcionAgregarRolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionAgregarRolMouseClicked
+        limpiarCamposRol();
+        falsearBanderasRol();
+        agregarRolFlag = true;
+        bloquearCamposRol();
+        tfNombreRol.setEnabled(true);
+                labelOperacionRol.setText("Agregar");
+
+
+    }//GEN-LAST:event_opcionAgregarRolMouseClicked
+
+    private void opConsultarRolesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarRolesActionPerformed
+        limpiarCamposRol();
+        falsearBanderasRol();
+        consultarRolesFlag = true;
+        bloquearCamposRol();       
+                labelOperacionRol.setText("Consultar todos");
+
+    }//GEN-LAST:event_opConsultarRolesActionPerformed
+
+    private void opConsultarRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opConsultarRolActionPerformed
+        limpiarCamposRol();
+        falsearBanderasRol();
+        consultarRolFlag = true;
+        bloquearCamposRol();
+        tfNombreRol.setEnabled(true);
+                labelOperacionRol.setText("Consultar");
+
+
+    }//GEN-LAST:event_opConsultarRolActionPerformed
+
+    private void opcionEditarRolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarRolMouseClicked
+        falsearBanderasRol();
+        editarRolFlag = true;
+        bloquearCamposRol();
+        tfNombreRol.setEnabled(true);
+                labelOperacionRol.setText("Editar");
+
+    }//GEN-LAST:event_opcionEditarRolMouseClicked
+
+    private void opcionEliminarRolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEliminarRolMouseClicked
+        falsearBanderasRol();
+        eliminarRolFlag = true;
+        bloquearCamposRol();
+        tfIdRol.setEnabled(true);
+        labelOperacionRol.setText("Eliminar");
+    }//GEN-LAST:event_opcionEliminarRolMouseClicked
+
+    private void btImprimirRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirRolActionPerformed
+        imprimirTabla("Rol", tableRol);        // TODO add your handling code here:
+    }//GEN-LAST:event_btImprimirRolActionPerformed
+
+    private void btImprimirCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirCargosActionPerformed
+        imprimirTabla("Cargo", tableRol);       // TODO add your handling code here:
+    }//GEN-LAST:event_btImprimirCargosActionPerformed
 
     //Llenando Combo Boxes
     private void llenarComboProcedimientoPaciente() {
         PacienteController pacienteCt = new PacienteController();
         comboProcedimientosPaciente.removeAllItems();
         List<String> list = pacienteCt.llenarComboPaciente();
-        
+
         for (String procedimiento : list) {
             comboProcedimientosPaciente.addItem(procedimiento);
         }
-        
+
     }
-    
+
     private void llenarComboInsumosProcedimiento() {
         ProcedimientoController pacienteCt = new ProcedimientoController();
         comboInsumosProcedimiento.removeAllItems();
         List<String> list = pacienteCt.llenarComboInsumosProcedimiento();
-        
+
         for (String procedimiento : list) {
             comboInsumosProcedimiento.addItem(procedimiento);
         }
-        
+
     }
-    
+
     private void llenarComboEquiposProcedimiento() {
         ProcedimientoController procedimientoCt = new ProcedimientoController();
         comboEquiposProcedimiento.removeAllItems();
         List<String> list = procedimientoCt.llenarComboEquiposProcedimiento();
-        
+
         for (String procedimiento : list) {
             comboEquiposProcedimiento.addItem(procedimiento);
         }
-        
+
     }
-    
+
     private void llenarComboTipoInsumoInsumo() {
         InsumoController insumoCt = new InsumoController();
         comboTiposInsumoInsumos.removeAllItems();
         List<String> list = insumoCt.llenarComboTipoInsumo();
-        
+
         for (String procedimiento : list) {
             comboTiposInsumoInsumos.addItem(procedimiento);
         }
-        
+
     }
 
     /**

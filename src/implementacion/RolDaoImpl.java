@@ -94,7 +94,7 @@ public class RolDaoImpl implements IRolDao{
 
             if (rs.next()) {
                 String sql = "UPDATE Rol SET nombreRol = '" + rol.getNombreRol()
-                        + " WHERE idRol = " + rol.getIdRol()+ ";";
+                        + "' WHERE idRol = " + rol.getIdRol()+ ";";
                 System.out.println(sql);
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
