@@ -32,11 +32,11 @@ public class VistaUsuario {
 
     public void verUsuarios(ResultSet usuarios, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"idUsuario", "nombresUsuario", "apellidosUsuario", "cargoUsuario", "contrasenaUsuario"});
+        modelo.setColumnIdentifiers(new Object[]{"idUsuarios", "nombresUsuarios", "apellidosUsuarios", "cargoUsuarios"});
 
         try {
             while (usuarios.next()) {
-                modelo.addRow(new Object[]{usuarios.getInt("idUsuario"), usuarios.getString("nombresUsuario"), usuarios.getString("apellidosUsuario"), usuarios.getInt("cargoUsuario"), usuarios.getString("contrasenaUsuario")});
+                modelo.addRow(new Object[]{usuarios.getInt("idUsuarios"), usuarios.getString("nombresUsuarios"), usuarios.getString("apellidosUsuarios"), usuarios.getInt("cargoUsuarios")});
             }
             tabla.setModel(modelo);
 
@@ -47,11 +47,11 @@ public class VistaUsuario {
     
         public void verRolesEmpleado(ResultSet roles, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"idRol", "nombreRol"});
+        modelo.setColumnIdentifiers(new Object[]{"nombreRol"});
 
         try {
             while (roles.next()) {
-                modelo.addRow(new Object[]{roles.getInt("idRol"), roles.getString("nombreRol")});            }
+                modelo.addRow(new Object[]{roles.getString("nombreRol")});            }
             tabla.setModel(modelo);
 
         } catch (Exception ex) {

@@ -73,7 +73,7 @@ public class UsuarioDaoImpl implements IUsuarioDao {
             ResultSet rs;
             rs = obtenerUsuario(usuario, false);
             if (!rs.next()) {
-                String sql = "INSERT INTO cargos (idUsuarios, nombreUsuarios, apellidosUsuarios, cargoUsuarios, contrasenaUsuarios) " + "VALUES (?,?,?,?,?);";
+                String sql = "INSERT INTO Usuarios (idUsuarios, nombresUsuarios, apellidosUsuarios, cargoUsuarios, contrasenaUsuarios) " + "VALUES (?,?,?,?,?);";
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
                 psql.setInt(1, usuario.getIdUsuario());
@@ -107,7 +107,7 @@ public class UsuarioDaoImpl implements IUsuarioDao {
 
             if (rs.next()) {
                 String sql = "UPDATE usuarios SET nombresUsuarios = '" + usuario.getNombresUsuario() + "', " + "apellidosUsuarios = '" + usuario.getApellidosUsuario()
-                        + "'" + "cargoUsuarios = '" + usuario.getCargoUsuario() + "'" + "contrasenaUsuarios = '" + usuario.getContrasenaUsuario() + "'"
+                        + "'" + ", cargoUsuarios = '" + usuario.getCargoUsuario() + "'" + ", contrasenaUsuarios = '" + usuario.getContrasenaUsuario() + "'"
                         + " WHERE idUsuarios = " + usuario.getIdUsuario() + ";";
                 System.out.println(sql);
                 connect = ConexionBD.connect();
@@ -160,7 +160,7 @@ public class UsuarioDaoImpl implements IUsuarioDao {
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idUsuarios, nombreUsuarios, apellidosUsuarios, cargoUsuarios "
+        String sql = "SELECT idUsuarios, nombresUsuarios, apellidosUsuarios, cargoUsuarios "
                 + "FROM Usuarios ORDER BY idUsuarios";
         try {
             con = ConexionBD.connect();
@@ -236,7 +236,7 @@ public class UsuarioDaoImpl implements IUsuarioDao {
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idUsuarios, nombreUsuarios, apellidosUsuarios, cargoUsuarios, contrasenaUsuarios "
+        String sql = "SELECT idUsuarios, nombresUsuarios, apellidosUsuarios, cargoUsuarios, contrasenaUsuarios "
                 + "FROM usuarios WHERE idUsuarios = " + usuario.getIdUsuario() + ";";
         System.out.println(sql);
         try {
@@ -247,7 +247,7 @@ public class UsuarioDaoImpl implements IUsuarioDao {
 //            rs.close();
 //            con.close();
             if (msj) {
-                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar Usuarios", JOptionPane.INFORMATION_MESSAGE);
+//                JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar Usuarios", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (Exception e) {
         }

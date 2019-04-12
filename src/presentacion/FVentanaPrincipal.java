@@ -850,9 +850,9 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         rolesDelUsuario.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
         rolesDelUsuario.setText("Roles del usuario");
-        rolesDelUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                rolesDelUsuarioMouseClicked(evt);
+        rolesDelUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rolesDelUsuarioActionPerformed(evt);
             }
         });
         opcionReportesUsuario.add(rolesDelUsuario);
@@ -944,7 +944,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(ventanaUsuariosLayout.createSequentialGroup()
                     .addGap(23, 23, 23)
                     .addComponent(labelOperacionUsuarios)
-                    .addContainerGap(747, Short.MAX_VALUE)))
+                    .addContainerGap(735, Short.MAX_VALUE)))
         );
 
         jPanel1.add(ventanaUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, 1570, 850));
@@ -1815,14 +1815,14 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(tfCantidadInsumos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btEjecutarInsumos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 488, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 480, Short.MAX_VALUE)
                 .addComponent(btImprimirInsumos)
                 .addContainerGap())
             .addGroup(ventanaInsumosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(ventanaInsumosLayout.createSequentialGroup()
                     .addGap(37, 37, 37)
                     .addComponent(labelOperacionInsumos)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(70, 70, 70)))
         );
@@ -3006,15 +3006,15 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
     private void opcionEditarUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_opcionEditarUsuarioMouseClicked
         falserBanderasUsuario();
-        agregarUsuarioFlag = true;
+        editarUsuarioFlag = true;
         bloquearCamposUsuario();
         llenarComboCargoUsuarios();
         tfIdUsuarios.setEnabled(false);
-        tfNombresUsuarios.setEnabled(false);
-        tfApellidosUsuarios.setEnabled(false);
-        tfContrasenaUsuarios.setEnabled(false);
-        comboCargousuarios.setEnabled(false);
-        tfIdRolUsuario.setEnabled(false);
+        tfNombresUsuarios.setEnabled(true);
+        tfApellidosUsuarios.setEnabled(true);
+        tfContrasenaUsuarios.setEnabled(true);
+        comboCargousuarios.setEnabled(true);
+        tfIdRolUsuario.setEnabled(true);
         labelOperacionUsuarios.setText("Editar");
 
     }//GEN-LAST:event_opcionEditarUsuarioMouseClicked
@@ -3027,15 +3027,6 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfIdUsuarios.setEnabled(true);
         labelOperacionUsuarios.setText("Eliminar");
     }//GEN-LAST:event_opcionEliminarUsuarioMouseClicked
-
-    private void rolesDelUsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rolesDelUsuarioMouseClicked
-        limpiarCamposUsuario();
-        falserBanderasUsuario();
-        rolesDelUsuarioFlag = true;
-        bloquearCamposUsuario();
-        tfIdUsuarios.setEnabled(true);
-        labelOperacionUsuarios.setText("Roles del usuario");
-    }//GEN-LAST:event_rolesDelUsuarioMouseClicked
 
     private void tfNombreProcedimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreProcedimientoActionPerformed
 
@@ -3361,7 +3352,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             usuarioCt.registrar(usuario);
         } else if (editarUsuarioFlag) {
             Usuario usuario = new Usuario();
-//usuario.setIdUsuario(Integer.parseInt(tfIdUsuarios.getText()));
+            usuario.setIdUsuario(Integer.parseInt(tfIdUsuarios.getText()));
             usuario.setNombresUsuario(tfNombresUsuarios.getText());
             usuario.setApellidosUsuario(tfApellidosUsuarios.getText());
             usuario.setContrasenaUsuario(tfContrasenaUsuarios.getPassword().toString());
@@ -3470,6 +3461,15 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     private void btImprimirCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirCargosActionPerformed
         imprimirTabla("Cargo", tableRol);       // TODO add your handling code here:
     }//GEN-LAST:event_btImprimirCargosActionPerformed
+
+    private void rolesDelUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesDelUsuarioActionPerformed
+         limpiarCamposUsuario();
+        falserBanderasUsuario();
+        rolesDelUsuarioFlag = true;
+        bloquearCamposUsuario();
+        tfIdUsuarios.setEnabled(true);
+        labelOperacionUsuarios.setText("Roles del usuario");       // TODO add your handling code here:
+    }//GEN-LAST:event_rolesDelUsuarioActionPerformed
 
     //Llenando Combo Boxes
     private void llenarComboProcedimientoPaciente() {
