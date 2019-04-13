@@ -120,11 +120,11 @@ public class FInicioSesion extends javax.swing.JFrame {
     private void btIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIniciarSesionActionPerformed
    try{ 
        //Borrar
-       if(true)
+   /*    if(true)
        {        FVentanaPrincipal framePrincipal = new FVentanaPrincipal();
         framePrincipal.setVisible(true);
         this.dispose();}
-       
+    */   
         if(!tfUsuario.getText().isEmpty() && !tfContrasena.getPassword().toString().isEmpty()){   
         Usuario usuario = new Usuario();
         usuario.setIdUsuario(Integer.parseInt(tfUsuario.getText()));

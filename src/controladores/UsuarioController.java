@@ -92,4 +92,14 @@ public class UsuarioController {
     public int consultarIdCargoxNombreCargo(String nombreCargo) {
         IUsuarioDao dao = new UsuarioDaoImpl();
         return dao.consultarIdCargoxNombreCargo(nombreCargo);    }
+
+    public void agregarRolaUsuario(Usuario usuario, String idRol) {
+        IUsuarioDao dao = new UsuarioDaoImpl();
+        dao.agregarRolaUsuario(usuario, idRol);
+    }
+
+    public void retirarRolaUsuario(Usuario usuario, String idRol) {
+        IUsuarioDao dao = new UsuarioDaoImpl();
+        dao.retirarRolaUsuario(usuario, idRol);
+    }
 }

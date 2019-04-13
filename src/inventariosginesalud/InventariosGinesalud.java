@@ -21,8 +21,8 @@ public class InventariosGinesalud {
     public static void main(String[] args) {
         FInicioSesion finicioSesion = new FInicioSesion();
         FVentanaPrincipal fventanprincipal = new FVentanaPrincipal();
-//        finicioSesion.setVisible(true);
-        fventanprincipal.setVisible(true);
+        finicioSesion.setVisible(true);
+//        fventanprincipal.setVisible(true);
     }
     
 }

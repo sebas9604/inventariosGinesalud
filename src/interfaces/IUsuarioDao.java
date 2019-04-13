@@ -36,5 +36,9 @@ public interface IUsuarioDao {
     public int consultarIdCargoxNombreCargo(String nombreCargo);
 
     public String consultarCargoxIdCargo(Usuario usuario);
+    
+    public boolean agregarRolaUsuario(Usuario usuario, String idRol);
+    
+    public boolean retirarRolaUsuario(Usuario usuario, String idRol);
 
 }

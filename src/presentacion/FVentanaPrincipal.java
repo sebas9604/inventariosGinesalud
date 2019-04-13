@@ -302,7 +302,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfApellidosUsuarios.setEnabled(false);
         tfContrasenaUsuarios.setEnabled(false);
         comboCargousuarios.setEnabled(false);
-        tfIdRolUsuario.setEnabled(false);
+//        tfIdRolUsuario.setEnabled(false);
     }
     
     public void limpiarCamposUsuario() {
@@ -748,9 +748,19 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         btAgregarRolUsuario.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btAgregarRolUsuario.setText("Agregar");
+        btAgregarRolUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAgregarRolUsuarioActionPerformed(evt);
+            }
+        });
 
         btRetirarRolUsuraio.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btRetirarRolUsuraio.setText("Retirar");
+        btRetirarRolUsuraio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRetirarRolUsuraioActionPerformed(evt);
+            }
+        });
 
         labelIdRolUsuario.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         labelIdRolUsuario.setText("Id Rol");
@@ -3455,11 +3465,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_opcionEliminarRolMouseClicked
 
     private void btImprimirRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirRolActionPerformed
-        imprimirTabla("Rol", tableRol);        // TODO add your handling code here:
+        imprimirTabla("Rol", tableRol);        
     }//GEN-LAST:event_btImprimirRolActionPerformed
 
     private void btImprimirCargosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirCargosActionPerformed
-        imprimirTabla("Cargo", tableRol);       // TODO add your handling code here:
+        imprimirTabla("Cargo", tableRol);       
     }//GEN-LAST:event_btImprimirCargosActionPerformed
 
     private void rolesDelUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolesDelUsuarioActionPerformed
@@ -3468,8 +3478,26 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         rolesDelUsuarioFlag = true;
         bloquearCamposUsuario();
         tfIdUsuarios.setEnabled(true);
-        labelOperacionUsuarios.setText("Roles del usuario");       // TODO add your handling code here:
+        labelOperacionUsuarios.setText("Roles del usuario");       
     }//GEN-LAST:event_rolesDelUsuarioActionPerformed
+
+    private void btAgregarRolUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgregarRolUsuarioActionPerformed
+    UsuarioController usuarioCt = new UsuarioController();
+Usuario usuario = new Usuario();
+usuario.setIdUsuario(Integer.parseInt(tfIdUsuarios.getText()));
+String idRol = tfIdRolUsuario.getText();
+
+usuarioCt.agregarRolaUsuario(usuario, idRol);
+    }//GEN-LAST:event_btAgregarRolUsuarioActionPerformed
+
+    private void btRetirarRolUsuraioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetirarRolUsuraioActionPerformed
+    UsuarioController usuarioCt = new UsuarioController();
+Usuario usuario = new Usuario();
+usuario.setIdUsuario(Integer.parseInt(tfIdUsuarios.getText()));
+String idRol = tfIdRolUsuario.getText();
+
+usuarioCt.retirarRolaUsuario(usuario, idRol);        
+    }//GEN-LAST:event_btRetirarRolUsuraioActionPerformed
 
     //Llenando Combo Boxes
     private void llenarComboProcedimientoPaciente() {

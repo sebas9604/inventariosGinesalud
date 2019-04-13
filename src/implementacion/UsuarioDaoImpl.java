@@ -336,4 +336,50 @@ public class UsuarioDaoImpl implements IUsuarioDao {
         return rt;
     }
 
+    @Override
+    public boolean agregarRolaUsuario(Usuario usuario, String idRol) {
+        boolean registrar = false;
+        Connection con;
+        try {
+
+            ResultSet rs;
+                String sql = "INSERT INTO RolxUsuario (idUsuarios, idRol) " + "VALUES (?,?);";
+                con = ConexionBD.connect();
+                PreparedStatement psql = con.prepareStatement(sql);
+                psql.setInt(1, usuario.getIdUsuario());
+                psql.setString(2, idRol);
+                psql.executeUpdate();
+                registrar = true;
+                psql.close();
+                con.close();
+                JOptionPane.showMessageDialog(null, "Operación Exitosa");
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error insertando el usuario " + ex);
+        }
+
+        return registrar;    }
+
+    @Override
+    public boolean retirarRolaUsuario(Usuario usuario, String idRol) {
+        Connection connect = null;
+        Statement stm = null;
+        boolean eliminar = false;
+
+        try {
+
+                String sql = "DELETE FROM RolxUsuario WHERE idUsuarios = " + usuario.getIdUsuario() + " and idRol = " + idRol + ";";
+            System.out.println("implementacion.UsuarioDaoImpl.retirarRolaUsuario()\n" + sql);
+                connect = ConexionBD.connect();
+                stm = connect.createStatement();
+                stm.execute(sql);
+                eliminar = true;
+                JOptionPane.showMessageDialog(null, "Operación Exitosa");
+
+        } catch (SQLException e) {
+            System.out.println("Error: Clase UsuarioDaoImpl, método eliminar");
+            e.printStackTrace();
+        }
+        return eliminar;    }
+
 }
