@@ -94,6 +94,7 @@ public class CargoDaoImpl implements ICargoDao{
                 psql.setInt(2, cargo.getSalarioCargo());
                 psql.executeUpdate();
                 registrar = true;
+                System.out.println("implementacion.CargoDaoImpl.registrarNuevoCargo() \n" + sql);
                 psql.close();
                 con.close();
                 JOptionPane.showMessageDialog(null, "Operación Exitosa");

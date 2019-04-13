@@ -3355,10 +3355,11 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             usuario.setIdUsuario(Integer.parseInt(tfIdUsuarios.getText()));
             usuario.setNombresUsuario(tfNombresUsuarios.getText());
             usuario.setApellidosUsuario(tfApellidosUsuarios.getText());
-            usuario.setContrasenaUsuario(tfContrasenaUsuarios.getPassword().toString());
+//            usuario.setContrasenaUsuario(tfContrasenaUsuarios.getPassword().toString());
+        usuario.setContrasenaUsuario(new String(tfContrasenaUsuarios.getPassword()));
             int idCargo = usuarioCt.consultarIdCargoxNombreCargo(comboCargousuarios.getSelectedItem().toString());
             usuario.setCargoUsuario(idCargo);
-            
+            System.out.println("presentacion.FVentanaPrincipal.btjecutarUsuarioActionPerformed() Contraseña enviada " + usuario.getContrasenaUsuario());
             usuarioCt.registrar(usuario);
         } else if (editarUsuarioFlag) {
             Usuario usuario = new Usuario();

@@ -124,23 +124,32 @@ public class FInicioSesion extends javax.swing.JFrame {
        {        FVentanaPrincipal framePrincipal = new FVentanaPrincipal();
         framePrincipal.setVisible(true);
         this.dispose();}
-    */   
-        if(!tfUsuario.getText().isEmpty() && !tfContrasena.getPassword().toString().isEmpty()){   
+    */   System.out.println("presentacion.FInicioSesion.btIniciarSesionActionPerformed() Antes del primer if");
+        if(!tfUsuario.getText().isEmpty() && !tfContrasena.getPassword().toString().isEmpty()){ 
+            System.out.println("presentacion.FInicioSesion.btIniciarSesionActionPerformed() Dentro del primer if");
         Usuario usuario = new Usuario();
         usuario.setIdUsuario(Integer.parseInt(tfUsuario.getText()));
         usuario.setContrasenaUsuario(new String(tfContrasena.getPassword()));
+//usuario.setContrasenaUsuario(tfContrasena.getPassword().toString());
         UsuarioController usuarioCt = new UsuarioController();
       
         Usuario u = new Usuario();
         u = usuarioCt.consultarUsuario(usuario);
+            System.out.println("presentacion.FInicioSesion.btIniciarSesionActionPerformed() Antes del segundo if");
+                        System.out.println("Contraseña Tf = " + usuario.getContrasenaUsuario() + "\n Contraseña BD = " + u.getContrasenaUsuario());
+
         if(u.getContrasenaUsuario().equals(usuario.getContrasenaUsuario()) && u.getContrasenaUsuario() != null && usuario.getContrasenaUsuario() != null){
+            System.out.println("presentacion.FInicioSesion.btIniciarSesionActionPerformed() Dentro del segundo if");
         FVentanaPrincipal framePrincipal = new FVentanaPrincipal();
         framePrincipal.setVisible(true);
         this.dispose();
-        }
         }else
         {
             JOptionPane.showMessageDialog(null, "Hay campos vacios y/o erroneos");
+        }
+        }else
+        {
+            JOptionPane.showMessageDialog(null, "Hay campos vacios y/o erroneos 1");
         }
     }catch(Exception e)
     {}

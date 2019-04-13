@@ -74,12 +74,14 @@ public class UsuarioDaoImpl implements IUsuarioDao {
             rs = obtenerUsuario(usuario, false);
             if (!rs.next()) {
                 String sql = "INSERT INTO Usuarios (idUsuarios, nombresUsuarios, apellidosUsuarios, cargoUsuarios, contrasenaUsuarios) " + "VALUES (?,?,?,?,?);";
+                System.out.println("implementacion.UsuarioDaoImpl.registrarNuevoUsuario() \n" + sql);
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
                 psql.setInt(1, usuario.getIdUsuario());
                 psql.setString(2, usuario.getNombresUsuario());
                 psql.setString(3, usuario.getApellidosUsuario());
                 psql.setInt(4, usuario.getCargoUsuario());
+                System.out.println("implementacion.UsuarioDaoImpl.registrarNuevoUsuario() Contraseña " + usuario.getContrasenaUsuario());
                 psql.setString(5, usuario.getContrasenaUsuario());
                 psql.executeUpdate();
                 registrar = true;
