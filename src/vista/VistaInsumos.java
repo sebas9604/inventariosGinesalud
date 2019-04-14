@@ -59,5 +59,18 @@ public class VistaInsumos {
         }
 
 }
+
+    public void verInsumosUtilizados(ResultSet insumo, JTable tabla) {
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.setColumnIdentifiers(new Object[]{"nombreInsumos", "cantidad", "fecha"});
+
+        try {
+            while (insumo.next()) {
+                modelo.addRow(new Object[]{insumo.getString("nombreInsumos"), insumo.getInt("cantidad"), insumo.getString("fecha")});
+            }
+            tabla.setModel(modelo);
+
+        } catch (Exception ex) {
+        }    }
     
 }

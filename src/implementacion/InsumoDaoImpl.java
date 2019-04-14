@@ -81,6 +81,7 @@ public class InsumoDaoImpl implements IInsumoDao {
 
                 psql.executeUpdate();
                 registrar = true;
+                agregarCantidades(insumo.getIdInsumo(), insumo.getCantidad());
                 psql.close();
                 con.close();
             } else {
@@ -111,6 +112,7 @@ public class InsumoDaoImpl implements IInsumoDao {
                 stm = connect.createStatement();
                 stm.execute(sql);
                 actualizar = true;
+                agregarCantidades(insumo.getIdInsumo(), insumo.getCantidad());
                 JOptionPane.showMessageDialog(null, "Operación Exitosa");
             } else {
                 JOptionPane.showMessageDialog(null, "El registro no existe");
@@ -334,5 +336,46 @@ public class InsumoDaoImpl implements IInsumoDao {
         }
         return rt;
     }
+    
+    private void agregarCantidades(int idInsumos, int cantidad){
+            try {
+        Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null;
+                String sql = "INSERT INTO Insumosxfecha (idInsumos, cantidad, fecha) " + "VALUES (?,?, (SELECT DATE(NOW())));";
+                con = ConexionBD.connect();
+                PreparedStatement psql = con.prepareStatement(sql);
+                psql.setInt(1, idInsumos);
+                psql.setInt(2, cantidad);
+                psql.executeUpdate();
+                psql.close();
+                con.close();
+                JOptionPane.showMessageDialog(null, "Operación Exitosa");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error insertando  " + ex);
+        }
+    }
+
+    @Override
+    public ResultSet obtenerInsumosUtilizados(String fechaInicio, String fechaFin) {
+        Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT i.nombreInsumos, ixf.cantidad, ixf.fecha"
+                + " FROM Insumosxfecha as ixf INNER JOIN insumos as i ON ixf.idInsumos = i.idInsumos"
+                + " WHERE ixf.fecha BETWEEN '" + fechaInicio + "' AND '" + fechaFin + "' ORDER BY ixf.fecha";
+        System.out.println("obtenerInsumosUtilizados \n" + sql);
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+//            stm.close();
+//            rs.close();
+//            con.close();
+        } catch (Exception e) {
+        }
+
+        return rs;    }
 
 }

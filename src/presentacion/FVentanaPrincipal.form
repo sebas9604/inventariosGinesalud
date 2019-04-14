@@ -268,437 +268,6 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Container class="javax.swing.JInternalFrame" name="ventanaUsuarios">
-          <Properties>
-            <Property name="title" type="java.lang.String" value="USUARIOS"/>
-            <Property name="visible" type="boolean" value="true"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="340" y="210" width="1570" height="850"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btjecutarUsuario" min="-2" pref="256" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="554" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btImprimirUsuarios" min="-2" pref="305" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                                  <Component id="jScrollPane5" min="-2" pref="1512" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                          <Component id="labelIdUsuarios" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lebelNombresUsuarios" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="labelApellidosUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tfApellidosUsuarios" min="-2" pref="246" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="tfNombresUsuarios" alignment="0" min="-2" pref="246" max="-2" attributes="0"/>
-                                              <Component id="tfIdUsuarios" min="-2" pref="246" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
-                                                  <Component id="labelCargoUsuarios" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="labelContraseñaUsuarios" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="tfContrasenaUsuarios" max="32767" attributes="0"/>
-                                              <Component id="comboCargousuarios" pref="246" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
-                                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="71" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="labelOperacionUsuarios" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="1461" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="labelIdUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelCargoUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfIdUsuarios" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="comboCargousuarios" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lebelNombresUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelContraseñaUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfNombresUsuarios" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Component id="tfContrasenaUsuarios" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="labelApellidosUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="tfApellidosUsuarios" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="btjecutarUsuario" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane5" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="btImprimirUsuarios" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                          <Component id="labelOperacionUsuarios" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="735" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="labelIdUsuarios">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe Print" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="ID"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btjecutarUsuario">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe Print" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Ejecutar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btjecutarUsuarioActionPerformed"/>
-              </Events>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane5">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTable" name="tableUsuarios">
-                  <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
-                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                      </Table>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JButton" name="btImprimirUsuarios">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe Print" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Imprimir"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="labelOperacionUsuarios">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe Print" size="24" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Operacion"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lebelNombresUsuarios">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe Print" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Nombres"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="labelCargoUsuarios">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe Print" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Cargo"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="labelApellidosUsuario">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe Print" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Apellidos"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="labelContrase&#xf1;aUsuarios">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe Print" size="18" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="tfIdUsuarios">
-            </Component>
-            <Component class="javax.swing.JTextField" name="tfNombresUsuarios">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfNombresUsuariosActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JTextField" name="tfApellidosUsuarios">
-            </Component>
-            <Component class="javax.swing.JPasswordField" name="tfContrasenaUsuarios">
-            </Component>
-            <Component class="javax.swing.JComboBox" name="comboCargousuarios">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
-            <Container class="javax.swing.JPanel" name="jPanel2">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                    <MatteColorBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btAgregarRolUsuario" min="-2" pref="147" max="-2" attributes="0"/>
-                          <EmptySpace pref="80" max="32767" attributes="0"/>
-                          <Component id="btRetirarRolUsuraio" min="-2" pref="147" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                  <Component id="labelTituloRol" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                                  <Component id="labelIdRolUsuario" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                                  <Component id="tfIdRolUsuario" min="-2" pref="100" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="labelTituloRol" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="labelIdRolUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfIdRolUsuario" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="31" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btAgregarRolUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btRetirarRolUsuraio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JLabel" name="labelTituloRol">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Print" size="18" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Roles"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="btAgregarRolUsuario">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Print" size="18" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Agregar"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAgregarRolUsuarioActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JButton" name="btRetirarRolUsuraio">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Print" size="18" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Retirar"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRetirarRolUsuraioActionPerformed"/>
-                  </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="labelIdRolUsuario">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Print" size="18" style="0"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="Id Rol"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="tfIdRolUsuario">
-                </Component>
-              </SubComponents>
-            </Container>
-            <Menu class="javax.swing.JMenuBar" name="menuUsuarios">
-              <SubComponents>
-                <Menu class="javax.swing.JMenu" name="opcionConsultarUsuarios">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Consultar"/>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Print" size="15" style="0"/>
-                    </Property>
-                  </Properties>
-                  <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="opConsultarUsuarios">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe Print" size="15" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Todos los usuarios"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opConsultarUsuariosActionPerformed"/>
-                      </Events>
-                    </MenuItem>
-                    <MenuItem class="javax.swing.JMenuItem" name="opConsultarUsuario">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe Print" size="15" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Usuario"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opConsultarUsuarioActionPerformed"/>
-                      </Events>
-                    </MenuItem>
-                  </SubComponents>
-                </Menu>
-                <Menu class="javax.swing.JMenu" name="opcionAgregarUsuario">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Agregar"/>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Print" size="15" style="0"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="opcionAgregarUsuarioMouseClicked"/>
-                  </Events>
-                </Menu>
-                <Menu class="javax.swing.JMenu" name="opcionEditarUsuario">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Editar"/>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Print" size="15" style="0"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="opcionEditarUsuarioMouseClicked"/>
-                  </Events>
-                </Menu>
-                <Menu class="javax.swing.JMenu" name="opcionEliminarUsuario">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Eliminar"/>
-                    <Property name="toolTipText" type="java.lang.String" value=""/>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Print" size="15" style="0"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="opcionEliminarUsuarioMouseClicked"/>
-                  </Events>
-                </Menu>
-                <Menu class="javax.swing.JMenu" name="opcionReportesUsuario">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Reportes"/>
-                    <Property name="toolTipText" type="java.lang.String" value=""/>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe Print" size="15" style="0"/>
-                    </Property>
-                  </Properties>
-                  <SubComponents>
-                    <MenuItem class="javax.swing.JMenuItem" name="rolesDelUsuario">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe Print" size="15" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Roles del usuario"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rolesDelUsuarioActionPerformed"/>
-                      </Events>
-                    </MenuItem>
-                  </SubComponents>
-                </Menu>
-              </SubComponents>
-            </Menu>
-          </SubComponents>
-        </Container>
         <Container class="javax.swing.JInternalFrame" name="ventanaPacientes">
           <Properties>
             <Property name="title" type="java.lang.String" value="PACIENTES"/>
@@ -1117,40 +686,35 @@
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="labelOperacionProcedimiento" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                              <Component id="labelOperacionProcedimiento" min="-2" max="-2" attributes="0"/>
+                                              <Component id="labelNombreProcedimiento" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="tfNombreProcedimiento" min="-2" pref="330" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="labelNombreProcedimiento" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace max="32767" attributes="0"/>
-                                                      <Component id="tfNombreProcedimiento" min="-2" pref="330" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="labelIdProcedimientos" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                                      <Component id="tfIdProcedimientos" min="-2" pref="82" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                                                      <Component id="labelValorProcedimiento" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="tfValorProcedimiento" max="32767" attributes="0"/>
-                                                  </Group>
-                                              </Group>
+                                              <Component id="labelIdProcedimientos" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                              <Component id="tfIdProcedimientos" min="-2" pref="82" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="labelValorProcedimiento" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="tfValorProcedimiento" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="-2" pref="299" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btEjecutarProcedimiento" min="-2" pref="335" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -1161,7 +725,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="75" max="32767" attributes="0"/>
+                      <EmptySpace pref="15" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1172,7 +736,7 @@
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="labelOperacionProcedimiento" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="labelIdProcedimientos" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="tfIdProcedimientos" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1184,7 +748,7 @@
                                   <Component id="tfNombreProcedimiento" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="labelNombreProcedimiento" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Component id="btEjecutarProcedimiento" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -1784,45 +1348,43 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="labelIdInsumos" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                              <Component id="tfIdInsumos" min="-2" pref="105" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                              <Component id="labelNombreInsumos" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                              <Component id="tfNombreInsumos" min="-2" pref="230" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                              <Component id="labelTipoInsumoInsumos" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                              <Component id="comboTiposInsumoInsumos" min="-2" pref="181" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="btEjecutarInsumos" min="-2" pref="256" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="labelPrecioInsumos" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Component id="tfPrecioInsumos" min="-2" pref="198" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
-                                      <Component id="labelCantidadInsumos" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="tfCantidadInsumos" min="-2" pref="184" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="365" max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btImprimirInsumos" min="-2" pref="305" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelIdInsumos" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="tfIdInsumos" min="-2" pref="105" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                              <Component id="labelNombreInsumos" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="tfNombreInsumos" min="-2" pref="230" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <Component id="labelTipoInsumoInsumos" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="labelPrecioInsumos" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="tfPrecioInsumos" min="-2" pref="198" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="labelCantidadInsumos" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="tfCantidadInsumos" min="-2" pref="184" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="comboTiposInsumoInsumos" pref="181" max="32767" attributes="0"/>
+                          <Component id="btEjecutarInsumos" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                      <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="80" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
@@ -1844,25 +1406,33 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelIdInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfIdInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelNombreInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfNombreInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelTipoInsumoInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="comboTiposInsumoInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelIdInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfIdInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelNombreInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfNombreInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelTipoInsumoInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="comboTiposInsumoInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelPrecioInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfPrecioInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelCantidadInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfCantidadInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btEjecutarInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace pref="36" max="32767" attributes="0"/>
+                              <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="502" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="labelPrecioInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfPrecioInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="labelCantidadInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfCantidadInsumos" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btEjecutarInsumos" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="480" max="32767" attributes="0"/>
                       <Component id="btImprimirInsumos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -1870,7 +1440,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="labelOperacionInsumos" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="184" max="32767" attributes="0"/>
+                          <EmptySpace pref="188" max="32767" attributes="0"/>
                           <Component id="jScrollPane4" min="-2" pref="450" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
@@ -1993,6 +1563,108 @@
             </Component>
             <Component class="javax.swing.JTextField" name="tfCantidadInsumos">
             </Component>
+            <Container class="javax.swing.JPanel" name="jPanel5">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="labelTituloInsumosUtilizados" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="tfFechaInicioInsumosUtilizados" min="-2" pref="184" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                  <Component id="labelFechaFinInsumosUtilizados" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="84" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="btEjecutarInsumosUtiliados" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="tfFechaFinInsumosUtilizados" alignment="1" pref="184" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <Component id="labelFechaInicioInsumosUtilizados" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="383" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="labelTituloInsumosUtilizados" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="tfFechaInicioInsumosUtilizados" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelFechaFinInsumosUtilizados" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfFechaFinInsumosUtilizados" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btEjecutarInsumosUtiliados" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                              <Component id="labelFechaInicioInsumosUtilizados" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="96" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="labelTituloInsumosUtilizados">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe Print" size="18" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Insumos utilizados"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tfFechaFinInsumosUtilizados">
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelFechaFinInsumosUtilizados">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe Print" size="18" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fecha fin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelFechaInicioInsumosUtilizados">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe Print" size="18" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fecha de inicio"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tfFechaInicioInsumosUtilizados">
+                </Component>
+                <Component class="javax.swing.JButton" name="btEjecutarInsumosUtiliados">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe Print" size="18" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Ejecutar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btEjecutarInsumosUtiliadosActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
             <Menu class="javax.swing.JMenuBar" name="menuInsumos">
               <SubComponents>
                 <Menu class="javax.swing.JMenu" name="opcionConsultarInsumos">
@@ -3059,6 +2731,437 @@
                   <Events>
                     <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="opcionEliminarRolMouseClicked"/>
                   </Events>
+                </Menu>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JInternalFrame" name="ventanaUsuarios">
+          <Properties>
+            <Property name="title" type="java.lang.String" value="USUARIOS"/>
+            <Property name="visible" type="boolean" value="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="340" y="210" width="1570" height="850"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btjecutarUsuario" min="-2" pref="256" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="554" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btImprimirUsuarios" min="-2" pref="305" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Component id="jScrollPane5" min="-2" pref="1512" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" alignment="0" groupAlignment="0" attributes="0">
+                                          <Component id="labelIdUsuarios" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lebelNombresUsuarios" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="labelApellidosUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="tfApellidosUsuarios" min="-2" pref="246" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="tfNombresUsuarios" alignment="0" min="-2" pref="246" max="-2" attributes="0"/>
+                                              <Component id="tfIdUsuarios" min="-2" pref="246" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="140" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="50" pref="50" max="-2" attributes="0"/>
+                                                  <Component id="labelCargoUsuarios" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="labelContraseñaUsuarios" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="tfContrasenaUsuarios" max="32767" attributes="0"/>
+                                              <Component id="comboCargousuarios" pref="246" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
+                                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="71" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="labelOperacionUsuarios" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="1461" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelIdUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelCargoUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfIdUsuarios" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="comboCargousuarios" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lebelNombresUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelContraseñaUsuarios" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfNombresUsuarios" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Component id="tfContrasenaUsuarios" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="labelApellidosUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfApellidosUsuarios" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btjecutarUsuario" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="btImprimirUsuarios" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="labelOperacionUsuarios" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="735" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="labelIdUsuarios">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe Print" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="ID"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btjecutarUsuario">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe Print" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ejecutar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btjecutarUsuarioActionPerformed"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane5">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="tableUsuarios">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="4" rowCount="4">
+                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btImprimirUsuarios">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe Print" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Imprimir"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelOperacionUsuarios">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe Print" size="24" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Operacion"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lebelNombresUsuarios">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe Print" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Nombres"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelCargoUsuarios">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe Print" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Cargo"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelApellidosUsuario">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe Print" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Apellidos"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labelContrase&#xf1;aUsuarios">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe Print" size="18" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="tfIdUsuarios">
+            </Component>
+            <Component class="javax.swing.JTextField" name="tfNombresUsuarios">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfNombresUsuariosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="tfApellidosUsuarios">
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="tfContrasenaUsuarios">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="comboCargousuarios">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Container class="javax.swing.JPanel" name="jPanel2">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                    <MatteColorBorder/>
+                  </Border>
+                </Property>
+              </Properties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btAgregarRolUsuario" min="-2" pref="147" max="-2" attributes="0"/>
+                          <EmptySpace pref="80" max="32767" attributes="0"/>
+                          <Component id="btRetirarRolUsuraio" min="-2" pref="147" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="labelTituloRol" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Component id="labelIdRolUsuario" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                  <Component id="tfIdRolUsuario" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="labelTituloRol" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="labelIdRolUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfIdRolUsuario" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="31" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btAgregarRolUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btRetirarRolUsuraio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="labelTituloRol">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe Print" size="18" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Roles"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btAgregarRolUsuario">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe Print" size="18" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Agregar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAgregarRolUsuarioActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btRetirarRolUsuraio">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe Print" size="18" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Retirar"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btRetirarRolUsuraioActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labelIdRolUsuario">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe Print" size="18" style="0"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Id Rol"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="tfIdRolUsuario">
+                </Component>
+              </SubComponents>
+            </Container>
+            <Menu class="javax.swing.JMenuBar" name="menuUsuarios">
+              <SubComponents>
+                <Menu class="javax.swing.JMenu" name="opcionConsultarUsuarios">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Consultar"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe Print" size="15" style="0"/>
+                    </Property>
+                  </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="opConsultarUsuarios">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe Print" size="15" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Todos los usuarios"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opConsultarUsuariosActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="opConsultarUsuario">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe Print" size="15" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Usuario"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opConsultarUsuarioActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
+                <Menu class="javax.swing.JMenu" name="opcionAgregarUsuario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Agregar"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe Print" size="15" style="0"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="opcionAgregarUsuarioMouseClicked"/>
+                  </Events>
+                </Menu>
+                <Menu class="javax.swing.JMenu" name="opcionEditarUsuario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Editar"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe Print" size="15" style="0"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="opcionEditarUsuarioMouseClicked"/>
+                  </Events>
+                </Menu>
+                <Menu class="javax.swing.JMenu" name="opcionEliminarUsuario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Eliminar"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe Print" size="15" style="0"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="opcionEliminarUsuarioMouseClicked"/>
+                  </Events>
+                </Menu>
+                <Menu class="javax.swing.JMenu" name="opcionReportesUsuario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Reportes"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe Print" size="15" style="0"/>
+                    </Property>
+                  </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="rolesDelUsuario">
+                      <Properties>
+                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                          <Font name="Segoe Print" size="15" style="0"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="Roles del usuario"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rolesDelUsuarioActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
                 </Menu>
               </SubComponents>
             </Menu>

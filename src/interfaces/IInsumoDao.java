@@ -24,6 +24,8 @@ public interface IInsumoDao {
     public boolean eliminarInsumo(Insumo insumo);
 
     public ResultSet obtenerInsumos();
+    
+    public ResultSet obtenerInsumosUtilizados(String fechaInicio, String fechaFin);
 
     public ResultSet obtenerInsumo(Insumo insumo, boolean msj);
 

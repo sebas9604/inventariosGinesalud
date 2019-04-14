@@ -81,7 +81,6 @@ public class UsuarioDaoImpl implements IUsuarioDao {
                 psql.setString(2, usuario.getNombresUsuario());
                 psql.setString(3, usuario.getApellidosUsuario());
                 psql.setInt(4, usuario.getCargoUsuario());
-                System.out.println("implementacion.UsuarioDaoImpl.registrarNuevoUsuario() Contraseña " + usuario.getContrasenaUsuario());
                 psql.setString(5, usuario.getContrasenaUsuario());
                 psql.executeUpdate();
                 registrar = true;

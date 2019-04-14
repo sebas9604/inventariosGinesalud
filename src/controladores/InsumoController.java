@@ -84,5 +84,13 @@ public class InsumoController {
         IInsumoDao dao = new InsumoDaoImpl();
         String h;
         h = dao.consultarTipoInsumoxIdInsumo(insumo);
-        return h;    }
+        return h;
+    }
+
+    public void verInsumosUtilizados(String fechaInicio, String fechaFin, JTable tabla) {
+        ResultSet insumos = null;
+        IInsumoDao dao = new InsumoDaoImpl();
+        insumos = dao.obtenerInsumosUtilizados(fechaInicio, fechaFin);
+        vista.verInsumosUtilizados(insumos, tabla);
+    }
 }

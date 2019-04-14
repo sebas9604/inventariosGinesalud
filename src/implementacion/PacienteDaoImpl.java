@@ -255,7 +255,7 @@ public class PacienteDaoImpl implements IPacienteDao{
                 PreparedStatement psql = con.prepareStatement(sql);
                 psql.setInt(1, idPaciente);
                 psql.setInt(2, idProcedimiento);
-
+                restarInsumos(idProcedimiento); 
                 psql.executeUpdate();
                 registrar = true;
                 psql.close();
@@ -292,5 +292,43 @@ int idProcedimiento = 0;
         }
         return idProcedimiento;    
     }
+
+    private void restarInsumos(int idProcedimiento) {
+        Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null, rs2 = null;
+
+        String sql = "SELECT idInsumos, cantidad"
+                + " FROM InsumosxProcedimiento WHERE idProcedimiento = " + idProcedimiento+ ";";
+
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                int idInsumos = rs.getInt(1);
+                int cantidadGastada = rs.getInt(2);
+
+                sql = "SELECT cantidad FROM Insumos WHERE idInsumos = " + idInsumos + ";";
+                stm = con.createStatement();
+                rs2 = stm.executeQuery(sql);
+
+                int cantidadInsumos = rs2.getInt(1);
+                cantidadInsumos -= cantidadGastada;
+                
+                sql = "UPDATE Insumos SET cantidad = " + cantidadInsumos + " WHERE idInsumos = " + idInsumos + ";";
+                stm = con.createStatement();
+                stm.executeQuery(sql);
+                System.out.println("implementacion.PacienteDaoImpl.restarInsumos()\n SE COMPLETO!");
+            }
+            stm.close();
+            rs.close();
+            con.close();
+
+        } catch (SQLException e) {
+            System.out.println("implementacion.PacienteDaoImpl.restarInsumos()");
+            e.printStackTrace();
+        }
+            }
     
 }
