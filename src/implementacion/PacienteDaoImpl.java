@@ -6,6 +6,8 @@
 package implementacion;
 
 import conexion.ConexionBD;
+import controladores.InsumoController;
+import interfaces.IInsumoDao;
 import interfaces.IPacienteDao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -256,9 +258,7 @@ public class PacienteDaoImpl implements IPacienteDao {
         boolean registrar = false;
         Connection con;
         try {
-            System.out.println("implementacion.PacienteDaoImpl.registrarProcedimiento() ANTES DE obtenerIdProcedimientoxNombreProcedimiento");
             int idProcedimiento = obtenerIdProcedimientoxNombreProcedimiento(nombreProcedimiento);
-            System.out.println("implementacion.PacienteDaoImpl.registrarProcedimiento() DESPUES DE obtenerIdProcedimientoxNombreProcedimiento");
 
             String sql = "INSERT INTO ProcedimientosxPaciente (idPacientes, idProcedimiento, fechaRealizacion) " + "VALUES (?,?, (SELECT DATE(NOW())));";
             con = ConexionBD.connect();
@@ -321,23 +321,19 @@ public class PacienteDaoImpl implements IPacienteDao {
                 int idInsumos = rs.getInt(1);
                 int cantidadGastada = rs.getInt(2);
                 
-//                System.out.println("implementacion.PacienteDaoImpl.restarInsumos()\n" + idInsumos + " " + cantidadGastada);
 
                 sql = "SELECT cantidad FROM Insumos WHERE idInsumos = " + idInsumos + ";";
-                System.out.println("implementacion.PacienteDaoImpl.restarInsumos()\n"+sql);
                 stm2 = con.createStatement();
                 rs2 = stm2.executeQuery(sql);
                 if(rs2.next()){
                 int cantidadInsumos = rs2.getInt(1);
-                System.out.println("TotalInsumo - cantidadUtilizada = " +cantidadInsumos+ "-" + cantidadGastada );
                 cantidadInsumos -= cantidadGastada;
-                System.out.println("Cantidad restante" + cantidadInsumos);
-                
-                    System.out.println("implementacion.PacienteDaoImpl.restarInsumos() Antes del UPDATE para la cantidad" );
+
+                InsumoDaoImpl i = new InsumoDaoImpl();
+                i.agregarCantidades(idInsumos, cantidadInsumos);
                 sql = "UPDATE Insumos SET cantidad = " + cantidadInsumos + " WHERE idInsumos = " + idInsumos + ";";
                 stm3 = con.createStatement();
                 stm3.execute(sql);
-                System.out.println("implementacion.PacienteDaoImpl.restarInsumos()\n SE COMPLETO!");
             
                 }}
             stm.close();

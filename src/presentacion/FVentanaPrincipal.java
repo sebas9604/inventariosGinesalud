@@ -3582,9 +3582,10 @@ usuarioCt.retirarRolaUsuario(usuario, idRol);
 
     private void btEjecutarInsumosUtiliadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarInsumosUtiliadosActionPerformed
 InsumoController insumosCt = new InsumoController();
+int idInsumo = Integer.parseInt(tfIdInsumos.getText());
 String fechaInicio = tfFechaInicioInsumosUtilizados.getText();
 String fechaFin = tfFechaFinInsumosUtilizados.getText();
-insumosCt.verInsumosUtilizados(fechaInicio, fechaFin, tableInsumos);
+insumosCt.verInsumosUtilizados(fechaInicio, fechaFin, tableInsumos, idInsumo);
     }//GEN-LAST:event_btEjecutarInsumosUtiliadosActionPerformed
 
     private void btRetirarInsumosProcedimiento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetirarInsumosProcedimiento1ActionPerformed

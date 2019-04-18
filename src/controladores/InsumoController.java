@@ -87,10 +87,10 @@ public class InsumoController {
         return h;
     }
 
-    public void verInsumosUtilizados(String fechaInicio, String fechaFin, JTable tabla) {
+    public void verInsumosUtilizados(String fechaInicio, String fechaFin, JTable tabla, int idInsumo) {
         ResultSet insumos = null;
         IInsumoDao dao = new InsumoDaoImpl();
-        insumos = dao.obtenerInsumosUtilizados(fechaInicio, fechaFin);
+        insumos = dao.obtenerInsumosUtilizados(fechaInicio, fechaFin, idInsumo);
         vista.verInsumosUtilizados(insumos, tabla);
     }
 }

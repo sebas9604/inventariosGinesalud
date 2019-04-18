@@ -25,7 +25,7 @@ public interface IInsumoDao {
 
     public ResultSet obtenerInsumos();
     
-    public ResultSet obtenerInsumosUtilizados(String fechaInicio, String fechaFin);
+    public ResultSet obtenerInsumosUtilizados(String fechaInicio, String fechaFin, int idInsumo);
 
     public ResultSet obtenerInsumo(Insumo insumo, boolean msj);
 

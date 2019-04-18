@@ -337,7 +337,7 @@ public class InsumoDaoImpl implements IInsumoDao {
         return rt;
     }
     
-    private void agregarCantidades(int idInsumos, int cantidad){
+    public void agregarCantidades(int idInsumos, int cantidad){
             try {
         Connection con = null;
         Statement stm = null;
@@ -357,14 +357,14 @@ public class InsumoDaoImpl implements IInsumoDao {
     }
 
     @Override
-    public ResultSet obtenerInsumosUtilizados(String fechaInicio, String fechaFin) {
+    public ResultSet obtenerInsumosUtilizados(String fechaInicio, String fechaFin, int idInsumo) {
         Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
 
         String sql = "SELECT i.nombreInsumos, ixf.cantidad, ixf.fecha"
                 + " FROM Insumosxfecha as ixf INNER JOIN insumos as i ON ixf.idInsumos = i.idInsumos"
-                + " WHERE ixf.fecha BETWEEN '" + fechaInicio + "' AND '" + fechaFin + "' ORDER BY ixf.fecha";
+                + " WHERE i.idInsumos = " + idInsumo + " AND ixf.fecha BETWEEN '" + fechaInicio + "' AND '" + fechaFin + "' ORDER BY ixf.fecha";
         System.out.println("obtenerInsumosUtilizados \n" + sql);
         try {
             con = ConexionBD.connect();
