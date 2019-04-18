@@ -34,9 +34,11 @@ public interface IProcedimientoDao {
     public List<String> llenarComboInsumosProcedimiento();
 
     public List<String> llenarComboEquiposProcedimiento();
-    
+
     public boolean registrarEquiposProcedimiento(int idProcedimiento, String nombreEquipo);
 
     public boolean registrarInsumosProcedimiento(String nombreInsumo, int idProcedimiento, int cantidaInsumo);
+
+    public boolean retirarInsumosProcedimiento(String nombreInsumo, int idProcedimiento, int cantidaInsumo);
 
 }

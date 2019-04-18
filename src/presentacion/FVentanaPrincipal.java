@@ -411,6 +411,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         btAgregarEquiposProcedimiento = new javax.swing.JButton();
         tfCantidadInsumosProcedimiento = new javax.swing.JTextField();
         labelCantidadInsumosProcedimiento = new javax.swing.JLabel();
+        btRetirarInsumosProcedimiento1 = new javax.swing.JButton();
         menuProcedimientos = new javax.swing.JMenuBar();
         opcionConsultarProcedimiento = new javax.swing.JMenu();
         opConsultarProcedimientos = new javax.swing.JMenuItem();
@@ -1030,6 +1031,14 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         labelCantidadInsumosProcedimiento.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         labelCantidadInsumosProcedimiento.setText("Cantidad");
 
+        btRetirarInsumosProcedimiento1.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btRetirarInsumosProcedimiento1.setText("Retirar");
+        btRetirarInsumosProcedimiento1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRetirarInsumosProcedimiento1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -1057,9 +1066,12 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                                     .addComponent(comboInsumosProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btAgregarInsumosProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btAgregarEquiposProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                            .addComponent(btAgregarEquiposProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(btAgregarInsumosProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btRetirarInsumosProcedimiento1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1075,7 +1087,8 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(labelCantidadInsumosProcedimiento)
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(tfCantidadInsumosProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btAgregarInsumosProcedimiento)))
+                        .addComponent(btAgregarInsumosProcedimiento)
+                        .addComponent(btRetirarInsumosProcedimiento1)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelEquiposProcedimiento)
@@ -1195,7 +1208,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                         .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btImprimirProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1527, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         ventanaProcedimientosLayout.setVerticalGroup(
             ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3574,6 +3587,12 @@ String fechaFin = tfFechaFinInsumosUtilizados.getText();
 insumosCt.verInsumosUtilizados(fechaInicio, fechaFin, tableInsumos);
     }//GEN-LAST:event_btEjecutarInsumosUtiliadosActionPerformed
 
+    private void btRetirarInsumosProcedimiento1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRetirarInsumosProcedimiento1ActionPerformed
+        ProcedimientoController procedimientoCt = new ProcedimientoController();
+        procedimientoCt.retirarInsumosProcedimiento(comboInsumosProcedimiento.getSelectedItem().toString(), Integer.parseInt(tfIdProcedimientos.getText()), 1);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btRetirarInsumosProcedimiento1ActionPerformed
+
     //Llenando Combo Boxes
     private void llenarComboProcedimientoPaciente() {
         PacienteController pacienteCt = new PacienteController();
@@ -3695,6 +3714,7 @@ insumosCt.verInsumosUtilizados(fechaInicio, fechaFin, tableInsumos);
     private javax.swing.JButton btImprimirUsuarios;
     private javax.swing.JButton btInsumos;
     private javax.swing.JButton btPacientes;
+    private javax.swing.JButton btRetirarInsumosProcedimiento1;
     private javax.swing.JButton btRetirarRolUsuraio;
     private javax.swing.JButton btRol;
     private javax.swing.JButton btSalir;

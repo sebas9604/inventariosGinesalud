@@ -179,7 +179,7 @@ public class ProcedimientoDaoImpl implements IProcedimientoDao {
                 + "FROM Insumos AS i "
                 + "INNER JOIN insumosxprocedimiento as ixp "
                 + "ON i.idInsumos = ixp.idInsumos "
-                + "WHERE ixp.idProcedimientos = " + procedimiento.getIdProcedimiento();
+                + "WHERE ixp.idProcedimiento = " + procedimiento.getIdProcedimiento();
         try {
             con = ConexionBD.connect();
             stm = con.createStatement();
@@ -394,5 +394,30 @@ int idEquipo = 0;
             e.printStackTrace();
         }
         return idEquipo;     }
+
+    @Override
+    public boolean retirarInsumosProcedimiento(String nombreInsumo, int idProcedimiento, int cantidaInsumo) {
+       boolean registrar = false;
+        Connection con;
+        try {
+
+            int idInsumo = obtenerIdInsumoxNombreInsumo(nombreInsumo);
+                String sql = "DELETE FROM InsumosxProcedimiento WHERE idInsumos = " + idInsumo + " and idProcedimiento = " + idProcedimiento;
+                con = ConexionBD.connect();
+                PreparedStatement psql = con.prepareStatement(sql);
+//                psql.setInt(1, idInsumo);
+//                psql.setInt(2, idProcedimiento);
+//                psql.setInt(3, cantidaInsumo);
+
+                psql.execute();
+                registrar = true;
+                psql.close();
+                con.close();
+                JOptionPane.showMessageDialog(null, "Operación Exitosa");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error eliminando insumo  " + ex);
+        }
+
+        return registrar;     }
 
 }

@@ -21,7 +21,7 @@ import modelo.Paciente;
  *
  * @author tolis
  */
-public class PacienteDaoImpl implements IPacienteDao{
+public class PacienteDaoImpl implements IPacienteDao {
 
     @Override
     public Paciente consultarPaciente(Paciente paciente) {
@@ -30,7 +30,7 @@ public class PacienteDaoImpl implements IPacienteDao{
         ResultSet rs = null;
 
         String sql = "SELECT idPacientes, nombresPacientes, apellidosPacientes, telefonoPaciente, fechaNacimientoPaciente"
-                + " FROM Pacientes WHERE idPacientes = " + paciente.getIdPaciente()+ ";";
+                + " FROM Pacientes WHERE idPacientes = " + paciente.getIdPaciente() + ";";
         Paciente p = new Paciente();
 
         try {
@@ -43,7 +43,7 @@ public class PacienteDaoImpl implements IPacienteDao{
                 p.setApellidosPaciente(rs.getString(3));
                 p.setTelefonoPaciente(rs.getString(4));
                 p.setFechaNacimientoPaciente(rs.getString(5));
-                if (p.getIdPaciente()== 0) {
+                if (p.getIdPaciente() == 0) {
                     JOptionPane.showMessageDialog(null, "El registro no existe", "Consultar Paciente", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Operación Exitosa", "Consultar Paciente", JOptionPane.INFORMATION_MESSAGE);
@@ -57,7 +57,8 @@ public class PacienteDaoImpl implements IPacienteDao{
             System.out.println("Error: Clase PacienteDaoImpl, método consultarPaciente");
             e.printStackTrace();
         }
-        return p;    }
+        return p;
+    }
 
     @Override
     public boolean registrarNuevoPaciente(Paciente paciente) {
@@ -88,7 +89,8 @@ public class PacienteDaoImpl implements IPacienteDao{
             JOptionPane.showMessageDialog(null, "Error insertando el paciente " + ex);
         }
 
-        return registrar;    }
+        return registrar;
+    }
 
     @Override
     public boolean actualizarPaciente(Paciente paciente) {
@@ -100,9 +102,9 @@ public class PacienteDaoImpl implements IPacienteDao{
             rs = obtenerPaciente(paciente, false);
 
             if (rs.next()) {
-                String sql = "UPDATE Pacientes SET nombresPacientes = '" + paciente.getNombresPaciente()+ "', " + "apellidosPacientes = '" + paciente.getApellidosPaciente()
-                        + "', " + "telefonoPaciente = '" + paciente.getTelefonoPaciente()+ "', " + "fechaNacimientoPaciente = '" + paciente.getFechaNacimientoPaciente()
-                        + "' WHERE idPacientes = " + paciente.getIdPaciente()+ ";";
+                String sql = "UPDATE Pacientes SET nombresPacientes = '" + paciente.getNombresPaciente() + "', " + "apellidosPacientes = '" + paciente.getApellidosPaciente()
+                        + "', " + "telefonoPaciente = '" + paciente.getTelefonoPaciente() + "', " + "fechaNacimientoPaciente = '" + paciente.getFechaNacimientoPaciente()
+                        + "' WHERE idPacientes = " + paciente.getIdPaciente() + ";";
                 System.out.println(sql);
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
@@ -116,7 +118,8 @@ public class PacienteDaoImpl implements IPacienteDao{
             System.out.println("Error: Clase PacienteDaoImpl, método actualizar");
             e.printStackTrace();
         }
-        return actualizar;    }
+        return actualizar;
+    }
 
     @Override
     public boolean eliminarPaciente(Paciente paciente) {
@@ -129,7 +132,7 @@ public class PacienteDaoImpl implements IPacienteDao{
             if (rs.next()) {
 
                 String sql = "DELETE FROM Pacientes WHERE idPacientes = "
-                        + paciente.getIdPaciente()+ ";";
+                        + paciente.getIdPaciente() + ";";
 
                 connect = ConexionBD.connect();
                 stm = connect.createStatement();
@@ -144,7 +147,8 @@ public class PacienteDaoImpl implements IPacienteDao{
             System.out.println("Error: Clase PacienteDaoImpl, método eliminar");
             e.printStackTrace();
         }
-        return eliminar;    }
+        return eliminar;
+    }
 
     @Override
     public ResultSet obtenerPacientes() {
@@ -166,7 +170,8 @@ public class PacienteDaoImpl implements IPacienteDao{
         } catch (Exception e) {
         }
 
-        return rs;    }
+        return rs;
+    }
 
     @Override
     public ResultSet obtenerPaciente(Paciente paciente, boolean msj) {
@@ -175,7 +180,7 @@ public class PacienteDaoImpl implements IPacienteDao{
         ResultSet rs = null;
 
         String sql = "SELECT idPacientes, nombresPacientes, apellidosPacientes, telefonoPaciente, fechaNacimientoPaciente"
-                + " FROM Pacientes WHERE idPacientes = " + paciente.getIdPaciente()+ ";";
+                + " FROM Pacientes WHERE idPacientes = " + paciente.getIdPaciente() + ";";
         System.out.println(sql);
         try {
             con = ConexionBD.connect();
@@ -190,7 +195,8 @@ public class PacienteDaoImpl implements IPacienteDao{
         } catch (Exception e) {
         }
 
-        return rs;        }
+        return rs;
+    }
 
     @Override
     public ResultSet obtenerProcedimientosRealizadosxPaciente(Paciente paciente) {
@@ -203,7 +209,7 @@ public class PacienteDaoImpl implements IPacienteDao{
                 + "INNER JOIN procedimientosxpaciente as pxp "
                 + "ON p.idProcedimientos = pxp.idProcedimiento "
                 + "WHERE pxp.idPacientes = " + paciente.getIdPaciente();
-        
+
         System.out.println(sql);
         try {
             con = ConexionBD.connect();
@@ -219,7 +225,8 @@ public class PacienteDaoImpl implements IPacienteDao{
             e.printStackTrace();
         }
 
-        return rs;       }
+        return rs;
+    }
 
     @Override
     public List<String> llenarComboProcedimientosPaciente() {
@@ -241,31 +248,35 @@ public class PacienteDaoImpl implements IPacienteDao{
         } catch (Exception e) {
         }
 
-        return listaCargos;    }
+        return listaCargos;
+    }
 
     @Override
     public boolean registrarProcedimiento(int idPaciente, String nombreProcedimiento) {
         boolean registrar = false;
         Connection con;
         try {
-
+            System.out.println("implementacion.PacienteDaoImpl.registrarProcedimiento() ANTES DE obtenerIdProcedimientoxNombreProcedimiento");
             int idProcedimiento = obtenerIdProcedimientoxNombreProcedimiento(nombreProcedimiento);
-                String sql = "INSERT INTO ProcedimientosxPaciente (idPacientes, idProcedimiento, fechaRealizacion) " + "VALUES (?,?, (SELECT DATE(NOW())));";
-                con = ConexionBD.connect();
-                PreparedStatement psql = con.prepareStatement(sql);
-                psql.setInt(1, idPaciente);
-                psql.setInt(2, idProcedimiento);
-                restarInsumos(idProcedimiento); 
-                psql.executeUpdate();
-                registrar = true;
-                psql.close();
-                con.close();
-                JOptionPane.showMessageDialog(null, "Operación Exitosa");
+            System.out.println("implementacion.PacienteDaoImpl.registrarProcedimiento() DESPUES DE obtenerIdProcedimientoxNombreProcedimiento");
+
+            String sql = "INSERT INTO ProcedimientosxPaciente (idPacientes, idProcedimiento, fechaRealizacion) " + "VALUES (?,?, (SELECT DATE(NOW())));";
+            con = ConexionBD.connect();
+            PreparedStatement psql = con.prepareStatement(sql);
+            psql.setInt(1, idPaciente);
+            psql.setInt(2, idProcedimiento);
+            restarInsumos(idProcedimiento);
+            psql.executeUpdate();
+            registrar = true;
+            psql.close();
+            con.close();
+            JOptionPane.showMessageDialog(null, "Operación Exitosa");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error insertando  " + ex);
+            JOptionPane.showMessageDialog(null, "Error insertando procedimiento a paciente " + ex);
         }
 
-        return registrar;    }
+        return registrar;
+    }
 
     private int obtenerIdProcedimientoxNombreProcedimiento(String nombreProcedimiento) {
         Connection con = null;
@@ -274,7 +285,8 @@ public class PacienteDaoImpl implements IPacienteDao{
 
         String sql = "SELECT idProcedimientos"
                 + " FROM Procedimientos WHERE nombreProcedimiento = '" + nombreProcedimiento + "';";
-int idProcedimiento = 0;
+        System.out.println("implementacion.PacienteDaoImpl.obtenerIdProcedimientoxNombreProcedimiento()\n" + sql);
+        int idProcedimiento = 0;
         try {
             con = ConexionBD.connect();
             stm = con.createStatement();
@@ -287,19 +299,19 @@ int idProcedimiento = 0;
             con.close();
 
         } catch (SQLException e) {
-            System.out.println("Error: ");
+            System.out.println("Error: " + e + "\n");
             e.printStackTrace();
         }
-        return idProcedimiento;    
+        return idProcedimiento;
     }
 
     private void restarInsumos(int idProcedimiento) {
         Connection con = null;
-        Statement stm = null;
+        Statement stm = null, stm2 = null, stm3 = null;
         ResultSet rs = null, rs2 = null;
 
         String sql = "SELECT idInsumos, cantidad"
-                + " FROM InsumosxProcedimiento WHERE idProcedimiento = " + idProcedimiento+ ";";
+                + " FROM InsumosxProcedimiento WHERE idProcedimiento = " + idProcedimiento + ";";
 
         try {
             con = ConexionBD.connect();
@@ -308,19 +320,26 @@ int idProcedimiento = 0;
             while (rs.next()) {
                 int idInsumos = rs.getInt(1);
                 int cantidadGastada = rs.getInt(2);
+                
+//                System.out.println("implementacion.PacienteDaoImpl.restarInsumos()\n" + idInsumos + " " + cantidadGastada);
 
                 sql = "SELECT cantidad FROM Insumos WHERE idInsumos = " + idInsumos + ";";
-                stm = con.createStatement();
-                rs2 = stm.executeQuery(sql);
-
+                System.out.println("implementacion.PacienteDaoImpl.restarInsumos()\n"+sql);
+                stm2 = con.createStatement();
+                rs2 = stm2.executeQuery(sql);
+                if(rs2.next()){
                 int cantidadInsumos = rs2.getInt(1);
+                System.out.println("TotalInsumo - cantidadUtilizada = " +cantidadInsumos+ "-" + cantidadGastada );
                 cantidadInsumos -= cantidadGastada;
+                System.out.println("Cantidad restante" + cantidadInsumos);
                 
+                    System.out.println("implementacion.PacienteDaoImpl.restarInsumos() Antes del UPDATE para la cantidad" );
                 sql = "UPDATE Insumos SET cantidad = " + cantidadInsumos + " WHERE idInsumos = " + idInsumos + ";";
-                stm = con.createStatement();
-                stm.executeQuery(sql);
+                stm3 = con.createStatement();
+                stm3.execute(sql);
                 System.out.println("implementacion.PacienteDaoImpl.restarInsumos()\n SE COMPLETO!");
-            }
+            
+                }}
             stm.close();
             rs.close();
             con.close();
@@ -329,6 +348,6 @@ int idProcedimiento = 0;
             System.out.println("implementacion.PacienteDaoImpl.restarInsumos()");
             e.printStackTrace();
         }
-            }
-    
+    }
+
 }

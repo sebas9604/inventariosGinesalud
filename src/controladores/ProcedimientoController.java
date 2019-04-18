@@ -99,4 +99,9 @@ public class ProcedimientoController {
         IProcedimientoDao dao = new ProcedimientoDaoImpl();
         dao.registrarInsumosProcedimiento(nombreInsumo, idProcedimiento, cantidaInsumo);
     }
+    
+        public void retirarInsumosProcedimiento(String nombreInsumo, int idProcedimiento, int cantidaInsumo) {
+        IProcedimientoDao dao = new ProcedimientoDaoImpl();
+        dao.retirarInsumosProcedimiento(nombreInsumo, idProcedimiento, cantidaInsumo);
+    }
 }
