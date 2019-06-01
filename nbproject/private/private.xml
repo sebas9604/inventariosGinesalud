@@ -6,12 +6,10 @@
             <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/controladores/InsumoController.java</file>
             <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/interfaces/IInsumoDao.java</file>
             <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/implementacion/ProcedimientoDaoImpl.java</file>
+            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/controladores/ProcedimientoController.java</file>
             <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/implementacion/PacienteDaoImpl.java</file>
             <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/presentacion/FVentanaPrincipal.java</file>
             <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/implementacion/InsumoDaoImpl.java</file>
-            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/controladores/PacienteController.java</file>
-            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/implementacion/UsuarioDaoImpl.java</file>
-            <file>file:/C:/Users/tolis/Documents/NetBeansProjects/InventariosGinesalud/src/vista/VistaInsumos.java</file>
         </group>
     </open-files>
 </project-private>

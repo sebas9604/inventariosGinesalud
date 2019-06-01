@@ -23,6 +23,7 @@ import modelo.Cargo;
 import modelo.Entorno;
 import modelo.Equipo;
 import modelo.Insumo;
+import modelo.InsumoAdicional;
 import modelo.Paciente;
 import modelo.Procedimiento;
 import modelo.Rol;
@@ -78,6 +79,9 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfTelefonoPacientes.setText("");
         tfNombresPacientes.setText("");
         tfApellidosPacientes.setText("");
+        tfIdProcedimientoPaciente.setText("");
+        tfCantidadInsumoAdicional.setText("");
+        ta.setText("");
     }
 
     //PROCEDIMIENTOS
@@ -372,7 +376,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         tfTelefonoPacientes = new javax.swing.JTextField();
         btEjecutarPacientes = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablePacientes = new javax.swing.JTable();
+        taMotivo = new javax.swing.JTable();
         btImprimirPacientes = new javax.swing.JButton();
         labelTituloPacientes = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -380,6 +384,16 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         labelAgregarProcedimientoPaciente = new javax.swing.JLabel();
         labelProcedimientoPaciente = new javax.swing.JLabel();
         btAgregarProcedimientoPaciente = new javax.swing.JButton();
+        labelInsumoAdicional = new javax.swing.JLabel();
+        comboInsumosAdicionalPaciente = new javax.swing.JComboBox<>();
+        labelInsumoAdicional1 = new javax.swing.JLabel();
+        tfCantidadInsumoAdicional = new javax.swing.JTextField();
+        btAgregarInsumoAdicionalPaciente = new javax.swing.JButton();
+        labelIdProcedimientoPaciente = new javax.swing.JLabel();
+        tfIdProcedimientoPaciente = new javax.swing.JTextField();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        ta = new javax.swing.JTextArea();
+        labelMotivoPaciente = new javax.swing.JLabel();
         menuPacientes = new javax.swing.JMenuBar();
         opcionConsultarPaciente = new javax.swing.JMenu();
         opConsultarPacientes = new javax.swing.JMenuItem();
@@ -485,6 +499,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         labelTemperaturaEntorno = new javax.swing.JLabel();
         labelHumedadEntorno = new javax.swing.JLabel();
         labelFechaEntorno = new javax.swing.JLabel();
+        cbHorario = new javax.swing.JComboBox<>();
         menuEntorno = new javax.swing.JMenuBar();
         opcionConsultarEntorno = new javax.swing.JMenu();
         opConsultarEntornos = new javax.swing.JMenuItem();
@@ -727,7 +742,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        tablePacientes.setModel(new javax.swing.table.DefaultTableModel(
+        taMotivo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -738,7 +753,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tablePacientes);
+        jScrollPane1.setViewportView(taMotivo);
 
         btImprimirPacientes.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         btImprimirPacientes.setText("Imprimir");
@@ -768,36 +783,101 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        labelInsumoAdicional.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelInsumoAdicional.setText("Insumo Adicional");
+
+        comboInsumosAdicionalPaciente.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        comboInsumosAdicionalPaciente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        labelInsumoAdicional1.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelInsumoAdicional1.setText("Cantidad");
+
+        btAgregarInsumoAdicionalPaciente.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        btAgregarInsumoAdicionalPaciente.setText("Agregar");
+        btAgregarInsumoAdicionalPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAgregarInsumoAdicionalPacienteActionPerformed(evt);
+            }
+        });
+
+        labelIdProcedimientoPaciente.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelIdProcedimientoPaciente.setText("Id");
+
+        ta.setColumns(20);
+        ta.setRows(5);
+        jScrollPane10.setViewportView(ta);
+
+        labelMotivoPaciente.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        labelMotivoPaciente.setText("Motivo");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelAgregarProcedimientoPaciente)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(labelAgregarProcedimientoPaciente)
+                        .addGap(339, 339, 339))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(labelProcedimientoPaciente)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                        .addComponent(comboProcedimientosPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(82, 82, 82))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(112, 112, 112)
-                .addComponent(btAgregarProcedimientoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(44, 44, 44)
+                        .addComponent(comboProcedimientosPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btAgregarProcedimientoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(labelInsumoAdicional, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboInsumosAdicionalPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(labelIdProcedimientoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(tfIdProcedimientoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelMotivoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(labelInsumoAdicional1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tfCantidadInsumoAdicional, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btAgregarInsumoAdicionalPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelAgregarProcedimientoPaciente)
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboProcedimientosPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelProcedimientoPaciente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                    .addComponent(labelProcedimientoPaciente)
+                    .addComponent(comboProcedimientosPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btAgregarProcedimientoPaciente)
-                .addGap(34, 34, 34))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelInsumoAdicional)
+                    .addComponent(comboInsumosAdicionalPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelIdProcedimientoPaciente)
+                        .addComponent(tfIdProcedimientoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelInsumoAdicional1)
+                        .addComponent(tfCantidadInsumoAdicional, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btAgregarInsumoAdicionalPaciente)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(labelMotivoPaciente)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         opcionConsultarPaciente.setText("Consultar");
@@ -872,39 +952,38 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         ventanaPacientesLayout.setHorizontalGroup(
             ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
                 .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelTituloPacientes)
                     .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                        .addGap(454, 454, 454)
-                        .addComponent(btEjecutarPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
                         .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelNombresPacientes)
-                            .addComponent(labelIdentificacionPacientes))
-                        .addGap(25, 25, 25)
-                        .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelTituloPacientes)
                             .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                                .addComponent(tfNombresPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(51, 51, 51)
-                                .addComponent(labelApellidosPacientes)
-                                .addGap(18, 18, 18)
-                                .addComponent(tfApellidosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(454, 454, 454)
+                                .addComponent(btEjecutarPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                                .addComponent(tfIdentificacionPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50)
-                                .addComponent(labelFechaNacimientoPacientes)
-                                .addGap(18, 18, 18)
-                                .addComponent(tfFechaNacimientoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(labelTelefonoPacientes)
-                                .addGap(18, 18, 18)
-                                .addComponent(tfTelefonoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
-            .addGroup(ventanaPacientesLayout.createSequentialGroup()
-                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labelNombresPacientes)
+                                    .addComponent(labelIdentificacionPacientes))
+                                .addGap(25, 25, 25)
+                                .addGroup(ventanaPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                                        .addComponent(tfNombresPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(51, 51, 51)
+                                        .addComponent(labelApellidosPacientes)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(tfApellidosPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(ventanaPacientesLayout.createSequentialGroup()
+                                        .addComponent(tfIdentificacionPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(50, 50, 50)
+                                        .addComponent(labelFechaNacimientoPacientes)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(tfFechaNacimientoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(labelTelefonoPacientes)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(tfTelefonoPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ventanaPacientesLayout.createSequentialGroup()
                         .addGap(1189, 1189, 1189)
                         .addComponent(btImprimirPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -937,8 +1016,8 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                         .addGap(28, 28, 28)
                         .addComponent(btEjecutarPacientes))
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btImprimirPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1208,7 +1287,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                         .addGroup(ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btImprimirProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1527, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         ventanaProcedimientosLayout.setVerticalGroup(
             ventanaProcedimientosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1233,7 +1312,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(47, 47, 47)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(btImprimirProcedimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1636,7 +1715,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(btEjecutarInsumos))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaInsumosLayout.createSequentialGroup()
-                        .addContainerGap(36, Short.MAX_VALUE)
+                        .addContainerGap(44, Short.MAX_VALUE)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(502, 502, 502)))
                 .addComponent(btImprimirInsumos)
@@ -1645,7 +1724,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(ventanaInsumosLayout.createSequentialGroup()
                     .addGap(37, 37, 37)
                     .addComponent(labelOperacionInsumos)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 188, Short.MAX_VALUE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(70, 70, 70)))
         );
@@ -1695,6 +1774,8 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
 
         labelFechaEntorno.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         labelFechaEntorno.setText("Fecha");
+
+        cbHorario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mañana", "Tarde" }));
 
         opcionConsultarEntorno.setText("Consultar");
         opcionConsultarEntorno.setFont(new java.awt.Font("Segoe Print", 0, 15)); // NOI18N
@@ -1756,7 +1837,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             .addGroup(ventanaEntornoLayout.createSequentialGroup()
                 .addGroup(ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEntornoLayout.createSequentialGroup()
-                        .addGap(0, 30, Short.MAX_VALUE)
+                        .addGap(0, 58, Short.MAX_VALUE)
                         .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 1512, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ventanaEntornoLayout.createSequentialGroup()
                         .addGroup(ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1782,7 +1863,9 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
                                 .addGap(60, 60, 60)
                                 .addComponent(labelFechaEntorno)
                                 .addGap(35, 35, 35)
-                                .addComponent(tfFechaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tfFechaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(59, 59, 59)
+                                .addComponent(cbHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEntornoLayout.createSequentialGroup()
@@ -1795,17 +1878,22 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             .addGroup(ventanaEntornoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(labelOperacionEntorno)
-                .addGap(18, 18, 18)
-                .addGroup(ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelIdEntorno)
-                    .addComponent(tfIdEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfHumedadEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfTemperaturaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfFechaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTemperaturaEntorno)
-                    .addComponent(labelHumedadEntorno)
-                    .addComponent(labelFechaEntorno))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGroup(ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ventanaEntornoLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(ventanaEntornoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelIdEntorno)
+                            .addComponent(tfIdEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfHumedadEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfTemperaturaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfFechaEntorno, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelTemperaturaEntorno)
+                            .addComponent(labelHumedadEntorno)
+                            .addComponent(labelFechaEntorno)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ventanaEntornoLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(cbHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(btEjecutarEntorno)
                 .addGap(45, 45, 45)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2606,6 +2694,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         falsearBanderasPacientes();
         limpiarCamposPacientes();
         llenarComboProcedimientoPaciente();
+        llenarComboInsumoAdicionalPaciente();
     }//GEN-LAST:event_btPacientesActionPerformed
 
     private void btInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInsumosActionPerformed
@@ -2712,8 +2801,8 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         agregarPacienteFlag = true;
         bloquearCamposPacientes();
         tfIdentificacionPacientes.setEnabled(true);
-        tfFechaNacimientoPacientes.setEnabled(true);
-        tfTelefonoPacientes.setEnabled(true);
+        //tfFechaNacimientoPacientes.setEnabled(true);
+        //tfTelefonoPacientes.setEnabled(true);
         tfNombresPacientes.setEnabled(true);
         tfApellidosPacientes.setEnabled(true);
         labelTituloPacientes.setText("Agregar");
@@ -2724,8 +2813,8 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
         editarPacienteFlag = true;
         bloquearCamposPacientes();
 //        tfIdentificacionPacientes.setEnabled(true);
-        tfFechaNacimientoPacientes.setEnabled(true);
-        tfTelefonoPacientes.setEnabled(true);
+        //tfFechaNacimientoPacientes.setEnabled(true);
+        //tfTelefonoPacientes.setEnabled(true);
         tfNombresPacientes.setEnabled(true);
         tfApellidosPacientes.setEnabled(true);
         labelTituloPacientes.setText("Editar");
@@ -3125,21 +3214,25 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     private void btEjecutarPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarPacientesActionPerformed
         PacienteController pacienteCt = new PacienteController();
         if (consultarPacientesFlag) {
-            pacienteCt.verPacientes(tablePacientes);
+            pacienteCt.verPacientes(taMotivo);
         } else if (consultarPacienteFlag) {
             Paciente paciente = new Paciente();
             paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
             paciente = pacienteCt.consultarPaciente(paciente);
             
-            tfFechaNacimientoPacientes.setText(paciente.getFechaNacimientoPaciente());
-            tfTelefonoPacientes.setText(paciente.getTelefonoPaciente());
+            tfFechaNacimientoPacientes.setText("1900-01-01");
+            //tfFechaNacimientoPacientes.setText(paciente.getFechaNacimientoPaciente());
+            //tfTelefonoPacientes.setText(paciente.getTelefonoPaciente());
+            tfTelefonoPacientes.setText("0000000");
             tfNombresPacientes.setText(paciente.getNombresPaciente());
             tfApellidosPacientes.setText(paciente.getApellidosPaciente());
         } else if (agregarPacienteFlag) {
             Paciente paciente = new Paciente();
             paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
-            paciente.setFechaNacimientoPaciente(tfFechaNacimientoPacientes.getText());
-            paciente.setTelefonoPaciente(tfTelefonoPacientes.getText());
+            //paciente.setFechaNacimientoPaciente(tfFechaNacimientoPacientes.getText());
+            paciente.setFechaNacimientoPaciente("1900-01-01");
+            //paciente.setTelefonoPaciente(tfTelefonoPacientes.getText());
+            paciente.setTelefonoPaciente("0000000");
             paciente.setNombresPaciente(tfNombresPacientes.getText());
             paciente.setApellidosPaciente(tfApellidosPacientes.getText());
             
@@ -3163,7 +3256,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
             Paciente paciente = new Paciente();
             paciente.setIdPaciente(Integer.parseInt(tfIdentificacionPacientes.getText()));
             
-            pacienteCt.verProcedimientosxPaciente(tablePacientes, paciente);
+            pacienteCt.verProcedimientosxPaciente(taMotivo, paciente);
         }
     }//GEN-LAST:event_btEjecutarPacientesActionPerformed
 
@@ -3284,13 +3377,14 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btEjecutarInsumosActionPerformed
 
     private void btEjecutarEntornoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEjecutarEntornoActionPerformed
+        String horario = cbHorario.getSelectedItem().toString();
         EntornoController entornoCt = new EntornoController();
         if (consultarEntornosFlag) {
             entornoCt.verEntornos(tableEntorno);
         } else if (consultarEntornoFlag) {
             Entorno entorno = new Entorno();
             entorno.setFecha(tfFechaEntorno.getText());
-            entorno = entornoCt.consultarEntorno(entorno);
+            entorno = entornoCt.consultarEntorno(entorno, horario);
             
             tfIdEntorno.setText(Integer.toString(entorno.getIdEntorno()));
             tfHumedadEntorno.setText(entorno.getHumedad());
@@ -3468,7 +3562,7 @@ public class FVentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btAgregarProcedimientoPacienteActionPerformed
 
     private void btImprimirPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirPacientesActionPerformed
-        imprimirTabla("Pacientes", tablePacientes);
+        imprimirTabla("Pacientes", taMotivo);
     }//GEN-LAST:event_btImprimirPacientesActionPerformed
 
     private void btImprimirProcedimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirProcedimientoActionPerformed
@@ -3594,6 +3688,18 @@ insumosCt.verInsumosUtilizados(fechaInicio, fechaFin, tableInsumos, idInsumo);
         // TODO add your handling code here:
     }//GEN-LAST:event_btRetirarInsumosProcedimiento1ActionPerformed
 
+    private void btAgregarInsumoAdicionalPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgregarInsumoAdicionalPacienteActionPerformed
+InsumoAdicional insumoAdicional = new InsumoAdicional();
+insumoAdicional.setIdProcedimientoxPaciente(Integer.parseInt(tfIdProcedimientoPaciente.getText()));
+insumoAdicional.setNombreInsumo(comboInsumosAdicionalPaciente.getSelectedItem().toString());
+insumoAdicional.setCantidad(Integer.parseInt(tfCantidadInsumoAdicional.getText()));
+insumoAdicional.setMotivo(ta.getText());
+      PacienteController pacienteCt = new PacienteController();
+        pacienteCt.registrarInsumoAdicionalPaciente(insumoAdicional);
+  
+// TODO add your handling code here:
+    }//GEN-LAST:event_btAgregarInsumoAdicionalPacienteActionPerformed
+
     //Llenando Combo Boxes
     private void llenarComboProcedimientoPaciente() {
         PacienteController pacienteCt = new PacienteController();
@@ -3606,6 +3712,16 @@ insumosCt.verInsumosUtilizados(fechaInicio, fechaFin, tableInsumos, idInsumo);
         
     }
     
+    private void llenarComboInsumoAdicionalPaciente() {
+        PacienteController pacienteCt = new PacienteController();
+        comboInsumosAdicionalPaciente.removeAllItems();
+        List<String> list = pacienteCt.llenarComboInsumoPaciente();
+        
+        for (String insumo : list) {
+            comboInsumosAdicionalPaciente.addItem(insumo);
+        }
+        
+    }
     private void llenarComboInsumosProcedimiento() {
         ProcedimientoController pacienteCt = new ProcedimientoController();
         comboInsumosProcedimiento.removeAllItems();
@@ -3690,6 +3806,7 @@ insumosCt.verInsumosUtilizados(fechaInicio, fechaFin, tableInsumos, idInsumo);
     private javax.swing.JLabel barraHorizontal;
     private javax.swing.JLabel barraLateral;
     private javax.swing.JButton btAgregarEquiposProcedimiento;
+    private javax.swing.JButton btAgregarInsumoAdicionalPaciente;
     private javax.swing.JButton btAgregarInsumosProcedimiento;
     private javax.swing.JButton btAgregarProcedimientoPaciente;
     private javax.swing.JButton btAgregarRolUsuario;
@@ -3723,8 +3840,10 @@ insumosCt.verInsumosUtilizados(fechaInicio, fechaFin, tableInsumos, idInsumo);
     private javax.swing.JButton btUsuarios;
     private javax.swing.JButton btejecutarRol;
     private javax.swing.JButton btjecutarUsuario;
+    private javax.swing.JComboBox<String> cbHorario;
     private javax.swing.JComboBox<String> comboCargousuarios;
     private javax.swing.JComboBox<String> comboEquiposProcedimiento;
+    private javax.swing.JComboBox<String> comboInsumosAdicionalPaciente;
     private javax.swing.JComboBox<String> comboInsumosProcedimiento;
     private javax.swing.JComboBox<String> comboProcedimientosPaciente;
     private javax.swing.JComboBox<String> comboTiposInsumoInsumos;
@@ -3735,6 +3854,7 @@ insumosCt.verInsumosUtilizados(fechaInicio, fechaFin, tableInsumos, idInsumo);
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3762,13 +3882,17 @@ insumosCt.verInsumosUtilizados(fechaInicio, fechaFin, tableInsumos, idInsumo);
     private javax.swing.JLabel labelIdEntorno;
     private javax.swing.JLabel labelIdEquipo;
     private javax.swing.JLabel labelIdInsumos;
+    private javax.swing.JLabel labelIdProcedimientoPaciente;
     private javax.swing.JLabel labelIdProcedimientos;
     private javax.swing.JLabel labelIdRol;
     private javax.swing.JLabel labelIdRolUsuario;
     private javax.swing.JLabel labelIdTipoInsumo;
     private javax.swing.JLabel labelIdUsuarios;
     private javax.swing.JLabel labelIdentificacionPacientes;
+    private javax.swing.JLabel labelInsumoAdicional;
+    private javax.swing.JLabel labelInsumoAdicional1;
     private javax.swing.JLabel labelInsumosProcedimiento;
+    private javax.swing.JLabel labelMotivoPaciente;
     private javax.swing.JLabel labelNombreCargos;
     private javax.swing.JLabel labelNombreEquipo;
     private javax.swing.JLabel labelNombreInsumos;
@@ -3870,17 +3994,19 @@ insumosCt.verInsumosUtilizados(fechaInicio, fechaFin, tableInsumos, idInsumo);
     private javax.swing.JMenuItem procedimientosxInsumo;
     private javax.swing.JButton ptProcedimientos;
     private javax.swing.JMenuItem rolesDelUsuario;
+    private javax.swing.JTextArea ta;
+    private javax.swing.JTable taMotivo;
     private javax.swing.JTable tableCargos;
     private javax.swing.JTable tableEntorno;
     private javax.swing.JTable tableEquipo;
     private javax.swing.JTable tableInsumos;
-    private javax.swing.JTable tablePacientes;
     private javax.swing.JTable tableProcedimiento;
     private javax.swing.JTable tableRol;
     private javax.swing.JTable tableTipoInsumo;
     private javax.swing.JTable tableUsuarios;
     private javax.swing.JTextField tfApellidosPacientes;
     private javax.swing.JTextField tfApellidosUsuarios;
+    private javax.swing.JTextField tfCantidadInsumoAdicional;
     private javax.swing.JTextField tfCantidadInsumos;
     private javax.swing.JTextField tfCantidadInsumosProcedimiento;
     private javax.swing.JPasswordField tfContrasenaUsuarios;
@@ -3893,6 +4019,7 @@ insumosCt.verInsumosUtilizados(fechaInicio, fechaFin, tableInsumos, idInsumo);
     private javax.swing.JTextField tfIdEntorno;
     private javax.swing.JTextField tfIdEquipo;
     private javax.swing.JTextField tfIdInsumos;
+    private javax.swing.JTextField tfIdProcedimientoPaciente;
     private javax.swing.JTextField tfIdProcedimientos;
     private javax.swing.JTextField tfIdRol;
     private javax.swing.JTextField tfIdRolUsuario;

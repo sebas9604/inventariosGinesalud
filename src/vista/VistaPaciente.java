@@ -49,11 +49,11 @@ public class VistaPaciente {
     
             public void verProcedimientosRealizados(ResultSet procedimientos, JTable tabla) {
         DefaultTableModel modelo = new DefaultTableModel();
-        modelo.setColumnIdentifiers(new Object[]{"nombreProcedimiento", "fechaRealizacion"});
+        modelo.setColumnIdentifiers(new Object[]{"idProcedimientosxPaciente", "nombreProcedimiento", "fechaRealizacion"});
 
         try {
             while (procedimientos.next()) {
-                modelo.addRow(new Object[]{procedimientos.getString("nombreProcedimiento"), procedimientos.getString("fechaRealizacion")});            }
+                modelo.addRow(new Object[]{procedimientos.getInt("idProcedimientosxPaciente"), procedimientos.getString("nombreProcedimiento"), procedimientos.getString("fechaRealizacion")});            }
             tabla.setModel(modelo);
 
         } catch (Exception ex) {

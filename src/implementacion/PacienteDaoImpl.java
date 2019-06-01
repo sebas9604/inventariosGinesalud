@@ -17,6 +17,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import modelo.InsumoAdicional;
 import modelo.Paciente;
 
 /**
@@ -206,7 +207,7 @@ public class PacienteDaoImpl implements IPacienteDao {
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT p.nombreProcedimiento, pxp.fechaRealizacion "
+        String sql = "SELECT pxp.idProcedimientosxPaciente, p.nombreProcedimiento, pxp.fechaRealizacion "
                 + "FROM Procedimientos AS p "
                 + "INNER JOIN procedimientosxpaciente as pxp "
                 + "ON p.idProcedimientos = pxp.idProcedimiento "
@@ -346,4 +347,112 @@ public class PacienteDaoImpl implements IPacienteDao {
         }
     }
 
+    @Override
+    public List<String> llenarComboInsumoAdicionalPaciente() {
+        Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null;
+        String sql = "SELECT nombreInsumos FROM Insumos ORDER BY nombreInsumos;";
+        List<String> listaCargos = new ArrayList<String>();
+
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                //este es el Jcombobox
+                listaCargos.add(rs.getString(1));
+            }
+            con.close();
+        } catch (Exception e) {
+        }
+
+        return listaCargos;    }
+
+    @Override
+    public boolean registrarInsumoAdicional(InsumoAdicional insumoAdicional) {
+        boolean registrar = false;
+        Connection con;
+        try {
+            int idInsumo = obtenerIdInsumoxNombreInsumo(insumoAdicional.getIdInsumo());
+
+            String sql = "INSERT INTO InsumoAdicional (idProcedimientoxPaciente, idInsumos, cantidad, motivo) " + "VALUES (?,?,?,?);";
+            con = ConexionBD.connect();
+            PreparedStatement psql = con.prepareStatement(sql);
+            psql.setInt(1, insumoAdicional.getIdProcedimientoxPaciente());
+            psql.setInt(2, idInsumo);
+            psql.setInt(3, insumoAdicional.getCantidad());
+            psql.setString(4, insumoAdicional.getMotivo());
+            restarInsumoAdicional(idInsumo, insumoAdicional.getCantidad());
+            psql.executeUpdate();
+            registrar = true;
+            psql.close();
+            con.close();
+            JOptionPane.showMessageDialog(null, "Operación Exitosa");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error insertando insumo adicional a paciente " + ex);
+        }
+
+        return registrar;    }
+
+     private int obtenerIdInsumoxNombreInsumo(String nombreInsumo) {
+        Connection con = null;
+        Statement stm = null;
+        ResultSet rs = null;
+
+        String sql = "SELECT idInsumos"
+                + " FROM Insumos WHERE nombreInsumos = '" + nombreInsumo + "';";
+        System.out.println("implementacion.ProcedimientoDaoImpl.obtenerIdInsumoxNombreInsumo() \n" + sql);
+int idEquipo = 0;
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+            if (rs.next()) {
+                idEquipo = rs.getInt(1);
+            }
+            stm.close();
+            rs.close();
+            con.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error: ");
+            e.printStackTrace();
+        }
+        return idEquipo;     }
+     
+     private void restarInsumoAdicional(int idInsumo, int cantidadGastada) {
+        Connection con = null;
+        Statement stm = null, stm2 = null, stm3 = null;
+        ResultSet rs = null, rs2 = null;
+
+        String sql = "SELECT idInsumos, cantidad FROM Insumos WHERE idInsumos = " + idInsumo + ";";
+
+        try {
+            con = ConexionBD.connect();
+            stm = con.createStatement();
+            rs = stm.executeQuery(sql);
+            while (rs.next()) {
+                int idInsumos = rs.getInt(1);
+                int cantidad = rs.getInt(2);
+
+               
+                int cantidadInsumos = cantidad - cantidadGastada;
+
+                InsumoDaoImpl i = new InsumoDaoImpl();
+                i.agregarCantidades(idInsumos, cantidadInsumos);
+                sql = "UPDATE Insumos SET cantidad = " + cantidadInsumos + " WHERE idInsumos = " + idInsumos + ";";
+                stm3 = con.createStatement();
+                stm3.execute(sql);
+            
+                }
+            stm.close();
+            rs.close();
+            con.close();
+
+        } catch (SQLException e) {
+            System.out.println("implementacion.PacienteDaoImpl.restarInsumos()");
+            e.printStackTrace();
+        }
+    }
 }

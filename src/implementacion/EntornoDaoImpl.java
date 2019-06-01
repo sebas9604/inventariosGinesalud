@@ -22,12 +22,19 @@ import modelo.Entorno;
 public class EntornoDaoImpl implements IEntornoDao {
 
     @Override
-    public Entorno consultarEntorno(Entorno entorno) {
+    public Entorno consultarEntorno(Entorno entorno, String horario) {
         Connection con = null;
         Statement stm = null;
         ResultSet rs = null;
 
-        String sql = "SELECT idEntorno, humedad, temperatura, fecha FROM Entorno WHERE fecha = '" + entorno.getFecha()+ "';";
+        String sql = "SELECT idEntorno, humedad, temperatura, fecha FROM Entorno WHERE fecha = '" + entorno.getFecha()+ "' ";
+        if(horario.equals("Mañana"))
+        {
+            sql += "ORDER BY idEntorno ASC;";
+        }else if(horario.equals("Tarde"))
+            {
+                sql += "ORDER BY idEntorno DESC;";
+            }
         System.out.println("implementacion.EntornoDaoImpl.consultarEntorno() \n" + sql);
         Entorno e = new Entorno();
 
@@ -63,8 +70,8 @@ public class EntornoDaoImpl implements IEntornoDao {
         try {
 
             ResultSet rs;
-            rs = obtenerEntorno(entorno, false);
-            if (!rs.next()) {
+            //rs = obtenerEntorno(entorno, false);
+           // if (!rs.next()) {
                 String sql = "INSERT INTO Entorno (humedad, temperatura, fecha) " + "VALUES (?,?,?);";
                 con = ConexionBD.connect();
                 PreparedStatement psql = con.prepareStatement(sql);
@@ -77,9 +84,9 @@ public class EntornoDaoImpl implements IEntornoDao {
                 psql.close();
                 con.close();
                 JOptionPane.showMessageDialog(null, "Operación Exitosa");
-            } else {
-                JOptionPane.showMessageDialog(null, "Ya existe un registro con la identificación: " + entorno.getIdEntorno());
-            }
+          //  } else {
+           //     JOptionPane.showMessageDialog(null, "Ya existe un registro con la identificación: " + entorno.getIdEntorno());
+          //  }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error insertando el entorno " + ex);
         }

@@ -13,7 +13,7 @@ import modelo.Entorno;
  * @author tolis
  */
 public interface IEntornoDao {
-    public Entorno consultarEntorno(Entorno entorno);
+    public Entorno consultarEntorno(Entorno entorno, String horario);
     public boolean registrarNuevoEntorno(Entorno entorno);
     public boolean actualizarEntorno(Entorno entorno);
     public boolean eliminarEntorno(Entorno entorno);

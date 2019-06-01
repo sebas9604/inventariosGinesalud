@@ -25,10 +25,10 @@ public class EntornoController {
         dao.registrarNuevoEntorno(entorno);
     }
     
-    public Entorno consultarEntorno(Entorno entorno) {
+    public Entorno consultarEntorno(Entorno entorno, String horario) {
         IEntornoDao dao = new EntornoDaoImpl();
         Entorno e = new Entorno();
-        e = dao.consultarEntorno(entorno);
+        e = dao.consultarEntorno(entorno, horario);
         return e;
     }
     //llama al DAO para actualizar un entorno

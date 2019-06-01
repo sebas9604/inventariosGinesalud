@@ -7,6 +7,7 @@ package interfaces;
 
 import java.sql.ResultSet;
 import java.util.List;
+import modelo.InsumoAdicional;
 import modelo.Paciente;
 
 /**
@@ -32,5 +33,9 @@ public interface IPacienteDao {
     public List<String> llenarComboProcedimientosPaciente();
 
     public boolean registrarProcedimiento(int idPaciente, String nombreProcedimiento);
+    
+    public List<String> llenarComboInsumoAdicionalPaciente();
+
+    public boolean registrarInsumoAdicional(InsumoAdicional insumoAdicional);
 
 }

@@ -10,6 +10,7 @@ import interfaces.IPacienteDao;
 import java.sql.ResultSet;
 import java.util.List;
 import javax.swing.JTable;
+import modelo.InsumoAdicional;
 import modelo.Paciente;
 import vista.VistaPaciente;
 
@@ -73,8 +74,20 @@ public class PacienteController {
         return list;
     }
                 
+                            public List<String> llenarComboInsumoPaciente() {
+        IPacienteDao dao = new PacienteDaoImpl();
+        List<String> list = dao.llenarComboInsumoAdicionalPaciente();
+
+        return list;
+    }
+                
      public void registrarProecdimientoaPaciente(int idPaciente, String nombreProcedimiento) {
         IPacienteDao dao = new PacienteDaoImpl();
         dao.registrarProcedimiento(idPaciente, nombreProcedimiento);
+    }
+     
+     public void registrarInsumoAdicionalPaciente(InsumoAdicional insumoAdicional) {
+        IPacienteDao dao = new PacienteDaoImpl();
+        dao.registrarInsumoAdicional(insumoAdicional);
     }
 }
